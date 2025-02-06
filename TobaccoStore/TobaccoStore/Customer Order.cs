@@ -31,7 +31,7 @@ namespace TobaccoStore
             LoadStockQuantities();
 
             dgvOrderDetails.Columns.Add("CustomerInfo", "Customer Info");
-            dgvOrderDetails.Columns.Add("ProductInfo", "Product Info");
+            dgvOrderDetails.Columns.Add("ProductName", "ProductName ");
             dgvOrderDetails.Columns.Add("Quantity", "Quantity");
             dgvOrderDetails.Columns.Add("SellingPrice", "Selling Price");
             dgvOrderDetails.Columns.Add("TotalPrice", "Total Price");
