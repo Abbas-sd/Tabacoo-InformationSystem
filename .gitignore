@@ -1,0 +1,8 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/TobaccoStore/.vs/TobaccoStore/FileContentIndex/85acbe82-e41d-4c10-bb24-951245bb1712.vsidx
+*.vsidx
+/TobaccoStore/.vs/TobaccoStore/v17/.suo
+/TobaccoStore/TobaccoStore/Main.cs
