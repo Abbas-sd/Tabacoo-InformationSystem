@@ -59,6 +59,7 @@ namespace TobaccoStore
                 reader.Close();
             }
         }
+
         // Declare a list to store all customers
         List<KeyValuePair<int, string>> allCustomers = new List<KeyValuePair<int, string>>();
 
@@ -318,7 +319,7 @@ namespace TobaccoStore
                 CalculateTotalAmount();
             }
         }
-        private void btnSaveOrder_Click(object sender, EventArgs e)
+        private async void btnSaveOrder_Click(object sender, EventArgs e)
         {
             // Check if a customer is selected
             if (lstCustomer.SelectedItem == null)
@@ -351,78 +352,115 @@ namespace TobaccoStore
                 return;
             }
 
-            // Your existing save logic here...
+            // Disable the Save button to prevent multiple clicks
+            btnSaveOrder.Enabled = false;
+
             try
             {
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
-                    connection.Open();
+                    await connection.OpenAsync(); // Open connection asynchronously
 
-                    // Insert into CustomerOrder Table
-                    string insertOrderQuery = "INSERT INTO CustomerOrder (customer_id, order_date, total_amount) OUTPUT INSERTED.customer_order_id VALUES (@customer_id, @order_date, @total_amount)";
-                    SqlCommand insertOrderCommand = new SqlCommand(insertOrderQuery, connection);
-                    insertOrderCommand.Parameters.AddWithValue("@customer_id", ((KeyValuePair<int, string>)lstCustomer.SelectedItem).Key);
-                    insertOrderCommand.Parameters.AddWithValue("@order_date", dateTimePickerOrderDate.Value);
-                    insertOrderCommand.Parameters.AddWithValue("@total_amount", decimal.Parse(lblTotalAmount.Text.Replace("$", "")));
-
-                    int orderId = (int)insertOrderCommand.ExecuteScalar();
-
-                    // Insert into CustomerOrderDetails Table
-                    foreach (DataGridViewRow row in dgvOrderDetails.Rows)
+                    // Start a transaction
+                    using (SqlTransaction transaction = connection.BeginTransaction())
                     {
-                        if (row.Cells["ProductName"].Value != null)
+                        try
                         {
-                            string productName = row.Cells["ProductName"].Value.ToString();
-                            int productId = GetProductIdByName(productName);
+                            // Insert into CustomerOrder Table
+                            string insertOrderQuery = "INSERT INTO CustomerOrder (customer_id, order_date, total_amount) OUTPUT INSERTED.customer_order_id VALUES (@customer_id, @order_date, @total_amount)";
+                            SqlCommand insertOrderCommand = new SqlCommand(insertOrderQuery, connection, transaction);
+                            insertOrderCommand.CommandTimeout = 60; // Increase timeout to 120 seconds
+                            insertOrderCommand.Parameters.AddWithValue("@customer_id", ((KeyValuePair<int, string>)lstCustomer.SelectedItem).Key);
+                            insertOrderCommand.Parameters.AddWithValue("@order_date", dateTimePickerOrderDate.Value);
+                            insertOrderCommand.Parameters.AddWithValue("@total_amount", decimal.Parse(lblTotalAmount.Text.Replace("$", "")));
 
-                            if (productId == -1)
+                            int orderId = (int)await insertOrderCommand.ExecuteScalarAsync(); // Execute asynchronously
+
+                            // Insert into CustomerOrderDetails Table
+                            foreach (DataGridViewRow row in dgvOrderDetails.Rows)
                             {
-                                MessageBox.Show($"Product '{productName}' not found in the database.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                continue;
+                                if (row.Cells["ProductName"].Value != null)
+                                {
+                                    string productName = row.Cells["ProductName"].Value.ToString();
+                                    int productId = GetProductIdByName(productName);
+
+                                    if (productId == -1)
+                                    {
+                                        MessageBox.Show($"Product '{productName}' not found in the database.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                        continue;
+                                    }
+
+                                    int quantity = Convert.ToInt32(row.Cells["Quantity"].Value);
+                                    decimal priceAtOrder = Convert.ToDecimal(row.Cells["SellingPrice"].Value.ToString().Replace("$", ""));
+
+                                    // Check for duplicate entry in CustomerOrderDetails
+                                    string checkDuplicateQuery = "SELECT COUNT(*) FROM CustomerOrderDetails WHERE customer_order_id = @customer_order_id AND product_id = @product_id AND selling_price_at_order = @selling_price_at_order";
+                                    SqlCommand checkDuplicateCommand = new SqlCommand(checkDuplicateQuery, connection, transaction);
+                                    checkDuplicateCommand.CommandTimeout = 120; // Increase timeout to 120 seconds
+                                    checkDuplicateCommand.Parameters.AddWithValue("@customer_order_id", orderId);
+                                    checkDuplicateCommand.Parameters.AddWithValue("@product_id", productId);
+                                    checkDuplicateCommand.Parameters.AddWithValue("@selling_price_at_order", priceAtOrder);
+
+                                    int duplicateCount = (int)await checkDuplicateCommand.ExecuteScalarAsync(); // Execute asynchronously
+
+                                    if (duplicateCount > 0)
+                                    {
+                                        // Duplicate entry detected, rollback the transaction
+                                        transaction.Rollback();
+                                        MessageBox.Show("One by one. Please add products one at a time and avoid duplicates.", "Duplicate Entry", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                        return; // Exit the method and return to the form
+                                    }
+
+                                    // Insert into CustomerOrderDetails
+                                    string insertOrderDetailsQuery = "INSERT INTO CustomerOrderDetails (customer_order_id, product_id, quantity, selling_price_at_order) VALUES (@customer_order_id, @product_id, @quantity, @selling_price_at_order)";
+                                    SqlCommand insertOrderDetailsCommand = new SqlCommand(insertOrderDetailsQuery, connection, transaction);
+                                    insertOrderDetailsCommand.CommandTimeout = 120; // Increase timeout to 120 seconds
+                                    insertOrderDetailsCommand.Parameters.AddWithValue("@customer_order_id", orderId);
+                                    insertOrderDetailsCommand.Parameters.AddWithValue("@product_id", productId);
+                                    insertOrderDetailsCommand.Parameters.AddWithValue("@quantity", quantity);
+                                    insertOrderDetailsCommand.Parameters.AddWithValue("@selling_price_at_order", priceAtOrder);
+
+                                    await insertOrderDetailsCommand.ExecuteNonQueryAsync(); // Execute asynchronously
+
+                                    // Update stock quantity in Product Table
+                                    string updateProductQuery = "UPDATE Product SET stock_quantity = stock_quantity - @quantity WHERE product_id = @product_id";
+                                    SqlCommand updateProductCommand = new SqlCommand(updateProductQuery, connection, transaction);
+                                    updateProductCommand.CommandTimeout = 120; // Increase timeout to 120 seconds
+                                    updateProductCommand.Parameters.AddWithValue("@quantity", quantity);
+                                    updateProductCommand.Parameters.AddWithValue("@product_id", productId);
+
+                                    await updateProductCommand.ExecuteNonQueryAsync(); // Execute asynchronously
+                                }
                             }
 
-                            int quantity = Convert.ToInt32(row.Cells["Quantity"].Value);
-                            decimal priceAtOrder = Convert.ToDecimal(row.Cells["SellingPrice"].Value.ToString().Replace("$", ""));
-
-                            string insertOrderDetailsQuery = "INSERT INTO CustomerOrderDetails (customer_order_id, product_id, quantity, selling_price_at_order) VALUES (@customer_order_id, @product_id, @quantity, @selling_price_at_order)";
-                            SqlCommand insertOrderDetailsCommand = new SqlCommand(insertOrderDetailsQuery, connection);
-                            insertOrderDetailsCommand.Parameters.AddWithValue("@customer_order_id", orderId);
-                            insertOrderDetailsCommand.Parameters.AddWithValue("@product_id", productId);
-                            insertOrderDetailsCommand.Parameters.AddWithValue("@quantity", quantity);
-                            insertOrderDetailsCommand.Parameters.AddWithValue("@selling_price_at_order", priceAtOrder);
-
-                            insertOrderDetailsCommand.ExecuteNonQuery();
-
-                            // Update stock quantity in Product Table
-                            string updateProductQuery = "UPDATE Product SET stock_quantity = stock_quantity - @quantity WHERE product_id = @product_id";
-                            SqlCommand updateProductCommand = new SqlCommand(updateProductQuery, connection);
-                            updateProductCommand.Parameters.AddWithValue("@quantity", quantity);
-                            updateProductCommand.Parameters.AddWithValue("@product_id", productId);
-
-                            updateProductCommand.ExecuteNonQuery();
+                            // Commit the transaction if no duplicates are found
+                            transaction.Commit();
+                            MessageBox.Show("Order saved and stock updated successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            ClearForm(); // Clear the form after saving
+                        }
+                        catch (SqlException sqlEx) when (sqlEx.Number == -2) // Timeout error
+                        {
+                            // Rollback the transaction in case of a timeout
+                            transaction.Rollback();
+                            MessageBox.Show("One by one. Please add products one at a time and avoid duplicates.", "Timeout Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
+                        catch (Exception ex)
+                        {
+                            // Rollback the transaction in case of any other error
+                            transaction.Rollback();
+                            MessageBox.Show($"An error occurred: {ex.Message}\n\nNo data has been saved. Please try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                     }
-
-                    // Now update the stock quantities using availableStockDictionary
-                    foreach (var entry in availableStockDictionary)
-                    {
-                        int productId = entry.Key;
-                        int newStock = entry.Value;
-
-                        string query = "UPDATE Product SET stock_quantity = @stock_quantity WHERE product_id = @product_id";
-                        SqlCommand command = new SqlCommand(query, connection);
-                        command.Parameters.AddWithValue("@stock_quantity", newStock);
-                        command.Parameters.AddWithValue("@product_id", productId);
-                        command.ExecuteNonQuery();
-                    }
-
-                    MessageBox.Show("Order saved and stock updated successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    ClearForm(); // Clear the form after saving
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                // Re-enable the Save button
+                btnSaveOrder.Enabled = true;
             }
         }
 

@@ -162,73 +162,119 @@ namespace TobaccoStore
 
         private void btnSubmitOrder_Click(object sender, EventArgs e)
         {
-            try
+            // Check if the orderDataTable is empty
+            if (orderDataTable.Rows.Count == 0)
             {
-                foreach (DataRow row in orderDataTable.Rows)
+                MessageBox.Show("No items have been added to the order. Please add items before submitting.", "Empty Order", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return; // Stop further execution
+            }
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+
+                // Start a transaction
+                using (SqlTransaction transaction = connection.BeginTransaction())
                 {
-                    // Extract data safely
-                    string productInfo = row["Product Info"].ToString();
-                    string supplierInfo = row["Supplier Info"].ToString();
-                    string quantityStr = row["Quantity"].ToString();
-                    string costPriceStr = row["Cost Price"].ToString();
-                    string totalAmountStr = row["Total Amount"].ToString();
-                    string dateStr = row["Date"].ToString();
-
-                    // Ensure numeric fields are valid
-                    if (!int.TryParse(quantityStr, out int quantity))
+                    try
                     {
-                        MessageBox.Show("Invalid quantity value.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        return;
-                    }
+                        // Insert data into SupplierOrder table
+                        string insertOrderQuery = "INSERT INTO SupplierOrder (supplier_id, order_date, total_amount) " +
+                                                  "VALUES (@supplierId, @orderDate, @totalAmount); SELECT SCOPE_IDENTITY();";
 
-                    if (!decimal.TryParse(costPriceStr, out decimal costPrice))
-                    {
-                        MessageBox.Show("Invalid cost price value.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        return;
-                    }
+                        int supplierId = 0;
+                        DateTime orderDate = dateTimePickerOrderDate.Value.Date; // Ensure we get the date part
 
-                    if (!decimal.TryParse(totalAmountStr, out decimal totalAmount))
-                    {
-                        MessageBox.Show("Invalid total amount value.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        return;
-                    }
-
-                    // Convert date
-                    DateTime orderDate;
-                    if (!DateTime.TryParse(dateStr, out orderDate))
-                    {
-                        MessageBox.Show("Invalid date format.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        return;
-                    }
-
-                    // Insert data into the database (replace this with your actual query)
-                    string query = "INSERT INTO Orders (ProductInfo, SupplierInfo, Quantity, CostPrice, TotalAmount, OrderDate) " +
-                                   "VALUES (@ProductInfo, @SupplierInfo, @Quantity, @CostPrice, @TotalAmount, @OrderDate)";
-
-                    using (SqlConnection conn = new SqlConnection(connectionString))
-                    {
-                        using (SqlCommand cmd = new SqlCommand(query, conn))
+                        // Assuming that we have selected a supplier and product
+                        if (lstSuppliers.SelectedItem != null)
                         {
-                            cmd.Parameters.AddWithValue("@ProductInfo", productInfo);
-                            cmd.Parameters.AddWithValue("@SupplierInfo", supplierInfo);
-                            cmd.Parameters.AddWithValue("@Quantity", quantity);
-                            cmd.Parameters.AddWithValue("@CostPrice", costPrice);
-                            cmd.Parameters.AddWithValue("@TotalAmount", totalAmount);
-                            cmd.Parameters.AddWithValue("@OrderDate", orderDate);
-
-                            conn.Open();
-                            cmd.ExecuteNonQuery();
+                            var selectedSupplier = (dynamic)lstSuppliers.SelectedItem;
+                            supplierId = selectedSupplier.Value;
                         }
+
+                        // Calculate the total amount
+                        decimal totalAmount = 0;
+                        foreach (DataRow row in orderDataTable.Rows)
+                        {
+                            totalAmount += Convert.ToDecimal(row["Total Amount"]);
+                        }
+
+                        using (SqlCommand cmd = new SqlCommand(insertOrderQuery, connection, transaction))
+                        {
+                            cmd.Parameters.AddWithValue("@supplierId", supplierId);
+                            cmd.Parameters.AddWithValue("@orderDate", orderDate);
+                            cmd.Parameters.AddWithValue("@totalAmount", totalAmount);
+
+                            // Get the supplier_order_id (identity value)
+                            int supplierOrderId = Convert.ToInt32(cmd.ExecuteScalar());
+
+                            // Insert data into SupplierOrderDetails table for each row
+                            string insertOrderDetailsQuery = "INSERT INTO SupplierOrderDetails (supplier_order_id, product_id, quantity, cost_price_at_order) " +
+                                                             "VALUES (@supplierOrderId, @productId, @quantity, @costPriceAtOrder)";
+
+                            foreach (DataRow row in orderDataTable.Rows)
+                            {
+                                var productInfo = row["Product Info"].ToString();
+                                var supplierInfo = row["Supplier Info"].ToString();
+                                int productId = Convert.ToInt32(productInfo.Split(new string[] { "(ID:" }, StringSplitOptions.None)[1].Replace(")", ""));
+                                int quantity = Convert.ToInt32(row["Quantity"]);
+                                decimal costPriceAtOrder = Convert.ToDecimal(row["Cost Price"]);
+
+                                // Check if the combination already exists
+                                string checkExistenceQuery = "SELECT COUNT(*) FROM SupplierOrderDetails WHERE supplier_order_id = @supplierOrderId AND product_id = @productId AND cost_price_at_order = @costPriceAtOrder";
+                                using (SqlCommand checkCmd = new SqlCommand(checkExistenceQuery, connection, transaction))
+                                {
+                                    checkCmd.Parameters.AddWithValue("@supplierOrderId", supplierOrderId);
+                                    checkCmd.Parameters.AddWithValue("@productId", productId);
+                                    checkCmd.Parameters.AddWithValue("@costPriceAtOrder", costPriceAtOrder);
+                                    int count = Convert.ToInt32(checkCmd.ExecuteScalar());
+
+                                    if (count > 0)
+                                    {
+                                        // Duplicate entry detected, rollback the transaction
+                                        transaction.Rollback();
+                                        MessageBox.Show($"Duplicate entry detected for Product ID {productId} in Order ID {supplierOrderId}. No data has been saved. Please edit your order and try again.", "Duplicate Entry", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                        return; // Exit the method and return to the form
+                                    }
+                                }
+
+                                // Insert the order detail
+                                using (SqlCommand cmdDetails = new SqlCommand(insertOrderDetailsQuery, connection, transaction))
+                                {
+                                    cmdDetails.Parameters.AddWithValue("@supplierOrderId", supplierOrderId);
+                                    cmdDetails.Parameters.AddWithValue("@productId", productId);
+                                    cmdDetails.Parameters.AddWithValue("@quantity", quantity);
+                                    cmdDetails.Parameters.AddWithValue("@costPriceAtOrder", costPriceAtOrder);
+
+                                    cmdDetails.ExecuteNonQuery();
+                                }
+
+                                // Update stock quantity in the Product table
+                                string updateStockQuery = "UPDATE Product SET stock_quantity = stock_quantity + @quantity WHERE product_id = @productId";
+                                using (SqlCommand updateCmd = new SqlCommand(updateStockQuery, connection, transaction))
+                                {
+                                    updateCmd.Parameters.AddWithValue("@quantity", quantity);
+                                    updateCmd.Parameters.AddWithValue("@productId", productId);
+                                    updateCmd.ExecuteNonQuery();
+                                }
+                            }
+                        }
+
+                        // Commit the transaction if no duplicates are found
+                        transaction.Commit();
+                        MessageBox.Show("Order saved successfully and stock updated!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    catch (Exception ex)
+                    {
+                        // Rollback the transaction in case of any error
+                        transaction.Rollback();
+                        MessageBox.Show($"Database Error\n\n{ex.Message}\n\nNo data has been saved. Please try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
-
-                MessageBox.Show("Order saved successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Database Error\n\n{ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            clearing();
         }
+
 
 
         private int GetLastSupplierOrderId(SqlConnection connection)
@@ -276,11 +322,17 @@ namespace TobaccoStore
         }
         private void BtnClear_Click(object sender, EventArgs e)
         {
+            clearing();
+        }
+
+        private void clearing()
+        {
             LoadProducts();
             lstSuppliers.Items.Clear();  // Clear suppliers as well
             txtCostPrice.Clear();
             numericUpDownQuantity.Value = 0;
             lblStockQuantity.Text = string.Empty;
+            lblTotalAmount.Text = string.Empty;
             orderDataTable.Clear();  // Clears the order DataGridView as well
         }
 
@@ -325,6 +377,23 @@ namespace TobaccoStore
             orderDataTable.Rows.Add(productInfo, supplierInfo, quantity, costPrice, totalAmount, orderDate);
 
             // Update the total amount label
+            UpdateTotalAmount(sender, e);
+        }
+
+        private void btnRemoveCustomer_Click(object sender, EventArgs e)
+        {
+            if (dataGridViewOrder.SelectedRows.Count > 0)
+            {
+                foreach (DataGridViewRow row in dataGridViewOrder.SelectedRows)
+                {
+                    dataGridViewOrder.Rows.Remove(row);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please select a row to remove.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+
             UpdateTotalAmount(sender, e);
         }
     }

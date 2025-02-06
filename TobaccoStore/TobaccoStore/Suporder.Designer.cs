@@ -46,6 +46,7 @@
             this.lblStockQuantity = new System.Windows.Forms.Label();
             this.btnAddToOrder = new System.Windows.Forms.Button();
             this.dataGridViewOrder = new System.Windows.Forms.DataGridView();
+            this.btnRemoveCustomer = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownQuantity)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewOrder)).BeginInit();
             this.SuspendLayout();
@@ -54,7 +55,7 @@
             // 
             this.lstSuppliers.FormattingEnabled = true;
             this.lstSuppliers.ItemHeight = 16;
-            this.lstSuppliers.Location = new System.Drawing.Point(170, 122);
+            this.lstSuppliers.Location = new System.Drawing.Point(161, 167);
             this.lstSuppliers.Name = "lstSuppliers";
             this.lstSuppliers.Size = new System.Drawing.Size(304, 68);
             this.lstSuppliers.TabIndex = 0;
@@ -63,7 +64,7 @@
             // 
             this.lstProducts.FormattingEnabled = true;
             this.lstProducts.ItemHeight = 16;
-            this.lstProducts.Location = new System.Drawing.Point(170, 32);
+            this.lstProducts.Location = new System.Drawing.Point(161, 77);
             this.lstProducts.Name = "lstProducts";
             this.lstProducts.Size = new System.Drawing.Size(304, 68);
             this.lstProducts.TabIndex = 1;
@@ -71,14 +72,14 @@
             // 
             // txtCostPrice
             // 
-            this.txtCostPrice.Location = new System.Drawing.Point(170, 212);
+            this.txtCostPrice.Location = new System.Drawing.Point(161, 257);
             this.txtCostPrice.Name = "txtCostPrice";
             this.txtCostPrice.Size = new System.Drawing.Size(100, 22);
             this.txtCostPrice.TabIndex = 2;
             // 
             // dateTimePickerOrderDate
             // 
-            this.dateTimePickerOrderDate.Location = new System.Drawing.Point(962, 12);
+            this.dateTimePickerOrderDate.Location = new System.Drawing.Point(130, 21);
             this.dateTimePickerOrderDate.Name = "dateTimePickerOrderDate";
             this.dateTimePickerOrderDate.Size = new System.Drawing.Size(200, 22);
             this.dateTimePickerOrderDate.TabIndex = 5;
@@ -96,7 +97,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(34, 212);
+            this.label1.Location = new System.Drawing.Point(25, 257);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(68, 16);
             this.label1.TabIndex = 7;
@@ -104,7 +105,7 @@
             // 
             // numericUpDownQuantity
             // 
-            this.numericUpDownQuantity.Location = new System.Drawing.Point(170, 276);
+            this.numericUpDownQuantity.Location = new System.Drawing.Point(161, 321);
             this.numericUpDownQuantity.Name = "numericUpDownQuantity";
             this.numericUpDownQuantity.Size = new System.Drawing.Size(120, 22);
             this.numericUpDownQuantity.TabIndex = 8;
@@ -112,7 +113,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(34, 264);
+            this.label2.Location = new System.Drawing.Point(25, 309);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(55, 16);
             this.label2.TabIndex = 9;
@@ -121,7 +122,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(905, 17);
+            this.label3.Location = new System.Drawing.Point(73, 26);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(36, 16);
             this.label3.TabIndex = 10;
@@ -130,7 +131,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(22, 51);
+            this.label4.Location = new System.Drawing.Point(26, 99);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(94, 16);
             this.label4.TabIndex = 11;
@@ -139,7 +140,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(22, 126);
+            this.label5.Location = new System.Drawing.Point(13, 171);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(98, 16);
             this.label5.TabIndex = 12;
@@ -168,7 +169,7 @@
             // lblTotalAmount
             // 
             this.lblTotalAmount.AutoSize = true;
-            this.lblTotalAmount.Location = new System.Drawing.Point(100, 427);
+            this.lblTotalAmount.Location = new System.Drawing.Point(95, 431);
             this.lblTotalAmount.Name = "lblTotalAmount";
             this.lblTotalAmount.Size = new System.Drawing.Size(16, 16);
             this.lblTotalAmount.TabIndex = 15;
@@ -187,7 +188,7 @@
             // lblStockQuantity
             // 
             this.lblStockQuantity.AutoSize = true;
-            this.lblStockQuantity.Location = new System.Drawing.Point(100, 368);
+            this.lblStockQuantity.Location = new System.Drawing.Point(95, 372);
             this.lblStockQuantity.Name = "lblStockQuantity";
             this.lblStockQuantity.Size = new System.Drawing.Size(16, 16);
             this.lblStockQuantity.TabIndex = 17;
@@ -206,18 +207,29 @@
             // dataGridViewOrder
             // 
             this.dataGridViewOrder.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewOrder.Location = new System.Drawing.Point(506, 156);
+            this.dataGridViewOrder.Location = new System.Drawing.Point(492, 110);
             this.dataGridViewOrder.Name = "dataGridViewOrder";
             this.dataGridViewOrder.RowHeadersWidth = 51;
             this.dataGridViewOrder.RowTemplate.Height = 24;
-            this.dataGridViewOrder.Size = new System.Drawing.Size(639, 382);
+            this.dataGridViewOrder.Size = new System.Drawing.Size(670, 428);
             this.dataGridViewOrder.TabIndex = 19;
+            // 
+            // btnRemoveCustomer
+            // 
+            this.btnRemoveCustomer.Location = new System.Drawing.Point(492, 559);
+            this.btnRemoveCustomer.Name = "btnRemoveCustomer";
+            this.btnRemoveCustomer.Size = new System.Drawing.Size(75, 23);
+            this.btnRemoveCustomer.TabIndex = 20;
+            this.btnRemoveCustomer.Text = "Remove";
+            this.btnRemoveCustomer.UseVisualStyleBackColor = true;
+            this.btnRemoveCustomer.Click += new System.EventHandler(this.btnRemoveCustomer_Click);
             // 
             // Suporder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1183, 594);
+            this.Controls.Add(this.btnRemoveCustomer);
             this.Controls.Add(this.dataGridViewOrder);
             this.Controls.Add(this.btnAddToOrder);
             this.Controls.Add(this.lblStockQuantity);
@@ -266,5 +278,6 @@
         private System.Windows.Forms.Label lblStockQuantity;
         private System.Windows.Forms.Button btnAddToOrder;
         private System.Windows.Forms.DataGridView dataGridViewOrder;
+        private System.Windows.Forms.Button btnRemoveCustomer;
     }
 }
