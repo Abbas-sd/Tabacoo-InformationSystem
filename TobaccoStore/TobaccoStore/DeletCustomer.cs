@@ -13,9 +13,11 @@ namespace TobaccoStore
 {
     public partial class DeletCustomer : Form
     {
-        public DeletCustomer()
+        private Form _callingForm; // Store the calling form
+        public DeletCustomer(Form callingForm)
         {
             InitializeComponent();
+            _callingForm = callingForm; // Store the calling form
         }
 
         private string connectionString = "Server=MSI\\SQLEXPRESS;Database=TabacooStore;Trusted_Connection=True;";
@@ -106,11 +108,8 @@ namespace TobaccoStore
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Form1 form88 = new Form1();
-
-            form88.Show();
-
-            this.Close();
+            this.Close(); // Close the delete form
+            _callingForm.Show(); // Show the calling form
         }
 
         private void BtnExit_Click(object sender, EventArgs e)

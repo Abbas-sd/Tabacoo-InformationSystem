@@ -150,6 +150,12 @@
     <Compile Include="View Product.Designer.cs">
       <DependentUpon>View Product.cs</DependentUpon>
     </Compile>
+    <Compile Include="View Suppliers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View Suppliers.Designer.cs">
+      <DependentUpon>View Suppliers.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Customer Order.resx">
       <DependentUpon>Customer Order.cs</DependentUpon>
     </EmbeddedResource>

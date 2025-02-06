@@ -119,20 +119,16 @@ namespace TobaccoStore
 
         private void btnDeleteCustomer_Click(object sender, EventArgs e)
         {
-            DeletCustomer form1 = new DeletCustomer();
-
-            form1.Show();
-
-            this.Close();
+            DeletCustomer deleteForm = new DeletCustomer(this); // Pass 'this' as the calling form
+            this.Hide(); // Hide the current form
+            deleteForm.Show(); // Show the delete form
         }
 
         private void btnUpdateCustomer_Click(object sender, EventArgs e)
         {
-            UpdateCustomer form1 = new UpdateCustomer();
-
-            form1.Show();
-
-            this.Close();
+            UpdateCustomer updateForm = new UpdateCustomer(this); // Pass 'this' as the calling form
+            this.Hide(); // Hide the current form
+            updateForm.Show(); // Show the update form
         }
         
 

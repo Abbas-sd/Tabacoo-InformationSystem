@@ -13,11 +13,12 @@ namespace TobaccoStore
 {
     public partial class UpdateCustomer : Form
     {
-        public UpdateCustomer()
+        private Form _callingForm; // Store the calling form
+        public UpdateCustomer(Form callingForm)
         {
             InitializeComponent();
+            _callingForm = callingForm; // Store the calling form
         }
-
 
         private string connectionString = "Server=MSI\\SQLEXPRESS;Database=TabacooStore;Trusted_Connection=True;";
         private void ClearCustomerFields()
@@ -195,11 +196,8 @@ namespace TobaccoStore
 
         private void BtnBack_Click(object sender, EventArgs e)
         {
-            Form1 form88 = new Form1();
-
-            form88.Show();
-
-            this.Close();
+            this.Close(); // Close the update form
+            _callingForm.Show(); // Show the calling form
         }
     }
 }
