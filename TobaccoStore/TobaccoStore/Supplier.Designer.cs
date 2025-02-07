@@ -198,6 +198,7 @@
             this.MaximizeBox = false;
             this.Name = "Supplier";
             this.Text = "TSIS | Supplier Form";
+            this.Load += new System.EventHandler(this.Supplier_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
