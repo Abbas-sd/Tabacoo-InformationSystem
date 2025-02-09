@@ -36,7 +36,8 @@
             this.listBoxCustomers = new System.Windows.Forms.ListBox();
             this.dateTimePickerOrderDate = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
-            this.comboBoxCustomers = new System.Windows.Forms.ComboBox();
+            this.txtSearchCustomer = new System.Windows.Forms.TextBox();
+            this.btnremove = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSale)).BeginInit();
             this.SuspendLayout();
             // 
@@ -56,31 +57,31 @@
             this.dataGridViewSale.Name = "dataGridViewSale";
             this.dataGridViewSale.RowHeadersWidth = 51;
             this.dataGridViewSale.RowTemplate.Height = 24;
-            this.dataGridViewSale.Size = new System.Drawing.Size(587, 358);
+            this.dataGridViewSale.Size = new System.Drawing.Size(896, 442);
             this.dataGridViewSale.TabIndex = 1;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(15, 415);
+            this.button1.Location = new System.Drawing.Point(484, 508);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 2;
-            this.button1.Text = "button1";
+            this.button1.Text = "Save";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // lblTotalAmount
             // 
             this.lblTotalAmount.AutoSize = true;
-            this.lblTotalAmount.Location = new System.Drawing.Point(12, 214);
+            this.lblTotalAmount.Location = new System.Drawing.Point(27, 369);
             this.lblTotalAmount.Name = "lblTotalAmount";
-            this.lblTotalAmount.Size = new System.Drawing.Size(44, 16);
+            this.lblTotalAmount.Size = new System.Drawing.Size(16, 16);
             this.lblTotalAmount.TabIndex = 3;
-            this.lblTotalAmount.Text = "label1";
+            this.lblTotalAmount.Text = "...";
             // 
             // Btnclear
             // 
-            this.Btnclear.Location = new System.Drawing.Point(669, 12);
+            this.Btnclear.Location = new System.Drawing.Point(286, 512);
             this.Btnclear.Name = "Btnclear";
             this.Btnclear.Size = new System.Drawing.Size(75, 23);
             this.Btnclear.TabIndex = 4;
@@ -100,9 +101,9 @@
             // 
             // dateTimePickerOrderDate
             // 
-            this.dateTimePickerOrderDate.Location = new System.Drawing.Point(413, 13);
+            this.dateTimePickerOrderDate.Location = new System.Drawing.Point(860, 13);
             this.dateTimePickerOrderDate.Name = "dateTimePickerOrderDate";
-            this.dateTimePickerOrderDate.Size = new System.Drawing.Size(200, 22);
+            this.dateTimePickerOrderDate.Size = new System.Drawing.Size(225, 22);
             this.dateTimePickerOrderDate.TabIndex = 6;
             // 
             // label1
@@ -114,20 +115,31 @@
             this.label1.TabIndex = 7;
             this.label1.Text = "Barcode";
             // 
-            // comboBoxCustomers
+            // txtSearchCustomer
             // 
-            this.comboBoxCustomers.FormattingEnabled = true;
-            this.comboBoxCustomers.Location = new System.Drawing.Point(243, 15);
-            this.comboBoxCustomers.Name = "comboBoxCustomers";
-            this.comboBoxCustomers.Size = new System.Drawing.Size(121, 24);
-            this.comboBoxCustomers.TabIndex = 8;
+            this.txtSearchCustomer.Location = new System.Drawing.Point(46, 167);
+            this.txtSearchCustomer.Name = "txtSearchCustomer";
+            this.txtSearchCustomer.Size = new System.Drawing.Size(100, 22);
+            this.txtSearchCustomer.TabIndex = 8;
+            this.txtSearchCustomer.TextChanged += new System.EventHandler(this.txtSearchCustomer_TextChanged);
+            // 
+            // btnremove
+            // 
+            this.btnremove.Location = new System.Drawing.Point(184, 512);
+            this.btnremove.Name = "btnremove";
+            this.btnremove.Size = new System.Drawing.Size(75, 23);
+            this.btnremove.TabIndex = 9;
+            this.btnremove.Text = "Remove";
+            this.btnremove.UseVisualStyleBackColor = true;
+            this.btnremove.Click += new System.EventHandler(this.btnremove_Click);
             // 
             // Customer_Order_With_barcode
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.comboBoxCustomers);
+            this.ClientSize = new System.Drawing.Size(1109, 547);
+            this.Controls.Add(this.btnremove);
+            this.Controls.Add(this.txtSearchCustomer);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dateTimePickerOrderDate);
             this.Controls.Add(this.listBoxCustomers);
@@ -155,6 +167,7 @@
         private System.Windows.Forms.ListBox listBoxCustomers;
         private System.Windows.Forms.DateTimePicker dateTimePickerOrderDate;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox comboBoxCustomers;
+        private System.Windows.Forms.TextBox txtSearchCustomer;
+        private System.Windows.Forms.Button btnremove;
     }
 }

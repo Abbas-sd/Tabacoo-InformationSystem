@@ -21,9 +21,10 @@ namespace TobaccoStore
             InitializeComponent();
             // Wire up events
             this.Shown += new EventHandler(SalesForm_Shown);
-            txtBarcode.KeyPress += new KeyPressEventHandler(txtBarcode_KeyPress); // Use KeyPress event
+            txtBarcode.KeyPress += new KeyPressEventHandler(txtBarcode_KeyPress);
             dataGridViewSale.CellEndEdit += new DataGridViewCellEventHandler(dataGridViewSale_CellEndEdit);
             dataGridViewSale.UserDeletingRow += new DataGridViewRowCancelEventHandler(dataGridViewSale_UserDeletingRow);
+            txtSearchCustomer.TextChanged += new EventHandler(txtSearchCustomer_TextChanged); // Add this line
         }
 
         private string connectionString = "Server=MSI\\SQLEXPRESS;Database=Tabacoostore;Trusted_Connection=True;";
@@ -76,14 +77,14 @@ namespace TobaccoStore
             }
 
             // Validate that a customer is selected
-            if (comboBoxCustomers.SelectedItem == null)
+            if (listBoxCustomers.SelectedItem == null)
             {
                 MessageBox.Show("Please select a customer.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
             // Get the selected customer ID
-            int customerId = ((CustomerItem)comboBoxCustomers.SelectedItem).CustomerId;
+            int customerId = ((CustomerItem)listBoxCustomers.SelectedItem).CustomerId;
 
             // Get the selected date from the DateTimePicker
             DateTime orderDate = dateTimePickerOrderDate.Value;
@@ -140,7 +141,7 @@ namespace TobaccoStore
             // Fetch product details from the database
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                string query = "SELECT product_id, product_name, selling_price FROM Product WHERE barcode = @barcode";
+                string query = "SELECT product_id, product_name, selling_price, stock_quantity FROM Product WHERE barcode = @barcode";
                 SqlCommand command = new SqlCommand(query, connection);
                 command.Parameters.AddWithValue("@barcode", barcode);
 
@@ -155,6 +156,7 @@ namespace TobaccoStore
                         int productId = reader.GetInt32(0);
                         string productName = reader.GetString(1);
                         decimal sellingPrice = reader.GetDecimal(2);
+                        int stockQuantity = reader.GetInt32(3);
 
                         // Add the item to the sale list (always add a new row)
                         saleItems.Add(new SaleItem
@@ -163,7 +165,8 @@ namespace TobaccoStore
                             ProductName = productName,
                             Quantity = 1, // Always set quantity to 1 for new rows
                             SellingPrice = sellingPrice,
-                            TotalPrice = sellingPrice // Total price for this row
+                            TotalPrice = sellingPrice, // Total price for this row
+                            StockQuantity = stockQuantity // Store the stock quantity
                         });
 
                         // Refresh the DataGridView
@@ -184,6 +187,7 @@ namespace TobaccoStore
                 }
             }
         }
+
         private void dataGridViewSale_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
             // Update the sale item when a cell is edited
@@ -228,7 +232,7 @@ namespace TobaccoStore
             }
         }
 
-        
+
         private void RefreshDataGridView()
         {
             // Bind the sale items to the DataGridView
@@ -241,12 +245,14 @@ namespace TobaccoStore
             {
                 dataGridViewSale.Columns["ProductId"].ReadOnly = true;
                 dataGridViewSale.Columns["ProductName"].ReadOnly = true;
+                dataGridViewSale.Columns["StockQuantity"].ReadOnly = true; // Make the stock quantity column read-only
             }
 
             // Update the total amount label
             totalAmount = saleItems.Sum(item => item.TotalPrice);
             lblTotalAmount.Text = $"Total Amount: {totalAmount:C}";
         }
+
 
         private class SaleItem
         {
@@ -255,6 +261,7 @@ namespace TobaccoStore
             public int Quantity { get; set; }
             public decimal SellingPrice { get; set; }
             public decimal TotalPrice { get; set; }
+            public int StockQuantity { get; set; } // Add this field
         }
 
         private void Btnclear_Click(object sender, EventArgs e)
@@ -274,7 +281,7 @@ namespace TobaccoStore
 
         private async void txtBarcode_TextChanged(object sender, EventArgs e)
         {
-            await Task.Delay(150); // Add a 1-second delay
+            await Task.Delay(1000); // Add a 1-second delay
 
             // Rest of your code
             if (!string.IsNullOrEmpty(txtBarcode.Text))
@@ -283,39 +290,33 @@ namespace TobaccoStore
                 txtBarcode.Clear();
             }
         }
-
-        private void LoadCustomers()
+        private void LoadCustomers(string searchText = "")
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                string query = "SELECT customer_id, fname, lname FROM Customer";
+                string query = "SELECT customer_id, fname, lname FROM Customer WHERE fname LIKE @searchText OR lname LIKE @searchText";
                 SqlCommand command = new SqlCommand(query, connection);
+                command.Parameters.AddWithValue("@searchText", $"%{searchText}%");
 
                 try
                 {
                     connection.Open();
                     SqlDataReader reader = command.ExecuteReader();
 
-                    // Clear the ComboBox
-                    comboBoxCustomers.Items.Clear();
+                    // Clear the ListBox
+                    listBoxCustomers.Items.Clear();
 
-                    // Add customers to the ComboBox
+                    // Add customers to the ListBox
                     while (reader.Read())
                     {
                         int customerId = reader.GetInt32(0);
                         string customerName = reader.GetString(1) + " " + reader.GetString(2);
-                        comboBoxCustomers.Items.Add(new CustomerItem { CustomerId = customerId, CustomerName = customerName });
+                        listBoxCustomers.Items.Add(new CustomerItem { CustomerId = customerId, CustomerName = customerName });
                     }
 
-                    // Display the customer name in the ComboBox
-                    comboBoxCustomers.DisplayMember = "CustomerName";
-                    comboBoxCustomers.ValueMember = "CustomerId";
-
-                    // Select the first customer by default (if any)
-                    if (comboBoxCustomers.Items.Count > 0)
-                    {
-                        comboBoxCustomers.SelectedIndex = 0;
-                    }
+                    // Display the customer name in the ListBox
+                    listBoxCustomers.DisplayMember = "CustomerName";
+                    listBoxCustomers.ValueMember = "CustomerId";
                 }
                 catch (Exception ex)
                 {
@@ -324,11 +325,22 @@ namespace TobaccoStore
             }
         }
 
-        // Class to represent a customer item in the ComboBox
+        // Class to represent a customer item in the ListBox
         private class CustomerItem
         {
             public int CustomerId { get; set; }
             public string CustomerName { get; set; }
+        }
+
+        private void txtSearchCustomer_TextChanged(object sender, EventArgs e)
+        {
+            // Reload customers based on the search text
+            LoadCustomers(txtSearchCustomer.Text);
+        }
+
+        private void btnremove_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
