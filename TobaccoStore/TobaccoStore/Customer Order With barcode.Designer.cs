@@ -38,6 +38,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtSearchCustomer = new System.Windows.Forms.TextBox();
             this.btnremove = new System.Windows.Forms.Button();
+            this.txtManualBarcode = new System.Windows.Forms.TextBox();
+            this.btnManualEntry = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSale)).BeginInit();
             this.SuspendLayout();
             // 
@@ -133,11 +135,32 @@
             this.btnremove.UseVisualStyleBackColor = true;
             this.btnremove.Click += new System.EventHandler(this.btnremove_Click);
             // 
+            // txtManualBarcode
+            // 
+            this.txtManualBarcode.Location = new System.Drawing.Point(459, 13);
+            this.txtManualBarcode.Name = "txtManualBarcode";
+            this.txtManualBarcode.Size = new System.Drawing.Size(100, 22);
+            this.txtManualBarcode.TabIndex = 10;
+            this.txtManualBarcode.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtManualBarcode_KeyDown);
+            // 
+            // btnManualEntry
+            // 
+            this.btnManualEntry.Location = new System.Drawing.Point(749, 508);
+            this.btnManualEntry.Name = "btnManualEntry";
+            this.btnManualEntry.Size = new System.Drawing.Size(75, 23);
+            this.btnManualEntry.TabIndex = 11;
+            this.btnManualEntry.Text = "Manual";
+            this.btnManualEntry.UseVisualStyleBackColor = true;
+            this.btnManualEntry.Click += new System.EventHandler(this.btnManualEntry_Click);
+            this.btnManualEntry.KeyDown += new System.Windows.Forms.KeyEventHandler(this.btnManualEntry_KeyDown);
+            // 
             // Customer_Order_With_barcode
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1109, 547);
+            this.Controls.Add(this.btnManualEntry);
+            this.Controls.Add(this.txtManualBarcode);
             this.Controls.Add(this.btnremove);
             this.Controls.Add(this.txtSearchCustomer);
             this.Controls.Add(this.label1);
@@ -169,5 +192,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtSearchCustomer;
         private System.Windows.Forms.Button btnremove;
+        private System.Windows.Forms.TextBox txtManualBarcode;
+        private System.Windows.Forms.Button btnManualEntry;
     }
 }

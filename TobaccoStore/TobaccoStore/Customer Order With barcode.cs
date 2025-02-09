@@ -13,8 +13,10 @@ namespace TobaccoStore
 {
     public partial class Customer_Order_With_barcode : Form
     {
+        private bool errorShown = false;
 
-        
+        private System.Windows.Forms.Timer barcodeTimer;
+        private string scannedBarcode = "";
 
         public Customer_Order_With_barcode()
         {
@@ -25,6 +27,12 @@ namespace TobaccoStore
             dataGridViewSale.CellEndEdit += new DataGridViewCellEventHandler(dataGridViewSale_CellEndEdit);
             dataGridViewSale.UserDeletingRow += new DataGridViewRowCancelEventHandler(dataGridViewSale_UserDeletingRow);
             txtSearchCustomer.TextChanged += new EventHandler(txtSearchCustomer_TextChanged); // Add this line
+                                                                                              // Timer Setup
+            barcodeTimer = new System.Windows.Forms.Timer();
+            barcodeTimer.Interval = 300; // Adjust timing if needed
+            barcodeTimer.Tick += BarcodeTimer_Tick;
+
+            txtBarcode.KeyPress += new KeyPressEventHandler(txtBarcode_KeyPress);
         }
 
         private string connectionString = "Server=MSI\\SQLEXPRESS;Database=Tabacoostore;Trusted_Connection=True;";
@@ -49,20 +57,34 @@ namespace TobaccoStore
             // Check if the Enter key (carriage return) is pressed
             if (e.KeyChar == (char)Keys.Enter)
             {
-                // Process the barcode
-                AddProductToSale(barcodeBuffer);
+                // Process the full barcode after scan
+                string barcode = txtBarcode.Text.Trim();
 
-                // Clear the buffer and the text box
-                barcodeBuffer = "";
+                // Proceed if barcode is not empty
+                if (!string.IsNullOrEmpty(barcode))
+                {
+                    AddProductToSale(barcode);
+                }
+
+                // Clear the barcode field after processing
                 txtBarcode.Clear();
 
-                // Suppress the beep sound
+                // Suppress the beep sound (optional depending on your scanner)
                 e.Handled = true;
             }
-            else
+        }
+
+
+
+        private void BarcodeTimer_Tick(object sender, EventArgs e)
+        {
+            barcodeTimer.Stop(); // Stop timer after delay
+
+            if (!string.IsNullOrEmpty(scannedBarcode))
             {
-                // Append the character to the buffer
-                barcodeBuffer += e.KeyChar;
+                ProcessScannedBarcode(scannedBarcode.Trim());
+                scannedBarcode = ""; // Reset buffer
+                txtBarcode.Clear();
             }
         }
 
@@ -132,8 +154,7 @@ namespace TobaccoStore
 
         private void AddProductToSale(string barcode)
         {
-            // Trim the barcode input
-            barcode = barcode.Trim();
+            errorShown = false;  // Reset error flag for each scan attempt
 
             // Debug: Print the scanned barcode
             Console.WriteLine("Scanned Barcode: " + barcode);
@@ -141,7 +162,7 @@ namespace TobaccoStore
             // Fetch product details from the database
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                string query = "SELECT product_id, product_name, selling_price, stock_quantity FROM Product WHERE barcode = @barcode";
+                string query = "SELECT product_id, product_name, selling_price FROM Product WHERE barcode = @barcode";
                 SqlCommand command = new SqlCommand(query, connection);
                 command.Parameters.AddWithValue("@barcode", barcode);
 
@@ -156,18 +177,30 @@ namespace TobaccoStore
                         int productId = reader.GetInt32(0);
                         string productName = reader.GetString(1);
                         decimal sellingPrice = reader.GetDecimal(2);
-                        int stockQuantity = reader.GetInt32(3);
 
-                        // Add the item to the sale list (always add a new row)
-                        saleItems.Add(new SaleItem
+                        // Check if the product already exists in the sale list
+                        var existingSaleItem = saleItems.FirstOrDefault(item => item.ProductId == productId);
+
+                        if (existingSaleItem != null)
                         {
-                            ProductId = productId,
-                            ProductName = productName,
-                            Quantity = 1, // Always set quantity to 1 for new rows
-                            SellingPrice = sellingPrice,
-                            TotalPrice = sellingPrice, // Total price for this row
-                            StockQuantity = stockQuantity // Store the stock quantity
-                        });
+                            // If the product exists, update the quantity
+                            existingSaleItem.Quantity += 1;
+
+                            // Recalculate the total price
+                            existingSaleItem.TotalPrice = existingSaleItem.Quantity * existingSaleItem.SellingPrice;
+                        }
+                        else
+                        {
+                            // If the product doesn't exist, add it as a new item
+                            saleItems.Add(new SaleItem
+                            {
+                                ProductId = productId,
+                                ProductName = productName,
+                                Quantity = 1, // Start with quantity 1 for the new item
+                                SellingPrice = sellingPrice,
+                                TotalPrice = sellingPrice // Total price for this row
+                            });
+                        }
 
                         // Refresh the DataGridView
                         RefreshDataGridView();
@@ -175,7 +208,11 @@ namespace TobaccoStore
                     else
                     {
                         // Product not found
-                        MessageBox.Show("Product not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        if (!errorShown) // Prevent multiple errors
+                        {
+                            MessageBox.Show("Product not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            errorShown = true; // Mark that the error has been shown
+                        }
                         txtBarcode.Clear(); // Clear the barcode field
                         txtBarcode.Focus(); // Set focus back to the barcode field
                         return; // Exit the method without adding the product
@@ -245,14 +282,12 @@ namespace TobaccoStore
             {
                 dataGridViewSale.Columns["ProductId"].ReadOnly = true;
                 dataGridViewSale.Columns["ProductName"].ReadOnly = true;
-                dataGridViewSale.Columns["StockQuantity"].ReadOnly = true; // Make the stock quantity column read-only
             }
 
             // Update the total amount label
             totalAmount = saleItems.Sum(item => item.TotalPrice);
             lblTotalAmount.Text = $"Total Amount: {totalAmount:C}";
         }
-
 
         private class SaleItem
         {
@@ -261,7 +296,6 @@ namespace TobaccoStore
             public int Quantity { get; set; }
             public decimal SellingPrice { get; set; }
             public decimal TotalPrice { get; set; }
-            public int StockQuantity { get; set; } // Add this field
         }
 
         private void Btnclear_Click(object sender, EventArgs e)
@@ -276,20 +310,85 @@ namespace TobaccoStore
 
         private void listBoxCustomers_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+
         }
 
         private async void txtBarcode_TextChanged(object sender, EventArgs e)
         {
-            await Task.Delay(1000); // Add a 1-second delay
+            barcodeTimer.Stop(); // Reset the timer
+            scannedBarcode = txtBarcode.Text.Trim(); // Store current barcode
+            barcodeTimer.Start(); // Restart timer
+        }
 
-            // Rest of your code
-            if (!string.IsNullOrEmpty(txtBarcode.Text))
+        private void ProcessScannedBarcode(string barcode)
+    {
+        using (SqlConnection connection = new SqlConnection(connectionString))
+        {
+            string query = "SELECT product_id, product_name, selling_price, stock_quantity FROM Product WHERE barcode = @barcode";
+            SqlCommand command = new SqlCommand(query, connection);
+            command.Parameters.AddWithValue("@barcode", barcode);
+
+            try
             {
-                AddProductToSale(txtBarcode.Text.Trim());
-                txtBarcode.Clear();
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    int productId = reader.GetInt32(0);
+                    string productName = reader.GetString(1);
+                    decimal sellingPrice = reader.GetDecimal(2);
+                    int stockQuantity = reader.GetInt32(3);
+
+                    var existingItem = saleItems.FirstOrDefault(item => item.ProductId == productId);
+                    if (existingItem != null)
+                    {
+                        if (existingItem.Quantity < stockQuantity)
+                        {
+                            existingItem.Quantity += 1;
+                            existingItem.TotalPrice = existingItem.Quantity * existingItem.SellingPrice;
+                        }
+                        else
+                        {
+                            MessageBox.Show("Not enough stock!", "Stock Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
+                    }
+                    else
+                    {
+                        if (stockQuantity > 0)
+                        {
+                            saleItems.Add(new SaleItem
+                            {
+                                ProductId = productId,
+                                ProductName = productName,
+                                Quantity = 1,
+                                SellingPrice = sellingPrice,
+                                TotalPrice = sellingPrice
+                            });
+                        }
+                        else
+                        {
+                            MessageBox.Show("This product is out of stock!", "Stock Alert", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
+                    }
+
+                    RefreshDataGridView();
+                }
+                else
+                {
+                    if (!errorShown) // Prevent multiple errors
+                    {
+                        MessageBox.Show("Product not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        errorShown = true;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+    }
         private void LoadCustomers(string searchText = "")
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
@@ -340,7 +439,69 @@ namespace TobaccoStore
 
         private void btnremove_Click(object sender, EventArgs e)
         {
+            // Check if a row is selected
+            if (dataGridViewSale.SelectedRows.Count > 0)
+            {
+                // Get the selected row
+                var selectedRow = dataGridViewSale.SelectedRows[0];
 
+                // Get the product ID from the selected row
+                int productId = (int)selectedRow.Cells["ProductId"].Value;
+
+                // Find the sale item in the saleItems list
+                var saleItem = saleItems.FirstOrDefault(item => item.ProductId == productId);
+
+                if (saleItem != null)
+                {
+                    // Remove the sale item from the list
+                    saleItems.Remove(saleItem);
+
+                    // Refresh the DataGridView
+                    RefreshDataGridView();
+                }
+            }
+            else
+            {
+                // If no row is selected, show a warning
+                MessageBox.Show("Please select a row to remove.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void btnManualEntry_Click(object sender, EventArgs e)
+        {
+            string manualBarcode = txtManualBarcode.Text.Trim();
+
+            if (!string.IsNullOrEmpty(manualBarcode))
+            {
+                AddProductToSale(manualBarcode); // Process the manually entered barcode
+                txtManualBarcode.Clear(); // Clear after entry
+            }
+            else
+            {
+                MessageBox.Show("Please enter a valid barcode.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void btnManualEntry_KeyDown(object sender, KeyEventArgs e)
+        {
+            
+        }
+
+        private void txtManualBarcode_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter) // If Enter key is pressed
+            {
+                string manualBarcode = txtManualBarcode.Text.Trim(); // Get barcode text
+
+                if (!string.IsNullOrEmpty(manualBarcode))
+                {
+                    AddProductToSale(manualBarcode); // Process barcode directly
+                    txtManualBarcode.Clear(); // Clear textbox after processing
+                    txtManualBarcode.Focus(); // Refocus for next input
+                }
+
+                e.SuppressKeyPress = true; // Prevent the "ding" sound
+            }
         }
     }
 }
