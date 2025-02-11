@@ -111,7 +111,9 @@
             this.Controls.Add(this.txtUsername);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.MaximizeBox = false;
             this.Name = "log_in";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "log_in";
             this.Load += new System.EventHandler(this.log_in_Load);
             this.ResumeLayout(false);

@@ -277,6 +277,7 @@
             this.Controls.Add(this.txtLname);
             this.Controls.Add(this.txtFname);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.MaximizeBox = false;
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "TSIS | Custumer Form";

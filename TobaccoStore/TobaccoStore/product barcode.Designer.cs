@@ -196,6 +196,7 @@
             this.Controls.Add(this.txtCostPrice);
             this.Controls.Add(this.txtProductType);
             this.Controls.Add(this.txtProductName);
+            this.MinimizeBox = false;
             this.Name = "product_barcode";
             this.Text = "product_barcode";
             this.Load += new System.EventHandler(this.product_barcode_Load);
