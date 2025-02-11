@@ -72,7 +72,7 @@
             // 
             // btnLogin
             // 
-            this.btnLogin.Location = new System.Drawing.Point(185, 267);
+            this.btnLogin.Location = new System.Drawing.Point(209, 269);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(75, 23);
             this.btnLogin.TabIndex = 5;
@@ -83,7 +83,7 @@
             // lblErrorMessage
             // 
             this.lblErrorMessage.ForeColor = System.Drawing.Color.Red;
-            this.lblErrorMessage.Location = new System.Drawing.Point(62, 206);
+            this.lblErrorMessage.Location = new System.Drawing.Point(72, 232);
             this.lblErrorMessage.Name = "lblErrorMessage";
             this.lblErrorMessage.Size = new System.Drawing.Size(212, 23);
             this.lblErrorMessage.TabIndex = 6;
@@ -91,7 +91,7 @@
             // chkShowPassword
             // 
             this.chkShowPassword.AutoSize = true;
-            this.chkShowPassword.Location = new System.Drawing.Point(280, 209);
+            this.chkShowPassword.Location = new System.Drawing.Point(174, 209);
             this.chkShowPassword.Name = "chkShowPassword";
             this.chkShowPassword.Size = new System.Drawing.Size(125, 20);
             this.chkShowPassword.TabIndex = 7;
