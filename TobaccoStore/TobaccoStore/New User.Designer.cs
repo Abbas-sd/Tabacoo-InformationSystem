@@ -102,7 +102,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "New_User";
-            this.Text = "New_User";
+            this.Text = "TSIS | New_User";
             this.Load += new System.EventHandler(this.New_User_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

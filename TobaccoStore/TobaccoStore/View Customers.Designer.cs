@@ -111,7 +111,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Name = "View_Customers";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "View_Customers";
+            this.Text = "TSIS | View-Customers";
             this.Load += new System.EventHandler(this.View_Customers_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvCustomers)).EndInit();
             this.ResumeLayout(false);

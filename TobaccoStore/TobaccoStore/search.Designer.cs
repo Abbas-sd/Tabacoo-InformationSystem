@@ -120,7 +120,7 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.comboBox1);
             this.Name = "search";
-            this.Text = "search";
+            this.Text = "TSIS | search";
             ((System.ComponentModel.ISupportInitialize)(this.dgvSearchResults)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

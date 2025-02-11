@@ -61,7 +61,7 @@
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.dgvOrders);
             this.Name = "View_Orders";
-            this.Text = "View_Orders";
+            this.Text = "TSIS | View-Orders";
             this.Load += new System.EventHandler(this.View_Orders_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrders)).EndInit();
             this.ResumeLayout(false);

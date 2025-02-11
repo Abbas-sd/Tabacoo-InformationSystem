@@ -61,7 +61,7 @@
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.dgvProducts);
             this.Name = "View_Product";
-            this.Text = "View_Product";
+            this.Text = "TSIS | View-Product";
             this.Load += new System.EventHandler(this.View_Product_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvProducts)).EndInit();
             this.ResumeLayout(false);

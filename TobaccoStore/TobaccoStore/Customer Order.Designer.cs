@@ -282,7 +282,7 @@
             this.Controls.Add(this.lstProduct);
             this.Controls.Add(this.lstCustomer);
             this.Name = "Customer_Order";
-            this.Text = "Customer_Order";
+            this.Text = "TSIS | Customer_Order";
             this.Load += new System.EventHandler(this.Customer_Order_Load);
             ((System.ComponentModel.ISupportInitialize)(this.numQuantity)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrderDetails)).EndInit();

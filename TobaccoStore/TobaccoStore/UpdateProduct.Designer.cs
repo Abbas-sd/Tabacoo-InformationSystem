@@ -243,7 +243,7 @@
             this.Controls.Add(this.txtProductType);
             this.Controls.Add(this.txtProductName);
             this.Name = "UpdateProduct";
-            this.Text = "UpdateProduct";
+            this.Text = "TSIS | UpdateProduct";
             this.Load += new System.EventHandler(this.UpdateProduct_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvProduct)).EndInit();
             this.ResumeLayout(false);

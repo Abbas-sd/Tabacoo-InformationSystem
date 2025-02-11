@@ -155,6 +155,14 @@ namespace TobaccoStore
 
             this.Hide();
         }
+
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("This system helps any tobacco store owner to manage his inventory and his customer/supplier relationships in the smoothest and simplest way possible\n\nFeatures:\n-scanning new barcodes \n- add-update-delete customers\n- User authentication",
+                    "About This System",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information);
+        }
     }
     
 }

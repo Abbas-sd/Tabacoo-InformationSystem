@@ -249,7 +249,7 @@
             this.Controls.Add(this.lstProducts);
             this.Controls.Add(this.lstSuppliers);
             this.Name = "Suporder";
-            this.Text = "Suporder";
+            this.Text = "TSIS | Supplier-order";
             this.Load += new System.EventHandler(this.Suporder_Load);
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownQuantity)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewOrder)).EndInit();
