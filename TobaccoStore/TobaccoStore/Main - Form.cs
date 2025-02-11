@@ -146,6 +146,15 @@ namespace TobaccoStore
 
             this.Hide();
         }
+
+        private void addUserToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            New_User form7 = new New_User();
+
+            form7.Show();
+
+            this.Hide();
+        }
     }
     
 }
