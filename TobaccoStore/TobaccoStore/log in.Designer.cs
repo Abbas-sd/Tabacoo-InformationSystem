@@ -35,6 +35,7 @@
             this.btnLogin = new System.Windows.Forms.Button();
             this.lblErrorMessage = new System.Windows.Forms.Label();
             this.chkShowPassword = new System.Windows.Forms.CheckBox();
+            this.BtnExit = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -99,11 +100,22 @@
             this.chkShowPassword.UseVisualStyleBackColor = true;
             this.chkShowPassword.CheckedChanged += new System.EventHandler(this.chkShowPassword_CheckedChanged);
             // 
+            // BtnExit
+            // 
+            this.BtnExit.Location = new System.Drawing.Point(341, 308);
+            this.BtnExit.Name = "BtnExit";
+            this.BtnExit.Size = new System.Drawing.Size(75, 23);
+            this.BtnExit.TabIndex = 8;
+            this.BtnExit.Text = "Exit";
+            this.BtnExit.UseVisualStyleBackColor = true;
+            this.BtnExit.Click += new System.EventHandler(this.BtnExit_Click);
+            // 
             // log_in
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(428, 343);
+            this.Controls.Add(this.BtnExit);
             this.Controls.Add(this.chkShowPassword);
             this.Controls.Add(this.lblErrorMessage);
             this.Controls.Add(this.btnLogin);
@@ -130,5 +142,6 @@
         private System.Windows.Forms.Button btnLogin;
         private System.Windows.Forms.Label lblErrorMessage;
         private System.Windows.Forms.CheckBox chkShowPassword;
+        private System.Windows.Forms.Button BtnExit;
     }
 }

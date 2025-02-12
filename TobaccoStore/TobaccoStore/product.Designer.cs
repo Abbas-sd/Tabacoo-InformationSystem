@@ -261,7 +261,7 @@
             this.MaximizeBox = false;
             this.Name = "product";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "TSIS | Product Form";
+            this.Text = "TSIS | Add Product ";
             this.Load += new System.EventHandler(this.product_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

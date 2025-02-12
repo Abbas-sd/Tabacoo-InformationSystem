@@ -38,7 +38,8 @@ namespace TobaccoStore
             if (RegisterUser(username, password))
             {
                 MessageBox.Show("User registered successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.Close();
+                txtPassword.Clear();
+                txtUsername.Clear();
             }
             else
             {
@@ -72,6 +73,20 @@ namespace TobaccoStore
         {
             // Toggle password visibility
             txtPassword.UseSystemPasswordChar = !chkShowPassword.Checked;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void btnback_Click(object sender, EventArgs e)
+        {
+            Main form1 = new Main();
+
+            form1.Show();
+
+            this.Hide();
         }
     }
 }

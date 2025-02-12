@@ -33,7 +33,6 @@
             this.BtnExit = new System.Windows.Forms.Button();
             this.btnUpdateCustomer = new System.Windows.Forms.Button();
             this.btnDeleteCustomer = new System.Windows.Forms.Button();
-            this.btncustomeradd = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCustomers)).BeginInit();
             this.SuspendLayout();
             // 
@@ -87,22 +86,11 @@
             this.btnDeleteCustomer.UseVisualStyleBackColor = true;
             this.btnDeleteCustomer.Click += new System.EventHandler(this.btnDeleteCustomer_Click);
             // 
-            // btncustomeradd
-            // 
-            this.btncustomeradd.Location = new System.Drawing.Point(241, 9);
-            this.btncustomeradd.Name = "btncustomeradd";
-            this.btncustomeradd.Size = new System.Drawing.Size(147, 23);
-            this.btncustomeradd.TabIndex = 22;
-            this.btncustomeradd.Text = "Add Customer";
-            this.btncustomeradd.UseVisualStyleBackColor = true;
-            this.btncustomeradd.Click += new System.EventHandler(this.btncustomeradd_Click);
-            // 
             // View_Customers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(729, 450);
-            this.Controls.Add(this.btncustomeradd);
             this.Controls.Add(this.btnUpdateCustomer);
             this.Controls.Add(this.btnDeleteCustomer);
             this.Controls.Add(this.BtnExit);
@@ -125,6 +113,5 @@
         private System.Windows.Forms.Button BtnExit;
         private System.Windows.Forms.Button btnUpdateCustomer;
         private System.Windows.Forms.Button btnDeleteCustomer;
-        private System.Windows.Forms.Button btncustomeradd;
     }
 }

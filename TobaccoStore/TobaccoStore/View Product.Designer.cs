@@ -30,6 +30,8 @@
         {
             this.dgvProducts = new System.Windows.Forms.DataGridView();
             this.btnBack = new System.Windows.Forms.Button();
+            this.btnDeleteProduct = new System.Windows.Forms.Button();
+            this.btnUpdateProduct = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProducts)).BeginInit();
             this.SuspendLayout();
             // 
@@ -53,11 +55,31 @@
             this.btnBack.UseVisualStyleBackColor = true;
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
+            // btnDeleteProduct
+            // 
+            this.btnDeleteProduct.Location = new System.Drawing.Point(393, 22);
+            this.btnDeleteProduct.Name = "btnDeleteProduct";
+            this.btnDeleteProduct.Size = new System.Drawing.Size(144, 23);
+            this.btnDeleteProduct.TabIndex = 45;
+            this.btnDeleteProduct.Text = "Delete Product....";
+            this.btnDeleteProduct.UseVisualStyleBackColor = true;
+            // 
+            // btnUpdateProduct
+            // 
+            this.btnUpdateProduct.Location = new System.Drawing.Point(543, 22);
+            this.btnUpdateProduct.Name = "btnUpdateProduct";
+            this.btnUpdateProduct.Size = new System.Drawing.Size(144, 23);
+            this.btnUpdateProduct.TabIndex = 44;
+            this.btnUpdateProduct.Text = "Update Product....";
+            this.btnUpdateProduct.UseVisualStyleBackColor = true;
+            // 
             // View_Product
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(706, 450);
+            this.Controls.Add(this.btnDeleteProduct);
+            this.Controls.Add(this.btnUpdateProduct);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.dgvProducts);
             this.Name = "View_Product";
@@ -72,5 +94,7 @@
 
         private System.Windows.Forms.DataGridView dgvProducts;
         private System.Windows.Forms.Button btnBack;
+        private System.Windows.Forms.Button btnDeleteProduct;
+        private System.Windows.Forms.Button btnUpdateProduct;
     }
 }
