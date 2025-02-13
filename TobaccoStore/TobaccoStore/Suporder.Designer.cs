@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Suporder));
             this.lstSuppliers = new System.Windows.Forms.ListBox();
             this.lstProducts = new System.Windows.Forms.ListBox();
             this.txtCostPrice = new System.Windows.Forms.TextBox();
@@ -47,6 +48,10 @@
             this.btnAddToOrder = new System.Windows.Forms.Button();
             this.dataGridViewOrder = new System.Windows.Forms.DataGridView();
             this.btnRemoveCustomer = new System.Windows.Forms.Button();
+            this.printDocument1 = new System.Drawing.Printing.PrintDocument();
+            this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
+            this.btnPrintPreview = new System.Windows.Forms.Button();
+            this.btnPrintOrder = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownQuantity)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewOrder)).BeginInit();
             this.SuspendLayout();
@@ -224,11 +229,43 @@
             this.btnRemoveCustomer.UseVisualStyleBackColor = true;
             this.btnRemoveCustomer.Click += new System.EventHandler(this.btnRemoveCustomer_Click);
             // 
+            // printPreviewDialog1
+            // 
+            this.printPreviewDialog1.AutoScrollMargin = new System.Drawing.Size(0, 0);
+            this.printPreviewDialog1.AutoScrollMinSize = new System.Drawing.Size(0, 0);
+            this.printPreviewDialog1.ClientSize = new System.Drawing.Size(400, 300);
+            this.printPreviewDialog1.Enabled = true;
+            this.printPreviewDialog1.Icon = ((System.Drawing.Icon)(resources.GetObject("printPreviewDialog1.Icon")));
+            this.printPreviewDialog1.Name = "printPreviewDialog1";
+            this.printPreviewDialog1.Visible = false;
+            // 
+            // btnPrintPreview
+            // 
+            this.btnPrintPreview.Location = new System.Drawing.Point(662, 45);
+            this.btnPrintPreview.Name = "btnPrintPreview";
+            this.btnPrintPreview.Size = new System.Drawing.Size(129, 23);
+            this.btnPrintPreview.TabIndex = 21;
+            this.btnPrintPreview.Text = "Print Preview";
+            this.btnPrintPreview.UseVisualStyleBackColor = true;
+            this.btnPrintPreview.Click += new System.EventHandler(this.btnPrintPreview_Click);
+            // 
+            // btnPrintOrder
+            // 
+            this.btnPrintOrder.Location = new System.Drawing.Point(838, 45);
+            this.btnPrintOrder.Name = "btnPrintOrder";
+            this.btnPrintOrder.Size = new System.Drawing.Size(129, 23);
+            this.btnPrintOrder.TabIndex = 22;
+            this.btnPrintOrder.Text = "Print";
+            this.btnPrintOrder.UseVisualStyleBackColor = true;
+            this.btnPrintOrder.Click += new System.EventHandler(this.btnPrintOrder_Click);
+            // 
             // Suporder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1183, 594);
+            this.Controls.Add(this.btnPrintOrder);
+            this.Controls.Add(this.btnPrintPreview);
             this.Controls.Add(this.btnRemoveCustomer);
             this.Controls.Add(this.dataGridViewOrder);
             this.Controls.Add(this.btnAddToOrder);
@@ -279,5 +316,9 @@
         private System.Windows.Forms.Button btnAddToOrder;
         private System.Windows.Forms.DataGridView dataGridViewOrder;
         private System.Windows.Forms.Button btnRemoveCustomer;
+        private System.Drawing.Printing.PrintDocument printDocument1;
+        private System.Windows.Forms.PrintPreviewDialog printPreviewDialog1;
+        private System.Windows.Forms.Button btnPrintPreview;
+        private System.Windows.Forms.Button btnPrintOrder;
     }
 }

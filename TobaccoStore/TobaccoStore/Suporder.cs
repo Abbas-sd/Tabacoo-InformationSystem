@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.Drawing.Printing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,6 +14,10 @@ namespace TobaccoStore
 {
     public partial class Suporder : Form
     {
+        private PrintPreviewDialog printPreviewDialog = new PrintPreviewDialog();
+        private PrintDocument printDocument = new PrintDocument();
+        private Bitmap logo; // Store the company logo
+
         public Suporder()
         {
             InitializeComponent();
@@ -41,6 +46,18 @@ namespace TobaccoStore
 
             // Bind DataTable to DataGridView
             dataGridViewOrder.DataSource = orderDataTable;
+            // Load company logo
+            try
+            {
+                logo = new Bitmap("C:\\Users\\abbas\\OneDrive\\Desktop\\images\\Tabacoo-Icon2.jpeg"); // Update path
+            }
+            catch
+            {
+                logo = null; // If the logo fails to load, avoid crashing
+            }
+
+            // Assign the print event
+            printDocument.PrintPage += new PrintPageEventHandler(PrintDocument_PrintPage);
         }
 
 
@@ -395,6 +412,75 @@ namespace TobaccoStore
             }
 
             UpdateTotalAmount(sender, e);
+        }
+
+        private void btnPrintPreview_Click(object sender, EventArgs e)
+        {
+            if (orderDataTable.Rows.Count == 0)
+            {
+                MessageBox.Show("No orders to preview!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            printPreviewDialog.Document = printDocument;
+            printPreviewDialog.ShowDialog();
+        }
+        private void PrintDocument_PrintPage(object sender, PrintPageEventArgs e)
+        {
+            Graphics graphics = e.Graphics;
+            Font titleFont = new Font("Arial", 14, FontStyle.Bold);
+            Font bodyFont = new Font("Arial", 10);
+            Brush brush = Brushes.Black;
+
+            int yPos = 50; // Initial Y position
+
+            // Draw logo in the top-right corner (optional)
+            if (logo != null)
+            {
+                graphics.DrawImage(logo, e.MarginBounds.Right - 100, yPos, 40, 40);
+            }
+
+            // Print Order Header
+            graphics.DrawString("Supplier Order Invoice", titleFont, brush, 100, yPos);
+            yPos += 40;
+            graphics.DrawString($"Order Date & Time: {DateTime.Now.ToString("f")}", bodyFont, brush, 100, yPos);
+            yPos += 30;
+
+            // Print Column Headers
+            int xProduct = 100, xSupplier = 250, xQuantity = 400, xPrice = 500, xTotal = 600;
+            graphics.DrawString("Product", bodyFont, brush, xProduct, yPos);
+            graphics.DrawString("Supplier", bodyFont, brush, xSupplier, yPos);
+            graphics.DrawString("Qty", bodyFont, brush, xQuantity, yPos);
+            graphics.DrawString("Price", bodyFont, brush, xPrice, yPos);
+            graphics.DrawString("Total", bodyFont, brush, xTotal, yPos);
+            yPos += 20;
+
+            // Print Order Items
+            foreach (DataRow row in orderDataTable.Rows)
+            {
+                graphics.DrawString(row["Product Info"].ToString(), bodyFont, brush, xProduct, yPos);
+                graphics.DrawString(row["Supplier Info"].ToString(), bodyFont, brush, xSupplier, yPos);
+                graphics.DrawString(row["Quantity"].ToString(), bodyFont, brush, xQuantity, yPos);
+                graphics.DrawString(row["Cost Price"].ToString(), bodyFont, brush, xPrice, yPos);
+                graphics.DrawString(row["Total Amount"].ToString(), bodyFont, brush, xTotal, yPos);
+                yPos += 20;
+            }
+
+            // Print Total Amount
+            decimal totalAmount = orderDataTable.AsEnumerable().Sum(row => Convert.ToDecimal(row["Total Amount"]));
+            yPos += 30;
+            graphics.DrawString($"Total Amount: {totalAmount:C}", titleFont, brush, 100, yPos);
+        }
+
+
+        private void btnPrintOrder_Click(object sender, EventArgs e)
+        {
+            if (orderDataTable.Rows.Count == 0)
+            {
+                MessageBox.Show("No orders to print!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            printDocument.Print();
         }
     }
 }     

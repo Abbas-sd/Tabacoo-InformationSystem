@@ -482,12 +482,10 @@ namespace TobaccoStore
                 MessageBox.Show("Please enter a valid barcode.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
-
         private void btnManualEntry_KeyDown(object sender, KeyEventArgs e)
         {
             
         }
-
         private void txtManualBarcode_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter) // If Enter key is pressed
@@ -539,26 +537,29 @@ namespace TobaccoStore
 
         private void btnPrint_Click(object sender, EventArgs e)
         {
-            PrintInvoice();
+            if (ValidateOrder())  // Check validation before proceeding
+            {
+                PrintInvoice();
+            }
         }
         private bool ValidateOrder()
-{
-    // Check if a customer is selected
-    if (listBoxCustomers.SelectedItem == null)
-    {
-        MessageBox.Show("Please select a customer.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-        return false;
-    }
+        {
+            // Check if a customer is selected
+            if (listBoxCustomers.SelectedItem == null)
+            {
+                MessageBox.Show("Please select a customer.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
 
-    // Check if there are items in the sale
-    if (saleItems.Count == 0)
-    {
-        MessageBox.Show("Please add items to the order.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-        return false;
-    }
+            // Check if there are items in the sale
+            if (saleItems.Count == 0)
+            {
+                MessageBox.Show("Please add items to the order.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
 
-    return true;
-}
+            return true;
+        }
 
         private void btnPrintPreview_Click(object sender, EventArgs e)
         {
@@ -589,7 +590,7 @@ namespace TobaccoStore
             Brush brush = Brushes.Black;
 
             // Load the icon image (replace with your own image path)
-            Image iconImage = Image.FromFile("C:\\Users\\abbas\\OneDrive\\Desktop\\images\\maaref logo.jpg");
+            Image iconImage = Image.FromFile("C:\\Users\\abbas\\OneDrive\\Desktop\\images\\Tabacoo-Icon2.jpeg");
             int iconWidth = 150; // Adjust size of the icon if needed
             int iconHeight = 150; // Adjust size of the icon if needed
             int iconX = e.PageBounds.Width - iconWidth - 20; // Right margin
@@ -609,14 +610,16 @@ namespace TobaccoStore
                 var selectedCustomer = listBoxCustomers.SelectedItem as CustomerItem;
                 graphics.DrawString($"Customer: {selectedCustomer.CustomerName}", bodyFont, brush, 100, yPos);
             }
+
             else
             {
                 graphics.DrawString("Customer: Not Selected", bodyFont, brush, 100, yPos);
             }
 
             // Order Date
-            yPos += 30;
-            graphics.DrawString($"Order Date: {dateTimePickerOrderDate.Value.ToShortDateString()}", bodyFont, brush, 100, yPos);
+            yPos += 50;
+            graphics.DrawString($"Order Date & Time: {dateTimePickerOrderDate.Value.ToString("f")}", bodyFont, brush, 100, yPos);
+
 
             // Item List Header
             yPos += 40;
@@ -643,7 +646,5 @@ namespace TobaccoStore
             // End of Page
             e.HasMorePages = false; // Only one page
         }
-
-
     }
 }
