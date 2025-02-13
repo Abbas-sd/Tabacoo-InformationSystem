@@ -131,7 +131,7 @@ namespace TobaccoStore
 
         private void customerOrderToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Customer_Order form3 = new Customer_Order();
+            Customer_Order_With_barcode form3 = new Customer_Order_With_barcode();
 
             form3.Show();
 

@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.Drawing.Printing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -503,5 +504,146 @@ namespace TobaccoStore
                 e.SuppressKeyPress = true; // Prevent the "ding" sound
             }
         }
+
+        private void btnback_Click(object sender, EventArgs e)
+        {
+            Main form4 = new Main();
+
+            form4.Show();
+
+            this.Hide();
+        }
+
+        private void btnexit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void PrintInvoice()
+        {
+            PrintDialog printDialog = new PrintDialog();
+            PrintDocument printDocument = new PrintDocument();
+
+            // Handle the PrintPage event to define how the content is printed
+            printDocument.PrintPage += new PrintPageEventHandler(printDocument_PrintPage);
+
+            // Set the printer settings (optional, use default printer if not set)
+            printDialog.Document = printDocument;
+
+            // Show the print dialog to the user
+            if (printDialog.ShowDialog() == DialogResult.OK)
+            {
+                printDocument.Print();
+            }
+        }
+
+        private void btnPrint_Click(object sender, EventArgs e)
+        {
+            PrintInvoice();
+        }
+        private bool ValidateOrder()
+{
+    // Check if a customer is selected
+    if (listBoxCustomers.SelectedItem == null)
+    {
+        MessageBox.Show("Please select a customer.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        return false;
+    }
+
+    // Check if there are items in the sale
+    if (saleItems.Count == 0)
+    {
+        MessageBox.Show("Please add items to the order.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        return false;
+    }
+
+    return true;
+}
+
+        private void btnPrintPreview_Click(object sender, EventArgs e)
+        {
+            if (ValidateOrder())  // Check validation before proceeding
+            {
+                ShowPrintPreview();  // Only show preview if validation passed
+            }
+        }
+        private void ShowPrintPreview()
+        {
+            PrintPreviewDialog printPreviewDialog = new PrintPreviewDialog();
+            PrintDocument printDocument = new PrintDocument();
+
+            // Handle the PrintPage event to define how the content is displayed
+            printDocument.PrintPage += new PrintPageEventHandler(printDocument_PrintPage);
+
+            // Set the Document property of PrintPreviewDialog to the printDocument
+            printPreviewDialog.Document = printDocument;
+
+            // Show the print preview dialog
+            printPreviewDialog.ShowDialog();
+        }
+        private void printDocument_PrintPage(object sender, PrintPageEventArgs e)
+        {
+            Graphics graphics = e.Graphics;
+            Font headerFont = new Font("Arial", 14, FontStyle.Bold);
+            Font bodyFont = new Font("Arial", 12);
+            Brush brush = Brushes.Black;
+
+            // Load the icon image (replace with your own image path)
+            Image iconImage = Image.FromFile("C:\\Users\\abbas\\OneDrive\\Desktop\\images\\maaref logo.jpg");
+            int iconWidth = 150; // Adjust size of the icon if needed
+            int iconHeight = 150; // Adjust size of the icon if needed
+            int iconX = e.PageBounds.Width - iconWidth - 20; // Right margin
+            int iconY = 50; // Top margin
+
+            // Draw the icon at the top-right corner
+            graphics.DrawImage(iconImage, iconX, iconY, iconWidth, iconHeight);
+
+
+            // Header
+            graphics.DrawString("Customer Order Invoice", headerFont, brush, 100, 100);
+
+            // Customer Info
+            int yPos = 150; // Starting position for customer info
+            if (listBoxCustomers.SelectedItem != null)
+            {
+                var selectedCustomer = listBoxCustomers.SelectedItem as CustomerItem;
+                graphics.DrawString($"Customer: {selectedCustomer.CustomerName}", bodyFont, brush, 100, yPos);
+            }
+            else
+            {
+                graphics.DrawString("Customer: Not Selected", bodyFont, brush, 100, yPos);
+            }
+
+            // Order Date
+            yPos += 30;
+            graphics.DrawString($"Order Date: {dateTimePickerOrderDate.Value.ToShortDateString()}", bodyFont, brush, 100, yPos);
+
+            // Item List Header
+            yPos += 40;
+            graphics.DrawString("Product Name", bodyFont, brush, 100, yPos);
+            graphics.DrawString("Quantity", bodyFont, brush, 300, yPos);
+            graphics.DrawString("Price", bodyFont, brush, 400, yPos);
+            graphics.DrawString("Total", bodyFont, brush, 500, yPos);
+
+            // Item List
+            yPos += 30;
+            foreach (var item in saleItems)
+            {
+                graphics.DrawString(item.ProductName, bodyFont, brush, 100, yPos);
+                graphics.DrawString(item.Quantity.ToString(), bodyFont, brush, 300, yPos);
+                graphics.DrawString(item.SellingPrice.ToString("C"), bodyFont, brush, 400, yPos);
+                graphics.DrawString(item.TotalPrice.ToString("C"), bodyFont, brush, 500, yPos);
+                yPos += 30;
+            }
+
+            // Total Amount
+            yPos += 20;
+            graphics.DrawString($"Total Amount: {totalAmount:C}", headerFont, brush, 100, yPos);
+
+            // End of Page
+            e.HasMorePages = false; // Only one page
+        }
+
+
     }
 }

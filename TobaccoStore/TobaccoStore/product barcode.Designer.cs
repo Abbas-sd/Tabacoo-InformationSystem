@@ -221,6 +221,7 @@
             this.btnDeleteProduct.TabIndex = 43;
             this.btnDeleteProduct.Text = "Delete Product....";
             this.btnDeleteProduct.UseVisualStyleBackColor = true;
+            this.btnDeleteProduct.Click += new System.EventHandler(this.btnDeleteProduct_Click);
             // 
             // btnUpdateProduct
             // 
@@ -230,6 +231,7 @@
             this.btnUpdateProduct.TabIndex = 42;
             this.btnUpdateProduct.Text = "Update Product....";
             this.btnUpdateProduct.UseVisualStyleBackColor = true;
+            this.btnUpdateProduct.Click += new System.EventHandler(this.btnUpdateProduct_Click);
             // 
             // BtnExit
             // 
@@ -248,6 +250,7 @@
             this.btnBack.TabIndex = 44;
             this.btnBack.Text = "Back";
             this.btnBack.UseVisualStyleBackColor = true;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
             // product_barcode
             // 

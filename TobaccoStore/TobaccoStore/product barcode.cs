@@ -14,9 +14,11 @@ namespace TobaccoStore
 {
     public partial class product_barcode : Form
     {
+        
         public product_barcode()
         {
             InitializeComponent();
+            
             // Wire up the Shown event
             this.Shown += new EventHandler(product_Shown);
             // Wire up the TextChanged event for txtBarcode
@@ -156,6 +158,29 @@ namespace TobaccoStore
         }
 
         private void txtBarcode_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnDeleteProduct_Click(object sender, EventArgs e)
+        {
+            DeleteProduct form77 = new DeleteProduct();
+
+            form77.Show();
+
+            this.Hide();
+        }
+
+        private void btnUpdateProduct_Click(object sender, EventArgs e)
+        {
+            UpdateProduct form78 = new UpdateProduct();
+            
+            form78.Show();
+
+            this.Hide();
+        }
+
+        private void btnBack_Click(object sender, EventArgs e)
         {
 
         }

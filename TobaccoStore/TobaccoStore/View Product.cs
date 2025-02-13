@@ -45,5 +45,28 @@ namespace TobaccoStore
 
             this.Close();
         }
+
+        private void btnDeleteProduct_Click(object sender, EventArgs e)
+        {
+            DeleteProduct form99 = new DeleteProduct();
+
+            form99.Show();
+
+            this.Hide();
+        }
+
+        private void btnUpdateProduct_Click(object sender, EventArgs e)
+        {
+            UpdateProduct form100 = new UpdateProduct();
+
+            form100.Show();
+
+            this.Hide();
+        }
+
+        private void btnexit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

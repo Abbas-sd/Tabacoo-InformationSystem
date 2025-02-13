@@ -40,6 +40,11 @@
             this.btnremove = new System.Windows.Forms.Button();
             this.txtManualBarcode = new System.Windows.Forms.TextBox();
             this.btnManualEntry = new System.Windows.Forms.Button();
+            this.btnback = new System.Windows.Forms.Button();
+            this.btnexit = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.btnPrint = new System.Windows.Forms.Button();
+            this.btnPrintPreview = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSale)).BeginInit();
             this.SuspendLayout();
             // 
@@ -145,7 +150,7 @@
             // 
             // btnManualEntry
             // 
-            this.btnManualEntry.Location = new System.Drawing.Point(749, 508);
+            this.btnManualEntry.Location = new System.Drawing.Point(591, 12);
             this.btnManualEntry.Name = "btnManualEntry";
             this.btnManualEntry.Size = new System.Drawing.Size(75, 23);
             this.btnManualEntry.TabIndex = 11;
@@ -154,11 +159,65 @@
             this.btnManualEntry.Click += new System.EventHandler(this.btnManualEntry_Click);
             this.btnManualEntry.KeyDown += new System.Windows.Forms.KeyEventHandler(this.btnManualEntry_KeyDown);
             // 
+            // btnback
+            // 
+            this.btnback.Location = new System.Drawing.Point(12, 512);
+            this.btnback.Name = "btnback";
+            this.btnback.Size = new System.Drawing.Size(75, 23);
+            this.btnback.TabIndex = 12;
+            this.btnback.Text = "Back";
+            this.btnback.UseVisualStyleBackColor = true;
+            this.btnback.Click += new System.EventHandler(this.btnback_Click);
+            // 
+            // btnexit
+            // 
+            this.btnexit.Location = new System.Drawing.Point(1022, 512);
+            this.btnexit.Name = "btnexit";
+            this.btnexit.Size = new System.Drawing.Size(75, 23);
+            this.btnexit.TabIndex = 13;
+            this.btnexit.Text = "Exit";
+            this.btnexit.UseVisualStyleBackColor = true;
+            this.btnexit.Click += new System.EventHandler(this.btnexit_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(360, 19);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(93, 16);
+            this.label2.TabIndex = 14;
+            this.label2.Text = "Manual Eenter";
+            // 
+            // btnPrint
+            // 
+            this.btnPrint.Location = new System.Drawing.Point(75, 269);
+            this.btnPrint.Name = "btnPrint";
+            this.btnPrint.Size = new System.Drawing.Size(75, 23);
+            this.btnPrint.TabIndex = 15;
+            this.btnPrint.Text = "Print";
+            this.btnPrint.UseVisualStyleBackColor = true;
+            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
+            // 
+            // btnPrintPreview
+            // 
+            this.btnPrintPreview.Location = new System.Drawing.Point(46, 314);
+            this.btnPrintPreview.Name = "btnPrintPreview";
+            this.btnPrintPreview.Size = new System.Drawing.Size(120, 23);
+            this.btnPrintPreview.TabIndex = 16;
+            this.btnPrintPreview.Text = "Print Preview";
+            this.btnPrintPreview.UseVisualStyleBackColor = true;
+            this.btnPrintPreview.Click += new System.EventHandler(this.btnPrintPreview_Click);
+            // 
             // Customer_Order_With_barcode
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1109, 547);
+            this.Controls.Add(this.btnPrintPreview);
+            this.Controls.Add(this.btnPrint);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.btnexit);
+            this.Controls.Add(this.btnback);
             this.Controls.Add(this.btnManualEntry);
             this.Controls.Add(this.txtManualBarcode);
             this.Controls.Add(this.btnremove);
@@ -194,5 +253,10 @@
         private System.Windows.Forms.Button btnremove;
         private System.Windows.Forms.TextBox txtManualBarcode;
         private System.Windows.Forms.Button btnManualEntry;
+        private System.Windows.Forms.Button btnback;
+        private System.Windows.Forms.Button btnexit;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button btnPrint;
+        private System.Windows.Forms.Button btnPrintPreview;
     }
 }
