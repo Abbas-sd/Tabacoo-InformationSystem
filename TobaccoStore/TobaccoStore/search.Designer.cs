@@ -35,6 +35,7 @@
             this.dgvSearchResults = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.btnexit = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSearchResults)).BeginInit();
             this.SuspendLayout();
             // 
@@ -45,7 +46,9 @@
             "Customer",
             "Supplier",
             "Product",
-            "Order"});
+            "Employee",
+            "CustomerOrder",
+            "SupplierOrder"});
             this.comboBox1.Location = new System.Drawing.Point(141, 19);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(121, 24);
@@ -54,7 +57,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(696, 415);
+            this.button1.Location = new System.Drawing.Point(664, 24);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 1;
@@ -68,6 +71,7 @@
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(100, 22);
             this.txtSearch.TabIndex = 2;
+            this.txtSearch.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtSearch_KeyDown);
             // 
             // button2
             // 
@@ -107,11 +111,22 @@
             this.label2.TabIndex = 6;
             this.label2.Text = "Type";
             // 
+            // btnexit
+            // 
+            this.btnexit.Location = new System.Drawing.Point(713, 415);
+            this.btnexit.Name = "btnexit";
+            this.btnexit.Size = new System.Drawing.Size(75, 23);
+            this.btnexit.TabIndex = 52;
+            this.btnexit.Text = "Exit";
+            this.btnexit.UseVisualStyleBackColor = true;
+            this.btnexit.Click += new System.EventHandler(this.btnexit_Click);
+            // 
             // search
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnexit);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dgvSearchResults);
@@ -121,6 +136,7 @@
             this.Controls.Add(this.comboBox1);
             this.Name = "search";
             this.Text = "TSIS | search";
+            this.Load += new System.EventHandler(this.search_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvSearchResults)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -136,5 +152,6 @@
         private System.Windows.Forms.DataGridView dgvSearchResults;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button btnexit;
     }
 }

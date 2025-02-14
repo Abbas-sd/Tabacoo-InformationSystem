@@ -197,6 +197,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.MaximizeBox = false;
             this.Name = "Supplier";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "TSIS | Supplier Form";
             this.Load += new System.EventHandler(this.Supplier_Load);
             this.panel1.ResumeLayout(false);

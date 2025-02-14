@@ -165,28 +165,34 @@
     <Compile Include="UpdatSupplier.Designer.cs">
       <DependentUpon>UpdatSupplier.cs</DependentUpon>
     </Compile>
-    <Compile Include="View Customers.cs">
+    <Compile Include="View\View Customer Orders.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View Customers.Designer.cs">
+    <Compile Include="View\View Customer Orders.Designer.cs">
+      <DependentUpon>View Customer Orders.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\View Customers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\View Customers.Designer.cs">
       <DependentUpon>View Customers.cs</DependentUpon>
     </Compile>
-    <Compile Include="View Orders.cs">
+    <Compile Include="View\View Orders.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View Orders.Designer.cs">
+    <Compile Include="View\View Orders.Designer.cs">
       <DependentUpon>View Orders.cs</DependentUpon>
     </Compile>
-    <Compile Include="View Product.cs">
+    <Compile Include="View\View Product.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View Product.Designer.cs">
+    <Compile Include="View\View Product.Designer.cs">
       <DependentUpon>View Product.cs</DependentUpon>
     </Compile>
-    <Compile Include="View Suppliers.cs">
+    <Compile Include="View\View Suppliers.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View Suppliers.Designer.cs">
+    <Compile Include="View\View Suppliers.Designer.cs">
       <DependentUpon>View Suppliers.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Customer Order With barcode.resx">
@@ -257,14 +263,20 @@
     <EmbeddedResource Include="UpdatSupplier.resx">
       <DependentUpon>UpdatSupplier.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View Customers.resx">
+    <EmbeddedResource Include="View\View Customer Orders.resx">
+      <DependentUpon>View Customer Orders.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\View Customers.resx">
       <DependentUpon>View Customers.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View Orders.resx">
+    <EmbeddedResource Include="View\View Orders.resx">
       <DependentUpon>View Orders.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View Product.resx">
+    <EmbeddedResource Include="View\View Product.resx">
       <DependentUpon>View Product.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\View Suppliers.resx">
+      <DependentUpon>View Suppliers.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

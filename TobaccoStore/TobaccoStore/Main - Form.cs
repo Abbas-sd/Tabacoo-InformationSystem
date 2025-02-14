@@ -94,11 +94,7 @@ namespace TobaccoStore
 
         private void viewOrdersToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            View_Orders form6 = new View_Orders();
-
-            form6.Show();
-
-            this.Hide();   
+              
         }
 
         private void searchToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -162,6 +158,24 @@ namespace TobaccoStore
                     "About This System",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Information);
+        }
+
+        private void customersOrdersToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            View_Customer_Orders form70 = new View_Customer_Orders();
+
+            form70.Show();
+
+            this.Hide();
+        }
+
+        private void suppliersOrdersToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            View_Orders form71 = new View_Orders();
+
+            form71.Show();
+
+            this.Hide();
         }
     }
     
