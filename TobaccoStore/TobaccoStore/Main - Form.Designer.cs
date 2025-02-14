@@ -187,6 +187,7 @@
             this.viewSuppliersToolStripMenuItem.Name = "viewSuppliersToolStripMenuItem";
             this.viewSuppliersToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.viewSuppliersToolStripMenuItem.Text = "View Suppliers";
+            this.viewSuppliersToolStripMenuItem.Click += new System.EventHandler(this.viewSuppliersToolStripMenuItem_Click);
             // 
             // viewOrdersToolStripMenuItem
             // 

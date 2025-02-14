@@ -177,6 +177,15 @@ namespace TobaccoStore
 
             this.Hide();
         }
+
+        private void viewSuppliersToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            View_Suppliers form72 = new View_Suppliers();
+
+            form72.Show(); 
+            
+            this.Hide(); 
+        }
     }
     
 }

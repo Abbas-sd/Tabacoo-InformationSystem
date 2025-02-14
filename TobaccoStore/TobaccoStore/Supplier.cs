@@ -100,19 +100,15 @@ namespace TobaccoStore
 
         private void btnUpdatessupplier_Click(object sender, EventArgs e)
         {
-            UpdatSupplier form2 = new UpdatSupplier();
-
+            UpdatSupplier form2 = new UpdatSupplier(this); // Pass 'this' as the calling form
             form2.Show();
-
             this.Hide();
         }
 
         private void btnDeletesupplier_Click(object sender, EventArgs e)
         {
-            DeleteSupplier form78 = new DeleteSupplier();
-
+            DeleteSupplier form78 = new DeleteSupplier(this); // Pass 'this' as the calling form
             form78.Show();
-
             this.Hide();
         }
 

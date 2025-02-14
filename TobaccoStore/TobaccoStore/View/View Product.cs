@@ -16,17 +16,24 @@ namespace TobaccoStore
         public View_Product()
         {
             InitializeComponent();
+            txtSearch.TextChanged += new EventHandler(txtSearch_TextChanged); // Attach TextChanged event
         }
 
 
         private string connectionString = "Server=MSI\\SQLEXPRESS;Database=TabacooStore;Trusted_Connection=True;";
 
-        private void LoadProducts()
+        private void LoadProducts(string searchKeyword = "")
         {
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
-                string query = "SELECT * FROM Product";
+                string query = @"
+                    SELECT * 
+                    FROM Product 
+                    WHERE product_name LIKE @keyword OR product_type LIKE @keyword OR barcode LIKE @keyword";
+
                 SqlDataAdapter adapter = new SqlDataAdapter(query, conn);
+                adapter.SelectCommand.Parameters.AddWithValue("@keyword", "%" + searchKeyword + "%");
+
                 DataTable dt = new DataTable();
                 adapter.Fill(dt);
                 dgvProducts.DataSource = dt;
@@ -34,7 +41,13 @@ namespace TobaccoStore
         }
         private void View_Product_Load(object sender, EventArgs e)
         {
-            LoadProducts();
+            LoadProducts(); // Load all products initially
+        }
+
+        private void txtSearch_TextChanged(object sender, EventArgs e)
+        {
+            string searchKeyword = txtSearch.Text.Trim();
+            LoadProducts(searchKeyword); // Reload products with search filter
         }
 
         private void btnBack_Click(object sender, EventArgs e)

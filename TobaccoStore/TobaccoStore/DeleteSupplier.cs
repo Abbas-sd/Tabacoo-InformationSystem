@@ -13,9 +13,12 @@ namespace TobaccoStore
 {
     public partial class DeleteSupplier : Form
     {
-        public DeleteSupplier()
+        private Form _callingForm; // Store the reference to the calling form
+
+        public DeleteSupplier(Form callingForm)
         {
             InitializeComponent();
+            _callingForm = _callingForm; // Store the calling form
         }
 
         private string connectionString = "Server=MSI\\SQLEXPRESS;Database=TabacooStore;Trusted_Connection=True;";
@@ -83,7 +86,7 @@ namespace TobaccoStore
                     MessageBox.Show("Error: " + ex.Message);
                 }
 
-                txtSupplierId.Clear();
+                txtSupplierId.Clear();      
                 LoadSuppliers();
             }
         }
@@ -95,11 +98,19 @@ namespace TobaccoStore
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Supplier form7 = new Supplier();
-
-            form7.Show();
-
-            this.Hide();
+            // Navigate back to the calling form
+            if (_callingForm != null)
+            {
+                _callingForm.Show();
+                this.Hide();
+            }
+            else
+            {
+                // Default behavior if no calling form is provided
+                Supplier form7 = new Supplier();
+                form7.Show();
+                this.Hide();
+            }
         }
     }
 }

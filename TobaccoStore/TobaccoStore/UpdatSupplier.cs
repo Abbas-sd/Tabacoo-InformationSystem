@@ -13,9 +13,11 @@ namespace TobaccoStore
 {
     public partial class UpdatSupplier : Form
     {
-        public UpdatSupplier()
+        private Form _callingForm; // Store the reference to the calling form
+        public UpdatSupplier(Form callingForm)
         {
             InitializeComponent();
+            _callingForm = callingForm; // Store the calling form
         }
 
         private string connectionString = "Server=MSI\\SQLEXPRESS;Database=TabacooStore;Trusted_Connection=True;";
@@ -139,11 +141,12 @@ namespace TobaccoStore
 
         private void btnBack_Click(object sender, EventArgs e)
         {
-            Supplier form99 = new Supplier();
-
-            form99.Show();
-
-            this.Hide();
+            // Navigate back to the calling form
+            if (_callingForm != null)
+            {
+                _callingForm.Show();
+                this.Hide();
+            }
         }
 
         private void BtnRefresh_Click(object sender, EventArgs e)

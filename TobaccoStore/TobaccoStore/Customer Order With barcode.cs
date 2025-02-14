@@ -589,6 +589,7 @@ namespace TobaccoStore
             Font bodyFont = new Font("Arial", 12);
             Brush brush = Brushes.Black;
 
+            /*
             // Load the icon image (replace with your own image path)
             Image iconImage = Image.FromFile("C:\\Users\\abbas\\OneDrive\\Desktop\\images\\Tabacoo-Icon2.jpeg");
             int iconWidth = 150; // Adjust size of the icon if needed
@@ -598,7 +599,7 @@ namespace TobaccoStore
 
             // Draw the icon at the top-right corner
             graphics.DrawImage(iconImage, iconX, iconY, iconWidth, iconHeight);
-
+            */
 
             // Header
             graphics.DrawString("Customer Order Invoice", headerFont, brush, 100, 100);
