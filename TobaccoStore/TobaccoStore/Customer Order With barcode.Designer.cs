@@ -108,9 +108,9 @@
             // 
             // dateTimePickerOrderDate
             // 
-            this.dateTimePickerOrderDate.Location = new System.Drawing.Point(860, 13);
+            this.dateTimePickerOrderDate.Location = new System.Drawing.Point(842, 13);
             this.dateTimePickerOrderDate.Name = "dateTimePickerOrderDate";
-            this.dateTimePickerOrderDate.Size = new System.Drawing.Size(225, 22);
+            this.dateTimePickerOrderDate.Size = new System.Drawing.Size(243, 22);
             this.dateTimePickerOrderDate.TabIndex = 6;
             // 
             // label1
