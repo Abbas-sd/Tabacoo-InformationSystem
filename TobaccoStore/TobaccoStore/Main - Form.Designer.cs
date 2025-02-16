@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.addUserToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -171,21 +172,21 @@
             // viewCustomersToolStripMenuItem
             // 
             this.viewCustomersToolStripMenuItem.Name = "viewCustomersToolStripMenuItem";
-            this.viewCustomersToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.viewCustomersToolStripMenuItem.Size = new System.Drawing.Size(197, 26);
             this.viewCustomersToolStripMenuItem.Text = "View Customers";
             this.viewCustomersToolStripMenuItem.Click += new System.EventHandler(this.viewCustomersToolStripMenuItem_Click);
             // 
             // viewProductsToolStripMenuItem
             // 
             this.viewProductsToolStripMenuItem.Name = "viewProductsToolStripMenuItem";
-            this.viewProductsToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.viewProductsToolStripMenuItem.Size = new System.Drawing.Size(197, 26);
             this.viewProductsToolStripMenuItem.Text = "View Products";
             this.viewProductsToolStripMenuItem.Click += new System.EventHandler(this.viewProductsToolStripMenuItem_Click);
             // 
             // viewSuppliersToolStripMenuItem
             // 
             this.viewSuppliersToolStripMenuItem.Name = "viewSuppliersToolStripMenuItem";
-            this.viewSuppliersToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.viewSuppliersToolStripMenuItem.Size = new System.Drawing.Size(197, 26);
             this.viewSuppliersToolStripMenuItem.Text = "View Suppliers";
             this.viewSuppliersToolStripMenuItem.Click += new System.EventHandler(this.viewSuppliersToolStripMenuItem_Click);
             // 
@@ -195,21 +196,21 @@
             this.customersOrdersToolStripMenuItem,
             this.suppliersOrdersToolStripMenuItem});
             this.viewOrdersToolStripMenuItem.Name = "viewOrdersToolStripMenuItem";
-            this.viewOrdersToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.viewOrdersToolStripMenuItem.Size = new System.Drawing.Size(197, 26);
             this.viewOrdersToolStripMenuItem.Text = "View Orders";
             this.viewOrdersToolStripMenuItem.Click += new System.EventHandler(this.viewOrdersToolStripMenuItem_Click);
             // 
             // customersOrdersToolStripMenuItem
             // 
             this.customersOrdersToolStripMenuItem.Name = "customersOrdersToolStripMenuItem";
-            this.customersOrdersToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.customersOrdersToolStripMenuItem.Size = new System.Drawing.Size(209, 26);
             this.customersOrdersToolStripMenuItem.Text = "Customers Orders";
             this.customersOrdersToolStripMenuItem.Click += new System.EventHandler(this.customersOrdersToolStripMenuItem_Click);
             // 
             // suppliersOrdersToolStripMenuItem
             // 
             this.suppliersOrdersToolStripMenuItem.Name = "suppliersOrdersToolStripMenuItem";
-            this.suppliersOrdersToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.suppliersOrdersToolStripMenuItem.Size = new System.Drawing.Size(209, 26);
             this.suppliersOrdersToolStripMenuItem.Text = "Suppliers Orders";
             this.suppliersOrdersToolStripMenuItem.Click += new System.EventHandler(this.suppliersOrdersToolStripMenuItem_Click);
             // 
@@ -284,6 +285,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.MaximizeBox = false;
             this.Name = "Main";

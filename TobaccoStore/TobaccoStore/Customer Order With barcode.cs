@@ -37,6 +37,14 @@ namespace TobaccoStore
 
             // Wire up the CellValidating event
             dataGridViewSale.CellValidating += dataGridViewSale_CellValidating;
+
+        }
+        private void Customer_Order_With_barcode_Load(object sender, EventArgs e)
+        {
+            dateTimePickerOrderDate.Value = DateTime.Now;
+            LoadCustomers();
+
+
         }
 
         private string connectionString = "Server=MSI\\SQLEXPRESS;Database=Tabacoostore;Trusted_Connection=True;";
@@ -49,41 +57,115 @@ namespace TobaccoStore
             // Set focus to the barcode text box when the form is shown
             txtBarcode.Focus();
         }
+        // Validate input before the user leaves the cell
         private void dataGridViewSale_CellValidating(object sender, DataGridViewCellValidatingEventArgs e)
         {
-            if (dataGridViewSale.Columns[e.ColumnIndex].Name == "SellingPrice")
-            {
-                string input = e.FormattedValue.ToString();
+            if (e.ColumnIndex < 0 || e.RowIndex < 0) return;
 
-                // Check if the input is a valid positive number
+            var columnName = dataGridViewSale.Columns[e.ColumnIndex].Name;
+            string input = e.FormattedValue.ToString();
+
+            // Selling Price Validation
+            if (columnName == "SellingPrice")
+            {
                 if (!decimal.TryParse(input, out decimal sellingPrice) || sellingPrice < 0)
                 {
                     MessageBox.Show("Please enter a valid positive number for the selling price.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    e.Cancel = true; // Cancel the edit
+                    e.Cancel = true; // ❌ Prevents moving to another cell
+                }
+            }
+
+            // Quantity Validation
+            if (columnName == "Quantity")
+            {
+                if (!int.TryParse(input, out int quantity) || quantity <= 0)
+                {
+                    MessageBox.Show("Quantity must be a positive integer.", "Invalid Quantity", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    e.Cancel = true;
                 }
             }
         }
-        private void Customer_Order_With_barcode_Load(object sender, EventArgs e)
+        private void dataGridViewSale_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
-            dateTimePickerOrderDate.Value = DateTime.Now;
-            LoadCustomers();
+            if (e.RowIndex < 0 || e.ColumnIndex < 0) return;
+
+            var row = dataGridViewSale.Rows[e.RowIndex];
+            int productId = Convert.ToInt32(row.Cells["ProductId"].Value);
+
+            var saleItem = saleItems.Find(item => item.ProductId == productId);
+            if (saleItem == null) return;
+
+            string columnName = dataGridViewSale.Columns[e.ColumnIndex].Name;
+
+            // Handle Quantity column changes
+            if (columnName == "Quantity")
+            {
+                if (!int.TryParse(row.Cells["Quantity"].Value.ToString(), out int newQuantity) || newQuantity <= 0)
+                {
+                    MessageBox.Show("Quantity must be a positive integer.", "Invalid Quantity", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    row.Cells["Quantity"].Value = saleItem.Quantity; // ❌ Revert to old value
+                    return;
+                }
+
+                // Check available stock
+                int availableStock = GetProductStockQuantity(productId);
+                if (newQuantity > availableStock)
+                {
+                    MessageBox.Show("Quantity exceeds available stock!", "Stock Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    row.Cells["Quantity"].Value = saleItem.Quantity; // ❌ Revert to old value
+                    return;
+                }
+
+                saleItem.Quantity = newQuantity;
+                UpdateStockQuantity(productId, newQuantity);
+            }
+
+            // Handle Discount column changes
+            if (columnName == "Discount")
+            {
+                if (!decimal.TryParse(row.Cells["Discount"].Value.ToString(), out decimal discount) || discount < 0m || discount > 100m)
+                {
+                    MessageBox.Show("Please enter a valid discount (0-100).", "Invalid Discount", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    row.Cells["Discount"].Value = saleItem.Discount; // ❌ Revert to old value
+                    return;
+                }
+
+                saleItem.Discount = discount;
+            }
+
+            // Handle Selling Price column changes
+            if (columnName == "SellingPrice")
+            {
+                if (!decimal.TryParse(row.Cells["SellingPrice"].Value.ToString(), out decimal sellingPrice) || sellingPrice < 0m)
+                {
+                    MessageBox.Show("Please enter a valid selling price.", "Invalid Price", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    row.Cells["SellingPrice"].Value = saleItem.SellingPrice; // ❌ Revert to old value
+                    return;
+                }
+
+                saleItem.SellingPrice = sellingPrice;
+            }
+
+            // Refresh DataGridView to show updated totals
+            BeginInvoke((MethodInvoker)delegate
+            {
+                RefreshDataGridView();
+            });
         }
-        private void UpdateProductStockQuantity(int productId, int quantitySold)
+
+        private void UpdateStockQuantity(int productId, int quantitySold)
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                string query = "UPDATE Product SET stock_quantity = CASE " +
-                               "WHEN stock_quantity - @quantity >= 0 THEN stock_quantity - @quantity " +
-                               "ELSE 0 END WHERE product_id = @productId";
-
+                string query = "UPDATE Product SET stock_quantity = stock_quantity - @quantitySold WHERE product_id = @productId";
                 SqlCommand command = new SqlCommand(query, connection);
-                command.Parameters.AddWithValue("@quantity", quantitySold);
+                command.Parameters.AddWithValue("@quantitySold", quantitySold);
                 command.Parameters.AddWithValue("@productId", productId);
 
                 try
                 {
                     connection.Open();
-                    command.ExecuteNonQuery();
+                    command.ExecuteNonQuery(); // Execute the query to update the stock quantity
                 }
                 catch (Exception ex)
                 {
@@ -169,6 +251,14 @@ namespace TobaccoStore
                                     "Stock Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return; // Stop execution if any item exceeds stock
                 }
+
+                // Ensure discount is between 0 and 100
+                if (item.Discount < 0 || item.Discount > 100)
+                {
+                    MessageBox.Show($"Invalid discount for {item.ProductName}. Discount must be between 0 and 100.",
+                                    "Discount Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
             }
 
             // Get the selected customer ID
@@ -177,10 +267,14 @@ namespace TobaccoStore
             // Get the selected date from the DateTimePicker
             DateTime orderDate = dateTimePickerOrderDate.Value;
 
-            // Calculate Totals (Applying VAT First, Then Discount)
+            // Step 1: Calculate the total price before VAT
             decimal totalBeforeVAT = saleItems.Sum(item => item.SellingPrice * item.Quantity);
-            decimal vatAmount = totalBeforeVAT * 0.11m;  // VAT is 11%
+
+            // Step 2: Apply VAT (11%)
+            decimal vatAmount = totalBeforeVAT * 0.11m;
             decimal totalAfterVAT = totalBeforeVAT + vatAmount;
+
+            // Step 3: Apply Discount (AFTER VAT)
             decimal totalDiscount = totalAfterVAT * (saleItems.Any() ? saleItems.Average(item => item.Discount) / 100 : 0);
             decimal totalAmount = totalAfterVAT - totalDiscount; // Final Total
 
@@ -193,9 +287,9 @@ namespace TobaccoStore
                 {
                     // Insert into CustomerOrder table
                     string orderQuery = @"
-                INSERT INTO CustomerOrder (customer_id, order_date, total_amount, vat_amount, discount_amount)
-                VALUES (@customerId, @orderDate, @totalAmount, @vat, @discount);
-                SELECT SCOPE_IDENTITY();";
+            INSERT INTO CustomerOrder (customer_id, order_date, total_amount, vat_amount, discount_amount)
+            VALUES (@customerId, @orderDate, @totalAmount, @vat, @discount);
+            SELECT SCOPE_IDENTITY();";
 
                     SqlCommand orderCommand = new SqlCommand(orderQuery, connection, transaction);
                     orderCommand.Parameters.AddWithValue("@customerId", customerId);
@@ -206,13 +300,13 @@ namespace TobaccoStore
 
                     int customerOrderId = Convert.ToInt32(orderCommand.ExecuteScalar());
 
-                    // Insert into CustomerOrderDetails table
+                    // Insert into CustomerOrderDetails table and update stock
                     foreach (var item in saleItems)
                     {
                         string detailsQuery = @"
-                    INSERT INTO CustomerOrderDetails 
-                    (customer_order_id, product_id, quantity, selling_price_at_order, discount) 
-                    VALUES (@customerOrderId, @productId, @quantity, @sellingPrice, @discount)";
+                INSERT INTO CustomerOrderDetails 
+                (customer_order_id, product_id, quantity, selling_price_at_order, discount) 
+                VALUES (@customerOrderId, @productId, @quantity, @sellingPrice, @discount)";
 
                         SqlCommand detailsCommand = new SqlCommand(detailsQuery, connection, transaction);
                         detailsCommand.Parameters.AddWithValue("@customerOrderId", customerOrderId);
@@ -222,6 +316,13 @@ namespace TobaccoStore
                         detailsCommand.Parameters.AddWithValue("@discount", item.Discount);
 
                         detailsCommand.ExecuteNonQuery();
+
+                        // ✅ Reduce stock after saving the sale details
+                        string updateStockQuery = "UPDATE Product SET stock_quantity = stock_quantity - @quantity WHERE product_id = @productId";
+                        SqlCommand updateStockCommand = new SqlCommand(updateStockQuery, connection, transaction);
+                        updateStockCommand.Parameters.AddWithValue("@quantity", item.Quantity);
+                        updateStockCommand.Parameters.AddWithValue("@productId", item.ProductId);
+                        updateStockCommand.ExecuteNonQuery();
                     }
 
                     // Commit the transaction (save changes)
@@ -240,13 +341,11 @@ namespace TobaccoStore
                 }
             }
         }
-
-
         private void AddProductToSale(string barcode)
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                string query = "SELECT product_id, product_name, selling_price FROM Product WHERE barcode = @barcode";
+                string query = "SELECT product_id, product_name, selling_price, stock_quantity FROM Product WHERE barcode = @barcode";
                 SqlCommand command = new SqlCommand(query, connection);
                 command.Parameters.AddWithValue("@barcode", barcode);
 
@@ -260,23 +359,39 @@ namespace TobaccoStore
                         int productId = reader.GetInt32(0);
                         string productName = reader.GetString(1);
                         decimal sellingPrice = reader.GetDecimal(2);
-                        
+                        int stockQuantity = reader.GetInt32(3);  // Fetch stock quantity
 
                         var existingSaleItem = saleItems.FirstOrDefault(item => item.ProductId == productId);
                         if (existingSaleItem != null)
                         {
-                            existingSaleItem.Quantity += 1;
+                            // Check if the new quantity exceeds available stock
+                            if (existingSaleItem.Quantity + 1 > stockQuantity)
+                            {
+                                MessageBox.Show("Quantity exceeds available stock!", "Stock Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            }
+                            else
+                            {
+                                existingSaleItem.Quantity += 1;
+                            }
                         }
                         else
                         {
-                            saleItems.Add(new SaleItem
+                            // Check if the initial quantity exceeds available stock
+                            if (1 > stockQuantity)
                             {
-                                ProductId = productId,
-                                ProductName = productName,
-                                Quantity = 1,
-                                SellingPrice = sellingPrice,
-                                
-                            });
+                                MessageBox.Show("Quantity exceeds available stock!", "Stock Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            }
+                            else
+                            {
+                                saleItems.Add(new SaleItem
+                                {
+                                    ProductId = productId,
+                                    ProductName = productName,
+                                    Quantity = 1,
+                                    SellingPrice = sellingPrice,
+                                    StockQuantity = stockQuantity // Add the stock quantity
+                                });
+                            }
                         }
 
                         RefreshDataGridView();
@@ -294,86 +409,6 @@ namespace TobaccoStore
         }
 
 
-        private void dataGridViewSale_CellEndEdit(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
-            {
-                var row = dataGridViewSale.Rows[e.RowIndex];
-                int productId = (int)row.Cells["ProductId"].Value;
-
-                var saleItem = saleItems.Find(item => item.ProductId == productId);
-                if (saleItem != null)
-                {
-                    // Handle editing the Discount column
-                    if (dataGridViewSale.Columns[e.ColumnIndex].Name == "Discount")
-                    {
-                        string discountValue = row.Cells["Discount"].Value.ToString();
-
-                        // Check if the discount value is a valid decimal number
-                        if (!decimal.TryParse(discountValue, out decimal discount) || discount < 0m || discount > 100m)
-                        {
-                            MessageBox.Show("Please enter a valid number for the discount (0-100).", "Invalid Discount", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                            row.Cells["Discount"].Value = saleItem.Discount; // Revert to the old value
-                            return;
-                        }
-
-                        saleItem.Discount = discount; // Update discount in saleItems
-                    }
-
-                    // Handle editing the Quantity column
-                    if (dataGridViewSale.Columns[e.ColumnIndex].Name == "Quantity")
-                    {
-                        string quantityValue = row.Cells["Quantity"].Value.ToString();
-
-                        // Ensure the quantity is a valid integer
-                        if (!int.TryParse(quantityValue, out int newQuantity) || newQuantity < 0)
-                        {
-                            MessageBox.Show("Quantity must be a non-negative integer.", "Invalid Quantity", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                            row.Cells["Quantity"].Value = saleItem.Quantity; // Revert to the old value
-                            return;
-                        }
-
-                        // Check if the new quantity exceeds the available stock
-                        int availableStock = GetProductStockQuantity(productId);
-                        if (newQuantity > availableStock)
-                        {
-                            MessageBox.Show("Quantity exceeds available stock!", "Stock Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                            row.Cells["Quantity"].Value = saleItem.Quantity; // Revert to the old value
-                            return;
-                        }
-
-                        saleItem.Quantity = newQuantity;
-                        UpdateProductStockQuantity(productId, newQuantity);
-                    }
-
-                    // Handle editing the SellingPrice column
-                    if (dataGridViewSale.Columns[e.ColumnIndex].Name == "SellingPrice")
-                    {
-                        string sellingPriceValue = row.Cells["SellingPrice"].Value.ToString();
-
-                        // Ensure the selling price is a valid decimal number
-                        if (!decimal.TryParse(sellingPriceValue, out decimal sellingPrice) || sellingPrice < 0m)
-                        {
-                            MessageBox.Show("Please enter a valid number for the selling price.", "Invalid Price", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                            row.Cells["SellingPrice"].Value = saleItem.SellingPrice; // Revert to the old value
-                            return;
-                        }
-
-                        saleItem.SellingPrice = sellingPrice;
-                    }
-
-                    // Refresh the DataGridView after validation
-                    BeginInvoke((MethodInvoker)delegate
-                    {
-                        RefreshDataGridView();
-                    });
-                }
-            }
-        }
-        
-
-
-        
 
 
         private void dataGridViewSale_UserDeletingRow(object sender, DataGridViewRowCancelEventArgs e)
@@ -403,8 +438,10 @@ namespace TobaccoStore
                     dataGridViewSale.Columns["ProductName"].ReadOnly = true;
                     dataGridViewSale.Columns["TotalPrice"].ReadOnly = true;
                     dataGridViewSale.Columns["VAT"].ReadOnly = true;
+                    dataGridViewSale.Columns["StockQuantity"].ReadOnly = true; 
                 }
             });
+
             // Calculate the subtotal (total before VAT)
             decimal totalBeforeVAT = saleItems.Sum(item => item.SellingPrice * item.Quantity);
 
@@ -425,8 +462,8 @@ namespace TobaccoStore
 
             // Update the label with the formatted amounts
             lblTotalAmount.Text = $"Subtotal: {totalBeforeVAT:C}\nVAT (11%): +{totalVAT:C}\nDiscount: -{totalDiscount:C}\nTotal: {totalAmount:C}";
-
         }
+
 
 
         private class SaleItem
@@ -437,29 +474,22 @@ namespace TobaccoStore
             public decimal SellingPrice { get; set; }
             public decimal Discount { get; set; }  // Discount in percentage
             public decimal VAT { get; set; } = 11; // Default VAT is 11%
-                                                   // Read-Only Property (No Setter)
+            public int StockQuantity { get; set; } // Add stock quantity  
+
+            // Read-Only Property (No Setter)
             public decimal TotalPrice
             {
                 get
                 {
-                    // Calculate the price before VAT and discount
                     decimal priceBeforeVAT = Quantity * SellingPrice;
-
-                    // Calculate the VAT (11% by default)
                     decimal vatAmount = priceBeforeVAT * (VAT / 100);
-
-                    // Calculate the total price including VAT
                     decimal priceAfterVAT = priceBeforeVAT + vatAmount;
-
-                    // Apply the discount (assuming Discount is in percentage)
                     decimal discountAmount = priceAfterVAT * (Discount / 100);
-
-                    // Calculate the final total price after VAT and discount
                     return priceAfterVAT - discountAmount;
                 }
             }
-
         }
+
 
 
         private void Btnclear_Click(object sender, EventArgs e)
@@ -508,7 +538,7 @@ namespace TobaccoStore
                         {
                             if (existingItem.Quantity < stockQuantity)
                             {
-                                existingItem.Quantity += 1;
+                                existingItem.Quantity += 1;  // Just increase quantity in the cart (not in stock)
                             }
                             else
                             {
@@ -537,11 +567,7 @@ namespace TobaccoStore
                     }
                     else
                     {
-                        if (!errorShown) // Prevent multiple errors
-                        {
-                            MessageBox.Show("Product not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            errorShown = true;
-                        }
+                        MessageBox.Show("Product not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
                 catch (Exception ex)
@@ -550,6 +576,8 @@ namespace TobaccoStore
                 }
             }
         }
+
+
         private void ProcessScannedBarcode(string barcode)
         {
             AddOrUpdateProductInSale(barcode);
@@ -702,7 +730,7 @@ namespace TobaccoStore
 
         private void btnPrint_Click(object sender, EventArgs e)
         {
-            if (ValidateOrder())  // Check validation before proceeding
+            if (ValidateOrder() && ValidateStockBeforePrint() && ValidateDiscountBeforePrint())  // Check all validations before proceeding
             {
                 PrintInvoice();
             }
@@ -728,7 +756,7 @@ namespace TobaccoStore
 
         private void btnPrintPreview_Click(object sender, EventArgs e)
         {
-            if (ValidateOrder())  // Check validation before proceeding
+            if (ValidateOrder() && ValidateStockBeforePrint() && ValidateDiscountBeforePrint())  // Check all validations before proceeding
             {
                 ShowPrintPreview();  // Only show preview if validation passed
             }
@@ -754,18 +782,6 @@ namespace TobaccoStore
             Font bodyFont = new Font("Arial", 12);
             Brush brush = Brushes.Black;
 
-            /*
-            // Load the icon image (replace with your own image path)
-            Image iconImage = Image.FromFile("C:\\Users\\abbas\\OneDrive\\Desktop\\images\\Tabacoo-Icon2.jpeg");
-            int iconWidth = 150; // Adjust size of the icon if needed
-            int iconHeight = 150; // Adjust size of the icon if needed
-            int iconX = e.PageBounds.Width - iconWidth - 20; // Right margin
-            int iconY = 50; // Top margin
-
-            // Draw the icon at the top-right corner
-            graphics.DrawImage(iconImage, iconX, iconY, iconWidth, iconHeight);
-            */
-
             // Header
             graphics.DrawString("Customer Order Invoice", headerFont, brush, 100, 100);
 
@@ -776,7 +792,6 @@ namespace TobaccoStore
                 var selectedCustomer = listBoxCustomers.SelectedItem as CustomerItem;
                 graphics.DrawString($"Customer: {selectedCustomer.CustomerName}", bodyFont, brush, 100, yPos);
             }
-
             else
             {
                 graphics.DrawString("Customer: Not Selected", bodyFont, brush, 100, yPos);
@@ -785,7 +800,6 @@ namespace TobaccoStore
             // Order Date
             yPos += 50;
             graphics.DrawString($"Order Date & Time: {dateTimePickerOrderDate.Value.ToString("f")}", bodyFont, brush, 100, yPos);
-
 
             // Item List Header
             yPos += 40;
@@ -805,12 +819,58 @@ namespace TobaccoStore
                 yPos += 30;
             }
 
-            // Total Amount
+            // Discount and VAT calculations
+            decimal totalBeforeDiscount = saleItems.Sum(item => item.SellingPrice * item.Quantity);
+            decimal totalVAT = totalBeforeDiscount * 0.11m; // Assuming VAT is 11%
+            decimal totalDiscount = totalBeforeDiscount * (saleItems.Any() ? saleItems.Average(item => item.Discount) / 100 : 0);
+            decimal totalAfterDiscount = totalBeforeDiscount + totalVAT - totalDiscount;
+
+            // Display the discount percentage and the discount amount
+            decimal averageDiscount = saleItems.Any() ? saleItems.Average(item => item.Discount) : 0;
             yPos += 20;
-            graphics.DrawString($"Total Amount: {totalAmount:C}", headerFont, brush, 100, yPos);
+            graphics.DrawString($"Discount: {averageDiscount}% (-{totalDiscount:C})", bodyFont, brush, 100, yPos);
+
+            // Display VAT
+            yPos += 20;
+            graphics.DrawString($"VAT (11%): +{totalVAT:C}", bodyFont, brush, 100, yPos);
+
+            // Display the total amount after discount and VAT
+            yPos += 20;
+            graphics.DrawString($"Total Amount: {totalAfterDiscount:C}", headerFont, brush, 100, yPos);
 
             // End of Page
             e.HasMorePages = false; // Only one page
         }
+
+        private bool ValidateStockBeforePrint()
+        {
+            foreach (var item in saleItems)
+            {
+                // Get the available stock from the database for each item
+                int availableStock = GetProductStockQuantity(item.ProductId);
+
+                // If the quantity exceeds the available stock, return false
+                if (item.Quantity > availableStock)
+                {
+                    MessageBox.Show($"The quantity of {item.ProductName} exceeds the available stock. Please adjust the quantity.", "Stock Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return false;
+                }
+            }
+            return true; // All quantities are valid
+        }
+        private bool ValidateDiscountBeforePrint()
+        {
+            foreach (var item in saleItems)
+            {
+                // If the discount is less than 0 or greater than 100, return false
+                if (item.Discount < 0 || item.Discount > 100)
+                {
+                    MessageBox.Show($"The discount for {item.ProductName} is invalid. Please enter a value between 0 and 100.", "Discount Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return false;
+                }
+            }
+            return true; // All discounts are valid
+        }
+
     }
 }

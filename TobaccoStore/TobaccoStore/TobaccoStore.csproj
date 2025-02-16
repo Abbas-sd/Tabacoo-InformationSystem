@@ -55,10 +55,10 @@
     <Compile Include="Customer Order With barcode.Designer.cs">
       <DependentUpon>Customer Order With barcode.cs</DependentUpon>
     </Compile>
-    <Compile Include="Customer Order.cs">
+    <Compile Include="Dont Edit\Customer Order.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Customer Order.Designer.cs">
+    <Compile Include="Dont Edit\Customer Order.Designer.cs">
       <DependentUpon>Customer Order.cs</DependentUpon>
     </Compile>
     <Compile Include="DeletCustomer.cs">
@@ -103,10 +103,10 @@
     <Compile Include="New User.Designer.cs">
       <DependentUpon>New User.cs</DependentUpon>
     </Compile>
-    <Compile Include="order.cs">
+    <Compile Include="Dont Edit\order.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="order.Designer.cs">
+    <Compile Include="Dont Edit\order.Designer.cs">
       <DependentUpon>order.cs</DependentUpon>
     </Compile>
     <Compile Include="product barcode.cs">
@@ -115,10 +115,10 @@
     <Compile Include="product barcode.Designer.cs">
       <DependentUpon>product barcode.cs</DependentUpon>
     </Compile>
-    <Compile Include="product.cs">
+    <Compile Include="Dont Edit\product.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="product.Designer.cs">
+    <Compile Include="Dont Edit\product.Designer.cs">
       <DependentUpon>product.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
@@ -141,10 +141,10 @@
     <Compile Include="Supplier.Designer.cs">
       <DependentUpon>Supplier.cs</DependentUpon>
     </Compile>
-    <Compile Include="testing first print.cs">
+    <Compile Include="Dont Edit\testing first print.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="testing first print.Designer.cs">
+    <Compile Include="Dont Edit\testing first print.Designer.cs">
       <DependentUpon>testing first print.cs</DependentUpon>
     </Compile>
     <Compile Include="UpdateCustomer.cs">
@@ -198,7 +198,7 @@
     <EmbeddedResource Include="Customer Order With barcode.resx">
       <DependentUpon>Customer Order With barcode.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Customer Order.resx">
+    <EmbeddedResource Include="Dont Edit\Customer Order.resx">
       <DependentUpon>Customer Order.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DeletCustomer.resx">
@@ -222,13 +222,13 @@
     <EmbeddedResource Include="New User.resx">
       <DependentUpon>New User.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="order.resx">
+    <EmbeddedResource Include="Dont Edit\order.resx">
       <DependentUpon>order.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="product barcode.resx">
       <DependentUpon>product barcode.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="product.resx">
+    <EmbeddedResource Include="Dont Edit\product.resx">
       <DependentUpon>product.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -251,7 +251,7 @@
     <EmbeddedResource Include="Supplier.resx">
       <DependentUpon>Supplier.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="testing first print.resx">
+    <EmbeddedResource Include="Dont Edit\testing first print.resx">
       <DependentUpon>testing first print.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UpdateCustomer.resx">
