@@ -585,31 +585,40 @@ namespace TobaccoStore
 
         private void LoadCustomers(string searchText = "")
         {
+            listBoxCustomers.Items.Clear(); // Clear existing items
+
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                string query = "SELECT customer_id, fname, lname FROM Customer WHERE fname LIKE @searchText OR lname LIKE @searchText";
+                string query;
+
+                // Check if the searchText is a number (for ID search)
+                if (int.TryParse(searchText, out int customerId))
+                {
+                    query = "SELECT customer_id, fname, lname FROM Customer WHERE customer_id = @searchText";
+                }
+                else
+                {
+                    query = "SELECT customer_id, fname, lname FROM Customer WHERE fname LIKE @searchText OR lname LIKE @searchText";
+                    searchText = $"%{searchText}%"; // Add wildcards for name search
+                }
+
                 SqlCommand command = new SqlCommand(query, connection);
-                command.Parameters.AddWithValue("@searchText", $"%{searchText}%");
+                command.Parameters.AddWithValue("@searchText", searchText);
 
                 try
                 {
                     connection.Open();
                     SqlDataReader reader = command.ExecuteReader();
 
-                    // Clear the ListBox
-                    listBoxCustomers.Items.Clear();
-
-                    // Add customers to the ListBox
                     while (reader.Read())
                     {
-                        int customerId = reader.GetInt32(0);
-                        string customerName = reader.GetString(1) + " " + reader.GetString(2);
-                        listBoxCustomers.Items.Add(new CustomerItem { CustomerId = customerId, CustomerName = customerName });
+                        int id = reader.GetInt32(0);
+                        string fullName = reader.GetString(1) + " " + reader.GetString(2);
+
+                        listBoxCustomers.Items.Add(new CustomerItem { CustomerId = id, CustomerName = fullName });
                     }
 
-                    // Display the customer name in the ListBox
-                    listBoxCustomers.DisplayMember = "CustomerName";
-                    listBoxCustomers.ValueMember = "CustomerId";
+                    reader.Close();
                 }
                 catch (Exception ex)
                 {
@@ -618,18 +627,28 @@ namespace TobaccoStore
             }
         }
 
+
+
         // Class to represent a customer item in the ListBox
         private class CustomerItem
         {
             public int CustomerId { get; set; }
             public string CustomerName { get; set; }
+
+            // Override ToString() so that ListBox displays both ID and Name
+            public override string ToString()
+            {
+                return $"{CustomerId} - {CustomerName}"; // Example: "101 - John Doe"
+            }
         }
+
+
 
         private void txtSearchCustomer_TextChanged(object sender, EventArgs e)
         {
-            // Reload customers based on the search text
-            LoadCustomers(txtSearchCustomer.Text);
+            LoadCustomers(txtSearchCustomer.Text.Trim()); // Trim removes extra spaces
         }
+
 
         private void btnremove_Click(object sender, EventArgs e)
         {

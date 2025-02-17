@@ -62,7 +62,7 @@ namespace TobaccoStore
 
         private void newProductToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            product form2 = new product();
+            product_barcode form2 = new product_barcode();
 
             form2.Show();
 

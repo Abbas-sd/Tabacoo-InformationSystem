@@ -31,12 +31,9 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Suporder));
             this.lstSuppliers = new System.Windows.Forms.ListBox();
             this.lstProducts = new System.Windows.Forms.ListBox();
-            this.txtCostPrice = new System.Windows.Forms.TextBox();
             this.dateTimePickerOrderDate = new System.Windows.Forms.DateTimePicker();
             this.btnSubmitOrder = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.numericUpDownQuantity = new System.Windows.Forms.NumericUpDown();
-            this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -52,7 +49,9 @@
             this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
             this.btnPrintPreview = new System.Windows.Forms.Button();
             this.btnPrintOrder = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownQuantity)).BeginInit();
+            this.txtDiscount = new System.Windows.Forms.TextBox();
+            this.txtSearchProduct = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewOrder)).BeginInit();
             this.SuspendLayout();
             // 
@@ -74,13 +73,6 @@
             this.lstProducts.Size = new System.Drawing.Size(304, 68);
             this.lstProducts.TabIndex = 1;
             this.lstProducts.SelectedIndexChanged += new System.EventHandler(this.lstProducts_SelectedIndexChanged);
-            // 
-            // txtCostPrice
-            // 
-            this.txtCostPrice.Location = new System.Drawing.Point(161, 257);
-            this.txtCostPrice.Name = "txtCostPrice";
-            this.txtCostPrice.Size = new System.Drawing.Size(100, 22);
-            this.txtCostPrice.TabIndex = 2;
             // 
             // dateTimePickerOrderDate
             // 
@@ -104,25 +96,9 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(25, 257);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(68, 16);
+            this.label1.Size = new System.Drawing.Size(59, 16);
             this.label1.TabIndex = 7;
-            this.label1.Text = "Cost Price";
-            // 
-            // numericUpDownQuantity
-            // 
-            this.numericUpDownQuantity.Location = new System.Drawing.Point(161, 321);
-            this.numericUpDownQuantity.Name = "numericUpDownQuantity";
-            this.numericUpDownQuantity.Size = new System.Drawing.Size(120, 22);
-            this.numericUpDownQuantity.TabIndex = 8;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(25, 309);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(55, 16);
-            this.label2.TabIndex = 9;
-            this.label2.Text = "Quantity";
+            this.label1.Text = "Discount";
             // 
             // label3
             // 
@@ -259,11 +235,39 @@
             this.btnPrintOrder.UseVisualStyleBackColor = true;
             this.btnPrintOrder.Click += new System.EventHandler(this.btnPrintOrder_Click);
             // 
+            // txtDiscount
+            // 
+            this.txtDiscount.Location = new System.Drawing.Point(161, 257);
+            this.txtDiscount.Name = "txtDiscount";
+            this.txtDiscount.Size = new System.Drawing.Size(100, 22);
+            this.txtDiscount.TabIndex = 23;
+            this.txtDiscount.Text = "0";
+            // 
+            // txtSearchProduct
+            // 
+            this.txtSearchProduct.Location = new System.Drawing.Point(449, 45);
+            this.txtSearchProduct.Name = "txtSearchProduct";
+            this.txtSearchProduct.Size = new System.Drawing.Size(100, 22);
+            this.txtSearchProduct.TabIndex = 25;
+            this.txtSearchProduct.TextChanged += new System.EventHandler(this.txtSearchProduct_TextChanged);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(451, 26);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(106, 16);
+            this.label2.TabIndex = 26;
+            this.label2.Text = "Search Products";
+            // 
             // Suporder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1183, 594);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.txtSearchProduct);
+            this.Controls.Add(this.txtDiscount);
             this.Controls.Add(this.btnPrintOrder);
             this.Controls.Add(this.btnPrintPreview);
             this.Controls.Add(this.btnRemoveCustomer);
@@ -277,18 +281,14 @@
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.numericUpDownQuantity);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnSubmitOrder);
             this.Controls.Add(this.dateTimePickerOrderDate);
-            this.Controls.Add(this.txtCostPrice);
             this.Controls.Add(this.lstProducts);
             this.Controls.Add(this.lstSuppliers);
             this.Name = "Suporder";
             this.Text = "TSIS | Supplier-order";
             this.Load += new System.EventHandler(this.Suporder_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownQuantity)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewOrder)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -299,12 +299,9 @@
 
         private System.Windows.Forms.ListBox lstSuppliers;
         private System.Windows.Forms.ListBox lstProducts;
-        private System.Windows.Forms.TextBox txtCostPrice;
         private System.Windows.Forms.DateTimePicker dateTimePickerOrderDate;
         private System.Windows.Forms.Button btnSubmitOrder;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.NumericUpDown numericUpDownQuantity;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
@@ -320,5 +317,8 @@
         private System.Windows.Forms.PrintPreviewDialog printPreviewDialog1;
         private System.Windows.Forms.Button btnPrintPreview;
         private System.Windows.Forms.Button btnPrintOrder;
+        private System.Windows.Forms.TextBox txtDiscount;
+        private System.Windows.Forms.TextBox txtSearchProduct;
+        private System.Windows.Forms.Label label2;
     }
 }

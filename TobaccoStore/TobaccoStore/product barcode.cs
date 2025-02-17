@@ -88,7 +88,29 @@ namespace TobaccoStore
                 MessageBox.Show("Supplier ID must be a valid number.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
+            // Check if the supplier exists in the database
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                string query = "SELECT COUNT(*) FROM Supplier WHERE supplier_id = @supplierId";
+                SqlCommand command = new SqlCommand(query, connection);
+                command.Parameters.AddWithValue("@supplierId", supplierId);
 
+                try
+                {
+                    connection.Open();
+                    int supplierCount = (int)command.ExecuteScalar();
+                    if (supplierCount == 0)
+                    {
+                        MessageBox.Show("Supplier ID does not exist in the database.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error: " + ex.Message, "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+            }
             // Insert into the Product table
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -147,7 +169,12 @@ namespace TobaccoStore
         }
         private void txtBarcode_KeyPress(object sender, KeyPressEventArgs e)
         {
-            // Check if the Enter key(carriage return) is pressed
+            // Allow only numbers and control characters (like backspace)
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true; // Suppress invalid key press
+            }
+            // Check if the Enter key (carriage return) is pressed
             if (e.KeyChar == (char)Keys.Enter)
             {
                 // Move focus to the next text box
@@ -156,6 +183,7 @@ namespace TobaccoStore
                 e.Handled = true;
             }
         }
+
 
         private void txtBarcode_TextChanged(object sender, EventArgs e)
         {
@@ -182,7 +210,16 @@ namespace TobaccoStore
 
         private void btnBack_Click(object sender, EventArgs e)
         {
+            Main form1000 = new Main();
 
+            form1000.Show();
+
+            this.Hide();
+        }
+
+        private void BtnExit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }
