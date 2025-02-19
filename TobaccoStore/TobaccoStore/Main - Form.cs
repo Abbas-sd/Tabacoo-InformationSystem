@@ -15,6 +15,7 @@ namespace TobaccoStore
         public Main()
         {
             InitializeComponent();
+            this.Icon = new Icon("Tabacoo-Icon2.ico"); // Set icon
         }
 
         private void button1_Click(object sender, EventArgs e)

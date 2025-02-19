@@ -173,6 +173,7 @@
             this.txtBarcode.TabIndex = 0;
             this.txtBarcode.TextChanged += new System.EventHandler(this.txtBarcode_TextChanged);
             this.txtBarcode.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBarcode_KeyPress);
+            this.txtBarcode.Validated += new System.EventHandler(this.txtBarcode_Validated);
             // 
             // label6
             // 

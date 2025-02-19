@@ -221,5 +221,10 @@ namespace TobaccoStore
         {
             Application.Exit();
         }
+
+        private void txtBarcode_Validated(object sender, EventArgs e)
+        {
+            txtProductName.Focus();
+        }
     }
 }

@@ -295,5 +295,8 @@
   <ItemGroup>
     <None Include="Resources\back.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\Tabacoo-Icon2.ico" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
