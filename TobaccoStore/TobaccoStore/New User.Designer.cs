@@ -128,6 +128,7 @@
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "New_User";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "TSIS | New_User";
             this.Load += new System.EventHandler(this.New_User_Load);
             this.ResumeLayout(false);
