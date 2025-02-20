@@ -296,7 +296,13 @@
     <None Include="Resources\back.jpg" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\icons8-update-64.png" />
+    <None Include="Resources\icons8-delete-48.png" />
     <Content Include="Resources\Tabacoo-Icon2.ico" />
+    <None Include="Resources\ww1.png" />
+    <None Include="Resources\ww.png" />
+    <None Include="Resources\updated1.png" />
+    <None Include="Resources\updated.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -116,6 +116,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::TobaccoStore.Properties.Resources.back;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.btnback);
             this.Controls.Add(this.button1);
@@ -125,6 +126,7 @@
             this.Controls.Add(this.txtUsername);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "New_User";
             this.Text = "TSIS | New_User";
             this.Load += new System.EventHandler(this.New_User_Load);

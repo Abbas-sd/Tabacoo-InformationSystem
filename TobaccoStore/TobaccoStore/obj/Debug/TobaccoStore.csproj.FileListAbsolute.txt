@@ -89,3 +89,8 @@ C:\Users\abbas\Source\Repos\Tabacoo-InformationSystem\TobaccoStore\TobaccoStore\
 C:\Users\abbas\Source\Repos\Tabacoo-InformationSystem\TobaccoStore\TobaccoStore\obj\Debug\TobaccoStore.testing_first_print.resources
 C:\Users\abbas\Source\Repos\Tabacoo-InformationSystem\TobaccoStore\TobaccoStore\obj\Debug\TobaccoStore.View_Suppliers.resources
 C:\Users\abbas\Source\Repos\Tabacoo-InformationSystem\TobaccoStore\TobaccoStore\obj\Debug\TobaccoStore.View_Customer_Orders.resources
+C:\Users\DELL INSPIRON 5402\Source\Repos\Tabacoo-InformationSystem\TobaccoStore\TobaccoStore\bin\Debug\Microsoft.ReportViewer.WinForms.dll
+C:\Users\DELL INSPIRON 5402\Source\Repos\Tabacoo-InformationSystem\TobaccoStore\TobaccoStore\obj\Debug\TobaccoStore.testing_first_print.resources
+C:\Users\DELL INSPIRON 5402\Source\Repos\Tabacoo-InformationSystem\TobaccoStore\TobaccoStore\obj\Debug\TobaccoStore.View_Customer_Orders.resources
+C:\Users\DELL INSPIRON 5402\Source\Repos\Tabacoo-InformationSystem\TobaccoStore\TobaccoStore\obj\Debug\TobaccoStore.View_Suppliers.resources
+C:\Users\DELL INSPIRON 5402\Source\Repos\Tabacoo-InformationSystem\TobaccoStore\TobaccoStore\obj\Debug\TobaccoStore.csproj.CopyComplete

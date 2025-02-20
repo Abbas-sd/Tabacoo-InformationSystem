@@ -49,7 +49,11 @@
             this.btnBack = new System.Windows.Forms.Button();
             this.BtnExit = new System.Windows.Forms.Button();
             this.BtnClear = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // txtFname
@@ -84,7 +88,7 @@
             // 
             this.btncustomeradd.Location = new System.Drawing.Point(15, 437);
             this.btncustomeradd.Name = "btncustomeradd";
-            this.btncustomeradd.Size = new System.Drawing.Size(147, 23);
+            this.btncustomeradd.Size = new System.Drawing.Size(108, 23);
             this.btncustomeradd.TabIndex = 5;
             this.btncustomeradd.Text = "Add Customer";
             this.btncustomeradd.UseVisualStyleBackColor = true;
@@ -173,21 +177,21 @@
             // 
             // btnDeleteCustomer
             // 
-            this.btnDeleteCustomer.Location = new System.Drawing.Point(379, 152);
+            this.btnDeleteCustomer.Location = new System.Drawing.Point(391, 206);
             this.btnDeleteCustomer.Name = "btnDeleteCustomer";
-            this.btnDeleteCustomer.Size = new System.Drawing.Size(147, 23);
+            this.btnDeleteCustomer.Size = new System.Drawing.Size(108, 37);
             this.btnDeleteCustomer.TabIndex = 16;
-            this.btnDeleteCustomer.Text = "Delete Customer....";
+            this.btnDeleteCustomer.Text = "Delete ...";
             this.btnDeleteCustomer.UseVisualStyleBackColor = true;
             this.btnDeleteCustomer.Click += new System.EventHandler(this.btnDeleteCustomer_Click);
             // 
             // btnUpdateCustomer
             // 
-            this.btnUpdateCustomer.Location = new System.Drawing.Point(379, 123);
+            this.btnUpdateCustomer.Location = new System.Drawing.Point(391, 126);
             this.btnUpdateCustomer.Name = "btnUpdateCustomer";
-            this.btnUpdateCustomer.Size = new System.Drawing.Size(147, 23);
+            this.btnUpdateCustomer.Size = new System.Drawing.Size(108, 37);
             this.btnUpdateCustomer.TabIndex = 19;
-            this.btnUpdateCustomer.Text = "Update Customer....";
+            this.btnUpdateCustomer.Text = "Update ...";
             this.btnUpdateCustomer.UseVisualStyleBackColor = true;
             this.btnUpdateCustomer.Click += new System.EventHandler(this.btnUpdateCustomer_Click);
             // 
@@ -209,22 +213,22 @@
             this.label9.Size = new System.Drawing.Size(475, 32);
             this.label9.TabIndex = 12;
             this.label9.Text = "This form assures the accurate collection and management of customer details \r\nfo" +
-    "r the Tabuc Store Information System";
+    "r the Tobacco Store Information System";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
             this.label8.Location = new System.Drawing.Point(11, 7);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(206, 16);
+            this.label8.Size = new System.Drawing.Size(222, 16);
             this.label8.TabIndex = 11;
-            this.label8.Text = "Tabuc Store Information System...";
+            this.label8.Text = "Tobacco Store Information System...";
             // 
             // btnBack
             // 
-            this.btnBack.Location = new System.Drawing.Point(1, 516);
+            this.btnBack.Location = new System.Drawing.Point(15, 550);
             this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(75, 23);
+            this.btnBack.Size = new System.Drawing.Size(80, 30);
             this.btnBack.TabIndex = 21;
             this.btnBack.Text = "Back";
             this.btnBack.UseVisualStyleBackColor = true;
@@ -232,12 +236,13 @@
             // 
             // BtnExit
             // 
-            this.BtnExit.Location = new System.Drawing.Point(451, 516);
+            this.BtnExit.BackColor = System.Drawing.SystemColors.Desktop;
+            this.BtnExit.Location = new System.Drawing.Point(530, 550);
             this.BtnExit.Name = "BtnExit";
-            this.BtnExit.Size = new System.Drawing.Size(75, 23);
+            this.BtnExit.Size = new System.Drawing.Size(86, 37);
             this.BtnExit.TabIndex = 22;
             this.BtnExit.Text = "Exit";
-            this.BtnExit.UseVisualStyleBackColor = true;
+            this.BtnExit.UseVisualStyleBackColor = false;
             this.BtnExit.Click += new System.EventHandler(this.BtnExit_Click);
             // 
             // BtnClear
@@ -250,13 +255,38 @@
             this.BtnClear.UseVisualStyleBackColor = true;
             this.BtnClear.Click += new System.EventHandler(this.BtnClear_Click);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox1.Enabled = false;
+            this.pictureBox1.Image = global::TobaccoStore.Properties.Resources.icons8_update_64;
+            this.pictureBox1.Location = new System.Drawing.Point(516, 126);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(39, 40);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 24;
+            this.pictureBox1.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox2.Image = global::TobaccoStore.Properties.Resources.icons8_delete_48;
+            this.pictureBox2.Location = new System.Drawing.Point(516, 202);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(52, 45);
+            this.pictureBox2.TabIndex = 25;
+            this.pictureBox2.TabStop = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::TobaccoStore.Properties.Resources.back;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(538, 541);
+            this.ClientSize = new System.Drawing.Size(628, 599);
+            this.Controls.Add(this.pictureBox2);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.BtnClear);
             this.Controls.Add(this.BtnExit);
             this.Controls.Add(this.btnBack);
@@ -281,9 +311,12 @@
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "TSIS | Add Customer ";
+            this.TransparencyKey = System.Drawing.Color.White;
             this.Load += new System.EventHandler(this.Form1_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -312,6 +345,8 @@
         private System.Windows.Forms.Button btnBack;
         private System.Windows.Forms.Button BtnExit;
         private System.Windows.Forms.Button BtnClear;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pictureBox2;
     }
 }
 
