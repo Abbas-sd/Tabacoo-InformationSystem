@@ -13,9 +13,11 @@ namespace TobaccoStore
 {
     public partial class New_User : Form
     {
+        
         public New_User()
         {
             InitializeComponent();
+            
         }
 
         private string connectionString = "Server=MSI\\SQLEXPRESS;Database=Tabacoostore;Trusted_Connection=True;";
@@ -46,14 +48,16 @@ namespace TobaccoStore
                 MessageBox.Show("User registration failed. Username might already exist.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+
         private bool RegisterUser(string username, string password)
         {
             using (SqlConnection con = new SqlConnection(connectionString))
             {
-                string query = "INSERT INTO Users (Username, PasswordHash) VALUES (@Username, @Password)";
+                string query = "INSERT INTO Users (Username, Password) VALUES (@Username, @Password)";
                 SqlCommand cmd = new SqlCommand(query, con);
                 cmd.Parameters.AddWithValue("@Username", username);
-                cmd.Parameters.AddWithValue("@Password", password); // Use hashed password in real apps
+                cmd.Parameters.AddWithValue("@Password", password); // Store plain text password
 
                 try
                 {
@@ -69,6 +73,8 @@ namespace TobaccoStore
             }
         }
 
+
+
         private void chkShowPassword_CheckedChanged(object sender, EventArgs e)
         {
             // Toggle password visibility
@@ -82,11 +88,10 @@ namespace TobaccoStore
 
         private void btnback_Click(object sender, EventArgs e)
         {
-            Main form1 = new Main();
-
-            form1.Show();
-
+            Main mainForm = new Main();
+            mainForm.Show();
             this.Hide();
         }
+
     }
 }

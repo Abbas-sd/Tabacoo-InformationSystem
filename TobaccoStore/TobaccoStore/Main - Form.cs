@@ -12,6 +12,7 @@ namespace TobaccoStore
 {
     public partial class Main : Form
     {
+
         public Main()
         {
             InitializeComponent();
@@ -38,18 +39,18 @@ namespace TobaccoStore
 
         private void gotocustomer_Click(object sender, EventArgs e)
         {
-            
-           
+
+
         }
 
         private void gotoproduct_Click(object sender, EventArgs e)
         {
-           
+
         }
 
         private void gotoorder_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void newCustumerToolStripMenuItem_Click(object sender, EventArgs e)
@@ -72,7 +73,7 @@ namespace TobaccoStore
 
         private void newOrderToolStripMenuItem_Click(object sender, EventArgs e)
         {
-           
+
         }
 
         private void viewCustomersToolStripMenuItem_Click(object sender, EventArgs e)
@@ -95,14 +96,14 @@ namespace TobaccoStore
 
         private void viewOrdersToolStripMenuItem_Click(object sender, EventArgs e)
         {
-              
+
         }
 
         private void searchToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             search form7 = new search();
 
-            form7.Show();   
+            form7.Show();
 
             this.Hide();
         }
@@ -183,10 +184,10 @@ namespace TobaccoStore
         {
             View_Suppliers form72 = new View_Suppliers();
 
-            form72.Show(); 
-            
-            this.Hide(); 
+            form72.Show();
+
+            this.Hide();
         }
     }
-    
+
 }

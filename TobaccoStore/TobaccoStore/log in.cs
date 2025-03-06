@@ -38,7 +38,7 @@ namespace TobaccoStore
             else
             {
                 lblErrorMessage.Text = "Invalid username or password.";
-                lblErrorMessage.Visible = true; // Make sure the label is visible
+                lblErrorMessage.Visible = true;
             }
         }
         private bool AuthenticateUser(string username, string password)
