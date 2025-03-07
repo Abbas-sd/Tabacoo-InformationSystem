@@ -21,6 +21,20 @@ namespace TobaccoStore
         public Suporder()
         {
             InitializeComponent();
+
+            if (log_in.currentUserRole == Main.UserRole.Stoker)
+            {
+                btnSubmitOrder.Enabled = false;  // Disable button1 (search button) for Cashier
+                btnPrintPreview.Enabled = false;
+                btnPrintOrder.Enabled = false;
+            }
+
+            if (log_in.currentUserRole == Main.UserRole.User)
+            {
+                btnSubmitOrder.Enabled = false;  // Disable button1 (search button) for Cashier
+                btnPrintPreview.Enabled = false;
+                btnPrintOrder.Enabled = false;
+            }
         }
 
         private DataTable orderDataTable;

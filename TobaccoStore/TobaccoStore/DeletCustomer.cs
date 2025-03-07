@@ -18,6 +18,17 @@ namespace TobaccoStore
         {
             InitializeComponent();
             _callingForm = callingForm; // Store the calling form
+
+            // Disable the search button for Cashier role
+            if (log_in.currentUserRole == Main.UserRole.User)
+            {
+                button1.Enabled = false;  // Disable button1 (search button) for Cashier
+            }
+
+            if (log_in.currentUserRole == Main.UserRole.Cashier)
+            {
+                button1.Enabled = false;  // Disable button1 (search button) for Cashier
+            }
         }
 
         private string connectionString = "Server=MSI\\SQLEXPRESS;Database=TabacooStore;Trusted_Connection=True;";

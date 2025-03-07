@@ -38,13 +38,25 @@ namespace TobaccoStore
             // Wire up the CellValidating event
             dataGridViewSale.CellValidating += dataGridViewSale_CellValidating;
 
+            // Disable the search button for Cashier role
+            if (log_in.currentUserRole == Main.UserRole.Stoker)
+            {
+                button1.Enabled = false;  // Disable button1 (search button) for Cashier
+                btnPrintPreview.Enabled = false;
+                btnPrint.Enabled = false;
+            }
+
+            if (log_in.currentUserRole == Main.UserRole.User)
+            {
+                button1.Enabled = false;  // Disable button1 (search button) for Cashier
+                btnPrintPreview.Enabled = false;
+                btnPrint.Enabled = false;
+            }
         }
         private void Customer_Order_With_barcode_Load(object sender, EventArgs e)
         {
             dateTimePickerOrderDate.Value = DateTime.Now;
             LoadCustomers();
-
-
         }
 
         private string connectionString = "Server=MSI\\SQLEXPRESS;Database=Tabacoostore;Trusted_Connection=True;";

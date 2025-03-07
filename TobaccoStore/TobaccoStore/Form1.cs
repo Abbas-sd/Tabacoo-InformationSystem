@@ -17,6 +17,17 @@ namespace TobaccoStore
         public Form1()
         {
             InitializeComponent();
+
+            // Disable the search button for Cashier role
+            if (log_in.currentUserRole == Main.UserRole.User)
+            {
+                btncustomeradd.Enabled = false;  // Disable button1 (search button) for Cashier
+            }
+
+            if (log_in.currentUserRole == Main.UserRole.Cashier)
+            {
+                btncustomeradd.Enabled = false;  // Disable button1 (search button) for Cashier
+            }
         }
         private void ClearCustomerFields()
         {

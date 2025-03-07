@@ -25,6 +25,17 @@ namespace TobaccoStore
             txtBarcode.TextChanged += new EventHandler(txtBarcode_TextChanged);
             // Wire up the KeyPress event for txtBarcode
             txtBarcode.KeyPress += new KeyPressEventHandler(txtBarcode_KeyPress);
+
+            // Disable the search button for Cashier role
+            if (log_in.currentUserRole == Main.UserRole.User)
+            {
+                btnAddProduct.Enabled = false;  // Disable button1 (search button) for Cashier
+            }
+
+            if (log_in.currentUserRole == Main.UserRole.Cashier)
+            {
+                btnAddProduct.Enabled = false;  // Disable button1 (search button) for Cashier
+            }
         }
 
         private void product_Shown(object sender, EventArgs e)

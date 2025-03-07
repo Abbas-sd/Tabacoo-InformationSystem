@@ -27,7 +27,7 @@ namespace TobaccoStore
         }
 
         // private static string currentUserRole = "";  // Global variable to store the current user's role
-
+        public static string currentUsername; // Store the username
         private void btnLogin_Click(object sender, EventArgs e)
         {
             string username = txtUsername.Text;
@@ -38,6 +38,7 @@ namespace TobaccoStore
             if (role != UserRole.Invalid) // Ensure the role is valid before proceeding
             {
                 log_in.currentUserRole = role; // Store the role for later access control
+                log_in.currentUsername = username; // Store the username
 
                 this.Hide();
                 Main mainForm = new Main();

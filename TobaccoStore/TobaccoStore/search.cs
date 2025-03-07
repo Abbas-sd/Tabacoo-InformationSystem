@@ -16,6 +16,7 @@ namespace TobaccoStore
         public search()
         {
             InitializeComponent();
+
         }
 
         private string connectionString = "Server=MSI\\SQLEXPRESS;Database=TabacooStore;Trusted_Connection=True;";

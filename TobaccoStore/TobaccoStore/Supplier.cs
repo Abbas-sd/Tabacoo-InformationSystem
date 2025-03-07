@@ -17,10 +17,24 @@ namespace TobaccoStore
         public Supplier()
         {
             InitializeComponent();
+
+            // Disable the search button for Cashier role
+            if (log_in.currentUserRole == Main.UserRole.User)
+            {
+                btnsupplieradd.Enabled = false;  // Disable button1 (search button) for Cashier
+            }
+
+            if (log_in.currentUserRole == Main.UserRole.Cashier)
+            {
+                btnsupplieradd.Enabled = false;  // Disable button1 (search button) for Cashier
+            }
         }
 
         private string connectionString = "Server=MSI\\SQLEXPRESS;Database=TabacooStore;Trusted_Connection=True;";
+        private void Supplier_Load(object sender, EventArgs e)
+        {
 
+        }
         private bool IsValidPhone(string phone)
         {
             // Allow only digits and enforce a length of 10-15 digits
@@ -112,9 +126,6 @@ namespace TobaccoStore
             this.Hide();
         }
 
-        private void Supplier_Load(object sender, EventArgs e)
-        {
-
-        }
+       
     }
 }

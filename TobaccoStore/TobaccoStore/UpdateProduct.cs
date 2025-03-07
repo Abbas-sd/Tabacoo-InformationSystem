@@ -16,6 +16,17 @@ namespace TobaccoStore
         public UpdateProduct()
         {
             InitializeComponent();
+
+            // Disable the search button for Cashier role
+            if (log_in.currentUserRole == Main.UserRole.User)
+            {
+                BtnUpdate.Enabled = false;  // Disable button1 (search button) for Cashier
+            }
+
+            if (log_in.currentUserRole == Main.UserRole.Cashier)
+            {
+                BtnUpdate.Enabled = false;  // Disable button1 (search button) for Cashier
+            }
         }
 
         private string connectionString = "Server=MSI\\SQLEXPRESS;Database=Tabacoostore;Trusted_Connection=True;";

@@ -43,6 +43,13 @@ namespace TobaccoStore
         private void Main_Load(object sender, EventArgs e)
         {
             toolStripStatusLabel1.Text = "Date: " + DateTime.Now.ToString("yyyy-MM-dd");
+
+            // Display the username in the StatusStrip
+            if (!string.IsNullOrEmpty(log_in.currentUsername))
+            {
+                toolStripStatusLabel2.Text = "Logged in as: " + log_in.currentUsername;
+            }
+
             ApplyRoleBasedAccessControl();
         }
         private void ApplyRoleBasedAccessControl()
@@ -187,7 +194,11 @@ namespace TobaccoStore
 
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("This system helps any tobacco store owner to manage his inventory and his customer/supplier relationships in the smoothest and simplest way possible\n\nFeatures:\n-scanning new barcodes \n- add-update-delete customers\n- User authentication",
+            MessageBox.Show("This system helps any tobacco store owner to manage his inventory and his customer/supplier relationships in the smoothest and simplest way possible" +
+                "\n\nFeatures:" +
+                "\n-scanning new barcodes" +
+                "\n- add-update-delete customers" +
+                "\n- User authentication",
                     "About This System",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Information);
@@ -217,6 +228,13 @@ namespace TobaccoStore
 
             form72.Show();
 
+            this.Hide();
+        }
+
+        private void BtnLogOut_Click(object sender, EventArgs e)
+        {
+            log_in form5000 = new log_in();
+            form5000.Show();
             this.Hide();
         }
     }
