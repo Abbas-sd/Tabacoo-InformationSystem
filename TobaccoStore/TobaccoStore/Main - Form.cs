@@ -58,6 +58,51 @@ namespace TobaccoStore
                 addUserToolStripMenuItem.Enabled = true;
                 
             }
+            switch (log_in.currentUserRole)
+            {
+                case UserRole.Admin:
+                    // Admin has full access, enable everything
+                    addUserToolStripMenuItem.Enabled = true;
+                    btnAdminFeatures.Enabled = true;
+                    break;
+
+                case UserRole.Manager:
+                    // Manager has limited admin rights (but no user management)
+                    adminMenuItem.Enabled = true;
+                    addUserToolStripMenuItem.Enabled = false; // Maybe disable user-related actions
+                    break;
+
+                case UserRole.Cashier:
+                    // Cashier can process sales but not change settings
+                    addUserToolStripMenuItem.Enabled = false;
+                    btnAdminFeatures.Enabled = false;
+                    salesMenuItem.Enabled = true;
+                    break;
+
+                case UserRole.Stocker:
+                    // Stocker can manage inventory but not sales
+                    inventoryMenuItem.Enabled = true;
+                    salesMenuItem.Enabled = false;
+                    adminMenuItem.Enabled = false;
+                    break;
+
+                case UserRole.User:
+                    // Regular user has minimal access
+                    adminMenuItem.Enabled = false;
+                    btnAdminFeatures.Enabled = false;
+                    inventoryMenuItem.Enabled = false;
+                    salesMenuItem.Enabled = false;
+                    break;
+
+                default:
+                    // If something goes wrong, disable everything
+                    adminMenuItem.Enabled = false;
+                    btnAdminFeatures.Enabled = false;
+                    inventoryMenuItem.Enabled = false;
+                    salesMenuItem.Enabled = false;
+                    MessageBox.Show("Access Denied! Contact Administrator.");
+                    break;
+            }
         }
         private void gotocustomer_Click(object sender, EventArgs e)
         {
@@ -207,6 +252,15 @@ namespace TobaccoStore
             View_Suppliers form72 = new View_Suppliers();
 
             form72.Show();
+
+            this.Hide();
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            log_in form5000 = new log_in();
+
+            form5000.Show();
 
             this.Hide();
         }
