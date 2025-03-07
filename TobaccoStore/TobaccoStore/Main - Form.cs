@@ -12,6 +12,16 @@ namespace TobaccoStore
 {
     public partial class Main : Form
     {
+        public enum UserRole
+        {
+            Invalid = 0, // For failed logins
+            Admin = 1,   // Full access
+            Manager = 2, // Some restricted admin access
+            Cashier = 3, // Can process sales but not modify users
+            Stocker = 4, // Can manage inventory but not process sales
+            User = 5     // Regular customer/user with minimal access
+        }
+
 
         public Main()
         {
@@ -35,8 +45,20 @@ namespace TobaccoStore
         private void Main_Load(object sender, EventArgs e)
         {
             toolStripStatusLabel1.Text = "Date: " + DateTime.Now.ToString("yyyy-MM-dd");
+            ApplyRoleBasedAccessControl();
         }
-
+        private void ApplyRoleBasedAccessControl()
+        {
+            if (log_in.currentUserRole == UserRole.User)
+            {
+                addUserToolStripMenuItem.Enabled = false;
+            }
+            else if (log_in.currentUserRole == UserRole.Admin)
+            {
+                addUserToolStripMenuItem.Enabled = true;
+                
+            }
+        }
         private void gotocustomer_Click(object sender, EventArgs e)
         {
 

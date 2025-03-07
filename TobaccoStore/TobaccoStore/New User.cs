@@ -54,10 +54,11 @@ namespace TobaccoStore
         {
             using (SqlConnection con = new SqlConnection(connectionString))
             {
-                string query = "INSERT INTO Users (Username, Password) VALUES (@Username, @Password)";
+                string query = "INSERT INTO Users (Username, Password, UserRole) VALUES (@Username, @Password, @UserRole)";
                 SqlCommand cmd = new SqlCommand(query, con);
                 cmd.Parameters.AddWithValue("@Username", username);
-                cmd.Parameters.AddWithValue("@Password", password); // Store plain text password
+                cmd.Parameters.AddWithValue("@Password", password);  // Store plain text password
+                cmd.Parameters.AddWithValue("@UserRole", "User");    // Default user role is 'User'
 
                 try
                 {
@@ -72,7 +73,6 @@ namespace TobaccoStore
                 }
             }
         }
-
 
 
         private void chkShowPassword_CheckedChanged(object sender, EventArgs e)

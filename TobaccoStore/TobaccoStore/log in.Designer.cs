@@ -91,7 +91,7 @@
             // lblErrorMessage
             // 
             this.lblErrorMessage.ForeColor = System.Drawing.Color.Red;
-            this.lblErrorMessage.Location = new System.Drawing.Point(72, 232);
+            this.lblErrorMessage.Location = new System.Drawing.Point(60, 230);
             this.lblErrorMessage.Name = "lblErrorMessage";
             this.lblErrorMessage.Size = new System.Drawing.Size(212, 23);
             this.lblErrorMessage.TabIndex = 6;

@@ -8,11 +8,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static TobaccoStore.Main;
 
 namespace TobaccoStore
 {
     public partial class log_in : Form
     {
+        public static UserRole currentUserRole; // Use the UserRole enum
         public log_in()
         {
             InitializeComponent();
@@ -24,13 +26,19 @@ namespace TobaccoStore
 
         }
 
+        // private static string currentUserRole = "";  // Global variable to store the current user's role
+
         private void btnLogin_Click(object sender, EventArgs e)
         {
             string username = txtUsername.Text;
             string password = txtPassword.Text;
 
-            if (AuthenticateUser(username, password))
+            UserRole role = AuthenticateUser(username, password);
+
+            if (role != UserRole.Invalid) // Ensure the role is valid before proceeding
             {
+                log_in.currentUserRole = role; // Store the role for later access control
+
                 this.Hide();
                 Main mainForm = new Main();
                 mainForm.Show();
@@ -41,11 +49,13 @@ namespace TobaccoStore
                 lblErrorMessage.Visible = true;
             }
         }
-        private bool AuthenticateUser(string username, string password)
+
+
+        private UserRole AuthenticateUser(string username, string password)
         {
             using (SqlConnection con = new SqlConnection(connectionString))
             {
-                string query = "SELECT COUNT(1) FROM Users WHERE Username = @Username AND PasswordHash = @Password";
+                string query = "SELECT UserRole FROM Users WHERE Username = @Username AND Password = @Password";
                 SqlCommand cmd = new SqlCommand(query, con);
                 cmd.Parameters.AddWithValue("@Username", username);
                 cmd.Parameters.AddWithValue("@Password", password);
@@ -53,15 +63,19 @@ namespace TobaccoStore
                 try
                 {
                     con.Open();
-                    int count = Convert.ToInt32(cmd.ExecuteScalar());
-                    return count > 0;
+                    object result = cmd.ExecuteScalar();
+
+                    if (result != null)
+                    {
+                        return (UserRole)Enum.Parse(typeof(UserRole), result.ToString()); // Convert role string to Enum
+                    }
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show("Database error: " + ex.Message);
-                    return false;
                 }
             }
+            return UserRole.Invalid; // Return Invalid if login fails
         }
 
         private void chkShowPassword_CheckedChanged(object sender, EventArgs e)
