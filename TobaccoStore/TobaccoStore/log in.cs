@@ -12,7 +12,6 @@ using static TobaccoStore.Main;
 
 namespace TobaccoStore
 {
-
     public partial class log_in : Form
     {
         public static UserRole currentUserRole; // Use the UserRole enum
@@ -22,7 +21,6 @@ namespace TobaccoStore
         }
 
         private string connectionString = "Server=MSI\\SQLEXPRESS;Database=Tabacoostore;Trusted_Connection=True;";
-
         private void log_in_Load(object sender, EventArgs e)
         {
 
@@ -37,9 +35,9 @@ namespace TobaccoStore
 
             UserRole role = AuthenticateUser(username, password);
 
-            if (role != UserRole.Invalid) // Ensures valid login
+            if (role != UserRole.Invalid) // Ensure the role is valid before proceeding
             {
-                log_in.currentUserRole = role; // Store role globally
+                log_in.currentUserRole = role; // Store the role for later access control
 
                 this.Hide();
                 Main mainForm = new Main();
@@ -53,12 +51,11 @@ namespace TobaccoStore
         }
 
 
-
         private UserRole AuthenticateUser(string username, string password)
         {
             using (SqlConnection con = new SqlConnection(connectionString))
             {
-                string query = "SELECT UserRole FROM Users WHERE Username = @Username AND PasswordHash = @Password";
+                string query = "SELECT UserRole FROM Users WHERE Username = @Username AND Password = @Password";
                 SqlCommand cmd = new SqlCommand(query, con);
                 cmd.Parameters.AddWithValue("@Username", username);
                 cmd.Parameters.AddWithValue("@Password", password);
@@ -70,8 +67,7 @@ namespace TobaccoStore
 
                     if (result != null)
                     {
-                        int roleValue = Convert.ToInt32(result);
-                        return (UserRole)roleValue; // Convert to UserRole enum
+                        return (UserRole)Enum.Parse(typeof(UserRole), result.ToString()); // Convert role string to Enum
                     }
                 }
                 catch (Exception ex)
@@ -79,9 +75,8 @@ namespace TobaccoStore
                     MessageBox.Show("Database error: " + ex.Message);
                 }
             }
-            return UserRole.Invalid; // Return Invalid (0) if login fails
+            return UserRole.Invalid; // Return Invalid if login fails
         }
-
 
         private void chkShowPassword_CheckedChanged(object sender, EventArgs e)
         {
