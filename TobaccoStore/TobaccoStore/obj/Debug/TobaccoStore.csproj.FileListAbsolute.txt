@@ -94,5 +94,4 @@ C:\Users\DELL INSPIRON 5402\Source\Repos\Tabacoo-InformationSystem\TobaccoStore\
 C:\Users\DELL INSPIRON 5402\Source\Repos\Tabacoo-InformationSystem\TobaccoStore\TobaccoStore\obj\Debug\TobaccoStore.View_Customer_Orders.resources
 C:\Users\DELL INSPIRON 5402\Source\Repos\Tabacoo-InformationSystem\TobaccoStore\TobaccoStore\obj\Debug\TobaccoStore.View_Suppliers.resources
 C:\Users\DELL INSPIRON 5402\Source\Repos\Tabacoo-InformationSystem\TobaccoStore\TobaccoStore\obj\Debug\TobaccoStore.csproj.CopyComplete
-C:\Users\abbas\Source\Repos\Tabacoo-InformationSystem\TobaccoStore\TobaccoStore\obj\Debug\TobaccoStore.MyUserControl.resources
 C:\Users\abbas\Source\Repos\Tabacoo-InformationSystem\TobaccoStore\TobaccoStore\obj\Debug\TobaccoStore.panel_testing.resources
