@@ -17,7 +17,7 @@ namespace TobaccoStore
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Customer_Order_With_barcode());
+            Application.Run(new panel_testing());
         }
     }
 }
