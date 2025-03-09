@@ -260,6 +260,8 @@ namespace TobaccoStore
                 return;
             }
 
+            string paymentStatus = comboBoxPaymentStatus.SelectedItem.ToString(); // Get selected payment status
+
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
@@ -269,9 +271,9 @@ namespace TobaccoStore
                 {
                     try
                     {
-                        // Insert data into SupplierOrder table (with vat_amount and discount_amount)
-                        string insertOrderQuery = "INSERT INTO SupplierOrder (supplier_id, order_date, total_amount, vat_amount, discount_amount) " +
-                                                  "VALUES (@supplierId, @orderDate, @totalAmount, @vatAmount, @discountAmount); SELECT SCOPE_IDENTITY();";
+                        // Insert data into SupplierOrder table (including payment_status)
+                        string insertOrderQuery = "INSERT INTO SupplierOrder (supplier_id, order_date, total_amount, vat_amount, discount_amount, payment_status) " +
+                                                  "VALUES (@supplierId, @orderDate, @totalAmount, @vatAmount, @discountAmount, @paymentStatus); SELECT SCOPE_IDENTITY();";
 
                         int supplierId = 0;
                         DateTime orderDate = dateTimePickerOrderDate.Value.Date; // Ensure we get the date part
@@ -315,6 +317,7 @@ namespace TobaccoStore
                             cmd.Parameters.AddWithValue("@totalAmount", finalAmount);
                             cmd.Parameters.AddWithValue("@vatAmount", totalVat);
                             cmd.Parameters.AddWithValue("@discountAmount", totalDiscount);
+                            cmd.Parameters.AddWithValue("@paymentStatus", paymentStatus); // Add payment status
 
                             // Get the supplier_order_id (identity value)
                             int supplierOrderId = Convert.ToInt32(cmd.ExecuteScalar());
@@ -330,7 +333,6 @@ namespace TobaccoStore
                                 int quantity = Convert.ToInt32(row["Quantity"]);
                                 decimal costPriceAtOrder = Convert.ToDecimal(row["Cost Price"]);
                                 decimal rowDiscount = Convert.ToDecimal(row["Discount"]); // Discount percentage for this row
-                                                                                          // Here, we want to insert 11 as the VAT percentage (not the actual VAT value)
                                 decimal vatPercentage = 11; // VAT percentage is 11%
 
                                 // Insert the order detail
@@ -342,7 +344,6 @@ namespace TobaccoStore
                                     cmdDetails.Parameters.AddWithValue("@costPriceAtOrder", costPriceAtOrder);
                                     cmdDetails.Parameters.AddWithValue("@discount", rowDiscount); // Store the discount as percentage
                                     cmdDetails.Parameters.AddWithValue("@vat", vatPercentage); // Insert VAT percentage (11%)
-
 
                                     cmdDetails.ExecuteNonQuery();
                                 }
@@ -373,6 +374,7 @@ namespace TobaccoStore
 
             clearing();
         }
+
 
 
         private int GetLastSupplierOrderId(SqlConnection connection)
@@ -666,6 +668,13 @@ namespace TobaccoStore
             graphics.DrawString("Supplier Order Invoice", titleFont, brush, 100, yPos);
             yPos += 40;
             graphics.DrawString($"Order Date & Time: {DateTime.Now.ToString("f")}", bodyFont, brush, 100, yPos);
+            yPos += 20;
+
+            // Retrieve Payment Status
+            string paymentStatus = comboBoxPaymentStatus.SelectedItem?.ToString() ?? "Pending"; // Ensure it's retrieved correctly
+
+            // Print Payment Status
+            graphics.DrawString($"Payment Status: {paymentStatus}", bodyFont, brush, 100, yPos);
             yPos += 30;
 
             // Print Column Headers including Discount Percentage
@@ -723,11 +732,18 @@ namespace TobaccoStore
 
 
 
+
         private void btnPrintOrder_Click(object sender, EventArgs e)
         {
             if (orderDataTable.Rows.Count == 0)
             {
                 MessageBox.Show("No orders to print!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (comboBoxPaymentStatus.SelectedItem == null)
+            {
+                MessageBox.Show("Please select a payment status.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 

@@ -520,11 +520,14 @@ namespace TobaccoStore
         private void Btnclear_Click(object sender, EventArgs e)
         {
             // Clear the sale items and reset the form
+            listBoxCustomers.Items.Clear();
+            LoadCustomers();
             saleItems.Clear();
             totalAmount = 0;
             RefreshDataGridView();
             txtBarcode.Clear();
             txtBarcode.Focus();
+            comboBoxPaymentStatus.SelectedIndex = -1;
         }
 
         private void listBoxCustomers_SelectedIndexChanged(object sender, EventArgs e)
@@ -778,6 +781,12 @@ namespace TobaccoStore
             {
                 PrintInvoice();
             }
+
+            if (comboBoxPaymentStatus.SelectedItem == null)
+            {
+                MessageBox.Show("Please select a payment status.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
         }
         private bool ValidateOrder()
         {
@@ -826,11 +835,14 @@ namespace TobaccoStore
             Font bodyFont = new Font("Arial", 12);
             Brush brush = Brushes.Black;
 
+            int yPos = 100; // Starting Y position
+
             // Header
-            graphics.DrawString("Customer Order Invoice", headerFont, brush, 100, 100);
+            graphics.DrawString("Customer Order Invoice", headerFont, brush, 100, yPos);
+
+            yPos += 50;
 
             // Customer Info
-            int yPos = 150; // Starting position for customer info
             if (listBoxCustomers.SelectedItem != null)
             {
                 var selectedCustomer = listBoxCustomers.SelectedItem as CustomerItem;
@@ -841,19 +853,26 @@ namespace TobaccoStore
                 graphics.DrawString("Customer: Not Selected", bodyFont, brush, 100, yPos);
             }
 
-            // Order Date
-            yPos += 50;
+            yPos += 30;
             graphics.DrawString($"Order Date & Time: {dateTimePickerOrderDate.Value.ToString("f")}", bodyFont, brush, 100, yPos);
 
-            // Item List Header
+            yPos += 30;
+
+            // **Payment Status**
+            string paymentStatus = comboBoxPaymentStatus.SelectedItem?.ToString() ?? "Pending"; // Retrieve payment status
+            graphics.DrawString($"Payment Status: {paymentStatus}", bodyFont, brush, 100, yPos);
+
             yPos += 40;
+
+            // Item List Header
             graphics.DrawString("Product Name", bodyFont, brush, 100, yPos);
             graphics.DrawString("Quantity", bodyFont, brush, 300, yPos);
             graphics.DrawString("Price", bodyFont, brush, 400, yPos);
             graphics.DrawString("Total", bodyFont, brush, 500, yPos);
 
-            // Item List
             yPos += 30;
+
+            // Item List
             foreach (var item in saleItems)
             {
                 graphics.DrawString(item.ProductName, bodyFont, brush, 100, yPos);
@@ -882,9 +901,9 @@ namespace TobaccoStore
             yPos += 20;
             graphics.DrawString($"Total Amount: {totalAfterDiscount:C}", headerFont, brush, 100, yPos);
 
-            // End of Page
             e.HasMorePages = false; // Only one page
         }
+
 
         private bool ValidateStockBeforePrint()
         {
