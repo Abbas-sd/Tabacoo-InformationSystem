@@ -57,6 +57,13 @@ namespace TobaccoStore
         {
             dateTimePickerOrderDate.Value = DateTime.Now;
             LoadCustomers();
+
+            // Populate the payment status dropdown
+            
+            comboBoxPaymentStatus.Items.Add("Paid");
+            comboBoxPaymentStatus.Items.Add("Partial");
+
+            
         }
 
         private string connectionString = "Server=MSI\\SQLEXPRESS;Database=Tabacoostore;Trusted_Connection=True;";
@@ -222,8 +229,6 @@ namespace TobaccoStore
             }
         }
 
-
-
         private void BarcodeTimer_Tick(object sender, EventArgs e)
         {
             barcodeTimer.Stop(); // Stop timer after delay
@@ -235,8 +240,6 @@ namespace TobaccoStore
                 txtBarcode.Clear();
             }
         }
-
-
         private void button1_Click(object sender, EventArgs e)
         {
             // Validate that there are items in the sale
@@ -250,6 +253,13 @@ namespace TobaccoStore
             if (listBoxCustomers.SelectedItem == null)
             {
                 MessageBox.Show("Please select a customer.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // Validate that a payment status is selected
+            if (comboBoxPaymentStatus.SelectedItem == null)
+            {
+                MessageBox.Show("Please select a payment status.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
@@ -290,6 +300,9 @@ namespace TobaccoStore
             decimal totalDiscount = totalAfterVAT * (saleItems.Any() ? saleItems.Average(item => item.Discount) / 100 : 0);
             decimal totalAmount = totalAfterVAT - totalDiscount; // Final Total
 
+            // Get the selected payment status from the ComboBox
+            string paymentStatus = comboBoxPaymentStatus.SelectedItem.ToString();
+
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
@@ -297,10 +310,10 @@ namespace TobaccoStore
 
                 try
                 {
-                    // Insert into CustomerOrder table
+                    // Insert into CustomerOrder table with Payment Status
                     string orderQuery = @"
-            INSERT INTO CustomerOrder (customer_id, order_date, total_amount, vat_amount, discount_amount)
-            VALUES (@customerId, @orderDate, @totalAmount, @vat, @discount);
+            INSERT INTO CustomerOrder (customer_id, order_date, total_amount, vat_amount, discount_amount, payment_status)
+            VALUES (@customerId, @orderDate, @totalAmount, @vat, @discount, @paymentStatus);
             SELECT SCOPE_IDENTITY();";
 
                     SqlCommand orderCommand = new SqlCommand(orderQuery, connection, transaction);
@@ -309,6 +322,7 @@ namespace TobaccoStore
                     orderCommand.Parameters.AddWithValue("@totalAmount", totalAmount);
                     orderCommand.Parameters.AddWithValue("@vat", vatAmount);
                     orderCommand.Parameters.AddWithValue("@discount", totalDiscount);
+                    orderCommand.Parameters.AddWithValue("@paymentStatus", paymentStatus);
 
                     int customerOrderId = Convert.ToInt32(orderCommand.ExecuteScalar());
 
@@ -353,6 +367,7 @@ namespace TobaccoStore
                 }
             }
         }
+
         private void AddProductToSale(string barcode)
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
@@ -419,8 +434,6 @@ namespace TobaccoStore
                 }
             }
         }
-
-
 
 
         private void dataGridViewSale_UserDeletingRow(object sender, DataGridViewRowCancelEventArgs e)
@@ -903,5 +916,15 @@ namespace TobaccoStore
             return true; // All discounts are valid
         }
 
+        private void Customer_Order_With_barcode_FormClosing(object sender, FormClosingEventArgs e)
+        {   /*
+            DialogResult result = MessageBox.Show("Are you sure you want to exit?", "Exit Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (result == DialogResult.No)
+            {
+                e.Cancel = true; // Cancel closing
+            }
+            */
+        }
     }
 }

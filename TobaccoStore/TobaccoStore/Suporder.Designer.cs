@@ -52,6 +52,7 @@
             this.txtDiscount = new System.Windows.Forms.TextBox();
             this.txtSearchProduct = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.comboBoxPaymentStatus = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewOrder)).BeginInit();
             this.SuspendLayout();
             // 
@@ -260,11 +261,20 @@
             this.label2.TabIndex = 26;
             this.label2.Text = "Search Products";
             // 
+            // comboBoxPaymentStatus
+            // 
+            this.comboBoxPaymentStatus.FormattingEnabled = true;
+            this.comboBoxPaymentStatus.Location = new System.Drawing.Point(316, 257);
+            this.comboBoxPaymentStatus.Name = "comboBoxPaymentStatus";
+            this.comboBoxPaymentStatus.Size = new System.Drawing.Size(121, 24);
+            this.comboBoxPaymentStatus.TabIndex = 27;
+            // 
             // Suporder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1183, 594);
+            this.Controls.Add(this.comboBoxPaymentStatus);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtSearchProduct);
             this.Controls.Add(this.txtDiscount);
@@ -320,5 +330,6 @@
         private System.Windows.Forms.TextBox txtDiscount;
         private System.Windows.Forms.TextBox txtSearchProduct;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ComboBox comboBoxPaymentStatus;
     }
 }

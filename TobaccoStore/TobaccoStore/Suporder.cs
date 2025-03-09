@@ -75,6 +75,9 @@ namespace TobaccoStore
             // Wire up the CellValueChanged event
             dataGridViewOrder.CellValueChanged += dataGridViewOrder_CellValueChanged;
 
+            comboBoxPaymentStatus.Items.Add("Paid");
+            comboBoxPaymentStatus.Items.Add("Partial");
+
             // Load company logo
             try
             {
@@ -249,6 +252,12 @@ namespace TobaccoStore
             {
                 MessageBox.Show("No items have been added to the order. Please add items before submitting.", "Empty Order", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return; // Stop further execution
+            }
+
+            if (comboBoxPaymentStatus.SelectedItem == null)
+            {
+                MessageBox.Show("Please select a payment status.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
             }
 
             using (SqlConnection connection = new SqlConnection(connectionString))
@@ -522,6 +531,7 @@ namespace TobaccoStore
             txtDiscount.Text = "0";
             txtSearchProduct.Text = string.Empty;
             orderDataTable.Clear();  // Clears the order DataGridView as well
+            comboBoxPaymentStatus.SelectedIndex = -1;
         }
 
         private void btnAddToOrder_Click(object sender, EventArgs e)

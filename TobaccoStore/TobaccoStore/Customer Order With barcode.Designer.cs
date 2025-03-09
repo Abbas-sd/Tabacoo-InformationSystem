@@ -45,6 +45,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.btnPrint = new System.Windows.Forms.Button();
             this.btnPrintPreview = new System.Windows.Forms.Button();
+            this.comboBoxPaymentStatus = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSale)).BeginInit();
             this.SuspendLayout();
             // 
@@ -208,12 +209,21 @@
             this.btnPrintPreview.UseVisualStyleBackColor = true;
             this.btnPrintPreview.Click += new System.EventHandler(this.btnPrintPreview_Click);
             // 
+            // comboBoxPaymentStatus
+            // 
+            this.comboBoxPaymentStatus.FormattingEnabled = true;
+            this.comboBoxPaymentStatus.Location = new System.Drawing.Point(25, 446);
+            this.comboBoxPaymentStatus.Name = "comboBoxPaymentStatus";
+            this.comboBoxPaymentStatus.Size = new System.Drawing.Size(121, 24);
+            this.comboBoxPaymentStatus.TabIndex = 17;
+            // 
             // Customer_Order_With_barcode
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.ClientSize = new System.Drawing.Size(1109, 547);
+            this.Controls.Add(this.comboBoxPaymentStatus);
             this.Controls.Add(this.btnPrintPreview);
             this.Controls.Add(this.btnPrint);
             this.Controls.Add(this.label2);
@@ -233,6 +243,7 @@
             this.Controls.Add(this.txtBarcode);
             this.Name = "Customer_Order_With_barcode";
             this.Text = "Customer_Order_With_barcode";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Customer_Order_With_barcode_FormClosing);
             this.Load += new System.EventHandler(this.Customer_Order_With_barcode_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSale)).EndInit();
             this.ResumeLayout(false);
@@ -259,5 +270,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnPrint;
         private System.Windows.Forms.Button btnPrintPreview;
+        private System.Windows.Forms.ComboBox comboBoxPaymentStatus;
     }
 }
