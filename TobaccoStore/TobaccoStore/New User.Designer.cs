@@ -36,6 +36,7 @@
             this.chkShowPassword = new System.Windows.Forms.CheckBox();
             this.button1 = new System.Windows.Forms.Button();
             this.btnback = new System.Windows.Forms.Button();
+            this.cmbUserRole = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // txtPassword
@@ -73,7 +74,7 @@
             // 
             // btnRegister
             // 
-            this.btnRegister.Location = new System.Drawing.Point(286, 222);
+            this.btnRegister.Location = new System.Drawing.Point(286, 246);
             this.btnRegister.Name = "btnRegister";
             this.btnRegister.Size = new System.Drawing.Size(75, 23);
             this.btnRegister.TabIndex = 9;
@@ -112,12 +113,22 @@
             this.btnback.UseVisualStyleBackColor = true;
             this.btnback.Click += new System.EventHandler(this.btnback_Click);
             // 
+            // cmbUserRole
+            // 
+            this.cmbUserRole.FormattingEnabled = true;
+            this.cmbUserRole.Location = new System.Drawing.Point(250, 202);
+            this.cmbUserRole.Name = "cmbUserRole";
+            this.cmbUserRole.Size = new System.Drawing.Size(121, 24);
+            this.cmbUserRole.TabIndex = 13;
+            // 
             // New_User
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::TobaccoStore.Properties.Resources.back;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.cmbUserRole);
             this.Controls.Add(this.btnback);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.chkShowPassword);
@@ -146,5 +157,6 @@
         private System.Windows.Forms.CheckBox chkShowPassword;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button btnback;
+        private System.Windows.Forms.ComboBox cmbUserRole;
     }
 }
