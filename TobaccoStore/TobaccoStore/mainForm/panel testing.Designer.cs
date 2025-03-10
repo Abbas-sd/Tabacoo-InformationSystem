@@ -45,7 +45,7 @@
             // panelContainer
             // 
             this.panelContainer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
-            this.panelContainer.ForeColor = System.Drawing.Color.Gold;
+            this.panelContainer.ForeColor = System.Drawing.Color.Goldenrod;
             this.panelContainer.Location = new System.Drawing.Point(248, 0);
             this.panelContainer.Name = "panelContainer";
             this.panelContainer.Size = new System.Drawing.Size(1275, 720);
@@ -54,6 +54,7 @@
             // 
             // btnOpenForm
             // 
+            this.btnOpenForm.ForeColor = System.Drawing.Color.DarkRed;
             this.btnOpenForm.Location = new System.Drawing.Point(12, 12);
             this.btnOpenForm.Name = "btnOpenForm";
             this.btnOpenForm.Size = new System.Drawing.Size(209, 31);
@@ -64,6 +65,7 @@
             // 
             // btnopencustomer
             // 
+            this.btnopencustomer.ForeColor = System.Drawing.Color.DarkRed;
             this.btnopencustomer.Location = new System.Drawing.Point(12, 62);
             this.btnopencustomer.Name = "btnopencustomer";
             this.btnopencustomer.Size = new System.Drawing.Size(209, 33);
@@ -74,6 +76,7 @@
             // 
             // btnopenorders
             // 
+            this.btnopenorders.ForeColor = System.Drawing.Color.DarkRed;
             this.btnopenorders.Location = new System.Drawing.Point(12, 111);
             this.btnopenorders.Name = "btnopenorders";
             this.btnopenorders.Size = new System.Drawing.Size(209, 33);
@@ -83,6 +86,7 @@
             // 
             // btnopenview
             // 
+            this.btnopenview.ForeColor = System.Drawing.Color.DarkRed;
             this.btnopenview.Location = new System.Drawing.Point(12, 161);
             this.btnopenview.Name = "btnopenview";
             this.btnopenview.Size = new System.Drawing.Size(209, 33);
@@ -92,6 +96,7 @@
             // 
             // btnopensearch
             // 
+            this.btnopensearch.ForeColor = System.Drawing.Color.DarkRed;
             this.btnopensearch.Location = new System.Drawing.Point(12, 214);
             this.btnopensearch.Name = "btnopensearch";
             this.btnopensearch.Size = new System.Drawing.Size(209, 33);
@@ -101,6 +106,7 @@
             // 
             // btnopenabout
             // 
+            this.btnopenabout.ForeColor = System.Drawing.Color.DarkRed;
             this.btnopenabout.Location = new System.Drawing.Point(12, 271);
             this.btnopenabout.Name = "btnopenabout";
             this.btnopenabout.Size = new System.Drawing.Size(209, 33);
@@ -146,6 +152,7 @@
             this.Controls.Add(this.btnopencustomer);
             this.Controls.Add(this.btnOpenForm);
             this.Controls.Add(this.panelContainer);
+            this.ForeColor = System.Drawing.Color.Gold;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "panel_testing";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

@@ -61,16 +61,17 @@
             // dataGridViewSale
             // 
             this.dataGridViewSale.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewSale.Location = new System.Drawing.Point(201, 60);
+            this.dataGridViewSale.Location = new System.Drawing.Point(215, 63);
             this.dataGridViewSale.Name = "dataGridViewSale";
             this.dataGridViewSale.RowHeadersWidth = 51;
             this.dataGridViewSale.RowTemplate.Height = 24;
-            this.dataGridViewSale.Size = new System.Drawing.Size(896, 442);
+            this.dataGridViewSale.Size = new System.Drawing.Size(928, 484);
             this.dataGridViewSale.TabIndex = 1;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(552, 512);
+            this.button1.ForeColor = System.Drawing.Color.DarkRed;
+            this.button1.Location = new System.Drawing.Point(676, 621);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 2;
@@ -89,7 +90,8 @@
             // 
             // Btnclear
             // 
-            this.Btnclear.Location = new System.Drawing.Point(286, 512);
+            this.Btnclear.ForeColor = System.Drawing.Color.DarkRed;
+            this.Btnclear.Location = new System.Drawing.Point(226, 621);
             this.Btnclear.Name = "Btnclear";
             this.Btnclear.Size = new System.Drawing.Size(75, 23);
             this.Btnclear.TabIndex = 4;
@@ -133,7 +135,8 @@
             // 
             // btnremove
             // 
-            this.btnremove.Location = new System.Drawing.Point(184, 512);
+            this.btnremove.ForeColor = System.Drawing.Color.DarkRed;
+            this.btnremove.Location = new System.Drawing.Point(341, 621);
             this.btnremove.Name = "btnremove";
             this.btnremove.Size = new System.Drawing.Size(75, 23);
             this.btnremove.TabIndex = 9;
@@ -151,6 +154,7 @@
             // 
             // btnManualEntry
             // 
+            this.btnManualEntry.ForeColor = System.Drawing.Color.DarkRed;
             this.btnManualEntry.Location = new System.Drawing.Point(591, 12);
             this.btnManualEntry.Name = "btnManualEntry";
             this.btnManualEntry.Size = new System.Drawing.Size(75, 23);
@@ -162,7 +166,8 @@
             // 
             // btnback
             // 
-            this.btnback.Location = new System.Drawing.Point(12, 512);
+            this.btnback.ForeColor = System.Drawing.Color.DarkRed;
+            this.btnback.Location = new System.Drawing.Point(30, 621);
             this.btnback.Name = "btnback";
             this.btnback.Size = new System.Drawing.Size(75, 23);
             this.btnback.TabIndex = 12;
@@ -172,7 +177,8 @@
             // 
             // btnexit
             // 
-            this.btnexit.Location = new System.Drawing.Point(1022, 512);
+            this.btnexit.ForeColor = System.Drawing.Color.DarkRed;
+            this.btnexit.Location = new System.Drawing.Point(1083, 621);
             this.btnexit.Name = "btnexit";
             this.btnexit.Size = new System.Drawing.Size(75, 23);
             this.btnexit.TabIndex = 13;
@@ -191,6 +197,7 @@
             // 
             // btnPrint
             // 
+            this.btnPrint.ForeColor = System.Drawing.Color.DarkRed;
             this.btnPrint.Location = new System.Drawing.Point(75, 269);
             this.btnPrint.Name = "btnPrint";
             this.btnPrint.Size = new System.Drawing.Size(75, 23);
@@ -201,6 +208,7 @@
             // 
             // btnPrintPreview
             // 
+            this.btnPrintPreview.ForeColor = System.Drawing.Color.DarkRed;
             this.btnPrintPreview.Location = new System.Drawing.Point(46, 314);
             this.btnPrintPreview.Name = "btnPrintPreview";
             this.btnPrintPreview.Size = new System.Drawing.Size(120, 23);
@@ -221,8 +229,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.White;
-            this.BackgroundImage = global::TobaccoStore.Properties.Resources.back;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1257, 673);
             this.Controls.Add(this.comboBoxPaymentStatus);
@@ -243,7 +250,7 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.dataGridViewSale);
             this.Controls.Add(this.txtBarcode);
-            this.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.ForeColor = System.Drawing.Color.Gold;
             this.Name = "Customer_Order_With_barcode";
             this.Text = "Customer_Order_With_barcode";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Customer_Order_With_barcode_FormClosing);

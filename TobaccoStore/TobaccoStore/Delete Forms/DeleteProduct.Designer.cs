@@ -40,9 +40,10 @@
             // 
             // BtnExit
             // 
+            this.BtnExit.ForeColor = System.Drawing.Color.DarkRed;
             this.BtnExit.Location = new System.Drawing.Point(620, 415);
             this.BtnExit.Name = "BtnExit";
-            this.BtnExit.Size = new System.Drawing.Size(80, 23);
+            this.BtnExit.Size = new System.Drawing.Size(75, 23);
             this.BtnExit.TabIndex = 19;
             this.BtnExit.Text = "Exit";
             this.BtnExit.UseVisualStyleBackColor = true;
@@ -50,9 +51,10 @@
             // 
             // BtnRefresh
             // 
+            this.BtnRefresh.ForeColor = System.Drawing.Color.DarkRed;
             this.BtnRefresh.Location = new System.Drawing.Point(549, 10);
             this.BtnRefresh.Name = "BtnRefresh";
-            this.BtnRefresh.Size = new System.Drawing.Size(80, 23);
+            this.BtnRefresh.Size = new System.Drawing.Size(75, 23);
             this.BtnRefresh.TabIndex = 18;
             this.BtnRefresh.Text = "Refresh";
             this.BtnRefresh.UseVisualStyleBackColor = true;
@@ -86,9 +88,10 @@
             // 
             // BtnBack
             // 
+            this.BtnBack.ForeColor = System.Drawing.Color.DarkRed;
             this.BtnBack.Location = new System.Drawing.Point(12, 415);
             this.BtnBack.Name = "BtnBack";
-            this.BtnBack.Size = new System.Drawing.Size(55, 23);
+            this.BtnBack.Size = new System.Drawing.Size(75, 23);
             this.BtnBack.TabIndex = 14;
             this.BtnBack.Text = "Back";
             this.BtnBack.UseVisualStyleBackColor = true;
@@ -96,6 +99,7 @@
             // 
             // BtnDelete
             // 
+            this.BtnDelete.ForeColor = System.Drawing.Color.DarkRed;
             this.BtnDelete.Location = new System.Drawing.Point(635, 10);
             this.BtnDelete.Name = "BtnDelete";
             this.BtnDelete.Size = new System.Drawing.Size(65, 23);
@@ -108,6 +112,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
             this.ClientSize = new System.Drawing.Size(705, 450);
             this.Controls.Add(this.BtnExit);
             this.Controls.Add(this.BtnRefresh);
@@ -116,6 +121,7 @@
             this.Controls.Add(this.dgvProduct);
             this.Controls.Add(this.BtnBack);
             this.Controls.Add(this.BtnDelete);
+            this.ForeColor = System.Drawing.Color.Gold;
             this.Name = "DeleteProduct";
             this.Text = "DeleteProduct";
             this.Load += new System.EventHandler(this.DeleteProduct_Load);

@@ -74,6 +74,7 @@
             // 
             // btnRegister
             // 
+            this.btnRegister.ForeColor = System.Drawing.Color.DarkRed;
             this.btnRegister.Location = new System.Drawing.Point(286, 246);
             this.btnRegister.Name = "btnRegister";
             this.btnRegister.Size = new System.Drawing.Size(75, 23);
@@ -103,6 +104,7 @@
             // 
             // button1
             // 
+            this.button1.ForeColor = System.Drawing.Color.DarkRed;
             this.button1.Location = new System.Drawing.Point(471, 395);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
@@ -113,6 +115,7 @@
             // 
             // btnback
             // 
+            this.btnback.ForeColor = System.Drawing.Color.DarkRed;
             this.btnback.Location = new System.Drawing.Point(46, 395);
             this.btnback.Name = "btnback";
             this.btnback.Size = new System.Drawing.Size(75, 23);
@@ -125,7 +128,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::TobaccoStore.Properties.Resources.back;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(577, 450);
             this.Controls.Add(this.cmbUserRole);
@@ -137,6 +140,7 @@
             this.Controls.Add(this.txtUsername);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.ForeColor = System.Drawing.Color.Gold;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "New_User";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

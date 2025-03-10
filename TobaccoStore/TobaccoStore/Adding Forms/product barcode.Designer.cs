@@ -90,7 +90,8 @@
             // 
             // btnAddProduct
             // 
-            this.btnAddProduct.Location = new System.Drawing.Point(139, 428);
+            this.btnAddProduct.ForeColor = System.Drawing.Color.DarkRed;
+            this.btnAddProduct.Location = new System.Drawing.Point(193, 429);
             this.btnAddProduct.Name = "btnAddProduct";
             this.btnAddProduct.Size = new System.Drawing.Size(113, 23);
             this.btnAddProduct.TabIndex = 34;
@@ -180,11 +181,12 @@
             // 
             this.label6.AutoSize = true;
             this.label6.BackColor = System.Drawing.Color.Transparent;
-            this.label6.Location = new System.Drawing.Point(50, 131);
+            this.label6.Location = new System.Drawing.Point(70, 131);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(61, 16);
             this.label6.TabIndex = 40;
             this.label6.Text = "barcode ";
+            this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
             // panel1
             // 
@@ -199,24 +201,29 @@
             // label9
             // 
             this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.Color.DarkRed;
             this.label9.Location = new System.Drawing.Point(11, 52);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(472, 32);
+            this.label9.Size = new System.Drawing.Size(527, 36);
             this.label9.TabIndex = 12;
             this.label9.Text = "This form assures the accurate collection and management of products details \r\nfo" +
-    "r the Tabuc Store Information System";
+    "r the Tobacco Store Information System";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.Color.DarkRed;
             this.label8.Location = new System.Drawing.Point(11, 7);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(206, 16);
+            this.label8.Size = new System.Drawing.Size(314, 20);
             this.label8.TabIndex = 11;
-            this.label8.Text = "Tabuc Store Information System...";
+            this.label8.Text = "Tobacco Store Information System...";
             // 
             // btnDeleteProduct
             // 
+            this.btnDeleteProduct.ForeColor = System.Drawing.Color.DarkRed;
             this.btnDeleteProduct.Location = new System.Drawing.Point(522, 143);
             this.btnDeleteProduct.Name = "btnDeleteProduct";
             this.btnDeleteProduct.Size = new System.Drawing.Size(75, 23);
@@ -227,6 +234,7 @@
             // 
             // btnUpdateProduct
             // 
+            this.btnUpdateProduct.ForeColor = System.Drawing.Color.DarkRed;
             this.btnUpdateProduct.Location = new System.Drawing.Point(522, 191);
             this.btnUpdateProduct.Name = "btnUpdateProduct";
             this.btnUpdateProduct.Size = new System.Drawing.Size(75, 23);
@@ -237,7 +245,8 @@
             // 
             // BtnExit
             // 
-            this.BtnExit.Location = new System.Drawing.Point(522, 445);
+            this.BtnExit.ForeColor = System.Drawing.Color.DarkRed;
+            this.BtnExit.Location = new System.Drawing.Point(536, 445);
             this.BtnExit.Name = "BtnExit";
             this.BtnExit.Size = new System.Drawing.Size(75, 23);
             this.BtnExit.TabIndex = 45;
@@ -247,6 +256,7 @@
             // 
             // btnBack
             // 
+            this.btnBack.ForeColor = System.Drawing.Color.DarkRed;
             this.btnBack.Location = new System.Drawing.Point(12, 445);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(75, 23);
@@ -259,7 +269,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::TobaccoStore.Properties.Resources.back;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(626, 480);
             this.Controls.Add(this.BtnExit);
@@ -282,6 +292,7 @@
             this.Controls.Add(this.txtCostPrice);
             this.Controls.Add(this.txtProductType);
             this.Controls.Add(this.txtProductName);
+            this.ForeColor = System.Drawing.Color.Gold;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimizeBox = false;
             this.Name = "product_barcode";

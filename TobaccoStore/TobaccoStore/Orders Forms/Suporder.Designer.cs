@@ -60,7 +60,7 @@
             // 
             this.lstSuppliers.FormattingEnabled = true;
             this.lstSuppliers.ItemHeight = 16;
-            this.lstSuppliers.Location = new System.Drawing.Point(161, 167);
+            this.lstSuppliers.Location = new System.Drawing.Point(133, 151);
             this.lstSuppliers.Name = "lstSuppliers";
             this.lstSuppliers.Size = new System.Drawing.Size(304, 68);
             this.lstSuppliers.TabIndex = 0;
@@ -69,7 +69,7 @@
             // 
             this.lstProducts.FormattingEnabled = true;
             this.lstProducts.ItemHeight = 16;
-            this.lstProducts.Location = new System.Drawing.Point(161, 77);
+            this.lstProducts.Location = new System.Drawing.Point(133, 65);
             this.lstProducts.Name = "lstProducts";
             this.lstProducts.Size = new System.Drawing.Size(304, 68);
             this.lstProducts.TabIndex = 1;
@@ -84,7 +84,8 @@
             // 
             // btnSubmitOrder
             // 
-            this.btnSubmitOrder.Location = new System.Drawing.Point(45, 497);
+            this.btnSubmitOrder.ForeColor = System.Drawing.Color.DarkRed;
+            this.btnSubmitOrder.Location = new System.Drawing.Point(45, 511);
             this.btnSubmitOrder.Name = "btnSubmitOrder";
             this.btnSubmitOrder.Size = new System.Drawing.Size(75, 23);
             this.btnSubmitOrder.TabIndex = 6;
@@ -122,7 +123,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(13, 171);
+            this.label5.Location = new System.Drawing.Point(22, 177);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(98, 16);
             this.label5.TabIndex = 12;
@@ -130,6 +131,7 @@
             // 
             // button1
             // 
+            this.button1.ForeColor = System.Drawing.Color.DarkRed;
             this.button1.Location = new System.Drawing.Point(9, 638);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
@@ -140,6 +142,7 @@
             // 
             // button2
             // 
+            this.button2.ForeColor = System.Drawing.Color.DarkRed;
             this.button2.Location = new System.Drawing.Point(1107, 638);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
@@ -159,7 +162,8 @@
             // 
             // BtnClear
             // 
-            this.BtnClear.Location = new System.Drawing.Point(103, 559);
+            this.BtnClear.ForeColor = System.Drawing.Color.DarkRed;
+            this.BtnClear.Location = new System.Drawing.Point(98, 585);
             this.BtnClear.Name = "BtnClear";
             this.BtnClear.Size = new System.Drawing.Size(75, 23);
             this.BtnClear.TabIndex = 16;
@@ -178,7 +182,8 @@
             // 
             // btnAddToOrder
             // 
-            this.btnAddToOrder.Location = new System.Drawing.Point(161, 497);
+            this.btnAddToOrder.ForeColor = System.Drawing.Color.DarkRed;
+            this.btnAddToOrder.Location = new System.Drawing.Point(161, 511);
             this.btnAddToOrder.Name = "btnAddToOrder";
             this.btnAddToOrder.Size = new System.Drawing.Size(129, 23);
             this.btnAddToOrder.TabIndex = 18;
@@ -189,15 +194,16 @@
             // dataGridViewOrder
             // 
             this.dataGridViewOrder.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewOrder.Location = new System.Drawing.Point(492, 110);
+            this.dataGridViewOrder.Location = new System.Drawing.Point(454, 110);
             this.dataGridViewOrder.Name = "dataGridViewOrder";
             this.dataGridViewOrder.RowHeadersWidth = 51;
             this.dataGridViewOrder.RowTemplate.Height = 24;
-            this.dataGridViewOrder.Size = new System.Drawing.Size(670, 428);
+            this.dataGridViewOrder.Size = new System.Drawing.Size(708, 476);
             this.dataGridViewOrder.TabIndex = 19;
             // 
             // btnRemoveCustomer
             // 
+            this.btnRemoveCustomer.ForeColor = System.Drawing.Color.DarkRed;
             this.btnRemoveCustomer.Location = new System.Drawing.Point(492, 638);
             this.btnRemoveCustomer.Name = "btnRemoveCustomer";
             this.btnRemoveCustomer.Size = new System.Drawing.Size(75, 23);
@@ -218,6 +224,7 @@
             // 
             // btnPrintPreview
             // 
+            this.btnPrintPreview.ForeColor = System.Drawing.Color.DarkRed;
             this.btnPrintPreview.Location = new System.Drawing.Point(662, 45);
             this.btnPrintPreview.Name = "btnPrintPreview";
             this.btnPrintPreview.Size = new System.Drawing.Size(129, 23);
@@ -228,6 +235,7 @@
             // 
             // btnPrintOrder
             // 
+            this.btnPrintOrder.ForeColor = System.Drawing.Color.DarkRed;
             this.btnPrintOrder.Location = new System.Drawing.Point(838, 45);
             this.btnPrintOrder.Name = "btnPrintOrder";
             this.btnPrintOrder.Size = new System.Drawing.Size(129, 23);
@@ -238,7 +246,7 @@
             // 
             // txtDiscount
             // 
-            this.txtDiscount.Location = new System.Drawing.Point(161, 257);
+            this.txtDiscount.Location = new System.Drawing.Point(144, 257);
             this.txtDiscount.Name = "txtDiscount";
             this.txtDiscount.Size = new System.Drawing.Size(100, 22);
             this.txtDiscount.TabIndex = 23;
@@ -264,7 +272,7 @@
             // comboBoxPaymentStatus
             // 
             this.comboBoxPaymentStatus.FormattingEnabled = true;
-            this.comboBoxPaymentStatus.Location = new System.Drawing.Point(316, 257);
+            this.comboBoxPaymentStatus.Location = new System.Drawing.Point(295, 255);
             this.comboBoxPaymentStatus.Name = "comboBoxPaymentStatus";
             this.comboBoxPaymentStatus.Size = new System.Drawing.Size(121, 24);
             this.comboBoxPaymentStatus.TabIndex = 27;
@@ -273,6 +281,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1257, 673);
             this.Controls.Add(this.comboBoxPaymentStatus);
             this.Controls.Add(this.label2);
@@ -296,6 +306,7 @@
             this.Controls.Add(this.dateTimePickerOrderDate);
             this.Controls.Add(this.lstProducts);
             this.Controls.Add(this.lstSuppliers);
+            this.ForeColor = System.Drawing.Color.Gold;
             this.Name = "Suporder";
             this.Text = "TSIS | Supplier-order";
             this.Load += new System.EventHandler(this.Suporder_Load);

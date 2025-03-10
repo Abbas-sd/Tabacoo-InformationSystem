@@ -66,27 +66,31 @@
             this.panel1.Controls.Add(this.label8);
             this.panel1.Location = new System.Drawing.Point(2, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(507, 100);
+            this.panel1.Size = new System.Drawing.Size(553, 100);
             this.panel1.TabIndex = 21;
             // 
             // label9
             // 
             this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.Color.DarkRed;
             this.label9.Location = new System.Drawing.Point(11, 52);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(468, 32);
+            this.label9.Size = new System.Drawing.Size(545, 32);
             this.label9.TabIndex = 12;
             this.label9.Text = "This form assures the accurate collection and management of supplier details \r\nfo" +
-    "r the Tabuc Store Information System";
+    "r the Tobacco Store Information System";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.Color.DarkRed;
             this.label8.Location = new System.Drawing.Point(11, 7);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(206, 16);
+            this.label8.Size = new System.Drawing.Size(314, 20);
             this.label8.TabIndex = 11;
-            this.label8.Text = "Tabuc Store Information System...";
+            this.label8.Text = "Tobacco Store Information System...";
             // 
             // label6
             // 
@@ -120,6 +124,7 @@
             // 
             // btnsupplieradd
             // 
+            this.btnsupplieradd.ForeColor = System.Drawing.Color.DarkRed;
             this.btnsupplieradd.Location = new System.Drawing.Point(159, 293);
             this.btnsupplieradd.Name = "btnsupplieradd";
             this.btnsupplieradd.Size = new System.Drawing.Size(75, 23);
@@ -130,7 +135,8 @@
             // 
             // btnUpdatessupplier
             // 
-            this.btnUpdatessupplier.Location = new System.Drawing.Point(406, 134);
+            this.btnUpdatessupplier.ForeColor = System.Drawing.Color.DarkRed;
+            this.btnUpdatessupplier.Location = new System.Drawing.Point(464, 136);
             this.btnUpdatessupplier.Name = "btnUpdatessupplier";
             this.btnUpdatessupplier.Size = new System.Drawing.Size(75, 23);
             this.btnUpdatessupplier.TabIndex = 28;
@@ -140,7 +146,8 @@
             // 
             // btnDeletesupplier
             // 
-            this.btnDeletesupplier.Location = new System.Drawing.Point(406, 184);
+            this.btnDeletesupplier.ForeColor = System.Drawing.Color.DarkRed;
+            this.btnDeletesupplier.Location = new System.Drawing.Point(464, 184);
             this.btnDeletesupplier.Name = "btnDeletesupplier";
             this.btnDeletesupplier.Size = new System.Drawing.Size(75, 23);
             this.btnDeletesupplier.TabIndex = 27;
@@ -150,7 +157,8 @@
             // 
             // BtnExit
             // 
-            this.BtnExit.Location = new System.Drawing.Point(414, 415);
+            this.BtnExit.ForeColor = System.Drawing.Color.DarkRed;
+            this.BtnExit.Location = new System.Drawing.Point(473, 415);
             this.BtnExit.Name = "BtnExit";
             this.BtnExit.Size = new System.Drawing.Size(75, 23);
             this.BtnExit.TabIndex = 30;
@@ -160,6 +168,7 @@
             // 
             // btnBack
             // 
+            this.btnBack.ForeColor = System.Drawing.Color.DarkRed;
             this.btnBack.Location = new System.Drawing.Point(8, 415);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(75, 23);
@@ -179,9 +188,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::TobaccoStore.Properties.Resources.back;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(512, 450);
+            this.ClientSize = new System.Drawing.Size(560, 450);
             this.Controls.Add(this.txtsuplliername);
             this.Controls.Add(this.BtnExit);
             this.Controls.Add(this.btnBack);
@@ -194,6 +203,7 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.txtPhone);
             this.Controls.Add(this.txtAddress);
+            this.ForeColor = System.Drawing.Color.Gold;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.MaximizeBox = false;
             this.Name = "Supplier";
