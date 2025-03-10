@@ -61,22 +61,22 @@
     <Compile Include="Dont Edit\Customer Order.Designer.cs">
       <DependentUpon>Customer Order.cs</DependentUpon>
     </Compile>
-    <Compile Include="Delete\DeletCustomer.cs">
+    <Compile Include="Delete Forms\DeletCustomer.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Delete\DeletCustomer.Designer.cs">
+    <Compile Include="Delete Forms\DeletCustomer.Designer.cs">
       <DependentUpon>DeletCustomer.cs</DependentUpon>
     </Compile>
-    <Compile Include="Delete\DeleteProduct.cs">
+    <Compile Include="Delete Forms\DeleteProduct.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Delete\DeleteProduct.Designer.cs">
+    <Compile Include="Delete Forms\DeleteProduct.Designer.cs">
       <DependentUpon>DeleteProduct.cs</DependentUpon>
     </Compile>
-    <Compile Include="Delete\DeleteSupplier.cs">
+    <Compile Include="Delete Forms\DeleteSupplier.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Delete\DeleteSupplier.Designer.cs">
+    <Compile Include="Delete Forms\DeleteSupplier.Designer.cs">
       <DependentUpon>DeleteSupplier.cs</DependentUpon>
     </Compile>
     <Compile Include="Adding Forms\Form1.cs">
@@ -85,10 +85,10 @@
     <Compile Include="Adding Forms\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="log in.cs">
+    <Compile Include="Log in form\log in.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="log in.Designer.cs">
+    <Compile Include="Log in form\log in.Designer.cs">
       <DependentUpon>log in.cs</DependentUpon>
     </Compile>
     <Compile Include="Dont Edit\Main - Form.cs">
@@ -109,10 +109,10 @@
     <Compile Include="Dont Edit\order.Designer.cs">
       <DependentUpon>order.cs</DependentUpon>
     </Compile>
-    <Compile Include="panel testing.cs">
+    <Compile Include="Main Form\panel testing.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="panel testing.Designer.cs">
+    <Compile Include="Main Form\panel testing.Designer.cs">
       <DependentUpon>panel testing.cs</DependentUpon>
     </Compile>
     <Compile Include="Adding Forms\product barcode.cs">
@@ -129,10 +129,10 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="search.cs">
+    <Compile Include="Search form\search.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="search.Designer.cs">
+    <Compile Include="Search form\search.Designer.cs">
       <DependentUpon>search.cs</DependentUpon>
     </Compile>
     <Compile Include="Orders Forms\Suporder.cs">
@@ -153,52 +153,52 @@
     <Compile Include="Dont Edit\testing first print.Designer.cs">
       <DependentUpon>testing first print.cs</DependentUpon>
     </Compile>
-    <Compile Include="Update\UpdateCustomer.cs">
+    <Compile Include="Update Forms\UpdateCustomer.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Update\UpdateCustomer.Designer.cs">
+    <Compile Include="Update Forms\UpdateCustomer.Designer.cs">
       <DependentUpon>UpdateCustomer.cs</DependentUpon>
     </Compile>
-    <Compile Include="Update\UpdateProduct.cs">
+    <Compile Include="Update Forms\UpdateProduct.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Update\UpdateProduct.Designer.cs">
+    <Compile Include="Update Forms\UpdateProduct.Designer.cs">
       <DependentUpon>UpdateProduct.cs</DependentUpon>
     </Compile>
-    <Compile Include="Update\UpdatSupplier.cs">
+    <Compile Include="Update Forms\UpdatSupplier.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Update\UpdatSupplier.Designer.cs">
+    <Compile Include="Update Forms\UpdatSupplier.Designer.cs">
       <DependentUpon>UpdatSupplier.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\View Customer Orders.cs">
+    <Compile Include="View Forms\View Customer Orders.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\View Customer Orders.Designer.cs">
+    <Compile Include="View Forms\View Customer Orders.Designer.cs">
       <DependentUpon>View Customer Orders.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\View Customers.cs">
+    <Compile Include="View Forms\View Customers.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\View Customers.Designer.cs">
+    <Compile Include="View Forms\View Customers.Designer.cs">
       <DependentUpon>View Customers.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\View Orders.cs">
+    <Compile Include="View Forms\View Orders.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\View Orders.Designer.cs">
+    <Compile Include="View Forms\View Orders.Designer.cs">
       <DependentUpon>View Orders.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\View Product.cs">
+    <Compile Include="View Forms\View Product.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\View Product.Designer.cs">
+    <Compile Include="View Forms\View Product.Designer.cs">
       <DependentUpon>View Product.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\View Suppliers.cs">
+    <Compile Include="View Forms\View Suppliers.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\View Suppliers.Designer.cs">
+    <Compile Include="View Forms\View Suppliers.Designer.cs">
       <DependentUpon>View Suppliers.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Orders Forms\Customer Order With barcode.resx">
@@ -207,19 +207,19 @@
     <EmbeddedResource Include="Dont Edit\Customer Order.resx">
       <DependentUpon>Customer Order.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Delete\DeletCustomer.resx">
+    <EmbeddedResource Include="Delete Forms\DeletCustomer.resx">
       <DependentUpon>DeletCustomer.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Delete\DeleteProduct.resx">
+    <EmbeddedResource Include="Delete Forms\DeleteProduct.resx">
       <DependentUpon>DeleteProduct.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Delete\DeleteSupplier.resx">
+    <EmbeddedResource Include="Delete Forms\DeleteSupplier.resx">
       <DependentUpon>DeleteSupplier.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Adding Forms\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="log in.resx">
+    <EmbeddedResource Include="Log in form\log in.resx">
       <DependentUpon>log in.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Dont Edit\Main - Form.resx">
@@ -231,7 +231,7 @@
     <EmbeddedResource Include="Dont Edit\order.resx">
       <DependentUpon>order.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="panel testing.resx">
+    <EmbeddedResource Include="Main Form\panel testing.resx">
       <DependentUpon>panel testing.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Adding Forms\product barcode.resx">
@@ -251,7 +251,7 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="Report1 test 1.rdlc" />
-    <EmbeddedResource Include="search.resx">
+    <EmbeddedResource Include="Search form\search.resx">
       <DependentUpon>search.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Orders Forms\Suporder.resx">
@@ -263,28 +263,28 @@
     <EmbeddedResource Include="Dont Edit\testing first print.resx">
       <DependentUpon>testing first print.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Update\UpdateCustomer.resx">
+    <EmbeddedResource Include="Update Forms\UpdateCustomer.resx">
       <DependentUpon>UpdateCustomer.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Update\UpdateProduct.resx">
+    <EmbeddedResource Include="Update Forms\UpdateProduct.resx">
       <DependentUpon>UpdateProduct.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Update\UpdatSupplier.resx">
+    <EmbeddedResource Include="Update Forms\UpdatSupplier.resx">
       <DependentUpon>UpdatSupplier.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\View Customer Orders.resx">
+    <EmbeddedResource Include="View Forms\View Customer Orders.resx">
       <DependentUpon>View Customer Orders.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\View Customers.resx">
+    <EmbeddedResource Include="View Forms\View Customers.resx">
       <DependentUpon>View Customers.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\View Orders.resx">
+    <EmbeddedResource Include="View Forms\View Orders.resx">
       <DependentUpon>View Orders.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\View Product.resx">
+    <EmbeddedResource Include="View Forms\View Product.resx">
       <DependentUpon>View Product.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\View Suppliers.resx">
+    <EmbeddedResource Include="View Forms\View Suppliers.resx">
       <DependentUpon>View Suppliers.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
