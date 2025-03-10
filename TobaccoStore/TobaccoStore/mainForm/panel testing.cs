@@ -15,6 +15,8 @@ namespace TobaccoStore
     {
         private Button NewLogoutButton;
         private Button NewExitButton;
+
+
         public panel_testing()
         {
             InitializeComponent();

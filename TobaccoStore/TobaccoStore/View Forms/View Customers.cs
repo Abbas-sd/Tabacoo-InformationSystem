@@ -69,9 +69,7 @@ namespace TobaccoStore
 
         private void btnUpdateCustomer_Click(object sender, EventArgs e)
         {
-            UpdateCustomer updateForm = new UpdateCustomer(this); // Pass 'this' as the calling form
-            this.Hide(); // Hide the current form
-            updateForm.Show(); // Show the update form
+            
         }
         private void btnDeleteCustomer_Click(object sender, EventArgs e)
         {

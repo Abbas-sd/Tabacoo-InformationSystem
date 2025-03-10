@@ -13,22 +13,17 @@ namespace TobaccoStore
 {
     public partial class UpdateCustomer : Form
     {
-        private Form _callingForm; // Store the calling form
-        public UpdateCustomer(Form callingForm)
+        
+        public UpdateCustomer()
         {
             InitializeComponent();
-            _callingForm = callingForm; // Store the calling form
+            
 
-            // Disable the search button for Cashier role
-            if (log_in.currentUserRole == Main.UserRole.User)
+            if (log_in.currentUserRole == Main.UserRole.User || log_in.currentUserRole == Main.UserRole.Cashier)
             {
-                BtnUpdate.Enabled = false;  // Disable button1 (search button) for Cashier
+                BtnUpdate.Enabled = false;
             }
 
-            if (log_in.currentUserRole == Main.UserRole.Cashier)
-            {
-                BtnUpdate.Enabled = false;  // Disable button1 (search button) for Cashier
-            }
         }
 
         private string connectionString = "Server=MSI\\SQLEXPRESS;Database=TabacooStore;Trusted_Connection=True;";
@@ -208,7 +203,7 @@ namespace TobaccoStore
         private void BtnBack_Click(object sender, EventArgs e)
         {
             this.Close(); // Close the update form
-            _callingForm.Show(); // Show the calling form
+            
         }
     }
 }

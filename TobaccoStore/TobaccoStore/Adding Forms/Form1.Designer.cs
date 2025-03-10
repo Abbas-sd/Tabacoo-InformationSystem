@@ -50,6 +50,7 @@
             this.btnBack = new System.Windows.Forms.Button();
             this.BtnExit = new System.Windows.Forms.Button();
             this.BtnClear = new System.Windows.Forms.Button();
+            this.panelUpdateCustomer = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -196,8 +197,9 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
             this.panel1.Controls.Add(this.label9);
+            this.panel1.Controls.Add(this.panelUpdateCustomer);
             this.panel1.Controls.Add(this.label8);
-            this.panel1.Location = new System.Drawing.Point(1, 2);
+            this.panel1.Location = new System.Drawing.Point(12, 3);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(533, 100);
             this.panel1.TabIndex = 20;
@@ -252,18 +254,24 @@
             this.BtnClear.UseVisualStyleBackColor = true;
             this.BtnClear.Click += new System.EventHandler(this.BtnClear_Click);
             // 
+            // panelUpdateCustomer
+            // 
+            this.panelUpdateCustomer.Location = new System.Drawing.Point(274, 67);
+            this.panelUpdateCustomer.Name = "panelUpdateCustomer";
+            this.panelUpdateCustomer.Size = new System.Drawing.Size(1275, 720);
+            this.panelUpdateCustomer.TabIndex = 24;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
-            this.BackgroundImage = global::TobaccoStore.Properties.Resources.back;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(579, 579);
+            this.ClientSize = new System.Drawing.Size(1253, 669);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.BtnClear);
             this.Controls.Add(this.BtnExit);
             this.Controls.Add(this.btnBack);
-            this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnUpdateCustomer);
             this.Controls.Add(this.btnDeleteCustomer);
             this.Controls.Add(this.label6);
@@ -317,6 +325,7 @@
         private System.Windows.Forms.Button btnBack;
         private System.Windows.Forms.Button BtnExit;
         private System.Windows.Forms.Button BtnClear;
+        private System.Windows.Forms.Panel panelUpdateCustomer;
     }
 }
 

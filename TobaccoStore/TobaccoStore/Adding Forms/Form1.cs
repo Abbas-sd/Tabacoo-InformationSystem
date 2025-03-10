@@ -18,6 +18,9 @@ namespace TobaccoStore
         {
             InitializeComponent();
 
+            panelUpdateCustomer.Visible = false;
+
+
             // Disable the search button for Cashier role
             if (log_in.currentUserRole == Main.UserRole.User)
             {
@@ -135,13 +138,26 @@ namespace TobaccoStore
             deleteForm.Show(); // Show the delete form
         }
 
+        // Assuming you have a Panel named 'updatePanel' and an UpdateCustomer form or controls inside it
+
         private void btnUpdateCustomer_Click(object sender, EventArgs e)
         {
-            UpdateCustomer updateForm = new UpdateCustomer(this); // Pass 'this' as the calling form
-            this.Hide(); // Hide the current form
-            updateForm.Show(); // Show the update form
+            panel1.Visible = false;
+            // Make the panel visible when the button is clicked
+            panelUpdateCustomer.Visible = true;
+
+            // You can initialize or show the UpdateCustomer form inside the panel here
+            UpdateCustomer updateForm = new UpdateCustomer();
+            updateForm.TopLevel = false; // To embed it inside the panel
+            updateForm.FormBorderStyle = FormBorderStyle.None; // Remove border
+            updateForm.Dock = DockStyle.Fill; // Fill the panel
+
+            panelUpdateCustomer.Controls.Clear(); // Clear any existing controls in the panel
+            panelUpdateCustomer.Controls.Add(updateForm); // Add the update form inside the panel
+            updateForm.Show();
         }
-        
+
+
 
         private void btnBack_Click(object sender, EventArgs e)
         {
