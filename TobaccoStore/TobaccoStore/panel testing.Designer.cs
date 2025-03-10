@@ -35,13 +35,17 @@
             this.btnopenview = new System.Windows.Forms.Button();
             this.btnopensearch = new System.Windows.Forms.Button();
             this.btnopenabout = new System.Windows.Forms.Button();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelContainer
             // 
             this.panelContainer.Location = new System.Drawing.Point(248, 0);
             this.panelContainer.Name = "panelContainer";
-            this.panelContainer.Size = new System.Drawing.Size(1275, 679);
+            this.panelContainer.Size = new System.Drawing.Size(1275, 720);
             this.panelContainer.TabIndex = 0;
             this.panelContainer.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
@@ -101,11 +105,36 @@
             this.btnopenabout.Text = "About";
             this.btnopenabout.UseVisualStyleBackColor = true;
             // 
+            // statusStrip1
+            // 
+            this.statusStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripStatusLabel1,
+            this.toolStripStatusLabel2});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 694);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(1523, 26);
+            this.statusStrip1.TabIndex = 8;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // toolStripStatusLabel1
+            // 
+            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(94, 20);
+            this.toolStripStatusLabel1.Text = "Current Time";
+            // 
+            // toolStripStatusLabel2
+            // 
+            this.toolStripStatusLabel2.Name = "toolStripStatusLabel2";
+            this.toolStripStatusLabel2.Size = new System.Drawing.Size(82, 20);
+            this.toolStripStatusLabel2.Text = "User Name";
+            // 
             // panel_testing
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1523, 720);
+            this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.btnopenabout);
             this.Controls.Add(this.btnopensearch);
             this.Controls.Add(this.btnopenview);
@@ -117,7 +146,10 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "panel_testing";
             this.Load += new System.EventHandler(this.panel_testing_Load);
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -130,5 +162,8 @@
         private System.Windows.Forms.Button btnopenview;
         private System.Windows.Forms.Button btnopensearch;
         private System.Windows.Forms.Button btnopenabout;
+        private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel2;
     }
 }

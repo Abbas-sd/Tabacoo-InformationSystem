@@ -7,26 +7,31 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static TobaccoStore.Main;
 
 namespace TobaccoStore
 {
     public partial class panel_testing : Form
     {
+        private Button NewLogoutButton;
+        private Button NewExitButton;
         public panel_testing()
         {
             InitializeComponent();
             this.Resize += Panel_testing_Resize; // Handle form resizing
+            ApplyRoleBasedAccessControl();
         }
 
         private void Panel_testing_Resize(object sender, EventArgs e)
         {
             // Recalculate the bottom position for the new buttons when the form is resized
-            int bottomPadding = 10; // Padding from the bottom edge
+            int bottomPadding = 30; // Padding from the bottom edge
             int buttonHeight = 25; // Height of the buttons
             int buttonSpacing = 10; // Spacing between the buttons
 
             NewLogoutButton.Location = new Point(10, this.ClientSize.Height - buttonHeight - bottomPadding);
             NewExitButton.Location = new Point(NewLogoutButton.Right + buttonSpacing, this.ClientSize.Height - buttonHeight - bottomPadding);
+            this.Refresh(); // Force the form to redraw with updated positions
         }
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
@@ -40,14 +45,66 @@ namespace TobaccoStore
         private void btnopencustomer_Click(object sender, EventArgs e)
         {
         }
-        
+
+        private void ApplyRoleBasedAccessControl()
+        {
+            if (log_in.currentUserRole == UserRole.Admin)
+            {
+                // Admin has full access
+                btnOpenForm.Enabled = true;  // Add User
+                btnopencustomer.Enabled = true;
+                btnopenorders.Enabled = true;
+                btnopenview.Enabled = true;
+                btnopensearch.Enabled = true;
+                btnopenabout.Enabled = true;
+            }
+            else if (log_in.currentUserRole == UserRole.User)
+            {
+                // Regular users have limited access
+                btnOpenForm.Enabled = true; // Disable Add User
+                btnopencustomer.Enabled = true;
+                btnopenorders.Enabled = true;
+                btnopenview.Enabled = true;
+                btnopensearch.Enabled = true;
+                btnopenabout.Enabled = true;
+            }
+            else if (log_in.currentUserRole == UserRole.Cashier)
+            {
+                // Cashier access restrictions
+                btnOpenForm.Enabled = true;
+                btnopencustomer.Enabled = true;
+                btnopenorders.Enabled = true;  // Only process orders
+                btnopenview.Enabled = true;
+                btnopensearch.Enabled = true;
+                btnopenabout.Enabled = true;
+            }
+            else if (log_in.currentUserRole == UserRole.Stoker)
+            {
+                // Stoker access restrictions
+                btnOpenForm.Enabled = true;
+                btnopencustomer.Enabled = true;
+                btnopenorders.Enabled = true;
+                btnopenview.Enabled = true; // Can view records
+                btnopensearch.Enabled = true;
+                btnopenabout.Enabled = true;
+            }
+            else
+            {
+                // If role is invalid, disable all buttons
+                btnOpenForm.Enabled = false;
+                btnopencustomer.Enabled = false;
+                btnopenorders.Enabled = false;
+                btnopenview.Enabled = false;
+                btnopensearch.Enabled = false;
+                btnopenabout.Enabled = false;
+            }
+        }
+
+
+
+
 
         
-
-
-
-        private Button NewLogoutButton;
-        private Button NewExitButton;
 
 
 
@@ -59,8 +116,20 @@ namespace TobaccoStore
         private Dictionary<Button, Point> originalPositions = new Dictionary<Button, Point>();
         private void panel_testing_Load(object sender, EventArgs e)
         {
+            toolStripStatusLabel1.Text = "Date: " + DateTime.Now.ToString("yyyy-MM-dd");
+
+            // Display the username in the StatusStrip
+            if (!string.IsNullOrEmpty(log_in.currentUsername))
+            {
+                toolStripStatusLabel2.Text = "Logged in as: " + log_in.currentUsername;
+            }
+
+            ApplyRoleBasedAccessControl();
+
+
+
             // Calculate the bottom position for the buttons
-            int bottomPadding = 10; // Padding from the bottom edge
+            int bottomPadding = 30; // Padding from the bottom edge
             int buttonHeight = 25; // Height of the buttons
             int buttonSpacing = 10; // Spacing between the buttons
 
@@ -121,10 +190,11 @@ namespace TobaccoStore
                     Text = name,
                     Size = new Size(parentButton.Width, 30),
                     Location = new Point(parentButton.Location.X, startY),
-                    Visible = false
+                    Visible = false,
+                    Enabled = HasPermissionForSubButton(name) // Apply role-based restriction
                 };
 
-                // Attach click event based on button text
+                // Attach click event
                 btn.Click += (sender, e) => SubButton_Click(name);
 
                 this.Controls.Add(btn);
@@ -133,6 +203,27 @@ namespace TobaccoStore
             }
 
             return subButtons;
+        }
+        private bool HasPermissionForSubButton(string buttonName)
+        {
+            switch (log_in.currentUserRole)
+            {
+                case UserRole.Admin:
+                    return true; // Admin has full access
+
+                case UserRole.User:
+                    return buttonName != "Add User"; // User cannot access "Add User"
+
+                case UserRole.Cashier:
+                    return buttonName == "Customer Order" || buttonName == "Supplier Order" || buttonName.Contains("View"); // Cashier can only handle orders
+
+                case UserRole.Stoker:
+                    return buttonName.Contains("View") || buttonName == "About" || buttonName.Contains("New"); // Stoker can only view data
+
+
+                default:
+                    return false; // Invalid role, no access
+            }
         }
 
         private void SubButton_Click(string buttonName)

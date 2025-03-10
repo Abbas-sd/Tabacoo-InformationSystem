@@ -41,7 +41,7 @@ namespace TobaccoStore
                 log_in.currentUsername = username; // Store the username
 
                 this.Hide();
-                Main mainForm = new Main();
+                panel_testing mainForm = new panel_testing();
                 mainForm.Show();
             }
             else
