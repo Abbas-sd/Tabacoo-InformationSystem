@@ -221,8 +221,10 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.ClientSize = new System.Drawing.Size(1109, 547);
+            this.BackColor = System.Drawing.Color.White;
+            this.BackgroundImage = global::TobaccoStore.Properties.Resources.back;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ClientSize = new System.Drawing.Size(1257, 673);
             this.Controls.Add(this.comboBoxPaymentStatus);
             this.Controls.Add(this.btnPrintPreview);
             this.Controls.Add(this.btnPrint);
@@ -241,6 +243,7 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.dataGridViewSale);
             this.Controls.Add(this.txtBarcode);
+            this.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.Name = "Customer_Order_With_barcode";
             this.Text = "Customer_Order_With_barcode";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Customer_Order_With_barcode_FormClosing);

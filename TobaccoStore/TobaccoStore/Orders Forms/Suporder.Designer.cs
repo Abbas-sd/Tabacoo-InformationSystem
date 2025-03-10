@@ -130,7 +130,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(12, 559);
+            this.button1.Location = new System.Drawing.Point(9, 638);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 13;
@@ -140,7 +140,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(1096, 559);
+            this.button2.Location = new System.Drawing.Point(1107, 638);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 14;
@@ -198,7 +198,7 @@
             // 
             // btnRemoveCustomer
             // 
-            this.btnRemoveCustomer.Location = new System.Drawing.Point(492, 559);
+            this.btnRemoveCustomer.Location = new System.Drawing.Point(492, 638);
             this.btnRemoveCustomer.Name = "btnRemoveCustomer";
             this.btnRemoveCustomer.Size = new System.Drawing.Size(75, 23);
             this.btnRemoveCustomer.TabIndex = 20;
@@ -273,7 +273,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1183, 594);
+            this.ClientSize = new System.Drawing.Size(1257, 673);
             this.Controls.Add(this.comboBoxPaymentStatus);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtSearchProduct);
