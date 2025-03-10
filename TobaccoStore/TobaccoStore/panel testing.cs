@@ -48,56 +48,7 @@ namespace TobaccoStore
 
         private void ApplyRoleBasedAccessControl()
         {
-            if (log_in.currentUserRole == UserRole.Admin)
-            {
-                // Admin has full access
-                btnOpenForm.Enabled = true;  // Add User
-                btnopencustomer.Enabled = true;
-                btnopenorders.Enabled = true;
-                btnopenview.Enabled = true;
-                btnopensearch.Enabled = true;
-                btnopenabout.Enabled = true;
-            }
-            else if (log_in.currentUserRole == UserRole.User)
-            {
-                // Regular users have limited access
-                btnOpenForm.Enabled = true; // Disable Add User
-                btnopencustomer.Enabled = true;
-                btnopenorders.Enabled = true;
-                btnopenview.Enabled = true;
-                btnopensearch.Enabled = true;
-                btnopenabout.Enabled = true;
-            }
-            else if (log_in.currentUserRole == UserRole.Cashier)
-            {
-                // Cashier access restrictions
-                btnOpenForm.Enabled = true;
-                btnopencustomer.Enabled = true;
-                btnopenorders.Enabled = true;  // Only process orders
-                btnopenview.Enabled = true;
-                btnopensearch.Enabled = true;
-                btnopenabout.Enabled = true;
-            }
-            else if (log_in.currentUserRole == UserRole.Stoker)
-            {
-                // Stoker access restrictions
-                btnOpenForm.Enabled = true;
-                btnopencustomer.Enabled = true;
-                btnopenorders.Enabled = true;
-                btnopenview.Enabled = true; // Can view records
-                btnopensearch.Enabled = true;
-                btnopenabout.Enabled = true;
-            }
-            else
-            {
-                // If role is invalid, disable all buttons
-                btnOpenForm.Enabled = false;
-                btnopencustomer.Enabled = false;
-                btnopenorders.Enabled = false;
-                btnopenview.Enabled = false;
-                btnopensearch.Enabled = false;
-                btnopenabout.Enabled = false;
-            }
+            
         }
 
 

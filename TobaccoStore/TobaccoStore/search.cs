@@ -28,6 +28,12 @@ namespace TobaccoStore
 
         private void button1_Click(object sender, EventArgs e)
         {
+            if (comboBox1.SelectedItem == null)
+            {
+                MessageBox.Show("Please select a search type.");
+                return;
+            }
+
             string searchType = comboBox1.SelectedItem.ToString();
             string keyword = txtSearch.Text.Trim();
             string query = "";
