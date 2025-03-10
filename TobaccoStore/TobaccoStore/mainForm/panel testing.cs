@@ -139,8 +139,8 @@ namespace TobaccoStore
                 Button btn = new Button
                 {
                     Text = name,
-                    Size = new Size(parentButton.Width, 30),
-                    Location = new Point(parentButton.Location.X, startY),
+                    Size = new Size(parentButton.Width - 20, 25), // Decrease width by 20 and height to 25
+                    Location = new Point(parentButton.Location.X + 10, startY), // Adjust X position for alignment
                     Visible = false,
                     Enabled = HasPermissionForSubButton(name) // Apply role-based restriction
                 };

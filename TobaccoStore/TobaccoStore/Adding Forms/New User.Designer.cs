@@ -34,9 +34,9 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btnRegister = new System.Windows.Forms.Button();
             this.chkShowPassword = new System.Windows.Forms.CheckBox();
+            this.cmbUserRole = new System.Windows.Forms.ComboBox();
             this.button1 = new System.Windows.Forms.Button();
             this.btnback = new System.Windows.Forms.Button();
-            this.cmbUserRole = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // txtPassword
@@ -93,6 +93,14 @@
             this.chkShowPassword.UseVisualStyleBackColor = true;
             this.chkShowPassword.CheckedChanged += new System.EventHandler(this.chkShowPassword_CheckedChanged);
             // 
+            // cmbUserRole
+            // 
+            this.cmbUserRole.FormattingEnabled = true;
+            this.cmbUserRole.Location = new System.Drawing.Point(250, 202);
+            this.cmbUserRole.Name = "cmbUserRole";
+            this.cmbUserRole.Size = new System.Drawing.Size(121, 24);
+            this.cmbUserRole.TabIndex = 13;
+            // 
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(660, 395);
@@ -112,14 +120,6 @@
             this.btnback.Text = "Back";
             this.btnback.UseVisualStyleBackColor = true;
             this.btnback.Click += new System.EventHandler(this.btnback_Click);
-            // 
-            // cmbUserRole
-            // 
-            this.cmbUserRole.FormattingEnabled = true;
-            this.cmbUserRole.Location = new System.Drawing.Point(250, 202);
-            this.cmbUserRole.Name = "cmbUserRole";
-            this.cmbUserRole.Size = new System.Drawing.Size(121, 24);
-            this.cmbUserRole.TabIndex = 13;
             // 
             // New_User
             // 
@@ -155,8 +155,8 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnRegister;
         private System.Windows.Forms.CheckBox chkShowPassword;
+        private System.Windows.Forms.ComboBox cmbUserRole;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button btnback;
-        private System.Windows.Forms.ComboBox cmbUserRole;
     }
 }
