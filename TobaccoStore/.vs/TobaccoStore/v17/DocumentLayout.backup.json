@@ -3,20 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\abbas\\source\\repos\\Tabacoo-InformationSystem\\TobaccoStore\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{4A4C75AD-C395-4A96-9072-22C37FA05215}|TobaccoStore\\TobaccoStore.csproj|c:\\users\\abbas\\source\\repos\\tabacoo-informationsystem\\tobaccostore\\tobaccostore\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{4A4C75AD-C395-4A96-9072-22C37FA05215}|TobaccoStore\\TobaccoStore.csproj|solutionrelative:tobaccostore\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{4A4C75AD-C395-4A96-9072-22C37FA05215}|TobaccoStore\\TobaccoStore.csproj|C:\\Users\\abbas\\source\\repos\\Tabacoo-InformationSystem\\TobaccoStore\\tobaccostore\\panel testing.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4A4C75AD-C395-4A96-9072-22C37FA05215}|TobaccoStore\\TobaccoStore.csproj|solutionrelative:tobaccostore\\panel testing.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{4A4C75AD-C395-4A96-9072-22C37FA05215}|TobaccoStore\\TobaccoStore.csproj|c:\\users\\abbas\\source\\repos\\tabacoo-informationsystem\\tobaccostore\\tobaccostore\\panel testing.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{4A4C75AD-C395-4A96-9072-22C37FA05215}|TobaccoStore\\TobaccoStore.csproj|solutionrelative:tobaccostore\\panel testing.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4A4C75AD-C395-4A96-9072-22C37FA05215}|TobaccoStore\\TobaccoStore.csproj|c:\\users\\abbas\\source\\repos\\tabacoo-informationsystem\\tobaccostore\\tobaccostore\\panel testing.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4A4C75AD-C395-4A96-9072-22C37FA05215}|TobaccoStore\\TobaccoStore.csproj|solutionrelative:tobaccostore\\panel testing.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4A4C75AD-C395-4A96-9072-22C37FA05215}|TobaccoStore\\TobaccoStore.csproj|c:\\users\\abbas\\source\\repos\\tabacoo-informationsystem\\tobaccostore\\tobaccostore\\new user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{4A4C75AD-C395-4A96-9072-22C37FA05215}|TobaccoStore\\TobaccoStore.csproj|solutionrelative:tobaccostore\\new user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
       "AbsoluteMoniker": "D:0:0:{4A4C75AD-C395-4A96-9072-22C37FA05215}|TobaccoStore\\TobaccoStore.csproj|C:\\Users\\abbas\\source\\repos\\Tabacoo-InformationSystem\\TobaccoStore\\tobaccostore\\main - form.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -25,6 +17,10 @@
     {
       "AbsoluteMoniker": "D:0:0:{4A4C75AD-C395-4A96-9072-22C37FA05215}|TobaccoStore\\TobaccoStore.csproj|C:\\Users\\abbas\\source\\repos\\Tabacoo-InformationSystem\\TobaccoStore\\tobaccostore\\main - form.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{4A4C75AD-C395-4A96-9072-22C37FA05215}|TobaccoStore\\TobaccoStore.csproj|solutionrelative:tobaccostore\\main - form.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4A4C75AD-C395-4A96-9072-22C37FA05215}|TobaccoStore\\TobaccoStore.csproj|C:\\Users\\abbas\\source\\repos\\Tabacoo-InformationSystem\\TobaccoStore\\tobaccostore\\new user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{4A4C75AD-C395-4A96-9072-22C37FA05215}|TobaccoStore\\TobaccoStore.csproj|solutionrelative:tobaccostore\\new user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
       "AbsoluteMoniker": "D:0:0:{4A4C75AD-C395-4A96-9072-22C37FA05215}|TobaccoStore\\TobaccoStore.csproj|C:\\Users\\abbas\\source\\repos\\Tabacoo-InformationSystem\\TobaccoStore\\tobaccostore\\new user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -51,24 +47,12 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Form1.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\abbas\\source\\repos\\Tabacoo-InformationSystem\\TobaccoStore\\TobaccoStore\\Form1.cs",
-              "RelativeDocumentMoniker": "TobaccoStore\\Form1.cs",
-              "ToolTip": "C:\\Users\\abbas\\source\\repos\\Tabacoo-InformationSystem\\TobaccoStore\\TobaccoStore\\Form1.cs [Design]*",
-              "RelativeToolTip": "TobaccoStore\\Form1.cs [Design]*",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-09T19:31:03.897Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
               "Title": "panel testing.cs",
               "DocumentMoniker": "C:\\Users\\abbas\\source\\repos\\Tabacoo-InformationSystem\\TobaccoStore\\TobaccoStore\\panel testing.cs",
               "RelativeDocumentMoniker": "TobaccoStore\\panel testing.cs",
-              "ToolTip": "C:\\Users\\abbas\\source\\repos\\Tabacoo-InformationSystem\\TobaccoStore\\TobaccoStore\\panel testing.cs",
-              "RelativeToolTip": "TobaccoStore\\panel testing.cs",
-              "ViewState": "AgIAADwAAAAAAAAAAADwv0oAAABNAAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\abbas\\source\\repos\\Tabacoo-InformationSystem\\TobaccoStore\\TobaccoStore\\panel testing.cs*",
+              "RelativeToolTip": "TobaccoStore\\panel testing.cs*",
+              "ViewState": "AgIAAMwAAAAAAAAAAAAkwOEAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-09T18:47:30.52Z",
               "EditorCaption": ""
@@ -79,15 +63,27 @@
               "Title": "panel testing.cs [Design]",
               "DocumentMoniker": "C:\\Users\\abbas\\source\\repos\\Tabacoo-InformationSystem\\TobaccoStore\\TobaccoStore\\panel testing.cs",
               "RelativeDocumentMoniker": "TobaccoStore\\panel testing.cs",
-              "ToolTip": "C:\\Users\\abbas\\source\\repos\\Tabacoo-InformationSystem\\TobaccoStore\\TobaccoStore\\panel testing.cs [Design]",
-              "RelativeToolTip": "TobaccoStore\\panel testing.cs [Design]",
+              "ToolTip": "C:\\Users\\abbas\\source\\repos\\Tabacoo-InformationSystem\\TobaccoStore\\TobaccoStore\\panel testing.cs [Design]*",
+              "RelativeToolTip": "TobaccoStore\\panel testing.cs [Design]*",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-09T18:46:46.483Z",
               "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 3,
+              "Title": "Main - Form.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\abbas\\source\\repos\\Tabacoo-InformationSystem\\TobaccoStore\\TobaccoStore\\Main - Form.cs",
+              "RelativeDocumentMoniker": "TobaccoStore\\Main - Form.cs",
+              "ToolTip": "C:\\Users\\abbas\\source\\repos\\Tabacoo-InformationSystem\\TobaccoStore\\TobaccoStore\\Main - Form.cs [Design]",
+              "RelativeToolTip": "TobaccoStore\\Main - Form.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-07T13:15:57.81Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
               "Title": "New User.cs",
               "DocumentMoniker": "C:\\Users\\abbas\\source\\repos\\Tabacoo-InformationSystem\\TobaccoStore\\TobaccoStore\\New User.cs",
               "RelativeDocumentMoniker": "TobaccoStore\\New User.cs",
@@ -100,7 +96,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "New User.cs [Design]",
               "DocumentMoniker": "C:\\Users\\abbas\\source\\repos\\Tabacoo-InformationSystem\\TobaccoStore\\TobaccoStore\\New User.cs",
               "RelativeDocumentMoniker": "TobaccoStore\\New User.cs",
@@ -112,28 +108,16 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 2,
               "Title": "Main - Form.cs",
               "DocumentMoniker": "C:\\Users\\abbas\\source\\repos\\Tabacoo-InformationSystem\\TobaccoStore\\TobaccoStore\\Main - Form.cs",
               "RelativeDocumentMoniker": "TobaccoStore\\Main - Form.cs",
               "ToolTip": "C:\\Users\\abbas\\source\\repos\\Tabacoo-InformationSystem\\TobaccoStore\\TobaccoStore\\Main - Form.cs",
               "RelativeToolTip": "TobaccoStore\\Main - Form.cs",
-              "ViewState": "AgIAAFIAAAAAAAAAAAAnwGMAAAAYAAAAAAAAAA==",
+              "ViewState": "AgIAAIwAAAAAAAAAAAAiwMgAAAAqAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-07T13:15:59.099Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Main - Form.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\abbas\\source\\repos\\Tabacoo-InformationSystem\\TobaccoStore\\TobaccoStore\\Main - Form.cs",
-              "RelativeDocumentMoniker": "TobaccoStore\\Main - Form.cs",
-              "ToolTip": "C:\\Users\\abbas\\source\\repos\\Tabacoo-InformationSystem\\TobaccoStore\\TobaccoStore\\Main - Form.cs [Design]",
-              "RelativeToolTip": "TobaccoStore\\Main - Form.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-07T13:15:57.81Z",
-              "EditorCaption": " [Design]"
             }
           ]
         }
