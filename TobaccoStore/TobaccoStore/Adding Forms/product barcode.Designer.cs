@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(product_barcode));
             this.label5 = new System.Windows.Forms.Label();
             this.txtSellingPrice = new System.Windows.Forms.TextBox();
             this.lblSize = new System.Windows.Forms.Label();
@@ -89,7 +90,7 @@
             // 
             // btnAddProduct
             // 
-            this.btnAddProduct.Location = new System.Drawing.Point(98, 415);
+            this.btnAddProduct.Location = new System.Drawing.Point(139, 428);
             this.btnAddProduct.Name = "btnAddProduct";
             this.btnAddProduct.Size = new System.Drawing.Size(113, 23);
             this.btnAddProduct.TabIndex = 34;
@@ -216,9 +217,9 @@
             // 
             // btnDeleteProduct
             // 
-            this.btnDeleteProduct.Location = new System.Drawing.Point(444, 140);
+            this.btnDeleteProduct.Location = new System.Drawing.Point(522, 143);
             this.btnDeleteProduct.Name = "btnDeleteProduct";
-            this.btnDeleteProduct.Size = new System.Drawing.Size(144, 23);
+            this.btnDeleteProduct.Size = new System.Drawing.Size(75, 23);
             this.btnDeleteProduct.TabIndex = 43;
             this.btnDeleteProduct.Text = "Delete Product....";
             this.btnDeleteProduct.UseVisualStyleBackColor = true;
@@ -226,9 +227,9 @@
             // 
             // btnUpdateProduct
             // 
-            this.btnUpdateProduct.Location = new System.Drawing.Point(444, 172);
+            this.btnUpdateProduct.Location = new System.Drawing.Point(522, 191);
             this.btnUpdateProduct.Name = "btnUpdateProduct";
-            this.btnUpdateProduct.Size = new System.Drawing.Size(144, 23);
+            this.btnUpdateProduct.Size = new System.Drawing.Size(75, 23);
             this.btnUpdateProduct.TabIndex = 42;
             this.btnUpdateProduct.Text = "Update Product....";
             this.btnUpdateProduct.UseVisualStyleBackColor = true;
@@ -236,7 +237,7 @@
             // 
             // BtnExit
             // 
-            this.BtnExit.Location = new System.Drawing.Point(536, 445);
+            this.BtnExit.Location = new System.Drawing.Point(522, 445);
             this.BtnExit.Name = "BtnExit";
             this.BtnExit.Size = new System.Drawing.Size(75, 23);
             this.BtnExit.TabIndex = 45;
@@ -258,6 +259,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::TobaccoStore.Properties.Resources.back;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(626, 480);
             this.Controls.Add(this.BtnExit);
             this.Controls.Add(this.btnBack);
@@ -279,6 +282,7 @@
             this.Controls.Add(this.txtCostPrice);
             this.Controls.Add(this.txtProductType);
             this.Controls.Add(this.txtProductName);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimizeBox = false;
             this.Name = "product_barcode";
             this.Text = "TSIS | Add product ";

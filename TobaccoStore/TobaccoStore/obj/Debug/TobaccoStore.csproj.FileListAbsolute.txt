@@ -95,3 +95,4 @@ C:\Users\abbas\Source\Repos\Tabacoo-InformationSystem\TobaccoStore\TobaccoStore\
 C:\Users\abbas\Source\Repos\Tabacoo-InformationSystem\TobaccoStore\TobaccoStore\obj\Debug\TobaccoS.7D4A25E2.Up2Date
 C:\Users\abbas\Source\Repos\Tabacoo-InformationSystem\TobaccoStore\TobaccoStore\obj\Debug\TobaccoStore.exe
 C:\Users\abbas\Source\Repos\Tabacoo-InformationSystem\TobaccoStore\TobaccoStore\obj\Debug\TobaccoStore.pdb
+C:\Users\DELL INSPIRON 5402\Source\Repos\Tabacoo-InformationSystem\TobaccoStore\TobaccoStore\obj\Debug\TobaccoStore.panel_testing.resources

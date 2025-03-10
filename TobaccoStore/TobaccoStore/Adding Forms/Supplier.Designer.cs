@@ -120,9 +120,9 @@
             // 
             // btnsupplieradd
             // 
-            this.btnsupplieradd.Location = new System.Drawing.Point(87, 324);
+            this.btnsupplieradd.Location = new System.Drawing.Point(159, 293);
             this.btnsupplieradd.Name = "btnsupplieradd";
-            this.btnsupplieradd.Size = new System.Drawing.Size(147, 23);
+            this.btnsupplieradd.Size = new System.Drawing.Size(75, 23);
             this.btnsupplieradd.TabIndex = 26;
             this.btnsupplieradd.Text = "Add Supplier";
             this.btnsupplieradd.UseVisualStyleBackColor = true;
@@ -130,9 +130,9 @@
             // 
             // btnUpdatessupplier
             // 
-            this.btnUpdatessupplier.Location = new System.Drawing.Point(342, 134);
+            this.btnUpdatessupplier.Location = new System.Drawing.Point(406, 134);
             this.btnUpdatessupplier.Name = "btnUpdatessupplier";
-            this.btnUpdatessupplier.Size = new System.Drawing.Size(147, 23);
+            this.btnUpdatessupplier.Size = new System.Drawing.Size(75, 23);
             this.btnUpdatessupplier.TabIndex = 28;
             this.btnUpdatessupplier.Text = "Update Supplier....";
             this.btnUpdatessupplier.UseVisualStyleBackColor = true;
@@ -140,9 +140,9 @@
             // 
             // btnDeletesupplier
             // 
-            this.btnDeletesupplier.Location = new System.Drawing.Point(342, 163);
+            this.btnDeletesupplier.Location = new System.Drawing.Point(406, 184);
             this.btnDeletesupplier.Name = "btnDeletesupplier";
-            this.btnDeletesupplier.Size = new System.Drawing.Size(147, 23);
+            this.btnDeletesupplier.Size = new System.Drawing.Size(75, 23);
             this.btnDeletesupplier.TabIndex = 27;
             this.btnDeletesupplier.Text = "Delete Supplier....";
             this.btnDeletesupplier.UseVisualStyleBackColor = true;

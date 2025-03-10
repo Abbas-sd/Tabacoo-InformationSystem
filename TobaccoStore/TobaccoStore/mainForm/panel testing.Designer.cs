@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(panel_testing));
             this.panelContainer = new System.Windows.Forms.Panel();
             this.btnOpenForm = new System.Windows.Forms.Button();
             this.btnopencustomer = new System.Windows.Forms.Button();
@@ -43,6 +44,8 @@
             // 
             // panelContainer
             // 
+            this.panelContainer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
+            this.panelContainer.ForeColor = System.Drawing.Color.Gold;
             this.panelContainer.Location = new System.Drawing.Point(248, 0);
             this.panelContainer.Name = "panelContainer";
             this.panelContainer.Size = new System.Drawing.Size(1275, 720);
@@ -133,6 +136,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(163)))), ((int)(((byte)(115)))));
             this.ClientSize = new System.Drawing.Size(1523, 720);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.btnopenabout);
@@ -142,6 +146,7 @@
             this.Controls.Add(this.btnopencustomer);
             this.Controls.Add(this.btnOpenForm);
             this.Controls.Add(this.panelContainer);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "panel_testing";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "panel_testing";

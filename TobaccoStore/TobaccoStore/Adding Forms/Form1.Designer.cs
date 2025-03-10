@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.txtFname = new System.Windows.Forms.TextBox();
             this.txtLname = new System.Windows.Forms.TextBox();
             this.txtAge = new System.Windows.Forms.TextBox();
@@ -49,11 +50,7 @@
             this.btnBack = new System.Windows.Forms.Button();
             this.BtnExit = new System.Windows.Forms.Button();
             this.BtnClear = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // txtFname
@@ -179,9 +176,9 @@
             // 
             this.btnDeleteCustomer.Location = new System.Drawing.Point(391, 206);
             this.btnDeleteCustomer.Name = "btnDeleteCustomer";
-            this.btnDeleteCustomer.Size = new System.Drawing.Size(108, 37);
+            this.btnDeleteCustomer.Size = new System.Drawing.Size(75, 23);
             this.btnDeleteCustomer.TabIndex = 16;
-            this.btnDeleteCustomer.Text = "Delete ...";
+            this.btnDeleteCustomer.Text = "Delete";
             this.btnDeleteCustomer.UseVisualStyleBackColor = true;
             this.btnDeleteCustomer.Click += new System.EventHandler(this.btnDeleteCustomer_Click);
             // 
@@ -189,9 +186,9 @@
             // 
             this.btnUpdateCustomer.Location = new System.Drawing.Point(391, 126);
             this.btnUpdateCustomer.Name = "btnUpdateCustomer";
-            this.btnUpdateCustomer.Size = new System.Drawing.Size(108, 37);
+            this.btnUpdateCustomer.Size = new System.Drawing.Size(75, 23);
             this.btnUpdateCustomer.TabIndex = 19;
-            this.btnUpdateCustomer.Text = "Update ...";
+            this.btnUpdateCustomer.Text = "Update";
             this.btnUpdateCustomer.UseVisualStyleBackColor = true;
             this.btnUpdateCustomer.Click += new System.EventHandler(this.btnUpdateCustomer_Click);
             // 
@@ -226,7 +223,7 @@
             // 
             // btnBack
             // 
-            this.btnBack.Location = new System.Drawing.Point(15, 550);
+            this.btnBack.Location = new System.Drawing.Point(15, 533);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(80, 30);
             this.btnBack.TabIndex = 21;
@@ -236,8 +233,8 @@
             // 
             // BtnExit
             // 
-            this.BtnExit.BackColor = System.Drawing.SystemColors.Desktop;
-            this.BtnExit.Location = new System.Drawing.Point(530, 550);
+            this.BtnExit.BackColor = System.Drawing.SystemColors.Control;
+            this.BtnExit.Location = new System.Drawing.Point(471, 530);
             this.BtnExit.Name = "BtnExit";
             this.BtnExit.Size = new System.Drawing.Size(86, 37);
             this.BtnExit.TabIndex = 22;
@@ -255,38 +252,14 @@
             this.BtnClear.UseVisualStyleBackColor = true;
             this.BtnClear.Click += new System.EventHandler(this.BtnClear_Click);
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox1.Enabled = false;
-            this.pictureBox1.Image = global::TobaccoStore.Properties.Resources.icons8_update_64;
-            this.pictureBox1.Location = new System.Drawing.Point(516, 126);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(39, 40);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 24;
-            this.pictureBox1.TabStop = false;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox2.Image = global::TobaccoStore.Properties.Resources.icons8_delete_48;
-            this.pictureBox2.Location = new System.Drawing.Point(516, 202);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(52, 45);
-            this.pictureBox2.TabIndex = 25;
-            this.pictureBox2.TabStop = false;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Black;
             this.BackgroundImage = global::TobaccoStore.Properties.Resources.back;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(900, 579);
-            this.Controls.Add(this.pictureBox2);
-            this.Controls.Add(this.pictureBox1);
+            this.ClientSize = new System.Drawing.Size(579, 579);
             this.Controls.Add(this.BtnClear);
             this.Controls.Add(this.BtnExit);
             this.Controls.Add(this.btnBack);
@@ -307,6 +280,7 @@
             this.Controls.Add(this.txtLname);
             this.Controls.Add(this.txtFname);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -315,8 +289,6 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -345,8 +317,6 @@
         private System.Windows.Forms.Button btnBack;
         private System.Windows.Forms.Button BtnExit;
         private System.Windows.Forms.Button BtnClear;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.PictureBox pictureBox2;
     }
 }
 
