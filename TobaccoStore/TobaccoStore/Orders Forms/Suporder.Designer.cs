@@ -176,6 +176,7 @@
             // 
             // dataGridViewOrder
             // 
+            this.dataGridViewOrder.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dataGridViewOrder.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewOrder.Location = new System.Drawing.Point(426, 52);
             this.dataGridViewOrder.Name = "dataGridViewOrder";

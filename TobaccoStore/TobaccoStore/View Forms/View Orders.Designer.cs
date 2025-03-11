@@ -71,6 +71,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.dgvOrders);
+            this.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.Name = "View_Orders";
             this.Text = "TSIS | View-Orders";
             this.Load += new System.EventHandler(this.View_Orders_Load);

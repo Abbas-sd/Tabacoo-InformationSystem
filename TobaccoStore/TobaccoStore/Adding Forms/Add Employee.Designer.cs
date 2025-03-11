@@ -222,9 +222,9 @@
             this.label9.Location = new System.Drawing.Point(13, 58);
             this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(682, 40);
+            this.label9.Size = new System.Drawing.Size(683, 40);
             this.label9.TabIndex = 12;
-            this.label9.Text = "This form assures the accurate collection and management of customer details \r\nfo" +
+            this.label9.Text = "This form assures the accurate collection and management of employee details \r\nfo" +
     "r the Tobacco Store Information System";
             // 
             // label10
@@ -280,7 +280,7 @@
             // 
             // panel2
             // 
-            this.panel2.Location = new System.Drawing.Point(1, 1);
+            this.panel2.Location = new System.Drawing.Point(1, 0);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1252, 670);
             this.panel2.TabIndex = 26;
