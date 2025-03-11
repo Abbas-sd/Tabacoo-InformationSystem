@@ -40,13 +40,14 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.panel5 = new System.Windows.Forms.Panel();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.ForeColor = System.Drawing.Color.Gold;
-            this.label1.Location = new System.Drawing.Point(151, 109);
+            this.label1.Location = new System.Drawing.Point(638, 179);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(76, 16);
             this.label1.TabIndex = 0;
@@ -56,7 +57,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.ForeColor = System.Drawing.Color.Gold;
-            this.label2.Location = new System.Drawing.Point(160, 187);
+            this.label2.Location = new System.Drawing.Point(647, 257);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(67, 16);
             this.label2.TabIndex = 1;
@@ -65,14 +66,14 @@
             // 
             // txtUsername
             // 
-            this.txtUsername.Location = new System.Drawing.Point(278, 103);
+            this.txtUsername.Location = new System.Drawing.Point(765, 173);
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Size = new System.Drawing.Size(100, 22);
             this.txtUsername.TabIndex = 3;
             // 
             // txtPassword
             // 
-            this.txtPassword.Location = new System.Drawing.Point(278, 181);
+            this.txtPassword.Location = new System.Drawing.Point(765, 251);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(100, 22);
             this.txtPassword.TabIndex = 4;
@@ -80,7 +81,7 @@
             // 
             // btnLogin
             // 
-            this.btnLogin.Location = new System.Drawing.Point(163, 288);
+            this.btnLogin.Location = new System.Drawing.Point(650, 358);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(80, 24);
             this.btnLogin.TabIndex = 5;
@@ -91,7 +92,7 @@
             // lblErrorMessage
             // 
             this.lblErrorMessage.ForeColor = System.Drawing.Color.Red;
-            this.lblErrorMessage.Location = new System.Drawing.Point(60, 230);
+            this.lblErrorMessage.Location = new System.Drawing.Point(547, 300);
             this.lblErrorMessage.Name = "lblErrorMessage";
             this.lblErrorMessage.Size = new System.Drawing.Size(212, 23);
             this.lblErrorMessage.TabIndex = 6;
@@ -100,7 +101,7 @@
             // 
             this.chkShowPassword.AutoSize = true;
             this.chkShowPassword.ForeColor = System.Drawing.Color.Gold;
-            this.chkShowPassword.Location = new System.Drawing.Point(278, 245);
+            this.chkShowPassword.Location = new System.Drawing.Point(765, 315);
             this.chkShowPassword.Name = "chkShowPassword";
             this.chkShowPassword.Size = new System.Drawing.Size(125, 20);
             this.chkShowPassword.TabIndex = 7;
@@ -110,7 +111,7 @@
             // 
             // BtnExit
             // 
-            this.BtnExit.Location = new System.Drawing.Point(323, 288);
+            this.BtnExit.Location = new System.Drawing.Point(810, 358);
             this.BtnExit.Name = "BtnExit";
             this.BtnExit.Size = new System.Drawing.Size(80, 27);
             this.BtnExit.TabIndex = 8;
@@ -122,7 +123,7 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
             this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel1.Location = new System.Drawing.Point(653, 0);
+            this.panel1.Location = new System.Drawing.Point(1035, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(7, 660);
             this.panel1.TabIndex = 9;
@@ -133,7 +134,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel2.Location = new System.Drawing.Point(0, 653);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(653, 7);
+            this.panel2.Size = new System.Drawing.Size(1035, 7);
             this.panel2.TabIndex = 10;
             // 
             // panel3
@@ -151,15 +152,25 @@
             this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel4.Location = new System.Drawing.Point(7, 0);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(646, 7);
+            this.panel4.Size = new System.Drawing.Size(1028, 7);
             this.panel4.TabIndex = 10;
+            // 
+            // panel5
+            // 
+            this.panel5.BackgroundImage = global::TobaccoStore.Properties.Resources.download_jpgwsswswwswsws;
+            this.panel5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.panel5.Location = new System.Drawing.Point(75, 107);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(496, 406);
+            this.panel5.TabIndex = 11;
             // 
             // log_in
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
-            this.ClientSize = new System.Drawing.Size(660, 660);
+            this.ClientSize = new System.Drawing.Size(1042, 660);
+            this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
@@ -198,5 +209,6 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Panel panel5;
     }
 }

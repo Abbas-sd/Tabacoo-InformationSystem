@@ -21,6 +21,7 @@ namespace TobaccoStore
             panelUpdateCustomer.Visible = false;
 
             AddImageToPanel();
+
             // Disable the search button for Cashier role
             if (log_in.currentUserRole == Main.UserRole.User)
             {

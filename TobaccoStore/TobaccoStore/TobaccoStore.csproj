@@ -55,6 +55,12 @@
     <Compile Include="Adding Forms\Add Employee.Designer.cs">
       <DependentUpon>Add Employee.cs</DependentUpon>
     </Compile>
+    <Compile Include="delet employee.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="delet employee.Designer.cs">
+      <DependentUpon>delet employee.cs</DependentUpon>
+    </Compile>
     <Compile Include="Orders Forms\Customer Order With barcode.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -159,6 +165,12 @@
     <Compile Include="Dont Edit\testing first print.Designer.cs">
       <DependentUpon>testing first print.cs</DependentUpon>
     </Compile>
+    <Compile Include="Update Employee.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Update Employee.Designer.cs">
+      <DependentUpon>Update Employee.cs</DependentUpon>
+    </Compile>
     <Compile Include="Update Forms\UpdateCustomer.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -209,6 +221,9 @@
     </Compile>
     <EmbeddedResource Include="Adding Forms\Add Employee.resx">
       <DependentUpon>Add Employee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="delet employee.resx">
+      <DependentUpon>delet employee.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Orders Forms\Customer Order With barcode.resx">
       <DependentUpon>Customer Order With barcode.cs</DependentUpon>
@@ -272,6 +287,9 @@
     <EmbeddedResource Include="Dont Edit\testing first print.resx">
       <DependentUpon>testing first print.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Update Employee.resx">
+      <DependentUpon>Update Employee.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Update Forms\UpdateCustomer.resx">
       <DependentUpon>UpdateCustomer.cs</DependentUpon>
     </EmbeddedResource>
@@ -317,6 +335,9 @@
     <None Include="Resources\tabacoo.jpg" />
     <None Include="Resources\icons8-update-64.png" />
     <None Include="Resources\icons8-delete-48.png" />
+    <None Include="Resources\download.jpgwsswswwswsws.jpg" />
+    <Content Include="Resources\imagesininininininiin.jpg" />
+    <None Include="Resources\imagesininininininiin1.jpg" />
     <Content Include="Resources\Tabacoo-Icon2.ico" />
     <None Include="Resources\ww1.png" />
     <None Include="Resources\ww.png" />

@@ -32,11 +32,9 @@
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.button1 = new System.Windows.Forms.Button();
             this.txtSearch = new System.Windows.Forms.TextBox();
-            this.button2 = new System.Windows.Forms.Button();
             this.dgvSearchResults = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.btnexit = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSearchResults)).BeginInit();
             this.SuspendLayout();
             // 
@@ -59,7 +57,7 @@
             // button1
             // 
             this.button1.ForeColor = System.Drawing.Color.DarkRed;
-            this.button1.Location = new System.Drawing.Point(664, 24);
+            this.button1.Location = new System.Drawing.Point(1150, 20);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 1;
@@ -69,36 +67,27 @@
             // 
             // txtSearch
             // 
-            this.txtSearch.Location = new System.Drawing.Point(536, 21);
+            this.txtSearch.Location = new System.Drawing.Point(1022, 17);
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(100, 22);
             this.txtSearch.TabIndex = 2;
             this.txtSearch.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtSearch_KeyDown);
             // 
-            // button2
-            // 
-            this.button2.ForeColor = System.Drawing.Color.DarkRed;
-            this.button2.Location = new System.Drawing.Point(12, 415);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 3;
-            this.button2.Text = "Back";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
             // dgvSearchResults
             // 
+            this.dgvSearchResults.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dgvSearchResults.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvSearchResults.Location = new System.Drawing.Point(12, 57);
             this.dgvSearchResults.Name = "dgvSearchResults";
             this.dgvSearchResults.RowHeadersWidth = 51;
             this.dgvSearchResults.RowTemplate.Height = 24;
-            this.dgvSearchResults.Size = new System.Drawing.Size(776, 340);
+            this.dgvSearchResults.Size = new System.Drawing.Size(1233, 558);
             this.dgvSearchResults.TabIndex = 4;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.Color.Gold;
             this.label1.Location = new System.Drawing.Point(53, 22);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(73, 16);
@@ -108,38 +97,26 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(481, 27);
+            this.label2.ForeColor = System.Drawing.Color.Gold;
+            this.label2.Location = new System.Drawing.Point(967, 19);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(39, 16);
             this.label2.TabIndex = 6;
             this.label2.Text = "Type";
-            // 
-            // btnexit
-            // 
-            this.btnexit.ForeColor = System.Drawing.Color.DarkRed;
-            this.btnexit.Location = new System.Drawing.Point(713, 415);
-            this.btnexit.Name = "btnexit";
-            this.btnexit.Size = new System.Drawing.Size(75, 23);
-            this.btnexit.TabIndex = 52;
-            this.btnexit.Text = "Exit";
-            this.btnexit.UseVisualStyleBackColor = true;
-            this.btnexit.Click += new System.EventHandler(this.btnexit_Click);
             // 
             // search
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.btnexit);
+            this.ClientSize = new System.Drawing.Size(1257, 673);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dgvSearchResults);
-            this.Controls.Add(this.button2);
             this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.comboBox1);
-            this.ForeColor = System.Drawing.Color.Gold;
+            this.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "search";
             this.Text = "TSIS | search";
@@ -155,10 +132,8 @@
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox txtSearch;
-        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.DataGridView dgvSearchResults;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button btnexit;
     }
 }

@@ -71,7 +71,7 @@
             this.dgvSupplier.Name = "dgvSupplier";
             this.dgvSupplier.RowHeadersWidth = 51;
             this.dgvSupplier.RowTemplate.Height = 24;
-            this.dgvSupplier.Size = new System.Drawing.Size(929, 464);
+            this.dgvSupplier.Size = new System.Drawing.Size(1115, 577);
             this.dgvSupplier.TabIndex = 8;
             // 
             // button1

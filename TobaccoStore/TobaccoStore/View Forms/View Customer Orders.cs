@@ -18,20 +18,22 @@ namespace TobaccoStore
         {
             InitializeComponent();
             LoadCustomerOrders();
-            txtSearch.TextChanged += new EventHandler(txtSearch_TextChanged); // Attach TextChanged event
+            
         }
 
         private void View_Customer_Orders_Load(object sender, EventArgs e)
         {
-
+            
         }
         private void LoadCustomerOrders(string searchKeyword = "")
         {
             string query = @"
-                SELECT co.customer_order_id, c.fname, c.lname, co.order_date, co.total_amount
-                FROM CustomerOrder co
-                JOIN Customer c ON co.customer_id = c.customer_id
-                WHERE c.fname LIKE @keyword OR c.lname LIKE @keyword OR co.order_date LIKE @keyword";
+        SELECT co.customer_order_id, c.fname, c.lname, co.order_date, co.total_amount,
+               cod.product_id, cod.quantity
+        FROM CustomerOrder co
+        JOIN Customer c ON co.customer_id = c.customer_id
+        JOIN CustomerOrderDetails cod ON co.customer_order_id = cod.customer_order_id
+        WHERE c.fname LIKE @keyword OR c.lname LIKE @keyword OR co.order_date LIKE @keyword";
 
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
@@ -59,6 +61,7 @@ namespace TobaccoStore
                 }
             }
         }
+
 
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {

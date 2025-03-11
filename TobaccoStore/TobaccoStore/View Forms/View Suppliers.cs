@@ -102,7 +102,7 @@ namespace TobaccoStore
         private void btnUpdateSupplier_Click(object sender, EventArgs e)
         {
             panel1.Visible = false;
-            
+            panel1.Visible = true; // Show the update panel
 
             // Prevent multiple instances
             if (updateFormInstance == null || updateFormInstance.IsDisposed)

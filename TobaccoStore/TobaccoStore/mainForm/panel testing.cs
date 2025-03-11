@@ -238,7 +238,7 @@ namespace TobaccoStore
                     formToOpen = new View_Suppliers(); // Replace with actual form class
                     break;
                 case "View Customer Orders":
-                    formToOpen = new View_Customers(); // Replace with actual form class
+                    formToOpen = new View_Customer_Orders(); // Replace with actual form class
                     break;
                 case "View Supplier Orders":
                     formToOpen = new View_Orders(); // Replace with actual form class

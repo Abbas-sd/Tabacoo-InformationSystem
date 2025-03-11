@@ -24,17 +24,16 @@ namespace TobaccoStore
         private void LoadSupplierOrders(string searchKeyword = "")
         {
             string query = @"
-                SELECT so.supplier_order_id, s.supplier_name, so.order_date, so.total_amount
-                FROM SupplierOrder so
-                JOIN Supplier s ON so.supplier_id = s.supplier_id
-                WHERE s.supplier_name LIKE @keyword OR so.order_date LIKE @keyword";
+        SELECT so.supplier_order_id, s.supplier_name, so.order_date, so.total_amount,
+               sod.product_id, sod.quantity
+        FROM SupplierOrder so
+        JOIN Supplier s ON so.supplier_id = s.supplier_id
+        JOIN SupplierOrderDetails sod ON so.supplier_order_id = sod.supplier_order_id";  // Join SupplierOrderDetails
 
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
                 using (SqlCommand cmd = new SqlCommand(query, conn))
                 {
-                    cmd.Parameters.AddWithValue("@keyword", "%" + searchKeyword + "%");
-
                     SqlDataAdapter adapter = new SqlDataAdapter(cmd);
                     DataTable dt = new DataTable();
 
