@@ -92,6 +92,16 @@ namespace TobaccoStore
                 adapter.Fill(dataTable);
                 dgvProduct.DataSource = dataTable;
             }
+            foreach (DataGridViewColumn column in dgvProduct.Columns)
+            {
+                column.Width = 80;
+            }
+
+            // Check if the fourth column exists before setting width
+            if (dgvProduct.Columns.Count >= 4)
+            {
+                dgvProduct.Columns[3].Width = 150; // Index 3 = fourth column (zero-based index)
+            }
         }
         
         private void DeleteProduct_Load(object sender, EventArgs e)

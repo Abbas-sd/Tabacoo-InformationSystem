@@ -17,7 +17,8 @@ namespace TobaccoStore
         public Supplier()
         {
             InitializeComponent();
-
+            panel2.Visible = false; // Show the update panel
+            AddImageToPanel();
             // Disable the search button for Cashier role
             if (log_in.currentUserRole == Main.UserRole.User)
             {
@@ -28,6 +29,19 @@ namespace TobaccoStore
             {
                 btnsupplieradd.Enabled = false;  // Disable button1 (search button) for Cashier
             }
+        }
+
+        private void AddImageToPanel()
+        {
+            // Create PictureBox
+            PictureBox pictureBox = new PictureBox();
+            pictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox.Image = Image.FromFile("C:\\Users\\abbas\\Source\\Repos\\Tabacoo-InformationSystem\\TobaccoStore\\TobaccoStore\\Resources\\tabacoo.jpg"); // Change the path to your image
+            pictureBox.Size = new Size(200, 150); // Set size
+            pictureBox.Location = new Point(panel1.Width - pictureBox.Width - 0, 0); // Position at the right
+
+            // Add to panel
+            panel1.Controls.Add(pictureBox);
         }
 
         private string connectionString = "Server=MSI\\SQLEXPRESS;Database=TabacooStore;Trusted_Connection=True;";
@@ -112,18 +126,46 @@ namespace TobaccoStore
             this.Hide();
         }
 
+        // Declare global references to prevent disposal
+        private DeleteSupplier deletFormInstance;
+        private UpdateSupplier updateFormInstance; // Ensure correct class name
+
         private void btnUpdatessupplier_Click(object sender, EventArgs e)
         {
-            UpdateSupplier form2 = new UpdateSupplier(this); // Pass 'this' as the calling form
-            form2.Show();
-            this.Hide();
+            panel1.Visible = false;
+            panel2.Visible = true; // Show the update panel
+
+            // Prevent multiple instances
+            if (updateFormInstance == null || updateFormInstance.IsDisposed)
+            {
+                updateFormInstance = new UpdateSupplier();
+                updateFormInstance.TopLevel = false;
+                updateFormInstance.FormBorderStyle = FormBorderStyle.None;
+                updateFormInstance.Dock = DockStyle.Fill;
+
+                panel2.Controls.Clear();
+                panel2.Controls.Add(updateFormInstance);
+                updateFormInstance.Show();
+            }
         }
 
         private void btnDeletesupplier_Click(object sender, EventArgs e)
         {
-            DeleteSupplier form78 = new DeleteSupplier(this); // Pass 'this' as the calling form
-            form78.Show();
-            this.Hide();
+            panel1.Visible = false;
+            panel2.Visible = true; // Show the update panel
+
+            // Prevent multiple instances
+            if (deletFormInstance == null || deletFormInstance.IsDisposed)
+            {
+                deletFormInstance = new DeleteSupplier();
+                deletFormInstance.TopLevel = false;
+                deletFormInstance.FormBorderStyle = FormBorderStyle.None;
+                deletFormInstance.Dock = DockStyle.Fill;
+
+                panel2.Controls.Clear();
+                panel2.Controls.Add(deletFormInstance);
+                deletFormInstance.Show();
+            }
         }
 
        

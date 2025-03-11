@@ -305,6 +305,7 @@
     <None Include="Resources\back.jpg" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\tabacoo.jpg" />
     <None Include="Resources\icons8-update-64.png" />
     <None Include="Resources\icons8-delete-48.png" />
     <Content Include="Resources\Tabacoo-Icon2.ico" />

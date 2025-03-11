@@ -50,6 +50,7 @@
             this.btnDeleteProduct = new System.Windows.Forms.Button();
             this.btnUpdateProduct = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -194,7 +195,7 @@
             this.panel1.Controls.Add(this.label8);
             this.panel1.Location = new System.Drawing.Point(2, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1292, 100);
+            this.panel1.Size = new System.Drawing.Size(1276, 167);
             this.panel1.TabIndex = 41;
             // 
             // label9
@@ -223,7 +224,7 @@
             // btnDeleteProduct
             // 
             this.btnDeleteProduct.ForeColor = System.Drawing.Color.DarkRed;
-            this.btnDeleteProduct.Location = new System.Drawing.Point(1130, 212);
+            this.btnDeleteProduct.Location = new System.Drawing.Point(1130, 267);
             this.btnDeleteProduct.Name = "btnDeleteProduct";
             this.btnDeleteProduct.Size = new System.Drawing.Size(75, 23);
             this.btnDeleteProduct.TabIndex = 43;
@@ -234,7 +235,7 @@
             // btnUpdateProduct
             // 
             this.btnUpdateProduct.ForeColor = System.Drawing.Color.DarkRed;
-            this.btnUpdateProduct.Location = new System.Drawing.Point(1130, 294);
+            this.btnUpdateProduct.Location = new System.Drawing.Point(1130, 198);
             this.btnUpdateProduct.Name = "btnUpdateProduct";
             this.btnUpdateProduct.Size = new System.Drawing.Size(75, 23);
             this.btnUpdateProduct.TabIndex = 42;
@@ -253,6 +254,14 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.Transparent;
+            this.panel2.Location = new System.Drawing.Point(2, 2);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(1256, 669);
+            this.panel2.TabIndex = 45;
+            // 
             // product_barcode
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -260,6 +269,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1257, 673);
+            this.Controls.Add(this.panel2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btnDeleteProduct);
             this.Controls.Add(this.btnUpdateProduct);
@@ -315,5 +325,6 @@
         private System.Windows.Forms.Button btnDeleteProduct;
         private System.Windows.Forms.Button btnUpdateProduct;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Panel panel2;
     }
 }

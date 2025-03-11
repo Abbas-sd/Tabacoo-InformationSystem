@@ -41,12 +41,13 @@
             this.btnremove = new System.Windows.Forms.Button();
             this.txtManualBarcode = new System.Windows.Forms.TextBox();
             this.btnManualEntry = new System.Windows.Forms.Button();
-            this.btnback = new System.Windows.Forms.Button();
-            this.btnexit = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.btnPrint = new System.Windows.Forms.Button();
             this.btnPrintPreview = new System.Windows.Forms.Button();
             this.comboBoxPaymentStatus = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSale)).BeginInit();
             this.SuspendLayout();
             // 
@@ -61,18 +62,19 @@
             // 
             // dataGridViewSale
             // 
+            this.dataGridViewSale.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dataGridViewSale.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewSale.Location = new System.Drawing.Point(215, 63);
             this.dataGridViewSale.Name = "dataGridViewSale";
             this.dataGridViewSale.RowHeadersWidth = 51;
             this.dataGridViewSale.RowTemplate.Height = 24;
-            this.dataGridViewSale.Size = new System.Drawing.Size(952, 530);
+            this.dataGridViewSale.Size = new System.Drawing.Size(1030, 569);
             this.dataGridViewSale.TabIndex = 1;
             // 
             // button1
             // 
             this.button1.ForeColor = System.Drawing.Color.DarkRed;
-            this.button1.Location = new System.Drawing.Point(676, 621);
+            this.button1.Location = new System.Drawing.Point(1161, 638);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 2;
@@ -83,7 +85,8 @@
             // lblTotalAmount
             // 
             this.lblTotalAmount.AutoSize = true;
-            this.lblTotalAmount.Location = new System.Drawing.Point(27, 369);
+            this.lblTotalAmount.ForeColor = System.Drawing.Color.Gold;
+            this.lblTotalAmount.Location = new System.Drawing.Point(24, 441);
             this.lblTotalAmount.Name = "lblTotalAmount";
             this.lblTotalAmount.Size = new System.Drawing.Size(16, 16);
             this.lblTotalAmount.TabIndex = 3;
@@ -92,7 +95,7 @@
             // Btnclear
             // 
             this.Btnclear.ForeColor = System.Drawing.Color.DarkRed;
-            this.Btnclear.Location = new System.Drawing.Point(226, 621);
+            this.Btnclear.Location = new System.Drawing.Point(218, 638);
             this.Btnclear.Name = "Btnclear";
             this.Btnclear.Size = new System.Drawing.Size(75, 23);
             this.Btnclear.TabIndex = 4;
@@ -104,7 +107,7 @@
             // 
             this.listBoxCustomers.FormattingEnabled = true;
             this.listBoxCustomers.ItemHeight = 16;
-            this.listBoxCustomers.Location = new System.Drawing.Point(12, 77);
+            this.listBoxCustomers.Location = new System.Drawing.Point(9, 129);
             this.listBoxCustomers.Name = "listBoxCustomers";
             this.listBoxCustomers.Size = new System.Drawing.Size(183, 84);
             this.listBoxCustomers.TabIndex = 5;
@@ -112,7 +115,7 @@
             // 
             // dateTimePickerOrderDate
             // 
-            this.dateTimePickerOrderDate.Location = new System.Drawing.Point(908, 19);
+            this.dateTimePickerOrderDate.Location = new System.Drawing.Point(1002, 19);
             this.dateTimePickerOrderDate.Name = "dateTimePickerOrderDate";
             this.dateTimePickerOrderDate.Size = new System.Drawing.Size(243, 22);
             this.dateTimePickerOrderDate.TabIndex = 6;
@@ -120,6 +123,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.Color.Gold;
             this.label1.Location = new System.Drawing.Point(12, 28);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(59, 16);
@@ -128,7 +132,7 @@
             // 
             // txtSearchCustomer
             // 
-            this.txtSearchCustomer.Location = new System.Drawing.Point(46, 167);
+            this.txtSearchCustomer.Location = new System.Drawing.Point(92, 231);
             this.txtSearchCustomer.Name = "txtSearchCustomer";
             this.txtSearchCustomer.Size = new System.Drawing.Size(100, 22);
             this.txtSearchCustomer.TabIndex = 8;
@@ -137,7 +141,7 @@
             // btnremove
             // 
             this.btnremove.ForeColor = System.Drawing.Color.DarkRed;
-            this.btnremove.Location = new System.Drawing.Point(341, 621);
+            this.btnremove.Location = new System.Drawing.Point(333, 638);
             this.btnremove.Name = "btnremove";
             this.btnremove.Size = new System.Drawing.Size(75, 23);
             this.btnremove.TabIndex = 9;
@@ -165,31 +169,10 @@
             this.btnManualEntry.Click += new System.EventHandler(this.btnManualEntry_Click);
             this.btnManualEntry.KeyDown += new System.Windows.Forms.KeyEventHandler(this.btnManualEntry_KeyDown);
             // 
-            // btnback
-            // 
-            this.btnback.ForeColor = System.Drawing.Color.DarkRed;
-            this.btnback.Location = new System.Drawing.Point(30, 621);
-            this.btnback.Name = "btnback";
-            this.btnback.Size = new System.Drawing.Size(75, 23);
-            this.btnback.TabIndex = 12;
-            this.btnback.Text = "Back";
-            this.btnback.UseVisualStyleBackColor = true;
-            this.btnback.Click += new System.EventHandler(this.btnback_Click);
-            // 
-            // btnexit
-            // 
-            this.btnexit.ForeColor = System.Drawing.Color.DarkRed;
-            this.btnexit.Location = new System.Drawing.Point(1124, 621);
-            this.btnexit.Name = "btnexit";
-            this.btnexit.Size = new System.Drawing.Size(75, 23);
-            this.btnexit.TabIndex = 13;
-            this.btnexit.Text = "Exit";
-            this.btnexit.UseVisualStyleBackColor = true;
-            this.btnexit.Click += new System.EventHandler(this.btnexit_Click);
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.ForeColor = System.Drawing.Color.Gold;
             this.label2.Location = new System.Drawing.Point(349, 22);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(93, 16);
@@ -199,7 +182,7 @@
             // btnPrint
             // 
             this.btnPrint.ForeColor = System.Drawing.Color.DarkRed;
-            this.btnPrint.Location = new System.Drawing.Point(75, 269);
+            this.btnPrint.Location = new System.Drawing.Point(37, 638);
             this.btnPrint.Name = "btnPrint";
             this.btnPrint.Size = new System.Drawing.Size(75, 23);
             this.btnPrint.TabIndex = 15;
@@ -210,7 +193,7 @@
             // btnPrintPreview
             // 
             this.btnPrintPreview.ForeColor = System.Drawing.Color.DarkRed;
-            this.btnPrintPreview.Location = new System.Drawing.Point(46, 314);
+            this.btnPrintPreview.Location = new System.Drawing.Point(15, 587);
             this.btnPrintPreview.Name = "btnPrintPreview";
             this.btnPrintPreview.Size = new System.Drawing.Size(120, 23);
             this.btnPrintPreview.TabIndex = 16;
@@ -221,10 +204,40 @@
             // comboBoxPaymentStatus
             // 
             this.comboBoxPaymentStatus.FormattingEnabled = true;
-            this.comboBoxPaymentStatus.Location = new System.Drawing.Point(25, 446);
+            this.comboBoxPaymentStatus.Location = new System.Drawing.Point(27, 312);
             this.comboBoxPaymentStatus.Name = "comboBoxPaymentStatus";
             this.comboBoxPaymentStatus.Size = new System.Drawing.Size(121, 24);
             this.comboBoxPaymentStatus.TabIndex = 17;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.ForeColor = System.Drawing.Color.Gold;
+            this.label3.Location = new System.Drawing.Point(31, 237);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(50, 16);
+            this.label3.TabIndex = 18;
+            this.label3.Text = "Search";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.ForeColor = System.Drawing.Color.Gold;
+            this.label4.Location = new System.Drawing.Point(31, 358);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(100, 16);
+            this.label4.TabIndex = 19;
+            this.label4.Text = "Payment Status";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.ForeColor = System.Drawing.Color.Gold;
+            this.label5.Location = new System.Drawing.Point(951, 24);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(36, 16);
+            this.label5.TabIndex = 20;
+            this.label5.Text = "Date";
             // 
             // Customer_Order_With_barcode
             // 
@@ -233,12 +246,13 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1257, 673);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.comboBoxPaymentStatus);
             this.Controls.Add(this.btnPrintPreview);
             this.Controls.Add(this.btnPrint);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.btnexit);
-            this.Controls.Add(this.btnback);
             this.Controls.Add(this.btnManualEntry);
             this.Controls.Add(this.txtManualBarcode);
             this.Controls.Add(this.btnremove);
@@ -277,11 +291,12 @@
         private System.Windows.Forms.Button btnremove;
         private System.Windows.Forms.TextBox txtManualBarcode;
         private System.Windows.Forms.Button btnManualEntry;
-        private System.Windows.Forms.Button btnback;
-        private System.Windows.Forms.Button btnexit;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnPrint;
         private System.Windows.Forms.Button btnPrintPreview;
         private System.Windows.Forms.ComboBox comboBoxPaymentStatus;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
     }
 }

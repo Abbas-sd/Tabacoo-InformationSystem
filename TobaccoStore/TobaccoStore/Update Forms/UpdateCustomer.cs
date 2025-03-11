@@ -48,6 +48,18 @@ namespace TobaccoStore
                 adapter.Fill(dataTable);
                 dgvCustomers.DataSource = dataTable;
             }
+
+            // Set default width for all columns
+            foreach (DataGridViewColumn column in dgvCustomers.Columns)
+            {
+                column.Width = 80;
+            }
+
+            // Set the width of the last column to 150
+            if (dgvCustomers.Columns.Count > 0)
+            {
+                dgvCustomers.Columns[dgvCustomers.Columns.Count - 1].Width = 200; // Last column
+            }
         }
 
         private bool IsValidPhone(string phone)

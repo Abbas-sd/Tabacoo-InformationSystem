@@ -13,11 +13,11 @@ namespace TobaccoStore
 {
     public partial class UpdateSupplier : Form
     {
-        private Form _callingForm; // Store the reference to the calling form
-        public UpdateSupplier(Form callingForm)
+        
+        public UpdateSupplier()
         {
             InitializeComponent();
-            _callingForm = callingForm; // Store the calling form
+            
 
             // Disable the search button for Cashier role
             if (log_in.currentUserRole == Main.UserRole.User)
@@ -49,6 +49,11 @@ namespace TobaccoStore
                 DataTable dataTable = new DataTable();
                 adapter.Fill(dataTable);
                 dgvSupplier.DataSource = dataTable;
+            }
+
+            foreach (DataGridViewColumn column in dgvSupplier.Columns)
+            {
+                column.Width = 150;
             }
         }
         private bool IsValidPhone(string phone)
@@ -152,12 +157,7 @@ namespace TobaccoStore
 
         private void btnBack_Click(object sender, EventArgs e)
         {
-            // Navigate back to the calling form
-            if (_callingForm != null)
-            {
-                _callingForm.Show();
-                this.Hide();
-            }
+            
         }
 
         private void BtnRefresh_Click(object sender, EventArgs e)

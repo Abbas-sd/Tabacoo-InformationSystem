@@ -18,7 +18,8 @@ namespace TobaccoStore
         public product_barcode()
         {
             InitializeComponent();
-
+            AddImageToPanel();
+            panel2.Visible = false; // Show the update panel
             // Wire up the Shown event
             this.Shown += new EventHandler(product_Shown);
             // Wire up the TextChanged event for txtBarcode
@@ -37,7 +38,18 @@ namespace TobaccoStore
                 btnAddProduct.Enabled = false;  // Disable button1 (search button) for Cashier
             }
         }
+        private void AddImageToPanel()
+        {
+            // Create PictureBox
+            PictureBox pictureBox = new PictureBox();
+            pictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox.Image = Image.FromFile("C:\\Users\\abbas\\Source\\Repos\\Tabacoo-InformationSystem\\TobaccoStore\\TobaccoStore\\Resources\\tabacoo.jpg"); // Change the path to your image
+            pictureBox.Size = new Size(200, 150); // Set size
+            pictureBox.Location = new Point(panel1.Width - pictureBox.Width - 0, 0); // Position at the right
 
+            // Add to panel
+            panel1.Controls.Add(pictureBox);
+        }
         private void product_Shown(object sender, EventArgs e)
         {
             // Set focus to the barcode text box when the form is shown
@@ -203,22 +215,45 @@ namespace TobaccoStore
 
         }
 
+        // Declare global references to prevent disposal
+        private DeleteProduct deletFormInstance;
+        private UpdateProduct updateFormInstance;
         private void btnDeleteProduct_Click(object sender, EventArgs e)
         {
-            DeleteProduct form77 = new DeleteProduct();
+            panel1.Visible = false;
+            panel2.Visible = true; // Show the update panel
 
-            form77.Show();
+            // Prevent multiple instances
+            if (deletFormInstance == null || deletFormInstance.IsDisposed)
+            {
+                deletFormInstance = new DeleteProduct();
+                deletFormInstance.TopLevel = false;
+                deletFormInstance.FormBorderStyle = FormBorderStyle.None;
+                deletFormInstance.Dock = DockStyle.Fill;
 
-            this.Hide();
+                panel2.Controls.Clear();
+                panel2.Controls.Add(deletFormInstance);
+                deletFormInstance.Show();
+            }
         }
 
         private void btnUpdateProduct_Click(object sender, EventArgs e)
         {
-            UpdateProduct form78 = new UpdateProduct();
+            panel1.Visible = false;
+            panel2.Visible = true; // Show the update panel
 
-            form78.Show();
+            // Prevent multiple instances
+            if (updateFormInstance == null || updateFormInstance.IsDisposed)
+            {
+                updateFormInstance = new UpdateProduct();
+                updateFormInstance.TopLevel = false;
+                updateFormInstance.FormBorderStyle = FormBorderStyle.None;
+                updateFormInstance.Dock = DockStyle.Fill;
 
-            this.Hide();
+                panel2.Controls.Clear();
+                panel2.Controls.Add(updateFormInstance);
+                updateFormInstance.Show();
+            }
         }
 
         private void btnBack_Click(object sender, EventArgs e)

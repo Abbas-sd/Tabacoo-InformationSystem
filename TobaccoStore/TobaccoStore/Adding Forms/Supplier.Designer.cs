@@ -40,9 +40,8 @@
             this.btnsupplieradd = new System.Windows.Forms.Button();
             this.btnUpdatessupplier = new System.Windows.Forms.Button();
             this.btnDeletesupplier = new System.Windows.Forms.Button();
-            this.BtnExit = new System.Windows.Forms.Button();
-            this.btnBack = new System.Windows.Forms.Button();
             this.txtsuplliername = new System.Windows.Forms.TextBox();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -63,11 +62,12 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.panel1.Controls.Add(this.label9);
             this.panel1.Controls.Add(this.label8);
             this.panel1.Location = new System.Drawing.Point(2, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(747, 124);
+            this.panel1.Size = new System.Drawing.Size(973, 140);
             this.panel1.TabIndex = 21;
             // 
             // label9
@@ -126,7 +126,7 @@
             // btnsupplieradd
             // 
             this.btnsupplieradd.ForeColor = System.Drawing.Color.DarkRed;
-            this.btnsupplieradd.Location = new System.Drawing.Point(456, 402);
+            this.btnsupplieradd.Location = new System.Drawing.Point(330, 404);
             this.btnsupplieradd.Name = "btnsupplieradd";
             this.btnsupplieradd.Size = new System.Drawing.Size(93, 29);
             this.btnsupplieradd.TabIndex = 26;
@@ -156,28 +156,6 @@
             this.btnDeletesupplier.UseVisualStyleBackColor = true;
             this.btnDeletesupplier.Click += new System.EventHandler(this.btnDeletesupplier_Click);
             // 
-            // BtnExit
-            // 
-            this.BtnExit.ForeColor = System.Drawing.Color.DarkRed;
-            this.BtnExit.Location = new System.Drawing.Point(627, 506);
-            this.BtnExit.Name = "BtnExit";
-            this.BtnExit.Size = new System.Drawing.Size(93, 29);
-            this.BtnExit.TabIndex = 30;
-            this.BtnExit.Text = "Exit";
-            this.BtnExit.UseVisualStyleBackColor = true;
-            this.BtnExit.Click += new System.EventHandler(this.BtnExit_Click);
-            // 
-            // btnBack
-            // 
-            this.btnBack.ForeColor = System.Drawing.Color.DarkRed;
-            this.btnBack.Location = new System.Drawing.Point(141, 506);
-            this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(93, 29);
-            this.btnBack.TabIndex = 29;
-            this.btnBack.Text = "Back";
-            this.btnBack.UseVisualStyleBackColor = true;
-            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
-            // 
             // txtsuplliername
             // 
             this.txtsuplliername.Location = new System.Drawing.Point(317, 177);
@@ -185,16 +163,22 @@
             this.txtsuplliername.Size = new System.Drawing.Size(124, 27);
             this.txtsuplliername.TabIndex = 31;
             // 
+            // panel2
+            // 
+            this.panel2.Location = new System.Drawing.Point(2, 3);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(1562, 822);
+            this.panel2.TabIndex = 32;
+            // 
             // Supplier
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1567, 837);
+            this.ClientSize = new System.Drawing.Size(1253, 669);
+            this.Controls.Add(this.panel2);
             this.Controls.Add(this.txtsuplliername);
-            this.Controls.Add(this.BtnExit);
-            this.Controls.Add(this.btnBack);
             this.Controls.Add(this.btnUpdatessupplier);
             this.Controls.Add(this.btnDeletesupplier);
             this.Controls.Add(this.btnsupplieradd);
@@ -232,8 +216,7 @@
         private System.Windows.Forms.Button btnsupplieradd;
         private System.Windows.Forms.Button btnUpdatessupplier;
         private System.Windows.Forms.Button btnDeletesupplier;
-        private System.Windows.Forms.Button BtnExit;
-        private System.Windows.Forms.Button btnBack;
         private System.Windows.Forms.TextBox txtsuplliername;
+        private System.Windows.Forms.Panel panel2;
     }
 }

@@ -79,7 +79,6 @@ C:\Users\abbas\Source\Repos\Tabacoo-InformationSystem\TobaccoStore\TobaccoStore\
 C:\Users\abbas\Source\Repos\Tabacoo-InformationSystem\TobaccoStore\TobaccoStore\obj\Debug\TobaccoStore.testing_first_print.resources
 C:\Users\abbas\Source\Repos\Tabacoo-InformationSystem\TobaccoStore\TobaccoStore\obj\Debug\TobaccoStore.UpdateCustomer.resources
 C:\Users\abbas\Source\Repos\Tabacoo-InformationSystem\TobaccoStore\TobaccoStore\obj\Debug\TobaccoStore.UpdateProduct.resources
-C:\Users\abbas\Source\Repos\Tabacoo-InformationSystem\TobaccoStore\TobaccoStore\obj\Debug\TobaccoStore.UpdatSupplier.resources
 C:\Users\abbas\Source\Repos\Tabacoo-InformationSystem\TobaccoStore\TobaccoStore\obj\Debug\TobaccoStore.View_Customer_Orders.resources
 C:\Users\abbas\Source\Repos\Tabacoo-InformationSystem\TobaccoStore\TobaccoStore\obj\Debug\TobaccoStore.View_Customers.resources
 C:\Users\abbas\Source\Repos\Tabacoo-InformationSystem\TobaccoStore\TobaccoStore\obj\Debug\TobaccoStore.View_Orders.resources
@@ -96,3 +95,4 @@ C:\Users\abbas\Source\Repos\Tabacoo-InformationSystem\TobaccoStore\TobaccoStore\
 C:\Users\abbas\Source\Repos\Tabacoo-InformationSystem\TobaccoStore\TobaccoStore\obj\Debug\TobaccoStore.pdb
 C:\Users\DELL INSPIRON 5402\Source\Repos\Tabacoo-InformationSystem\TobaccoStore\TobaccoStore\obj\Debug\TobaccoStore.panel_testing.resources
 C:\Users\DELL INSPIRON 5402\Source\Repos\Tabacoo-InformationSystem\TobaccoStore\TobaccoStore\obj\Debug\TobaccoStore.UpdateSupplier.resources
+C:\Users\abbas\Source\Repos\Tabacoo-InformationSystem\TobaccoStore\TobaccoStore\obj\Debug\TobaccoStore.UpdateSupplier.resources

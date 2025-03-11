@@ -20,7 +20,7 @@ namespace TobaccoStore
 
             panelUpdateCustomer.Visible = false;
 
-
+            AddImageToPanel();
             // Disable the search button for Cashier role
             if (log_in.currentUserRole == Main.UserRole.User)
             {
@@ -31,6 +31,18 @@ namespace TobaccoStore
             {
                 btncustomeradd.Enabled = false;  // Disable button1 (search button) for Cashier
             }
+        }
+        private void AddImageToPanel()
+        {
+            // Create PictureBox
+            PictureBox pictureBox = new PictureBox();
+            pictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox.Image = Image.FromFile("C:\\Users\\abbas\\Source\\Repos\\Tabacoo-InformationSystem\\TobaccoStore\\TobaccoStore\\Resources\\tabacoo.jpg"); // Change the path to your image
+            pictureBox.Size = new Size(200, 150); // Set size
+            pictureBox.Location = new Point(panel1.Width - pictureBox.Width - 0, 0); // Position at the right
+
+            // Add to panel
+            panel1.Controls.Add(pictureBox);
         }
         private void ClearCustomerFields()
         {
