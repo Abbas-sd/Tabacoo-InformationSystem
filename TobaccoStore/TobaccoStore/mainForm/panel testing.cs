@@ -86,13 +86,17 @@ namespace TobaccoStore
             int buttonHeight = 25; // Height of the buttons
             int buttonSpacing = 10; // Spacing between the buttons
 
+            // Define the dark red color
+            Color darkRed = Color.FromArgb(139, 0, 0); // Dark red color
+
             // Initialize NewLogoutButton
             NewLogoutButton = new Button
             {
                 Text = "Logout",
                 Size = new Size(80, buttonHeight), // Smaller size
                 Location = new Point(10, this.ClientSize.Height - buttonHeight - bottomPadding), // Bottom-left position
-                Visible = true
+                Visible = true,
+                ForeColor = darkRed // Set text color to dark red
             };
             NewLogoutButton.Click += NewLogoutButton_Click; // Attach the new logout click event
 
@@ -102,13 +106,15 @@ namespace TobaccoStore
                 Text = "Exit",
                 Size = new Size(80, buttonHeight), // Smaller size
                 Location = new Point(NewLogoutButton.Right + buttonSpacing, this.ClientSize.Height - buttonHeight - bottomPadding), // Bottom-left position (next to New Logout)
-                Visible = true
+                Visible = true,
+                ForeColor = darkRed // Set text color to dark red
             };
             NewExitButton.Click += NewExitButton_Click; // Attach the new exit click event
 
             // Add new buttons to the form
             this.Controls.Add(NewLogoutButton);
             this.Controls.Add(NewExitButton);
+
 
 
             // Store original positions of main buttons

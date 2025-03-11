@@ -44,8 +44,8 @@
             // 
             // panelContainer
             // 
-            this.panelContainer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
-            this.panelContainer.ForeColor = System.Drawing.Color.Goldenrod;
+            this.panelContainer.BackColor = System.Drawing.Color.DarkGray;
+            this.panelContainer.ForeColor = System.Drawing.Color.AntiqueWhite;
             this.panelContainer.Location = new System.Drawing.Point(248, 0);
             this.panelContainer.Name = "panelContainer";
             this.panelContainer.Size = new System.Drawing.Size(1275, 720);
@@ -54,6 +54,7 @@
             // 
             // btnOpenForm
             // 
+            this.btnOpenForm.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnOpenForm.ForeColor = System.Drawing.Color.DarkRed;
             this.btnOpenForm.Location = new System.Drawing.Point(12, 12);
             this.btnOpenForm.Name = "btnOpenForm";
@@ -65,6 +66,7 @@
             // 
             // btnopencustomer
             // 
+            this.btnopencustomer.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnopencustomer.ForeColor = System.Drawing.Color.DarkRed;
             this.btnopencustomer.Location = new System.Drawing.Point(12, 62);
             this.btnopencustomer.Name = "btnopencustomer";
@@ -76,6 +78,7 @@
             // 
             // btnopenorders
             // 
+            this.btnopenorders.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnopenorders.ForeColor = System.Drawing.Color.DarkRed;
             this.btnopenorders.Location = new System.Drawing.Point(12, 111);
             this.btnopenorders.Name = "btnopenorders";
@@ -86,6 +89,7 @@
             // 
             // btnopenview
             // 
+            this.btnopenview.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnopenview.ForeColor = System.Drawing.Color.DarkRed;
             this.btnopenview.Location = new System.Drawing.Point(12, 161);
             this.btnopenview.Name = "btnopenview";
@@ -96,6 +100,7 @@
             // 
             // btnopensearch
             // 
+            this.btnopensearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnopensearch.ForeColor = System.Drawing.Color.DarkRed;
             this.btnopensearch.Location = new System.Drawing.Point(12, 214);
             this.btnopensearch.Name = "btnopensearch";
@@ -106,6 +111,7 @@
             // 
             // btnopenabout
             // 
+            this.btnopenabout.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnopenabout.ForeColor = System.Drawing.Color.DarkRed;
             this.btnopenabout.Location = new System.Drawing.Point(12, 271);
             this.btnopenabout.Name = "btnopenabout";
@@ -116,6 +122,7 @@
             // 
             // statusStrip1
             // 
+            this.statusStrip1.BackColor = System.Drawing.Color.White;
             this.statusStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel1,
@@ -142,7 +149,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(163)))), ((int)(((byte)(115)))));
+            this.BackColor = System.Drawing.Color.Cyan;
             this.ClientSize = new System.Drawing.Size(1523, 720);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.btnopenabout);
@@ -152,11 +159,13 @@
             this.Controls.Add(this.btnopencustomer);
             this.Controls.Add(this.btnOpenForm);
             this.Controls.Add(this.panelContainer);
-            this.ForeColor = System.Drawing.Color.Gold;
+            this.ForeColor = System.Drawing.Color.Black;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "panel_testing";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "panel_testing";
+            this.Text = "TSIS | Main ";
             this.Load += new System.EventHandler(this.panel_testing_Load);
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();

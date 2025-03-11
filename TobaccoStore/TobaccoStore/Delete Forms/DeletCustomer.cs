@@ -13,11 +13,11 @@ namespace TobaccoStore
 {
     public partial class DeletCustomer : Form
     {
-        private Form _callingForm; // Store the calling form
-        public DeletCustomer(Form callingForm)
+        
+        public DeletCustomer()
         {
             InitializeComponent();
-            _callingForm = callingForm; // Store the calling form
+            
 
             // Disable the search button for Cashier role
             if (log_in.currentUserRole == Main.UserRole.User)
@@ -120,7 +120,7 @@ namespace TobaccoStore
         private void button2_Click(object sender, EventArgs e)
         {
             this.Close(); // Close the delete form
-            _callingForm.Show(); // Show the calling form
+            
         }
 
         private void BtnExit_Click(object sender, EventArgs e)

@@ -131,31 +131,48 @@ namespace TobaccoStore
             }
         }
 
+        // Declare global references to prevent disposal
+        private DeletCustomer deletFormInstance;
+        private UpdateCustomer updateFormInstance;
+
         private void btnDeleteCustomer_Click(object sender, EventArgs e)
         {
-            DeletCustomer deleteForm = new DeletCustomer(this); // Pass 'this' as the calling form
-            this.Hide(); // Hide the current form
-            deleteForm.Show(); // Show the delete form
-        }
+            panel1.Visible = false;
+            panelUpdateCustomer.Visible = true; // Show the update panel
 
-        // Assuming you have a Panel named 'updatePanel' and an UpdateCustomer form or controls inside it
+            // Prevent multiple instances
+            if (deletFormInstance == null || deletFormInstance.IsDisposed)
+            {
+                deletFormInstance = new DeletCustomer();
+                deletFormInstance.TopLevel = false;
+                deletFormInstance.FormBorderStyle = FormBorderStyle.None;
+                deletFormInstance.Dock = DockStyle.Fill;
+
+                panelUpdateCustomer.Controls.Clear();
+                panelUpdateCustomer.Controls.Add(deletFormInstance);
+                deletFormInstance.Show();
+            }
+        }
 
         private void btnUpdateCustomer_Click(object sender, EventArgs e)
         {
             panel1.Visible = false;
-            // Make the panel visible when the button is clicked
-            panelUpdateCustomer.Visible = true;
+            panelUpdateCustomer.Visible = true; // Show the update panel
 
-            // You can initialize or show the UpdateCustomer form inside the panel here
-            UpdateCustomer updateForm = new UpdateCustomer();
-            updateForm.TopLevel = false; // To embed it inside the panel
-            updateForm.FormBorderStyle = FormBorderStyle.None; // Remove border
-            updateForm.Dock = DockStyle.Fill; // Fill the panel
+            // Prevent multiple instances
+            if (updateFormInstance == null || updateFormInstance.IsDisposed)
+            {
+                updateFormInstance = new UpdateCustomer();
+                updateFormInstance.TopLevel = false;
+                updateFormInstance.FormBorderStyle = FormBorderStyle.None;
+                updateFormInstance.Dock = DockStyle.Fill;
 
-            panelUpdateCustomer.Controls.Clear(); // Clear any existing controls in the panel
-            panelUpdateCustomer.Controls.Add(updateForm); // Add the update form inside the panel
-            updateForm.Show();
+                panelUpdateCustomer.Controls.Clear();
+                panelUpdateCustomer.Controls.Add(updateFormInstance);
+                updateFormInstance.Show();
+            }
         }
+
 
 
 

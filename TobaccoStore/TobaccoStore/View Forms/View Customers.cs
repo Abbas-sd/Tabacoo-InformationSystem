@@ -73,7 +73,7 @@ namespace TobaccoStore
         }
         private void btnDeleteCustomer_Click(object sender, EventArgs e)
         {
-            DeletCustomer deleteForm = new DeletCustomer(this); // Pass 'this' as the calling form
+            DeletCustomer deleteForm = new DeletCustomer(); // Pass 'this' as the calling form
             this.Hide(); // Hide the current form
             deleteForm.Show(); // Show the delete form
         }

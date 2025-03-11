@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\Users\\abbas\\source\\repos\\Tabacoo-InformationSystem\\TobaccoStore\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{4A4C75AD-C395-4A96-9072-22C37FA05215}|TobaccoStore\\TobaccoStore.csproj|c:\\users\\abbas\\source\\repos\\tabacoo-informationsystem\\tobaccostore\\tobaccostore\\log in form\\log in.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{4A4C75AD-C395-4A96-9072-22C37FA05215}|TobaccoStore\\TobaccoStore.csproj|solutionrelative:tobaccostore\\log in form\\log in.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{4A4C75AD-C395-4A96-9072-22C37FA05215}|TobaccoStore\\TobaccoStore.csproj|c:\\users\\abbas\\source\\repos\\tabacoo-informationsystem\\tobaccostore\\tobaccostore\\adding forms\\new user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{4A4C75AD-C395-4A96-9072-22C37FA05215}|TobaccoStore\\TobaccoStore.csproj|solutionrelative:tobaccostore\\adding forms\\new user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
@@ -11,16 +15,8 @@
       "RelativeMoniker": "D:0:0:{4A4C75AD-C395-4A96-9072-22C37FA05215}|TobaccoStore\\TobaccoStore.csproj|solutionrelative:tobaccostore\\mainform\\panel testing.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4A4C75AD-C395-4A96-9072-22C37FA05215}|TobaccoStore\\TobaccoStore.csproj|c:\\users\\abbas\\source\\repos\\tabacoo-informationsystem\\tobaccostore\\tobaccostore\\mainform\\panel testing.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4A4C75AD-C395-4A96-9072-22C37FA05215}|TobaccoStore\\TobaccoStore.csproj|solutionrelative:tobaccostore\\mainform\\panel testing.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{4A4C75AD-C395-4A96-9072-22C37FA05215}|TobaccoStore\\TobaccoStore.csproj|c:\\users\\abbas\\source\\repos\\tabacoo-informationsystem\\tobaccostore\\tobaccostore\\adding forms\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{4A4C75AD-C395-4A96-9072-22C37FA05215}|TobaccoStore\\TobaccoStore.csproj|solutionrelative:tobaccostore\\adding forms\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4A4C75AD-C395-4A96-9072-22C37FA05215}|TobaccoStore\\TobaccoStore.csproj|c:\\users\\abbas\\source\\repos\\tabacoo-informationsystem\\tobaccostore\\tobaccostore\\adding forms\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4A4C75AD-C395-4A96-9072-22C37FA05215}|TobaccoStore\\TobaccoStore.csproj|solutionrelative:tobaccostore\\adding forms\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,7 +26,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
@@ -42,52 +38,26 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "New User.cs [Design]",
               "DocumentMoniker": "C:\\Users\\abbas\\source\\repos\\Tabacoo-InformationSystem\\TobaccoStore\\TobaccoStore\\Adding Forms\\New User.cs",
               "RelativeDocumentMoniker": "TobaccoStore\\Adding Forms\\New User.cs",
               "ToolTip": "C:\\Users\\abbas\\source\\repos\\Tabacoo-InformationSystem\\TobaccoStore\\TobaccoStore\\Adding Forms\\New User.cs [Design]",
               "RelativeToolTip": "TobaccoStore\\Adding Forms\\New User.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-10T21:03:22.845Z",
+              "WhenOpened": "2025-03-11T00:36:56.796Z",
               "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Form1.cs",
-              "DocumentMoniker": "C:\\Users\\abbas\\source\\repos\\Tabacoo-InformationSystem\\TobaccoStore\\TobaccoStore\\Adding Forms\\Form1.cs",
-              "RelativeDocumentMoniker": "TobaccoStore\\Adding Forms\\Form1.cs",
-              "ToolTip": "C:\\Users\\abbas\\source\\repos\\Tabacoo-InformationSystem\\TobaccoStore\\TobaccoStore\\Adding Forms\\Form1.cs",
-              "RelativeToolTip": "TobaccoStore\\Adding Forms\\Form1.cs",
-              "ViewState": "AgIAAIYAAAAAAAAAAAAqwJAAAAAjAAAAAAAAAA==",
+              "DocumentIndex": 0,
+              "Title": "log in.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\abbas\\source\\repos\\Tabacoo-InformationSystem\\TobaccoStore\\TobaccoStore\\Log in form\\log in.cs",
+              "RelativeDocumentMoniker": "TobaccoStore\\Log in form\\log in.cs",
+              "ToolTip": "C:\\Users\\abbas\\source\\repos\\Tabacoo-InformationSystem\\TobaccoStore\\TobaccoStore\\Log in form\\log in.cs [Design]",
+              "RelativeToolTip": "TobaccoStore\\Log in form\\log in.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-10T19:14:35.278Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "panel testing.cs",
-              "DocumentMoniker": "C:\\Users\\abbas\\source\\repos\\Tabacoo-InformationSystem\\TobaccoStore\\TobaccoStore\\mainForm\\panel testing.cs",
-              "RelativeDocumentMoniker": "TobaccoStore\\mainForm\\panel testing.cs",
-              "ToolTip": "C:\\Users\\abbas\\source\\repos\\Tabacoo-InformationSystem\\TobaccoStore\\TobaccoStore\\mainForm\\panel testing.cs",
-              "RelativeToolTip": "TobaccoStore\\mainForm\\panel testing.cs",
-              "ViewState": "AgIAAP0AAAAAAAAAAAAjwBABAAANAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-10T19:49:57.373Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "panel testing.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\abbas\\source\\repos\\Tabacoo-InformationSystem\\TobaccoStore\\TobaccoStore\\mainForm\\panel testing.cs",
-              "RelativeDocumentMoniker": "TobaccoStore\\mainForm\\panel testing.cs",
-              "ToolTip": "C:\\Users\\abbas\\source\\repos\\Tabacoo-InformationSystem\\TobaccoStore\\TobaccoStore\\mainForm\\panel testing.cs [Design]",
-              "RelativeToolTip": "TobaccoStore\\mainForm\\panel testing.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-10T19:40:55.471Z",
+              "WhenOpened": "2025-03-11T00:36:53.97Z",
               "EditorCaption": " [Design]"
             },
             {
@@ -99,7 +69,19 @@
               "ToolTip": "C:\\Users\\abbas\\source\\repos\\Tabacoo-InformationSystem\\TobaccoStore\\TobaccoStore\\Adding Forms\\Form1.cs [Design]",
               "RelativeToolTip": "TobaccoStore\\Adding Forms\\Form1.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-10T19:14:33.837Z",
+              "WhenOpened": "2025-03-10T23:30:32.714Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "panel testing.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\abbas\\source\\repos\\Tabacoo-InformationSystem\\TobaccoStore\\TobaccoStore\\mainForm\\panel testing.cs",
+              "RelativeDocumentMoniker": "TobaccoStore\\mainForm\\panel testing.cs",
+              "ToolTip": "C:\\Users\\abbas\\source\\repos\\Tabacoo-InformationSystem\\TobaccoStore\\TobaccoStore\\mainForm\\panel testing.cs [Design]",
+              "RelativeToolTip": "TobaccoStore\\mainForm\\panel testing.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-10T22:42:41.168Z",
               "EditorCaption": " [Design]"
             }
           ]

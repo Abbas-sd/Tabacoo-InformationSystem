@@ -205,5 +205,35 @@ namespace TobaccoStore
             this.Close(); // Close the update form
             
         }
+
+        private void txtAddress_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtCustomerId_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtFname_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtLname_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtAge_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtPhone_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

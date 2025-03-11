@@ -14,11 +14,11 @@ namespace TobaccoStore
 {
     public partial class product_barcode : Form
     {
-        
+
         public product_barcode()
         {
             InitializeComponent();
-            
+
             // Wire up the Shown event
             this.Shown += new EventHandler(product_Shown);
             // Wire up the TextChanged event for txtBarcode
@@ -47,7 +47,7 @@ namespace TobaccoStore
         private string connectionString = "Server=MSI\\SQLEXPRESS;Database=Tabacoostore;Trusted_Connection=True;";
         private void product_barcode_Load(object sender, EventArgs e)
         {
-            
+
         }
 
         private void btnAddProduct_Click(object sender, EventArgs e)
@@ -176,6 +176,8 @@ namespace TobaccoStore
                 {
                     MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
+
+                clearing();
             }
         }
         private void txtBarcode_KeyPress(object sender, KeyPressEventArgs e)
@@ -213,7 +215,7 @@ namespace TobaccoStore
         private void btnUpdateProduct_Click(object sender, EventArgs e)
         {
             UpdateProduct form78 = new UpdateProduct();
-            
+
             form78.Show();
 
             this.Hide();
@@ -235,12 +237,32 @@ namespace TobaccoStore
 
         private void txtBarcode_Validated(object sender, EventArgs e)
         {
-            
+
         }
 
         private void label6_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            clearing();
+        }
+
+        private void clearing()
+        {
+            // Clear all input fields
+            txtBarcode.Clear();
+            txtProductName.Clear();
+            txtSupplierId.Clear();
+            txtCostPrice.Clear();
+            txtSellingPrice.Clear();
+            txtStockQuantity.Clear();
+            txtProductType.Clear();
+
+            // Set focus back to the barcode field for quick input
+            txtBarcode.Focus();
         }
     }
 }

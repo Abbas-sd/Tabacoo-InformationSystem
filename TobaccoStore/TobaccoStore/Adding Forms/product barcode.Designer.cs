@@ -49,8 +49,7 @@
             this.label8 = new System.Windows.Forms.Label();
             this.btnDeleteProduct = new System.Windows.Forms.Button();
             this.btnUpdateProduct = new System.Windows.Forms.Button();
-            this.BtnExit = new System.Windows.Forms.Button();
-            this.btnBack = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -58,7 +57,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.Color.Transparent;
-            this.label5.Location = new System.Drawing.Point(56, 344);
+            this.label5.Location = new System.Drawing.Point(379, 274);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(82, 16);
             this.label5.TabIndex = 38;
@@ -66,7 +65,7 @@
             // 
             // txtSellingPrice
             // 
-            this.txtSellingPrice.Location = new System.Drawing.Point(152, 341);
+            this.txtSellingPrice.Location = new System.Drawing.Point(475, 271);
             this.txtSellingPrice.Name = "txtSellingPrice";
             this.txtSellingPrice.Size = new System.Drawing.Size(100, 22);
             this.txtSellingPrice.TabIndex = 37;
@@ -75,7 +74,7 @@
             // 
             this.lblSize.AutoSize = true;
             this.lblSize.BackColor = System.Drawing.Color.Transparent;
-            this.lblSize.Location = new System.Drawing.Point(61, 217);
+            this.lblSize.Location = new System.Drawing.Point(71, 349);
             this.lblSize.Name = "lblSize";
             this.lblSize.Size = new System.Drawing.Size(73, 16);
             this.lblSize.TabIndex = 36;
@@ -83,7 +82,7 @@
             // 
             // txtSupplierId
             // 
-            this.txtSupplierId.Location = new System.Drawing.Point(152, 214);
+            this.txtSupplierId.Location = new System.Drawing.Point(162, 346);
             this.txtSupplierId.Name = "txtSupplierId";
             this.txtSupplierId.Size = new System.Drawing.Size(100, 22);
             this.txtSupplierId.TabIndex = 35;
@@ -91,7 +90,7 @@
             // btnAddProduct
             // 
             this.btnAddProduct.ForeColor = System.Drawing.Color.DarkRed;
-            this.btnAddProduct.Location = new System.Drawing.Point(193, 429);
+            this.btnAddProduct.Location = new System.Drawing.Point(381, 451);
             this.btnAddProduct.Name = "btnAddProduct";
             this.btnAddProduct.Size = new System.Drawing.Size(113, 23);
             this.btnAddProduct.TabIndex = 34;
@@ -103,7 +102,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.Transparent;
-            this.label4.Location = new System.Drawing.Point(51, 378);
+            this.label4.Location = new System.Drawing.Point(374, 355);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(92, 16);
             this.label4.TabIndex = 33;
@@ -113,7 +112,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Location = new System.Drawing.Point(63, 301);
+            this.label3.Location = new System.Drawing.Point(386, 198);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(68, 16);
             this.label3.TabIndex = 32;
@@ -123,7 +122,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Location = new System.Drawing.Point(53, 253);
+            this.label2.Location = new System.Drawing.Point(63, 433);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(88, 16);
             this.label2.TabIndex = 31;
@@ -133,7 +132,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Location = new System.Drawing.Point(51, 172);
+            this.label1.Location = new System.Drawing.Point(61, 277);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(93, 16);
             this.label1.TabIndex = 30;
@@ -141,35 +140,35 @@
             // 
             // txtStockQuantity
             // 
-            this.txtStockQuantity.Location = new System.Drawing.Point(152, 378);
+            this.txtStockQuantity.Location = new System.Drawing.Point(475, 349);
             this.txtStockQuantity.Name = "txtStockQuantity";
             this.txtStockQuantity.Size = new System.Drawing.Size(100, 22);
             this.txtStockQuantity.TabIndex = 29;
             // 
             // txtCostPrice
             // 
-            this.txtCostPrice.Location = new System.Drawing.Point(152, 298);
+            this.txtCostPrice.Location = new System.Drawing.Point(475, 195);
             this.txtCostPrice.Name = "txtCostPrice";
             this.txtCostPrice.Size = new System.Drawing.Size(100, 22);
             this.txtCostPrice.TabIndex = 28;
             // 
             // txtProductType
             // 
-            this.txtProductType.Location = new System.Drawing.Point(152, 253);
+            this.txtProductType.Location = new System.Drawing.Point(162, 427);
             this.txtProductType.Name = "txtProductType";
             this.txtProductType.Size = new System.Drawing.Size(100, 22);
             this.txtProductType.TabIndex = 27;
             // 
             // txtProductName
             // 
-            this.txtProductName.Location = new System.Drawing.Point(152, 166);
+            this.txtProductName.Location = new System.Drawing.Point(162, 271);
             this.txtProductName.Name = "txtProductName";
             this.txtProductName.Size = new System.Drawing.Size(100, 22);
             this.txtProductName.TabIndex = 26;
             // 
             // txtBarcode
             // 
-            this.txtBarcode.Location = new System.Drawing.Point(152, 125);
+            this.txtBarcode.Location = new System.Drawing.Point(162, 192);
             this.txtBarcode.Name = "txtBarcode";
             this.txtBarcode.Size = new System.Drawing.Size(100, 22);
             this.txtBarcode.TabIndex = 0;
@@ -181,7 +180,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.BackColor = System.Drawing.Color.Transparent;
-            this.label6.Location = new System.Drawing.Point(70, 131);
+            this.label6.Location = new System.Drawing.Point(80, 198);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(61, 16);
             this.label6.TabIndex = 40;
@@ -193,9 +192,9 @@
             this.panel1.BackColor = System.Drawing.Color.White;
             this.panel1.Controls.Add(this.label9);
             this.panel1.Controls.Add(this.label8);
-            this.panel1.Location = new System.Drawing.Point(12, 12);
+            this.panel1.Location = new System.Drawing.Point(2, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(599, 100);
+            this.panel1.Size = new System.Drawing.Size(1292, 100);
             this.panel1.TabIndex = 41;
             // 
             // label9
@@ -224,7 +223,7 @@
             // btnDeleteProduct
             // 
             this.btnDeleteProduct.ForeColor = System.Drawing.Color.DarkRed;
-            this.btnDeleteProduct.Location = new System.Drawing.Point(522, 143);
+            this.btnDeleteProduct.Location = new System.Drawing.Point(1130, 212);
             this.btnDeleteProduct.Name = "btnDeleteProduct";
             this.btnDeleteProduct.Size = new System.Drawing.Size(75, 23);
             this.btnDeleteProduct.TabIndex = 43;
@@ -235,7 +234,7 @@
             // btnUpdateProduct
             // 
             this.btnUpdateProduct.ForeColor = System.Drawing.Color.DarkRed;
-            this.btnUpdateProduct.Location = new System.Drawing.Point(522, 191);
+            this.btnUpdateProduct.Location = new System.Drawing.Point(1130, 294);
             this.btnUpdateProduct.Name = "btnUpdateProduct";
             this.btnUpdateProduct.Size = new System.Drawing.Size(75, 23);
             this.btnUpdateProduct.TabIndex = 42;
@@ -243,27 +242,16 @@
             this.btnUpdateProduct.UseVisualStyleBackColor = true;
             this.btnUpdateProduct.Click += new System.EventHandler(this.btnUpdateProduct_Click);
             // 
-            // BtnExit
+            // button1
             // 
-            this.BtnExit.ForeColor = System.Drawing.Color.DarkRed;
-            this.BtnExit.Location = new System.Drawing.Point(536, 445);
-            this.BtnExit.Name = "BtnExit";
-            this.BtnExit.Size = new System.Drawing.Size(75, 23);
-            this.BtnExit.TabIndex = 45;
-            this.BtnExit.Text = "Exit";
-            this.BtnExit.UseVisualStyleBackColor = true;
-            this.BtnExit.Click += new System.EventHandler(this.BtnExit_Click);
-            // 
-            // btnBack
-            // 
-            this.btnBack.ForeColor = System.Drawing.Color.DarkRed;
-            this.btnBack.Location = new System.Drawing.Point(12, 445);
-            this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(75, 23);
-            this.btnBack.TabIndex = 44;
-            this.btnBack.Text = "Back";
-            this.btnBack.UseVisualStyleBackColor = true;
-            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
+            this.button1.ForeColor = System.Drawing.Color.DarkRed;
+            this.button1.Location = new System.Drawing.Point(532, 451);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 44;
+            this.button1.Text = "Clear";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // product_barcode
             // 
@@ -271,9 +259,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(626, 480);
-            this.Controls.Add(this.BtnExit);
-            this.Controls.Add(this.btnBack);
+            this.ClientSize = new System.Drawing.Size(1257, 673);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.btnDeleteProduct);
             this.Controls.Add(this.btnUpdateProduct);
             this.Controls.Add(this.panel1);
@@ -327,7 +314,6 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button btnDeleteProduct;
         private System.Windows.Forms.Button btnUpdateProduct;
-        private System.Windows.Forms.Button BtnExit;
-        private System.Windows.Forms.Button btnBack;
+        private System.Windows.Forms.Button button1;
     }
 }

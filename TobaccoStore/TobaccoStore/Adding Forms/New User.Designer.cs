@@ -35,13 +35,12 @@
             this.btnRegister = new System.Windows.Forms.Button();
             this.chkShowPassword = new System.Windows.Forms.CheckBox();
             this.cmbUserRole = new System.Windows.Forms.ComboBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.btnback = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // txtPassword
             // 
-            this.txtPassword.Location = new System.Drawing.Point(261, 158);
+            this.txtPassword.Location = new System.Drawing.Point(550, 320);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(100, 22);
             this.txtPassword.TabIndex = 8;
@@ -49,7 +48,7 @@
             // 
             // txtUsername
             // 
-            this.txtUsername.Location = new System.Drawing.Point(261, 91);
+            this.txtUsername.Location = new System.Drawing.Point(550, 253);
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Size = new System.Drawing.Size(100, 22);
             this.txtUsername.TabIndex = 7;
@@ -57,7 +56,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(168, 158);
+            this.label2.Location = new System.Drawing.Point(456, 320);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(67, 16);
             this.label2.TabIndex = 6;
@@ -66,7 +65,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(168, 97);
+            this.label1.Location = new System.Drawing.Point(451, 259);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(76, 16);
             this.label1.TabIndex = 5;
@@ -75,7 +74,7 @@
             // btnRegister
             // 
             this.btnRegister.ForeColor = System.Drawing.Color.DarkRed;
-            this.btnRegister.Location = new System.Drawing.Point(286, 246);
+            this.btnRegister.Location = new System.Drawing.Point(470, 377);
             this.btnRegister.Name = "btnRegister";
             this.btnRegister.Size = new System.Drawing.Size(75, 23);
             this.btnRegister.TabIndex = 9;
@@ -86,7 +85,7 @@
             // chkShowPassword
             // 
             this.chkShowPassword.AutoSize = true;
-            this.chkShowPassword.Location = new System.Drawing.Point(386, 160);
+            this.chkShowPassword.Location = new System.Drawing.Point(596, 377);
             this.chkShowPassword.Name = "chkShowPassword";
             this.chkShowPassword.Size = new System.Drawing.Size(125, 20);
             this.chkShowPassword.TabIndex = 10;
@@ -97,32 +96,19 @@
             // cmbUserRole
             // 
             this.cmbUserRole.FormattingEnabled = true;
-            this.cmbUserRole.Location = new System.Drawing.Point(250, 202);
+            this.cmbUserRole.Location = new System.Drawing.Point(760, 281);
             this.cmbUserRole.Name = "cmbUserRole";
             this.cmbUserRole.Size = new System.Drawing.Size(121, 24);
             this.cmbUserRole.TabIndex = 13;
             // 
-            // button1
+            // label3
             // 
-            this.button1.ForeColor = System.Drawing.Color.DarkRed;
-            this.button1.Location = new System.Drawing.Point(471, 395);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 11;
-            this.button1.Text = "Exit";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // btnback
-            // 
-            this.btnback.ForeColor = System.Drawing.Color.DarkRed;
-            this.btnback.Location = new System.Drawing.Point(46, 395);
-            this.btnback.Name = "btnback";
-            this.btnback.Size = new System.Drawing.Size(75, 23);
-            this.btnback.TabIndex = 12;
-            this.btnback.Text = "Back";
-            this.btnback.UseVisualStyleBackColor = true;
-            this.btnback.Click += new System.EventHandler(this.btnback_Click);
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(666, 289);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(86, 16);
+            this.label3.TabIndex = 14;
+            this.label3.Text = "Choose Role";
             // 
             // New_User
             // 
@@ -130,10 +116,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(577, 450);
+            this.ClientSize = new System.Drawing.Size(1275, 720);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.cmbUserRole);
-            this.Controls.Add(this.btnback);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.chkShowPassword);
             this.Controls.Add(this.btnRegister);
             this.Controls.Add(this.txtPassword);
@@ -160,7 +145,6 @@
         private System.Windows.Forms.Button btnRegister;
         private System.Windows.Forms.CheckBox chkShowPassword;
         private System.Windows.Forms.ComboBox cmbUserRole;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button btnback;
+        private System.Windows.Forms.Label label3;
     }
 }
