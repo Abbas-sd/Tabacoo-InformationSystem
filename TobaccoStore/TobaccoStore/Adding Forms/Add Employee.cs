@@ -57,32 +57,18 @@ namespace TobaccoStore
         private void btnSave_Click(object sender, EventArgs e)
         {
             // Retrieve values from the form controls
-            string fname = txtFname.Text;
-            string lname = txtLname.Text;
+            string fname = txtFname.Text.Trim();
+            string lname = txtLname.Text.Trim();
             string sex = rbtnMale.Checked ? "M" : rbtnFemale.Checked ? "F" : "";
             int age;
             string position = cmbPosition.SelectedItem?.ToString();
             decimal salary;
-            string phone = txtPhone.Text;
-            
-
-            // Retrieve values from the form controls
+            string phone = txtPhone.Text.Trim();
             DateTime hireDate = dtpHireDate.Value;
 
-            // Validate hire date
-            if (hireDate > DateTime.Now)
-            {
-                MessageBox.Show("Hire date cannot be in the future.");
-                return;
-            }
+            
 
-            if (hireDate < new DateTime(1900, 1, 1))
-            {
-                MessageBox.Show("Please enter a valid hire date.");
-                return;
-            }
-
-            // Validate the data
+            // Validate required fields
             if (string.IsNullOrEmpty(fname))
             {
                 MessageBox.Show("First name is required.");
@@ -101,11 +87,12 @@ namespace TobaccoStore
                 return;
             }
 
-            if (!int.TryParse(txtAge.Text, out age) || age < 0)
+            if (!int.TryParse(txtAge.Text, out age) || age <= 0)
             {
-                MessageBox.Show("Please enter a valid age.");
+                MessageBox.Show("Please enter a valid age (must be a number greater than 0).");
                 return;
             }
+
 
             if (string.IsNullOrEmpty(position))
             {
@@ -115,7 +102,7 @@ namespace TobaccoStore
 
             if (!decimal.TryParse(txtSalary.Text, out salary) || salary < 0)
             {
-                MessageBox.Show("Please enter a valid salary.");
+                MessageBox.Show("Please enter a valid salary (must be a positive number).");
                 return;
             }
 
@@ -125,12 +112,31 @@ namespace TobaccoStore
                 return;
             }
 
+            if (!IsValidPhone(phone))
+            {
+                MessageBox.Show("Please enter a valid phone number (8 to 15 digits).");
+                return;
+            }
+
+            // Validate hire date
+            if (hireDate > DateTime.Now)
+            {
+                MessageBox.Show("Hire date cannot be in the future.");
+                return;
+            }
+
+            if (hireDate < new DateTime(1900, 1, 1))
+            {
+                MessageBox.Show("Please enter a valid hire date.");
+                return;
+            }
+
             // Insert the data into the database
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 string query = @"
-                    INSERT INTO Employee (fname, lname, sex, age, position, salary, phone, hire_date)
-                    VALUES (@fname, @lname, @sex, @age, @position, @salary, @phone, @hireDate)";
+            INSERT INTO Employee (fname, lname, sex, age, position, salary, phone, hire_date)
+            VALUES (@fname, @lname, @sex, @age, @position, @salary, @phone, @hireDate)";
 
                 SqlCommand command = new SqlCommand(query, connection);
                 command.Parameters.AddWithValue("@fname", fname);
@@ -161,8 +167,14 @@ namespace TobaccoStore
                     MessageBox.Show("Error: " + ex.Message);
                 }
             }
-
         }
+
+        private bool IsValidPhone(string phone)
+        {
+            // Allow only digits and enforce a length of 8-15 digits
+            return System.Text.RegularExpressions.Regex.IsMatch(phone, @"^\d{8,15}$");
+        }
+
         private void ClearForm()
         {
             // Clear all form controls

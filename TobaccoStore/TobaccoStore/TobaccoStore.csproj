@@ -55,10 +55,10 @@
     <Compile Include="Adding Forms\Add Employee.Designer.cs">
       <DependentUpon>Add Employee.cs</DependentUpon>
     </Compile>
-    <Compile Include="delet employee.cs">
+    <Compile Include="Delete Forms\delet employee.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="delet employee.Designer.cs">
+    <Compile Include="Delete Forms\delet employee.Designer.cs">
       <DependentUpon>delet employee.cs</DependentUpon>
     </Compile>
     <Compile Include="Orders Forms\Customer Order With barcode.cs">
@@ -165,10 +165,10 @@
     <Compile Include="Dont Edit\testing first print.Designer.cs">
       <DependentUpon>testing first print.cs</DependentUpon>
     </Compile>
-    <Compile Include="Update Employee.cs">
+    <Compile Include="Update Forms\Update Employee.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Update Employee.Designer.cs">
+    <Compile Include="Update Forms\Update Employee.Designer.cs">
       <DependentUpon>Update Employee.cs</DependentUpon>
     </Compile>
     <Compile Include="Update Forms\UpdateCustomer.cs">
@@ -201,6 +201,12 @@
     <Compile Include="View Forms\View Customers.Designer.cs">
       <DependentUpon>View Customers.cs</DependentUpon>
     </Compile>
+    <Compile Include="View Forms\View Employee.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View Forms\View Employee.Designer.cs">
+      <DependentUpon>View Employee.cs</DependentUpon>
+    </Compile>
     <Compile Include="View Forms\View Orders.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -222,7 +228,7 @@
     <EmbeddedResource Include="Adding Forms\Add Employee.resx">
       <DependentUpon>Add Employee.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="delet employee.resx">
+    <EmbeddedResource Include="Delete Forms\delet employee.resx">
       <DependentUpon>delet employee.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Orders Forms\Customer Order With barcode.resx">
@@ -287,7 +293,7 @@
     <EmbeddedResource Include="Dont Edit\testing first print.resx">
       <DependentUpon>testing first print.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Update Employee.resx">
+    <EmbeddedResource Include="Update Forms\Update Employee.resx">
       <DependentUpon>Update Employee.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Update Forms\UpdateCustomer.resx">
@@ -304,6 +310,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View Forms\View Customers.resx">
       <DependentUpon>View Customers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View Forms\View Employee.resx">
+      <DependentUpon>View Employee.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View Forms\View Orders.resx">
       <DependentUpon>View Orders.cs</DependentUpon>

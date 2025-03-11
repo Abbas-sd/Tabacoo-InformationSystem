@@ -17,15 +17,10 @@ namespace TobaccoStore
         public DeletCustomer()
         {
             InitializeComponent();
-            
+
 
             // Disable the search button for Cashier role
-            if (log_in.currentUserRole == Main.UserRole.User)
-            {
-                button1.Enabled = false;  // Disable button1 (search button) for Cashier
-            }
-
-            if (log_in.currentUserRole == Main.UserRole.Cashier)
+            if (log_in.currentUserRole == Main.UserRole.User || log_in.currentUserRole == Main.UserRole.Cashier)
             {
                 button1.Enabled = false;  // Disable button1 (search button) for Cashier
             }

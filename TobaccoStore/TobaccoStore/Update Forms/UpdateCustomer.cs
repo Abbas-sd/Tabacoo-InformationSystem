@@ -18,7 +18,6 @@ namespace TobaccoStore
         {
             InitializeComponent();
             
-
             if (log_in.currentUserRole == Main.UserRole.User || log_in.currentUserRole == Main.UserRole.Cashier)
             {
                 BtnUpdate.Enabled = false;

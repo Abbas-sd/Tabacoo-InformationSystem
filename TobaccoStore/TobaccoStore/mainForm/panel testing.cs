@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TobaccoStore.View_Forms;
 using static TobaccoStore.Main;
 
 namespace TobaccoStore
@@ -128,7 +129,7 @@ namespace TobaccoStore
             buttonGroups[btnOpenForm] = CreateSubButtons(btnOpenForm, new string[] { "Add User" , "New Employee"});
             buttonGroups[btnopencustomer] = CreateSubButtons(btnopencustomer, new string[] { "New Customer", "New Product", "New Supplier" });
             buttonGroups[btnopenorders] = CreateSubButtons(btnopenorders, new string[] { "Customer Order", "Supplier Order" });
-            buttonGroups[btnopenview] = CreateSubButtons(btnopenview, new string[] { "View Customers", "View Products", "View Suppliers", "View Customer Orders", "View Supplier Orders" });
+            buttonGroups[btnopenview] = CreateSubButtons(btnopenview, new string[] { "View Customers", "View Products", "View Suppliers", "View Employee", "View Customer Orders", "View Supplier Orders" });
             buttonGroups[btnopensearch] = new List<Button>(); // No sub-buttons for Search
             buttonGroups[btnopenabout] = new List<Button>(); // No sub-buttons for About
 
@@ -168,20 +169,20 @@ namespace TobaccoStore
             switch (log_in.currentUserRole)
             {
                 case UserRole.Admin:
-                    return true; // Admin has full access
+                    return true;
 
                 case UserRole.User:
-                    return buttonName != "Add User"; // User cannot access "Add User"
+                    return buttonName != "Add User" && buttonName != "New Employee";
 
                 case UserRole.Cashier:
-                    return buttonName == "Customer Order" || buttonName == "Supplier Order" || buttonName.Contains("View"); // Cashier can only handle orders
+                    return buttonName == "Customer Order" || buttonName == "Supplier Order" || buttonName.Contains("View"); 
 
                 case UserRole.Stoker:
-                    return buttonName.Contains("View") || buttonName == "About" || buttonName.Contains("New"); // Stoker can only view data
+                    return buttonName.Contains("View") || buttonName == "About" || buttonName.Contains("New") && buttonName != "New Employee";
 
 
                 default:
-                    return false; // Invalid role, no access
+                    return false;
             }
         }
 
@@ -236,6 +237,9 @@ namespace TobaccoStore
                     break;
                 case "View Suppliers":
                     formToOpen = new View_Suppliers(); // Replace with actual form class
+                    break;
+                case "View Employee":
+                    formToOpen = new View_Employee(); // Replace with actual form class
                     break;
                 case "View Customer Orders":
                     formToOpen = new View_Customer_Orders(); // Replace with actual form class

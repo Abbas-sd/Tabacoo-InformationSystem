@@ -95,5 +95,23 @@ namespace TobaccoStore
         {
 
         }
+
+        private void txtUsername_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                // Focus the password field if Enter is pressed in the username field
+                txtPassword.Focus();
+            }
+        }
+
+        private void txtPassword_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                // Trigger login when Enter is pressed in the password field
+                btnLogin_Click(sender, e);
+            }
+        }
     }
 }

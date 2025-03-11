@@ -46,7 +46,7 @@
             this.txtLname = new System.Windows.Forms.TextBox();
             this.txtFname = new System.Windows.Forms.TextBox();
             this.btnUpdate = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnrefresh = new System.Windows.Forms.Button();
             this.dgvupdateemployee = new System.Windows.Forms.DataGridView();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
@@ -216,16 +216,18 @@
             this.btnUpdate.TabIndex = 26;
             this.btnUpdate.Text = "Update";
             this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
-            // button1
+            // btnrefresh
             // 
-            this.button1.ForeColor = System.Drawing.Color.DarkRed;
-            this.button1.Location = new System.Drawing.Point(1059, 25);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 44;
-            this.button1.Text = "Update";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnrefresh.ForeColor = System.Drawing.Color.DarkRed;
+            this.btnrefresh.Location = new System.Drawing.Point(1059, 25);
+            this.btnrefresh.Name = "btnrefresh";
+            this.btnrefresh.Size = new System.Drawing.Size(75, 23);
+            this.btnrefresh.TabIndex = 44;
+            this.btnrefresh.Text = "Refresh";
+            this.btnrefresh.UseVisualStyleBackColor = true;
+            this.btnrefresh.Click += new System.EventHandler(this.btnrefresh_Click);
             // 
             // dgvupdateemployee
             // 
@@ -264,7 +266,7 @@
             this.Controls.Add(this.label9);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.dgvupdateemployee);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnrefresh);
             this.Controls.Add(this.dtpHireDate);
             this.Controls.Add(this.cmbPosition);
             this.Controls.Add(this.rbtnFemale);
@@ -313,7 +315,7 @@
         private System.Windows.Forms.TextBox txtLname;
         private System.Windows.Forms.TextBox txtFname;
         private System.Windows.Forms.Button btnUpdate;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnrefresh;
         private System.Windows.Forms.DataGridView dgvupdateemployee;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label9;

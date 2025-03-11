@@ -23,10 +23,9 @@ namespace TobaccoStore
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            load();
         }
-
-        private void button1_Click(object sender, EventArgs e)
+        private void load()
         {
             if (comboBox1.SelectedItem == null)
             {
@@ -41,13 +40,13 @@ namespace TobaccoStore
             switch (searchType)
             {
                 case "Customer":
-                    query = "SELECT * FROM Customer WHERE fname LIKE @keyword OR lname LIKE @keyword OR phone LIKE @keyword";
+                    query = "SELECT * FROM Customer WHERE fname LIKE @keyword OR lname LIKE @keyword OR customer_id LIKE @keyword";
                     break;
                 case "Supplier":
-                    query = "SELECT * FROM Supplier WHERE supplier_name LIKE @keyword OR phone LIKE @keyword";
+                    query = "SELECT * FROM Supplier WHERE supplier_name LIKE @keyword OR supplier_id LIKE @keyword";
                     break;
                 case "Product":
-                    query = "SELECT * FROM Product WHERE product_name LIKE @keyword OR product_type LIKE @keyword";
+                    query = "SELECT * FROM Product WHERE product_name LIKE @keyword OR product_type LIKE @keyword OR product_id LIKE @keyword";
                     break;
                 case "CustomerOrder":
                     query = "SELECT co.customer_order_id, c.fname, c.lname, co.order_date, co.total_amount " +
@@ -94,6 +93,10 @@ namespace TobaccoStore
                 }
             }
         }
+        private void button1_Click(object sender, EventArgs e)
+        {
+            load();
+        }
 
         private void button2_Click(object sender, EventArgs e)
         {
@@ -121,6 +124,11 @@ namespace TobaccoStore
         private void btnexit_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void txtSearch_TextChanged(object sender, EventArgs e)
+        {
+            load();
         }
     }
 }
