@@ -163,6 +163,7 @@
             // 
             // btnBack
             // 
+            this.btnBack.ForeColor = System.Drawing.Color.DarkRed;
             this.btnBack.Location = new System.Drawing.Point(14, 415);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(75, 23);
@@ -173,6 +174,7 @@
             // 
             // BtnExit
             // 
+            this.BtnExit.ForeColor = System.Drawing.Color.DarkRed;
             this.BtnExit.Location = new System.Drawing.Point(699, 415);
             this.BtnExit.Name = "BtnExit";
             this.BtnExit.Size = new System.Drawing.Size(80, 23);
@@ -183,6 +185,7 @@
             // 
             // BtnRefresh
             // 
+            this.BtnRefresh.ForeColor = System.Drawing.Color.DarkRed;
             this.BtnRefresh.Location = new System.Drawing.Point(623, 15);
             this.BtnRefresh.Name = "BtnRefresh";
             this.BtnRefresh.Size = new System.Drawing.Size(75, 23);
@@ -193,6 +196,7 @@
             // 
             // BtnUpdate
             // 
+            this.BtnUpdate.ForeColor = System.Drawing.Color.DarkRed;
             this.BtnUpdate.Location = new System.Drawing.Point(713, 15);
             this.BtnUpdate.Name = "BtnUpdate";
             this.BtnUpdate.Size = new System.Drawing.Size(75, 23);
@@ -222,6 +226,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.txtCostPrice);
@@ -242,6 +247,7 @@
             this.Controls.Add(this.txtSellingPrice);
             this.Controls.Add(this.txtProductType);
             this.Controls.Add(this.txtProductName);
+            this.ForeColor = System.Drawing.Color.Gold;
             this.Name = "UpdateProduct";
             this.Text = "TSIS | UpdateProduct";
             this.Load += new System.EventHandler(this.UpdateProduct_Load);

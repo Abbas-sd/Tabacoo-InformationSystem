@@ -73,7 +73,7 @@ namespace TobaccoStore
 
         private void btnUpdateSupplier_Click(object sender, EventArgs e)
         {
-            UpdatSupplier form2 = new UpdatSupplier(this); // Pass 'this' as the calling form
+            UpdateSupplier form2 = new UpdateSupplier(this); // Pass 'this' as the calling form
             form2.Show();
             this.Hide();
         }

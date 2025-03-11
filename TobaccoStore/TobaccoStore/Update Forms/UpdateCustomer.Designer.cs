@@ -67,7 +67,8 @@
             // 
             // BtnUpdate
             // 
-            this.BtnUpdate.Location = new System.Drawing.Point(974, 28);
+            this.BtnUpdate.ForeColor = System.Drawing.Color.DarkRed;
+            this.BtnUpdate.Location = new System.Drawing.Point(1046, 28);
             this.BtnUpdate.Name = "BtnUpdate";
             this.BtnUpdate.Size = new System.Drawing.Size(75, 23);
             this.BtnUpdate.TabIndex = 2;
@@ -77,7 +78,8 @@
             // 
             // BtnRefresh
             // 
-            this.BtnRefresh.Location = new System.Drawing.Point(884, 28);
+            this.BtnRefresh.ForeColor = System.Drawing.Color.DarkRed;
+            this.BtnRefresh.Location = new System.Drawing.Point(923, 28);
             this.BtnRefresh.Name = "BtnRefresh";
             this.BtnRefresh.Size = new System.Drawing.Size(75, 23);
             this.BtnRefresh.TabIndex = 3;
@@ -93,7 +95,7 @@
             this.dgvCustomers.Name = "dgvCustomers";
             this.dgvCustomers.RowHeadersWidth = 51;
             this.dgvCustomers.RowTemplate.Height = 24;
-            this.dgvCustomers.Size = new System.Drawing.Size(823, 512);
+            this.dgvCustomers.Size = new System.Drawing.Size(884, 535);
             this.dgvCustomers.TabIndex = 5;
             // 
             // label6
@@ -214,7 +216,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.DarkGray;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
             this.ClientSize = new System.Drawing.Size(1257, 673);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label4);
@@ -233,8 +235,9 @@
             this.Controls.Add(this.BtnUpdate);
             this.Controls.Add(this.txtCustomerId);
             this.Controls.Add(this.label1);
+            this.ForeColor = System.Drawing.Color.Gold;
             this.Name = "UpdateCustomer";
-            this.Text = "UpdateCustomer";
+            this.Text = "TSIS | Update Customer";
             this.Load += new System.EventHandler(this.UpdateCustomer_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvCustomers)).EndInit();
             this.ResumeLayout(false);

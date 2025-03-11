@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(search));
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.button1 = new System.Windows.Forms.Button();
             this.txtSearch = new System.Windows.Forms.TextBox();
@@ -57,6 +58,7 @@
             // 
             // button1
             // 
+            this.button1.ForeColor = System.Drawing.Color.DarkRed;
             this.button1.Location = new System.Drawing.Point(664, 24);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
@@ -75,6 +77,7 @@
             // 
             // button2
             // 
+            this.button2.ForeColor = System.Drawing.Color.DarkRed;
             this.button2.Location = new System.Drawing.Point(12, 415);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
@@ -113,6 +116,7 @@
             // 
             // btnexit
             // 
+            this.btnexit.ForeColor = System.Drawing.Color.DarkRed;
             this.btnexit.Location = new System.Drawing.Point(713, 415);
             this.btnexit.Name = "btnexit";
             this.btnexit.Size = new System.Drawing.Size(75, 23);
@@ -125,6 +129,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.btnexit);
             this.Controls.Add(this.label2);
@@ -134,6 +139,8 @@
             this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.comboBox1);
+            this.ForeColor = System.Drawing.Color.Gold;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "search";
             this.Text = "TSIS | search";
             this.Load += new System.EventHandler(this.search_Load);

@@ -44,7 +44,7 @@
             // 
             // panelContainer
             // 
-            this.panelContainer.BackColor = System.Drawing.Color.DarkGray;
+            this.panelContainer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
             this.panelContainer.ForeColor = System.Drawing.Color.AntiqueWhite;
             this.panelContainer.Location = new System.Drawing.Point(248, 0);
             this.panelContainer.Name = "panelContainer";
@@ -149,7 +149,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Cyan;
+            this.BackColor = System.Drawing.Color.Goldenrod;
             this.ClientSize = new System.Drawing.Size(1523, 720);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.btnopenabout);

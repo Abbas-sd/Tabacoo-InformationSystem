@@ -11,10 +11,10 @@ using System.Windows.Forms;
 
 namespace TobaccoStore
 {
-    public partial class UpdatSupplier : Form
+    public partial class UpdateSupplier : Form
     {
         private Form _callingForm; // Store the reference to the calling form
-        public UpdatSupplier(Form callingForm)
+        public UpdateSupplier(Form callingForm)
         {
             InitializeComponent();
             _callingForm = callingForm; // Store the calling form
@@ -168,6 +168,21 @@ namespace TobaccoStore
         private void UpdatSupplier_Load(object sender, EventArgs e)
         {
             LoadSuppliers();
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtSupplierId_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

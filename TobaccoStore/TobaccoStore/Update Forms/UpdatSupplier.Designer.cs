@@ -1,6 +1,6 @@
 ﻿namespace TobaccoStore
 {
-    partial class UpdatSupplier
+    partial class UpdateSupplier
     {
         /// <summary>
         /// Required designer variable.
@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UpdateSupplier));
             this.txtsuplliername = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -46,7 +47,7 @@
             // 
             // txtsuplliername
             // 
-            this.txtsuplliername.Location = new System.Drawing.Point(111, 176);
+            this.txtsuplliername.Location = new System.Drawing.Point(91, 179);
             this.txtsuplliername.Name = "txtsuplliername";
             this.txtsuplliername.Size = new System.Drawing.Size(100, 22);
             this.txtsuplliername.TabIndex = 37;
@@ -55,7 +56,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Location = new System.Drawing.Point(45, 182);
+            this.label1.Location = new System.Drawing.Point(25, 182);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(44, 16);
             this.label1.TabIndex = 36;
@@ -65,17 +66,18 @@
             // 
             this.label6.AutoSize = true;
             this.label6.BackColor = System.Drawing.Color.Transparent;
-            this.label6.Location = new System.Drawing.Point(8, 282);
+            this.label6.Location = new System.Drawing.Point(22, 266);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(97, 16);
+            this.label6.Size = new System.Drawing.Size(55, 32);
             this.label6.TabIndex = 35;
-            this.label6.Text = "Phone Number";
+            this.label6.Text = "Phone \r\nNumber";
+            this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.Color.Transparent;
-            this.label5.Location = new System.Drawing.Point(45, 230);
+            this.label5.Location = new System.Drawing.Point(22, 231);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(58, 16);
             this.label5.TabIndex = 34;
@@ -83,36 +85,39 @@
             // 
             // txtPhone
             // 
-            this.txtPhone.Location = new System.Drawing.Point(111, 276);
+            this.txtPhone.Location = new System.Drawing.Point(91, 276);
             this.txtPhone.Name = "txtPhone";
             this.txtPhone.Size = new System.Drawing.Size(100, 22);
             this.txtPhone.TabIndex = 33;
             // 
             // txtAddress
             // 
-            this.txtAddress.Location = new System.Drawing.Point(111, 225);
+            this.txtAddress.Location = new System.Drawing.Point(91, 228);
             this.txtAddress.Name = "txtAddress";
             this.txtAddress.Size = new System.Drawing.Size(100, 22);
             this.txtAddress.TabIndex = 32;
             // 
             // txtSupplierId
             // 
-            this.txtSupplierId.Location = new System.Drawing.Point(111, 32);
+            this.txtSupplierId.Location = new System.Drawing.Point(101, 32);
             this.txtSupplierId.Name = "txtSupplierId";
             this.txtSupplierId.Size = new System.Drawing.Size(100, 22);
             this.txtSupplierId.TabIndex = 39;
+            this.txtSupplierId.TextChanged += new System.EventHandler(this.txtSupplierId_TextChanged);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(25, 38);
+            this.label2.Location = new System.Drawing.Point(22, 38);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(73, 16);
             this.label2.TabIndex = 38;
             this.label2.Text = "Supplier ID";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // BtnExit
             // 
+            this.BtnExit.ForeColor = System.Drawing.Color.DarkRed;
             this.BtnExit.Location = new System.Drawing.Point(670, 415);
             this.BtnExit.Name = "BtnExit";
             this.BtnExit.Size = new System.Drawing.Size(75, 23);
@@ -123,6 +128,7 @@
             // 
             // btnBack
             // 
+            this.btnBack.ForeColor = System.Drawing.Color.DarkRed;
             this.btnBack.Location = new System.Drawing.Point(14, 415);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(75, 23);
@@ -133,7 +139,8 @@
             // 
             // BtnRefresh
             // 
-            this.BtnRefresh.Location = new System.Drawing.Point(580, 12);
+            this.BtnRefresh.ForeColor = System.Drawing.Color.DarkRed;
+            this.BtnRefresh.Location = new System.Drawing.Point(580, 31);
             this.BtnRefresh.Name = "BtnRefresh";
             this.BtnRefresh.Size = new System.Drawing.Size(75, 23);
             this.BtnRefresh.TabIndex = 43;
@@ -143,7 +150,8 @@
             // 
             // BtnUpdate
             // 
-            this.BtnUpdate.Location = new System.Drawing.Point(670, 12);
+            this.BtnUpdate.ForeColor = System.Drawing.Color.DarkRed;
+            this.BtnUpdate.Location = new System.Drawing.Point(670, 31);
             this.BtnUpdate.Name = "BtnUpdate";
             this.BtnUpdate.Size = new System.Drawing.Size(75, 23);
             this.BtnUpdate.TabIndex = 42;
@@ -154,17 +162,18 @@
             // dgvSupplier
             // 
             this.dgvSupplier.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvSupplier.Location = new System.Drawing.Point(232, 72);
+            this.dgvSupplier.Location = new System.Drawing.Point(217, 72);
             this.dgvSupplier.Name = "dgvSupplier";
             this.dgvSupplier.RowHeadersWidth = 51;
             this.dgvSupplier.RowTemplate.Height = 24;
-            this.dgvSupplier.Size = new System.Drawing.Size(513, 323);
+            this.dgvSupplier.Size = new System.Drawing.Size(528, 323);
             this.dgvSupplier.TabIndex = 44;
             // 
-            // UpdatSupplier
+            // UpdateSupplier
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
             this.ClientSize = new System.Drawing.Size(757, 450);
             this.Controls.Add(this.dgvSupplier);
             this.Controls.Add(this.BtnRefresh);
@@ -179,8 +188,10 @@
             this.Controls.Add(this.label5);
             this.Controls.Add(this.txtPhone);
             this.Controls.Add(this.txtAddress);
-            this.Name = "UpdatSupplier";
-            this.Text = "UpdatSupplier";
+            this.ForeColor = System.Drawing.Color.Gold;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Name = "UpdateSupplier";
+            this.Text = "TSIS | Update Supplier";
             this.Load += new System.EventHandler(this.UpdatSupplier_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvSupplier)).EndInit();
             this.ResumeLayout(false);

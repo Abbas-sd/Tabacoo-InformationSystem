@@ -60,7 +60,7 @@
             // 
             this.lstSuppliers.FormattingEnabled = true;
             this.lstSuppliers.ItemHeight = 16;
-            this.lstSuppliers.Location = new System.Drawing.Point(133, 151);
+            this.lstSuppliers.Location = new System.Drawing.Point(130, 163);
             this.lstSuppliers.Name = "lstSuppliers";
             this.lstSuppliers.Size = new System.Drawing.Size(304, 68);
             this.lstSuppliers.TabIndex = 0;
@@ -69,7 +69,7 @@
             // 
             this.lstProducts.FormattingEnabled = true;
             this.lstProducts.ItemHeight = 16;
-            this.lstProducts.Location = new System.Drawing.Point(133, 65);
+            this.lstProducts.Location = new System.Drawing.Point(130, 73);
             this.lstProducts.Name = "lstProducts";
             this.lstProducts.Size = new System.Drawing.Size(304, 68);
             this.lstProducts.TabIndex = 1;
@@ -77,7 +77,7 @@
             // 
             // dateTimePickerOrderDate
             // 
-            this.dateTimePickerOrderDate.Location = new System.Drawing.Point(130, 21);
+            this.dateTimePickerOrderDate.Location = new System.Drawing.Point(972, 45);
             this.dateTimePickerOrderDate.Name = "dateTimePickerOrderDate";
             this.dateTimePickerOrderDate.Size = new System.Drawing.Size(200, 22);
             this.dateTimePickerOrderDate.TabIndex = 5;
@@ -105,7 +105,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(73, 26);
+            this.label3.Location = new System.Drawing.Point(906, 45);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(36, 16);
             this.label3.TabIndex = 10;
@@ -132,7 +132,7 @@
             // button1
             // 
             this.button1.ForeColor = System.Drawing.Color.DarkRed;
-            this.button1.Location = new System.Drawing.Point(9, 638);
+            this.button1.Location = new System.Drawing.Point(25, 627);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 13;
@@ -143,7 +143,7 @@
             // button2
             // 
             this.button2.ForeColor = System.Drawing.Color.DarkRed;
-            this.button2.Location = new System.Drawing.Point(1107, 638);
+            this.button2.Location = new System.Drawing.Point(1106, 627);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 14;
@@ -204,7 +204,7 @@
             // btnRemoveCustomer
             // 
             this.btnRemoveCustomer.ForeColor = System.Drawing.Color.DarkRed;
-            this.btnRemoveCustomer.Location = new System.Drawing.Point(492, 638);
+            this.btnRemoveCustomer.Location = new System.Drawing.Point(492, 627);
             this.btnRemoveCustomer.Name = "btnRemoveCustomer";
             this.btnRemoveCustomer.Size = new System.Drawing.Size(75, 23);
             this.btnRemoveCustomer.TabIndex = 20;
@@ -225,7 +225,7 @@
             // btnPrintPreview
             // 
             this.btnPrintPreview.ForeColor = System.Drawing.Color.DarkRed;
-            this.btnPrintPreview.Location = new System.Drawing.Point(662, 45);
+            this.btnPrintPreview.Location = new System.Drawing.Point(502, 45);
             this.btnPrintPreview.Name = "btnPrintPreview";
             this.btnPrintPreview.Size = new System.Drawing.Size(129, 23);
             this.btnPrintPreview.TabIndex = 21;
@@ -236,7 +236,7 @@
             // btnPrintOrder
             // 
             this.btnPrintOrder.ForeColor = System.Drawing.Color.DarkRed;
-            this.btnPrintOrder.Location = new System.Drawing.Point(838, 45);
+            this.btnPrintOrder.Location = new System.Drawing.Point(706, 45);
             this.btnPrintOrder.Name = "btnPrintOrder";
             this.btnPrintOrder.Size = new System.Drawing.Size(129, 23);
             this.btnPrintOrder.TabIndex = 22;
@@ -254,7 +254,7 @@
             // 
             // txtSearchProduct
             // 
-            this.txtSearchProduct.Location = new System.Drawing.Point(449, 45);
+            this.txtSearchProduct.Location = new System.Drawing.Point(176, 24);
             this.txtSearchProduct.Name = "txtSearchProduct";
             this.txtSearchProduct.Size = new System.Drawing.Size(100, 22);
             this.txtSearchProduct.TabIndex = 25;
@@ -263,7 +263,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(451, 26);
+            this.label2.Location = new System.Drawing.Point(42, 30);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(106, 16);
             this.label2.TabIndex = 26;
@@ -307,6 +307,7 @@
             this.Controls.Add(this.lstProducts);
             this.Controls.Add(this.lstSuppliers);
             this.ForeColor = System.Drawing.Color.Gold;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Suporder";
             this.Text = "TSIS | Supplier-order";
             this.Load += new System.EventHandler(this.Suporder_Load);

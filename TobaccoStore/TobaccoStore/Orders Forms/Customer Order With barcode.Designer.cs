@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Customer_Order_With_barcode));
             this.txtBarcode = new System.Windows.Forms.TextBox();
             this.dataGridViewSale = new System.Windows.Forms.DataGridView();
             this.button1 = new System.Windows.Forms.Button();
@@ -51,7 +52,7 @@
             // 
             // txtBarcode
             // 
-            this.txtBarcode.Location = new System.Drawing.Point(75, 33);
+            this.txtBarcode.Location = new System.Drawing.Point(75, 22);
             this.txtBarcode.Name = "txtBarcode";
             this.txtBarcode.Size = new System.Drawing.Size(100, 22);
             this.txtBarcode.TabIndex = 0;
@@ -65,7 +66,7 @@
             this.dataGridViewSale.Name = "dataGridViewSale";
             this.dataGridViewSale.RowHeadersWidth = 51;
             this.dataGridViewSale.RowTemplate.Height = 24;
-            this.dataGridViewSale.Size = new System.Drawing.Size(928, 484);
+            this.dataGridViewSale.Size = new System.Drawing.Size(952, 530);
             this.dataGridViewSale.TabIndex = 1;
             // 
             // button1
@@ -111,7 +112,7 @@
             // 
             // dateTimePickerOrderDate
             // 
-            this.dateTimePickerOrderDate.Location = new System.Drawing.Point(842, 13);
+            this.dateTimePickerOrderDate.Location = new System.Drawing.Point(908, 19);
             this.dateTimePickerOrderDate.Name = "dateTimePickerOrderDate";
             this.dateTimePickerOrderDate.Size = new System.Drawing.Size(243, 22);
             this.dateTimePickerOrderDate.TabIndex = 6;
@@ -119,7 +120,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 39);
+            this.label1.Location = new System.Drawing.Point(12, 28);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(59, 16);
             this.label1.TabIndex = 7;
@@ -146,7 +147,7 @@
             // 
             // txtManualBarcode
             // 
-            this.txtManualBarcode.Location = new System.Drawing.Point(459, 13);
+            this.txtManualBarcode.Location = new System.Drawing.Point(459, 20);
             this.txtManualBarcode.Name = "txtManualBarcode";
             this.txtManualBarcode.Size = new System.Drawing.Size(100, 22);
             this.txtManualBarcode.TabIndex = 10;
@@ -155,7 +156,7 @@
             // btnManualEntry
             // 
             this.btnManualEntry.ForeColor = System.Drawing.Color.DarkRed;
-            this.btnManualEntry.Location = new System.Drawing.Point(591, 12);
+            this.btnManualEntry.Location = new System.Drawing.Point(591, 19);
             this.btnManualEntry.Name = "btnManualEntry";
             this.btnManualEntry.Size = new System.Drawing.Size(75, 23);
             this.btnManualEntry.TabIndex = 11;
@@ -178,7 +179,7 @@
             // btnexit
             // 
             this.btnexit.ForeColor = System.Drawing.Color.DarkRed;
-            this.btnexit.Location = new System.Drawing.Point(1083, 621);
+            this.btnexit.Location = new System.Drawing.Point(1124, 621);
             this.btnexit.Name = "btnexit";
             this.btnexit.Size = new System.Drawing.Size(75, 23);
             this.btnexit.TabIndex = 13;
@@ -189,7 +190,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(360, 19);
+            this.label2.Location = new System.Drawing.Point(349, 22);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(93, 16);
             this.label2.TabIndex = 14;
@@ -251,6 +252,7 @@
             this.Controls.Add(this.dataGridViewSale);
             this.Controls.Add(this.txtBarcode);
             this.ForeColor = System.Drawing.Color.Gold;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Customer_Order_With_barcode";
             this.Text = "Customer_Order_With_barcode";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Customer_Order_With_barcode_FormClosing);
