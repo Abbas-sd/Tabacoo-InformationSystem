@@ -125,7 +125,7 @@ namespace TobaccoStore
             }
 
             // Initialize button groups
-            buttonGroups[btnOpenForm] = CreateSubButtons(btnOpenForm, new string[] { "Add User" });
+            buttonGroups[btnOpenForm] = CreateSubButtons(btnOpenForm, new string[] { "Add User" , "New Employee"});
             buttonGroups[btnopencustomer] = CreateSubButtons(btnopencustomer, new string[] { "New Customer", "New Product", "New Supplier" });
             buttonGroups[btnopenorders] = CreateSubButtons(btnopenorders, new string[] { "Customer Order", "Supplier Order" });
             buttonGroups[btnopenview] = CreateSubButtons(btnopenview, new string[] { "View Customers", "View Products", "View Suppliers", "View Customer Orders", "View Supplier Orders" });
@@ -209,6 +209,9 @@ namespace TobaccoStore
             {
                 case "Add User":
                     formToOpen = new New_User();
+                    break;
+                case "New Employee":
+                    formToOpen = new Add_Employee();
                     break;
                 case "New Customer":
                     formToOpen = new Form1(); // Replace with actual form class

@@ -18,6 +18,7 @@ namespace TobaccoStore
         {
             InitializeComponent();
             txtSearch.TextChanged += new EventHandler(txtSearch_TextChanged); // Attach TextChanged event
+            panel1.Visible = false;
         }
 
         private void View_Suppliers_Load(object sender, EventArgs e)
@@ -29,9 +30,9 @@ namespace TobaccoStore
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
                 string query = @"
-                    SELECT * 
-                    FROM Supplier 
-                    WHERE supplier_name LIKE @keyword OR phone LIKE @keyword OR address LIKE @keyword";
+            SELECT * 
+            FROM Supplier 
+            WHERE supplier_name LIKE @keyword OR supplier_id LIKE @keyword OR address LIKE @keyword";
 
                 SqlDataAdapter adapter = new SqlDataAdapter(query, conn);
                 adapter.SelectCommand.Parameters.AddWithValue("@keyword", "%" + searchKeyword + "%");
@@ -40,8 +41,21 @@ namespace TobaccoStore
                 adapter.Fill(dt);
                 dgvSuppliers.DataSource = dt;
             }
+
+            // Set the width of all columns to 80 (or any other default)
+            foreach (DataGridViewColumn column in dgvSuppliers.Columns)
+            {
+                column.Width = 80;
+            }
+
+            // Set the width of the last column to 150
+            if (dgvSuppliers.Columns.Count > 0)
+            {
+                dgvSuppliers.Columns[dgvSuppliers.Columns.Count - 1].Width = 250;
+            }
         }
-       
+
+
 
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
@@ -64,18 +78,44 @@ namespace TobaccoStore
 
         }
 
+        private DeleteSupplier deletFormInstance;
+        private UpdateSupplier updateFormInstance;
         private void btnDeleteProduct_Click(object sender, EventArgs e)
         {
-            DeleteSupplier form1 = new DeleteSupplier(); // Pass 'this' as the calling form
-            form1.Show();
-            this.Hide();
+            panel1.Visible = true;
+            
+
+            // Prevent multiple instances
+            if (deletFormInstance == null || deletFormInstance.IsDisposed)
+            {
+                deletFormInstance = new DeleteSupplier();
+                deletFormInstance.TopLevel = false;
+                deletFormInstance.FormBorderStyle = FormBorderStyle.None;
+                deletFormInstance.Dock = DockStyle.Fill;
+
+                panel1.Controls.Clear();
+                panel1.Controls.Add(deletFormInstance);
+                deletFormInstance.Show();
+            }
         }
 
         private void btnUpdateSupplier_Click(object sender, EventArgs e)
         {
-            UpdateSupplier form2 = new UpdateSupplier(); // Pass 'this' as the calling form
-            form2.Show();
-            this.Hide();
+            panel1.Visible = false;
+            
+
+            // Prevent multiple instances
+            if (updateFormInstance == null || updateFormInstance.IsDisposed)
+            {
+                updateFormInstance = new UpdateSupplier();
+                updateFormInstance.TopLevel = false;
+                updateFormInstance.FormBorderStyle = FormBorderStyle.None;
+                updateFormInstance.Dock = DockStyle.Fill;
+
+                panel1.Controls.Clear();
+                panel1.Controls.Add(updateFormInstance);
+                updateFormInstance.Show();
+            }
         }
     }
 }

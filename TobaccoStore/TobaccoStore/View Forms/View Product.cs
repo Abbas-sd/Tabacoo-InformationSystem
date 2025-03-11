@@ -17,6 +17,7 @@ namespace TobaccoStore
         {
             InitializeComponent();
             txtSearch.TextChanged += new EventHandler(txtSearch_TextChanged); // Attach TextChanged event
+            panel2.Visible = false;
         }
 
 
@@ -59,22 +60,44 @@ namespace TobaccoStore
             this.Close();
         }
 
+        private DeleteProduct deletFormInstance;
+        private UpdateProduct updateFormInstance;
         private void btnDeleteProduct_Click(object sender, EventArgs e)
         {
-            DeleteProduct form99 = new DeleteProduct();
+            
+            panel2.Visible = true; // Show the update panel
 
-            form99.Show();
+            // Prevent multiple instances
+            if (deletFormInstance == null || deletFormInstance.IsDisposed)
+            {
+                deletFormInstance = new DeleteProduct();
+                deletFormInstance.TopLevel = false;
+                deletFormInstance.FormBorderStyle = FormBorderStyle.None;
+                deletFormInstance.Dock = DockStyle.Fill;
 
-            this.Hide();
+                panel2.Controls.Clear();
+                panel2.Controls.Add(deletFormInstance);
+                deletFormInstance.Show();
+            }
         }
 
         private void btnUpdateProduct_Click(object sender, EventArgs e)
         {
-            UpdateProduct form100 = new UpdateProduct();
+            
+            panel2.Visible = true; // Show the update panel
 
-            form100.Show();
+            // Prevent multiple instances
+            if (updateFormInstance == null || updateFormInstance.IsDisposed)
+            {
+                updateFormInstance = new UpdateProduct();
+                updateFormInstance.TopLevel = false;
+                updateFormInstance.FormBorderStyle = FormBorderStyle.None;
+                updateFormInstance.Dock = DockStyle.Fill;
 
-            this.Hide();
+                panel2.Controls.Clear();
+                panel2.Controls.Add(updateFormInstance);
+                updateFormInstance.Show();
+            }
         }
 
         private void btnexit_Click(object sender, EventArgs e)

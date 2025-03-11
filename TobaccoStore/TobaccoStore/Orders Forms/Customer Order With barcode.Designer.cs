@@ -204,7 +204,7 @@
             // comboBoxPaymentStatus
             // 
             this.comboBoxPaymentStatus.FormattingEnabled = true;
-            this.comboBoxPaymentStatus.Location = new System.Drawing.Point(27, 312);
+            this.comboBoxPaymentStatus.Location = new System.Drawing.Point(27, 347);
             this.comboBoxPaymentStatus.Name = "comboBoxPaymentStatus";
             this.comboBoxPaymentStatus.Size = new System.Drawing.Size(121, 24);
             this.comboBoxPaymentStatus.TabIndex = 17;
@@ -223,7 +223,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.ForeColor = System.Drawing.Color.Gold;
-            this.label4.Location = new System.Drawing.Point(31, 358);
+            this.label4.Location = new System.Drawing.Point(43, 318);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(100, 16);
             this.label4.TabIndex = 19;
@@ -265,7 +265,7 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.dataGridViewSale);
             this.Controls.Add(this.txtBarcode);
-            this.ForeColor = System.Drawing.Color.Gold;
+            this.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Customer_Order_With_barcode";
             this.Text = "Customer_Order_With_barcode";

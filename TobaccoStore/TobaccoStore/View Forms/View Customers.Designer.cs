@@ -29,62 +29,44 @@
         private void InitializeComponent()
         {
             this.dgvCustomers = new System.Windows.Forms.DataGridView();
-            this.btnBack = new System.Windows.Forms.Button();
-            this.BtnExit = new System.Windows.Forms.Button();
             this.btnUpdateCustomer = new System.Windows.Forms.Button();
             this.btnDeleteCustomer = new System.Windows.Forms.Button();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCustomers)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvCustomers
             // 
+            this.dgvCustomers.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dgvCustomers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvCustomers.Location = new System.Drawing.Point(12, 38);
+            this.dgvCustomers.Location = new System.Drawing.Point(96, 37);
             this.dgvCustomers.Name = "dgvCustomers";
             this.dgvCustomers.RowHeadersWidth = 51;
             this.dgvCustomers.RowTemplate.Height = 24;
-            this.dgvCustomers.Size = new System.Drawing.Size(715, 371);
+            this.dgvCustomers.Size = new System.Drawing.Size(1060, 630);
             this.dgvCustomers.TabIndex = 0;
-            // 
-            // btnBack
-            // 
-            this.btnBack.Location = new System.Drawing.Point(12, 415);
-            this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(75, 23);
-            this.btnBack.TabIndex = 1;
-            this.btnBack.Text = "Back";
-            this.btnBack.UseVisualStyleBackColor = true;
-            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
-            // 
-            // BtnExit
-            // 
-            this.BtnExit.Location = new System.Drawing.Point(642, 415);
-            this.BtnExit.Name = "BtnExit";
-            this.BtnExit.Size = new System.Drawing.Size(75, 23);
-            this.BtnExit.TabIndex = 2;
-            this.BtnExit.Text = "Exit";
-            this.BtnExit.UseVisualStyleBackColor = true;
-            this.BtnExit.Click += new System.EventHandler(this.BtnExit_Click);
             // 
             // btnUpdateCustomer
             // 
-            this.btnUpdateCustomer.Location = new System.Drawing.Point(403, 9);
+            this.btnUpdateCustomer.ForeColor = System.Drawing.Color.DarkRed;
+            this.btnUpdateCustomer.Location = new System.Drawing.Point(1068, 8);
             this.btnUpdateCustomer.Name = "btnUpdateCustomer";
-            this.btnUpdateCustomer.Size = new System.Drawing.Size(147, 23);
+            this.btnUpdateCustomer.Size = new System.Drawing.Size(75, 23);
             this.btnUpdateCustomer.TabIndex = 21;
-            this.btnUpdateCustomer.Text = "Update Customer....";
+            this.btnUpdateCustomer.Text = "Update...";
             this.btnUpdateCustomer.UseVisualStyleBackColor = true;
             this.btnUpdateCustomer.Click += new System.EventHandler(this.btnUpdateCustomer_Click);
             // 
             // btnDeleteCustomer
             // 
-            this.btnDeleteCustomer.Location = new System.Drawing.Point(570, 9);
+            this.btnDeleteCustomer.ForeColor = System.Drawing.Color.DarkRed;
+            this.btnDeleteCustomer.Location = new System.Drawing.Point(1149, 8);
             this.btnDeleteCustomer.Name = "btnDeleteCustomer";
-            this.btnDeleteCustomer.Size = new System.Drawing.Size(147, 23);
+            this.btnDeleteCustomer.Size = new System.Drawing.Size(75, 23);
             this.btnDeleteCustomer.TabIndex = 20;
-            this.btnDeleteCustomer.Text = "Delete Customer....";
+            this.btnDeleteCustomer.Text = "Delete...";
             this.btnDeleteCustomer.UseVisualStyleBackColor = true;
             this.btnDeleteCustomer.Click += new System.EventHandler(this.btnDeleteCustomer_Click);
             // 
@@ -98,24 +80,33 @@
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.Color.Gold;
             this.label1.Location = new System.Drawing.Point(9, 15);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(110, 16);
             this.label1.TabIndex = 23;
             this.label1.Text = "Search Customer";
             // 
+            // panel2
+            // 
+            this.panel2.Location = new System.Drawing.Point(1, -2);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(1252, 669);
+            this.panel2.TabIndex = 24;
+            // 
             // View_Customers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(729, 450);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
+            this.ClientSize = new System.Drawing.Size(1253, 669);
+            this.Controls.Add(this.panel2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.btnUpdateCustomer);
             this.Controls.Add(this.btnDeleteCustomer);
-            this.Controls.Add(this.BtnExit);
-            this.Controls.Add(this.btnBack);
             this.Controls.Add(this.dgvCustomers);
+            this.ForeColor = System.Drawing.Color.Black;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Name = "View_Customers";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -130,11 +121,10 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dgvCustomers;
-        private System.Windows.Forms.Button btnBack;
-        private System.Windows.Forms.Button BtnExit;
         private System.Windows.Forms.Button btnUpdateCustomer;
         private System.Windows.Forms.Button btnDeleteCustomer;
         private System.Windows.Forms.TextBox txtSearch;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Panel panel2;
     }
 }

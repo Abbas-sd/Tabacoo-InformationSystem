@@ -49,6 +49,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Adding Forms\Add Employee.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Adding Forms\Add Employee.Designer.cs">
+      <DependentUpon>Add Employee.cs</DependentUpon>
+    </Compile>
     <Compile Include="Orders Forms\Customer Order With barcode.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -201,6 +207,9 @@
     <Compile Include="View Forms\View Suppliers.Designer.cs">
       <DependentUpon>View Suppliers.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Adding Forms\Add Employee.resx">
+      <DependentUpon>Add Employee.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Orders Forms\Customer Order With barcode.resx">
       <DependentUpon>Customer Order With barcode.cs</DependentUpon>
     </EmbeddedResource>
