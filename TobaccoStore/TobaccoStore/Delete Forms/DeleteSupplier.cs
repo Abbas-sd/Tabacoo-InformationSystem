@@ -47,6 +47,7 @@ namespace TobaccoStore
                 DataTable dataTable = new DataTable();
                 adapter.Fill(dataTable);
                 dgvSupplier.DataSource = dataTable;
+                dgvSupplier.ReadOnly = true;
             }
 
             foreach (DataGridViewColumn column in dgvSupplier.Columns)

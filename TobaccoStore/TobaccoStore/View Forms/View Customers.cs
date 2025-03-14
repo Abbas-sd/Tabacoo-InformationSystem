@@ -37,6 +37,8 @@ namespace TobaccoStore
                 DataTable dataTable = new DataTable();
                 adapter.Fill(dataTable);
                 dgvCustomers.DataSource = dataTable;
+
+                dgvCustomers.ReadOnly = true;
             }
         }
         private void View_Customers_Load(object sender, EventArgs e)

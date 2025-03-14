@@ -141,6 +141,11 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Search form\search.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -272,14 +277,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <EmbeddedResource Include="Report1 test 1.rdlc" />
     <EmbeddedResource Include="Search form\search.resx">
       <DependentUpon>search.cs</DependentUpon>
@@ -345,10 +345,7 @@
     <None Include="Resources\icons8-update-64.png" />
     <None Include="Resources\icons8-delete-48.png" />
     <None Include="Resources\download.jpgwsswswwswsws.jpg" />
-    <Content Include="Resources\imagesininininininiin.jpg" />
-    <None Include="Resources\imagesininininininiin1.jpg" />
     <Content Include="Resources\Tabacoo-Icon2.ico" />
-    <None Include="Resources\ww1.png" />
     <None Include="Resources\ww.png" />
     <None Include="Resources\updated1.png" />
     <None Include="Resources\updated.png" />

@@ -839,7 +839,6 @@ namespace TobaccoStore
 
             // Header
             graphics.DrawString("Customer Order Invoice", headerFont, brush, 100, yPos);
-
             yPos += 50;
 
             // Customer Info
@@ -855,7 +854,6 @@ namespace TobaccoStore
 
             yPos += 30;
             graphics.DrawString($"Order Date & Time: {dateTimePickerOrderDate.Value.ToString("f")}", bodyFont, brush, 100, yPos);
-
             yPos += 30;
 
             // **Payment Status**
@@ -864,34 +862,55 @@ namespace TobaccoStore
 
             yPos += 40;
 
-            // Item List Header
-            graphics.DrawString("Product Name", bodyFont, brush, 100, yPos);
-            graphics.DrawString("Quantity", bodyFont, brush, 300, yPos);
-            graphics.DrawString("Price", bodyFont, brush, 400, yPos);
-            graphics.DrawString("Total", bodyFont, brush, 500, yPos);
+            // Item List Header (Including Discount Percentage Column)
+            int xProduct = 100, xQuantity = 400, xPrice = 500, xDiscount = 600, xTotal = 725;
+            graphics.DrawString("Product Name", bodyFont, brush, xProduct, yPos);
+            graphics.DrawString("Quantity", bodyFont, brush, xQuantity, yPos);
+            graphics.DrawString("Price", bodyFont, brush, xPrice, yPos);
+            graphics.DrawString("Discount (%)", bodyFont, brush, xDiscount, yPos);  // New Discount Percentage column
+            graphics.DrawString("Total", bodyFont, brush, xTotal, yPos);
 
             yPos += 30;
 
             // Item List
+            decimal totalItemDiscount = 0; // To accumulate total discount
             foreach (var item in saleItems)
             {
-                graphics.DrawString(item.ProductName, bodyFont, brush, 100, yPos);
-                graphics.DrawString(item.Quantity.ToString(), bodyFont, brush, 300, yPos);
-                graphics.DrawString(item.SellingPrice.ToString("C"), bodyFont, brush, 400, yPos);
-                graphics.DrawString(item.TotalPrice.ToString("C"), bodyFont, brush, 500, yPos);
+                decimal itemTotalBeforeDiscount = item.SellingPrice * item.Quantity;
+                decimal itemVAT = itemTotalBeforeDiscount * 0.11m;
+                decimal itemTotalWithVAT = itemTotalBeforeDiscount + itemVAT;
+
+                // Calculate the discount for this item based on the discount percentage
+                decimal itemDiscountAmount = itemTotalWithVAT * (item.Discount / 100);
+                totalItemDiscount += itemDiscountAmount;
+
+                graphics.DrawString(item.ProductName, bodyFont, brush, xProduct, yPos);
+                graphics.DrawString(item.Quantity.ToString(), bodyFont, brush, xQuantity, yPos);
+                graphics.DrawString(item.SellingPrice.ToString("C"), bodyFont, brush, xPrice, yPos);
+                graphics.DrawString(item.Discount.ToString("F2") + "%", bodyFont, brush, xDiscount, yPos);  // Discount Percentage column
+                graphics.DrawString(itemTotalWithVAT.ToString("C"), bodyFont, brush, xTotal, yPos);
+
                 yPos += 30;
             }
 
             // Discount and VAT calculations
             decimal totalBeforeDiscount = saleItems.Sum(item => item.SellingPrice * item.Quantity);
-            decimal totalVAT = totalBeforeDiscount * 0.11m; // Assuming VAT is 11%
-            decimal totalDiscount = totalBeforeDiscount * (saleItems.Any() ? saleItems.Average(item => item.Discount) / 100 : 0);
-            decimal totalAfterDiscount = totalBeforeDiscount + totalVAT - totalDiscount;
 
-            // Display the discount percentage and the discount amount
-            decimal averageDiscount = saleItems.Any() ? saleItems.Average(item => item.Discount) : 0;
+            // Calculate VAT first, before applying discount
+            decimal totalVAT = totalBeforeDiscount * 0.11m; // VAT on the total before discount
+
+            // Apply VAT first
+            decimal totalWithVAT = totalBeforeDiscount + totalVAT; // Total with VAT applied
+
+            // Calculate the total discount
+            decimal totalDiscount = totalWithVAT * (saleItems.Any() ? saleItems.Average(item => item.Discount) / 100 : 0);
+
+            // Final amount after applying discount
+            decimal finalAmount = totalWithVAT - totalDiscount;
+
+            // Display the total discount amount (not the percentage)
             yPos += 20;
-            graphics.DrawString($"Discount: {averageDiscount}% (-{totalDiscount:C})", bodyFont, brush, 100, yPos);
+            graphics.DrawString($"Total Discount: -{totalItemDiscount:C}", bodyFont, brush, 100, yPos); // Display total discount amount
 
             // Display VAT
             yPos += 20;
@@ -899,10 +918,14 @@ namespace TobaccoStore
 
             // Display the total amount after discount and VAT
             yPos += 20;
-            graphics.DrawString($"Total Amount: {totalAfterDiscount:C}", headerFont, brush, 100, yPos);
+            graphics.DrawString($"Total Amount: {finalAmount:C}", headerFont, brush, 100, yPos);
 
             e.HasMorePages = false; // Only one page
         }
+
+
+
+
 
 
         private bool ValidateStockBeforePrint()

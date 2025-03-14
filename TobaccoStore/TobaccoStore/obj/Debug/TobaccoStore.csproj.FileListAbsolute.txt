@@ -58,7 +58,15 @@ C:\Users\DELL INSPIRON 5402\Source\Repos\Tabacoo-InformationSystem\TobaccoStore\
 C:\Users\DELL INSPIRON 5402\Source\Repos\Tabacoo-InformationSystem\TobaccoStore\TobaccoStore\obj\Debug\TobaccoStore.View_Customer_Orders.resources
 C:\Users\DELL INSPIRON 5402\Source\Repos\Tabacoo-InformationSystem\TobaccoStore\TobaccoStore\obj\Debug\TobaccoStore.View_Suppliers.resources
 C:\Users\DELL INSPIRON 5402\Source\Repos\Tabacoo-InformationSystem\TobaccoStore\TobaccoStore\obj\Debug\TobaccoStore.csproj.CopyComplete
+C:\Users\DELL INSPIRON 5402\Source\Repos\Tabacoo-InformationSystem\TobaccoStore\TobaccoStore\obj\Debug\TobaccoStore.panel_testing.resources
+C:\Users\DELL INSPIRON 5402\Source\Repos\Tabacoo-InformationSystem\TobaccoStore\TobaccoStore\obj\Debug\TobaccoStore.UpdateSupplier.resources
+C:\Users\abbas\Source\Repos\Tabacoo-InformationSystem\TobaccoStore\TobaccoStore\bin\Debug\TobaccoStore.exe.config
+C:\Users\abbas\Source\Repos\Tabacoo-InformationSystem\TobaccoStore\TobaccoStore\bin\Debug\TobaccoStore.exe
+C:\Users\abbas\Source\Repos\Tabacoo-InformationSystem\TobaccoStore\TobaccoStore\bin\Debug\TobaccoStore.pdb
+C:\Users\abbas\Source\Repos\Tabacoo-InformationSystem\TobaccoStore\TobaccoStore\bin\Debug\Microsoft.ReportViewer.WinForms.dll
 C:\Users\abbas\Source\Repos\Tabacoo-InformationSystem\TobaccoStore\TobaccoStore\obj\Debug\TobaccoStore.csproj.AssemblyReference.cache
+C:\Users\abbas\Source\Repos\Tabacoo-InformationSystem\TobaccoStore\TobaccoStore\obj\Debug\TobaccoStore.Add_Employee.resources
+C:\Users\abbas\Source\Repos\Tabacoo-InformationSystem\TobaccoStore\TobaccoStore\obj\Debug\TobaccoStore.delet_employee.resources
 C:\Users\abbas\Source\Repos\Tabacoo-InformationSystem\TobaccoStore\TobaccoStore\obj\Debug\TobaccoStore.Customer_Order_With_barcode.resources
 C:\Users\abbas\Source\Repos\Tabacoo-InformationSystem\TobaccoStore\TobaccoStore\obj\Debug\TobaccoStore.Customer_Order.resources
 C:\Users\abbas\Source\Repos\Tabacoo-InformationSystem\TobaccoStore\TobaccoStore\obj\Debug\TobaccoStore.DeletCustomer.resources
@@ -77,26 +85,18 @@ C:\Users\abbas\Source\Repos\Tabacoo-InformationSystem\TobaccoStore\TobaccoStore\
 C:\Users\abbas\Source\Repos\Tabacoo-InformationSystem\TobaccoStore\TobaccoStore\obj\Debug\TobaccoStore.Suporder.resources
 C:\Users\abbas\Source\Repos\Tabacoo-InformationSystem\TobaccoStore\TobaccoStore\obj\Debug\TobaccoStore.Supplier.resources
 C:\Users\abbas\Source\Repos\Tabacoo-InformationSystem\TobaccoStore\TobaccoStore\obj\Debug\TobaccoStore.testing_first_print.resources
+C:\Users\abbas\Source\Repos\Tabacoo-InformationSystem\TobaccoStore\TobaccoStore\obj\Debug\TobaccoStore.Update_Employee.resources
 C:\Users\abbas\Source\Repos\Tabacoo-InformationSystem\TobaccoStore\TobaccoStore\obj\Debug\TobaccoStore.UpdateCustomer.resources
 C:\Users\abbas\Source\Repos\Tabacoo-InformationSystem\TobaccoStore\TobaccoStore\obj\Debug\TobaccoStore.UpdateProduct.resources
+C:\Users\abbas\Source\Repos\Tabacoo-InformationSystem\TobaccoStore\TobaccoStore\obj\Debug\TobaccoStore.UpdateSupplier.resources
 C:\Users\abbas\Source\Repos\Tabacoo-InformationSystem\TobaccoStore\TobaccoStore\obj\Debug\TobaccoStore.View_Customer_Orders.resources
 C:\Users\abbas\Source\Repos\Tabacoo-InformationSystem\TobaccoStore\TobaccoStore\obj\Debug\TobaccoStore.View_Customers.resources
+C:\Users\abbas\Source\Repos\Tabacoo-InformationSystem\TobaccoStore\TobaccoStore\obj\Debug\TobaccoStore.View_Forms.View_Employee.resources
 C:\Users\abbas\Source\Repos\Tabacoo-InformationSystem\TobaccoStore\TobaccoStore\obj\Debug\TobaccoStore.View_Orders.resources
 C:\Users\abbas\Source\Repos\Tabacoo-InformationSystem\TobaccoStore\TobaccoStore\obj\Debug\TobaccoStore.View_Product.resources
 C:\Users\abbas\Source\Repos\Tabacoo-InformationSystem\TobaccoStore\TobaccoStore\obj\Debug\TobaccoStore.View_Suppliers.resources
 C:\Users\abbas\Source\Repos\Tabacoo-InformationSystem\TobaccoStore\TobaccoStore\obj\Debug\TobaccoStore.csproj.GenerateResource.cache
 C:\Users\abbas\Source\Repos\Tabacoo-InformationSystem\TobaccoStore\TobaccoStore\obj\Debug\TobaccoStore.csproj.CoreCompileInputs.cache
-C:\Users\abbas\Source\Repos\Tabacoo-InformationSystem\TobaccoStore\TobaccoStore\bin\Debug\TobaccoStore.exe.config
-C:\Users\abbas\Source\Repos\Tabacoo-InformationSystem\TobaccoStore\TobaccoStore\bin\Debug\TobaccoStore.exe
-C:\Users\abbas\Source\Repos\Tabacoo-InformationSystem\TobaccoStore\TobaccoStore\bin\Debug\TobaccoStore.pdb
-C:\Users\abbas\Source\Repos\Tabacoo-InformationSystem\TobaccoStore\TobaccoStore\bin\Debug\Microsoft.ReportViewer.WinForms.dll
 C:\Users\abbas\Source\Repos\Tabacoo-InformationSystem\TobaccoStore\TobaccoStore\obj\Debug\TobaccoS.7D4A25E2.Up2Date
 C:\Users\abbas\Source\Repos\Tabacoo-InformationSystem\TobaccoStore\TobaccoStore\obj\Debug\TobaccoStore.exe
 C:\Users\abbas\Source\Repos\Tabacoo-InformationSystem\TobaccoStore\TobaccoStore\obj\Debug\TobaccoStore.pdb
-C:\Users\DELL INSPIRON 5402\Source\Repos\Tabacoo-InformationSystem\TobaccoStore\TobaccoStore\obj\Debug\TobaccoStore.panel_testing.resources
-C:\Users\DELL INSPIRON 5402\Source\Repos\Tabacoo-InformationSystem\TobaccoStore\TobaccoStore\obj\Debug\TobaccoStore.UpdateSupplier.resources
-C:\Users\abbas\Source\Repos\Tabacoo-InformationSystem\TobaccoStore\TobaccoStore\obj\Debug\TobaccoStore.UpdateSupplier.resources
-C:\Users\abbas\Source\Repos\Tabacoo-InformationSystem\TobaccoStore\TobaccoStore\obj\Debug\TobaccoStore.Add_Employee.resources
-C:\Users\abbas\Source\Repos\Tabacoo-InformationSystem\TobaccoStore\TobaccoStore\obj\Debug\TobaccoStore.Update_Employee.resources
-C:\Users\abbas\Source\Repos\Tabacoo-InformationSystem\TobaccoStore\TobaccoStore\obj\Debug\TobaccoStore.delet_employee.resources
-C:\Users\abbas\Source\Repos\Tabacoo-InformationSystem\TobaccoStore\TobaccoStore\obj\Debug\TobaccoStore.View_Forms.View_Employee.resources

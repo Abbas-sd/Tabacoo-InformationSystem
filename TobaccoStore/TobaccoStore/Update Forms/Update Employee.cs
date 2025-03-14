@@ -39,6 +39,7 @@ namespace TobaccoStore
                     connection.Open();
                     SqlDataAdapter dataAdapter = new SqlDataAdapter(command);
                     dataAdapter.Fill(dataTable); // Fill the DataTable with the query results
+                    dgvupdateemployee.ReadOnly = true;
                 }
                 catch (Exception ex)
                 {
@@ -178,7 +179,7 @@ namespace TobaccoStore
             rbtnMale.Checked = false;
             rbtnFemale.Checked = false;
             cmbPosition.SelectedIndex = -1;
-            dtpHireDate.Value = DateTime.Now;
+            
             
         }
 

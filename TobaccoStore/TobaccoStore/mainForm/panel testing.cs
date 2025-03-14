@@ -175,7 +175,7 @@ namespace TobaccoStore
                     return buttonName != "Add User" && buttonName != "New Employee";
 
                 case UserRole.Cashier:
-                    return buttonName == "Customer Order" || buttonName == "Supplier Order" || buttonName.Contains("View"); 
+                    return buttonName == "Customer Order" || buttonName.Contains("View"); 
 
                 case UserRole.Stoker:
                     return buttonName.Contains("View") || buttonName == "About" || buttonName.Contains("New") && buttonName != "New Employee";

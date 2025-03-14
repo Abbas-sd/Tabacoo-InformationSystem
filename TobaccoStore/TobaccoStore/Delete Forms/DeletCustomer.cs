@@ -37,6 +37,7 @@ namespace TobaccoStore
                 DataTable dataTable = new DataTable();
                 adapter.Fill(dataTable);
                 dgvCustomers.DataSource = dataTable;
+                dgvCustomers.ReadOnly = true;
             }
 
             // Set default width for all columns

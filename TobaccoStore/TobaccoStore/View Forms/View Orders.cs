@@ -42,6 +42,7 @@ namespace TobaccoStore
                         conn.Open();
                         adapter.Fill(dt);
                         dgvOrders.DataSource = dt; // Bind data to DataGridView
+                        dgvOrders.ReadOnly = true;
                     }
                     catch (Exception ex)
                     {

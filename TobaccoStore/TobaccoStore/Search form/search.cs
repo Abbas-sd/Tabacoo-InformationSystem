@@ -49,17 +49,25 @@ namespace TobaccoStore
                     query = "SELECT * FROM Product WHERE product_name LIKE @keyword OR product_type LIKE @keyword OR product_id LIKE @keyword";
                     break;
                 case "CustomerOrder":
-                    query = "SELECT co.customer_order_id, c.fname, c.lname, co.order_date, co.total_amount " +
-                            "FROM CustomerOrder co JOIN Customer c ON co.customer_id = c.customer_id " +
-                            "WHERE co.customer_order_id LIKE @keyword OR c.fname LIKE @keyword OR c.lname LIKE @keyword";
+                    query = "SELECT co.customer_order_id, c.fname, c.lname, co.order_date, co.total_amount, " +
+               "cod.product_id, cod.quantity " +
+               "FROM CustomerOrder co " +
+               "JOIN Customer c ON co.customer_id = c.customer_id " +
+               "JOIN CustomerOrderDetails cod ON co.customer_order_id = cod.customer_order_id " +
+               "WHERE c.fname LIKE @keyword OR c.lname LIKE @keyword OR co.order_date LIKE @keyword " +
+               "OR cod.product_id LIKE @keyword"; 
                     break;
                 case "Employee":
                     query = "SELECT * FROM Employee WHERE fname LIKE @keyword OR lname LIKE @keyword OR position LIKE @keyword";
                     break;
                 case "SupplierOrder":
-                    query = "SELECT so.supplier_order_id, s.supplier_name, so.order_date, so.total_amount " +
-                            "FROM SupplierOrder so JOIN Supplier s ON so.supplier_id = s.supplier_id " +
-                            "WHERE so.supplier_order_id LIKE @keyword OR s.supplier_name LIKE @keyword";
+                    query = "SELECT so.supplier_order_id, s.supplier_name, so.order_date, so.total_amount, " +
+                            "sod.product_id, sod.quantity " +
+                            "FROM SupplierOrder so " +
+                            "JOIN Supplier s ON so.supplier_id = s.supplier_id " +
+                            "JOIN SupplierOrderDetails sod ON so.supplier_order_id = sod.supplier_order_id " +
+                            "WHERE so.supplier_order_id LIKE @keyword OR s.supplier_name LIKE @keyword " +
+                            "OR sod.product_id LIKE @keyword"; // You can add other fields if needed
                     break;
                 default:
                     MessageBox.Show("Please select a valid search type.");
@@ -81,6 +89,7 @@ namespace TobaccoStore
                         conn.Open();
                         adapter.Fill(results);
                         dgvSearchResults.DataSource = results; // dgvSearchResults is the DataGridView
+                        dgvSearchResults.ReadOnly = true;
                     }
                     catch (Exception ex)
                     {

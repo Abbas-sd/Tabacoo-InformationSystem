@@ -42,6 +42,7 @@ namespace TobaccoStore
                     connection.Open();
                     SqlDataAdapter dataAdapter = new SqlDataAdapter(command);
                     dataAdapter.Fill(dataTable); // Fill the DataTable with the query results
+                    dgvdeletemployee.ReadOnly = true;
                 }
                 catch (Exception ex)
                 {

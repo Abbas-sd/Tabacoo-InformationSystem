@@ -678,7 +678,7 @@ namespace TobaccoStore
             yPos += 30;
 
             // Print Column Headers including Discount Percentage
-            int xProduct = 100, xSupplier = 250, xQuantity = 400, xPrice = 500, xDiscount = 600, xTotal = 700;
+            int xProduct = 100, xSupplier = 350, xQuantity = 500, xPrice = 563, xDiscount = 650, xTotal = 750;
             graphics.DrawString("Product", bodyFont, brush, xProduct, yPos);
             graphics.DrawString("Supplier", bodyFont, brush, xSupplier, yPos);
             graphics.DrawString("Qty", bodyFont, brush, xQuantity, yPos);
@@ -690,6 +690,7 @@ namespace TobaccoStore
             // Declare variables for VAT and discount totals
             decimal totalVat = 0;
             decimal totalDiscount = 0;
+            decimal totalAmountBeforeVat = 0; // Total amount before VAT for final calculation
 
             // Print Order Items
             foreach (DataRow row in orderDataTable.Rows)
@@ -705,6 +706,7 @@ namespace TobaccoStore
 
                 totalVat += vat;
                 totalDiscount += discountAmount;
+                totalAmountBeforeVat += totalAmount; // Add the total amount to the before VAT total
 
                 // Print the row data, including the discount percentage
                 graphics.DrawString(row["Product Info"].ToString(), bodyFont, brush, xProduct, yPos);
@@ -717,16 +719,17 @@ namespace TobaccoStore
             }
 
             // Print Total VAT, Discount, and Amount
-            decimal totalAmountBeforeVat = orderDataTable.AsEnumerable().Sum(row => Convert.ToDecimal(row["Total Amount"]));
             decimal finalAmount = totalAmountBeforeVat + totalVat - totalDiscount;
 
-            yPos += 30;
+            
+            yPos += 20;
             graphics.DrawString($"Total VAT (11%): {totalVat:C}", bodyFont, brush, 100, yPos);
             yPos += 20;
             graphics.DrawString($"Total Discount: {totalDiscount:C}", bodyFont, brush, 100, yPos);
             yPos += 20;
             graphics.DrawString($"Total Amount After VAT & Discount: {finalAmount:C}", titleFont, brush, 100, yPos);
         }
+
 
 
 

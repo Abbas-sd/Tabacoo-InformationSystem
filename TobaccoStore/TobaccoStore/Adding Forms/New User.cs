@@ -63,7 +63,7 @@ namespace TobaccoStore
                 string query = "INSERT INTO Users (Username, Password, UserRole) VALUES (@Username, @Password, @UserRole)";
                 SqlCommand cmd = new SqlCommand(query, con);
                 cmd.Parameters.AddWithValue("@Username", username);
-                cmd.Parameters.AddWithValue("@Password", password);  // Store plain text password (not recommended, use hashing)
+                cmd.Parameters.AddWithValue("@Password", password); 
                 cmd.Parameters.AddWithValue("@UserRole", userRole);
 
                 try

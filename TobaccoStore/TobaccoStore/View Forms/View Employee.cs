@@ -48,6 +48,7 @@ namespace TobaccoStore.View_Forms
                     connection.Open();
                     SqlDataAdapter dataAdapter = new SqlDataAdapter(command);
                     dataAdapter.Fill(dataTable); // Fill the DataTable with the query results
+                    dgvViewemployee.ReadOnly = true;
                 }
                 catch (Exception ex)
                 {
