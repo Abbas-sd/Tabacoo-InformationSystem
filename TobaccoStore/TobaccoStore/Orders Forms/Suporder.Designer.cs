@@ -52,6 +52,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.comboBoxPaymentStatus = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
+            this.txtPaymentAmount = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewOrder)).BeginInit();
             this.SuspendLayout();
             // 
@@ -148,7 +150,7 @@
             this.BtnClear.Location = new System.Drawing.Point(520, 629);
             this.BtnClear.Name = "BtnClear";
             this.BtnClear.Size = new System.Drawing.Size(75, 23);
-            this.BtnClear.TabIndex = 16;
+            this.BtnClear.TabIndex = 9;
             this.BtnClear.Text = "Clear";
             this.BtnClear.UseVisualStyleBackColor = true;
             this.BtnClear.Click += new System.EventHandler(this.BtnClear_Click);
@@ -169,7 +171,7 @@
             this.btnAddToOrder.Location = new System.Drawing.Point(241, 589);
             this.btnAddToOrder.Name = "btnAddToOrder";
             this.btnAddToOrder.Size = new System.Drawing.Size(129, 23);
-            this.btnAddToOrder.TabIndex = 18;
+            this.btnAddToOrder.TabIndex = 5;
             this.btnAddToOrder.Text = "Add Order";
             this.btnAddToOrder.UseVisualStyleBackColor = true;
             this.btnAddToOrder.Click += new System.EventHandler(this.btnAddToOrder_Click);
@@ -191,7 +193,7 @@
             this.btnRemoveCustomer.Location = new System.Drawing.Point(426, 629);
             this.btnRemoveCustomer.Name = "btnRemoveCustomer";
             this.btnRemoveCustomer.Size = new System.Drawing.Size(75, 23);
-            this.btnRemoveCustomer.TabIndex = 20;
+            this.btnRemoveCustomer.TabIndex = 10;
             this.btnRemoveCustomer.Text = "Remove";
             this.btnRemoveCustomer.UseVisualStyleBackColor = true;
             this.btnRemoveCustomer.Click += new System.EventHandler(this.btnRemoveCustomer_Click);
@@ -212,7 +214,7 @@
             this.btnPrintPreview.Location = new System.Drawing.Point(35, 629);
             this.btnPrintPreview.Name = "btnPrintPreview";
             this.btnPrintPreview.Size = new System.Drawing.Size(129, 23);
-            this.btnPrintPreview.TabIndex = 21;
+            this.btnPrintPreview.TabIndex = 7;
             this.btnPrintPreview.Text = "Print Preview";
             this.btnPrintPreview.UseVisualStyleBackColor = true;
             this.btnPrintPreview.Click += new System.EventHandler(this.btnPrintPreview_Click);
@@ -223,7 +225,7 @@
             this.btnPrintOrder.Location = new System.Drawing.Point(61, 589);
             this.btnPrintOrder.Name = "btnPrintOrder";
             this.btnPrintOrder.Size = new System.Drawing.Size(75, 23);
-            this.btnPrintOrder.TabIndex = 22;
+            this.btnPrintOrder.TabIndex = 8;
             this.btnPrintOrder.Text = "Print";
             this.btnPrintOrder.UseVisualStyleBackColor = true;
             this.btnPrintOrder.Click += new System.EventHandler(this.btnPrintOrder_Click);
@@ -233,7 +235,7 @@
             this.txtDiscount.Location = new System.Drawing.Point(144, 257);
             this.txtDiscount.Name = "txtDiscount";
             this.txtDiscount.Size = new System.Drawing.Size(100, 22);
-            this.txtDiscount.TabIndex = 23;
+            this.txtDiscount.TabIndex = 2;
             this.txtDiscount.Text = "0";
             // 
             // txtSearchProduct
@@ -241,7 +243,7 @@
             this.txtSearchProduct.Location = new System.Drawing.Point(130, 27);
             this.txtSearchProduct.Name = "txtSearchProduct";
             this.txtSearchProduct.Size = new System.Drawing.Size(100, 22);
-            this.txtSearchProduct.TabIndex = 25;
+            this.txtSearchProduct.TabIndex = 1;
             this.txtSearchProduct.TextChanged += new System.EventHandler(this.txtSearchProduct_TextChanged);
             // 
             // label2
@@ -260,7 +262,8 @@
             this.comboBoxPaymentStatus.Location = new System.Drawing.Point(130, 324);
             this.comboBoxPaymentStatus.Name = "comboBoxPaymentStatus";
             this.comboBoxPaymentStatus.Size = new System.Drawing.Size(121, 24);
-            this.comboBoxPaymentStatus.TabIndex = 27;
+            this.comboBoxPaymentStatus.TabIndex = 3;
+            this.comboBoxPaymentStatus.SelectedIndexChanged += new System.EventHandler(this.comboBoxPaymentStatus_SelectedIndexChanged);
             // 
             // label6
             // 
@@ -272,6 +275,23 @@
             this.label6.TabIndex = 28;
             this.label6.Text = "Payment Status";
             // 
+            // txtPaymentAmount
+            // 
+            this.txtPaymentAmount.Location = new System.Drawing.Point(144, 374);
+            this.txtPaymentAmount.Name = "txtPaymentAmount";
+            this.txtPaymentAmount.Size = new System.Drawing.Size(100, 22);
+            this.txtPaymentAmount.TabIndex = 4;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.ForeColor = System.Drawing.Color.Gold;
+            this.label7.Location = new System.Drawing.Point(14, 380);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(108, 16);
+            this.label7.TabIndex = 30;
+            this.label7.Text = "Payment Amount";
+            // 
             // Suporder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -279,6 +299,8 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1257, 673);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.txtPaymentAmount);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.comboBoxPaymentStatus);
             this.Controls.Add(this.label2);
@@ -336,5 +358,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox comboBoxPaymentStatus;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox txtPaymentAmount;
+        private System.Windows.Forms.Label label7;
     }
 }

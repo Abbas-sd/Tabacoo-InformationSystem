@@ -56,6 +56,8 @@ namespace TobaccoStore
             orderDataTable.Columns.Add("VAT");  // New VAT column
             orderDataTable.Columns.Add("Discount"); // New Discount column
             orderDataTable.Columns.Add("Final Amount"); // New Final Amount column after discount
+            orderDataTable.Columns.Add("Payment Status"); // New Payment Status column
+            orderDataTable.Columns.Add("Payment Amount"); // New Payment Amount column
 
             // Bind DataTable to DataGridView
             dataGridViewOrder.DataSource = orderDataTable;
@@ -65,8 +67,9 @@ namespace TobaccoStore
             dataGridViewOrder.Columns["Final Amount"].ReadOnly = true;
             dataGridViewOrder.Columns["Product Info"].ReadOnly = true;
             dataGridViewOrder.Columns["Supplier Info"].ReadOnly = true;
+            dataGridViewOrder.Columns["Payment Status"].ReadOnly = true; // Payment status is set by the ComboBox
+            dataGridViewOrder.Columns["Payment Amount"].ReadOnly = true; // Payment amount is set by the TextBox
 
-            
             // Ensure these columns are editable
             dataGridViewOrder.Columns["Quantity"].ReadOnly = false;
             dataGridViewOrder.Columns["Cost Price"].ReadOnly = false;
@@ -261,6 +264,27 @@ namespace TobaccoStore
             }
 
             string paymentStatus = comboBoxPaymentStatus.SelectedItem.ToString(); // Get selected payment status
+            decimal paymentAmount = 0;
+            decimal remainingBalance = 0;
+
+            // Validate payment amount for Partial status
+            if (paymentStatus == "Partial")
+            {
+                if (!decimal.TryParse(txtPaymentAmount.Text, out paymentAmount))
+                {
+                    MessageBox.Show("Please enter a valid payment amount.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                decimal totalAmount = CalculateTotalAmountclco(); // Calculate the total amount
+                if (!ValidatePaymentAmount(paymentAmount, totalAmount))
+                {
+                    return;
+                }
+
+                // Calculate remaining balance
+                remainingBalance = totalAmount - paymentAmount;
+            }
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -271,9 +295,29 @@ namespace TobaccoStore
                 {
                     try
                     {
-                        // Insert data into SupplierOrder table (including payment_status)
-                        string insertOrderQuery = "INSERT INTO SupplierOrder (supplier_id, order_date, total_amount, vat_amount, discount_amount, payment_status) " +
-                                                  "VALUES (@supplierId, @orderDate, @totalAmount, @vatAmount, @discountAmount, @paymentStatus); SELECT SCOPE_IDENTITY();";
+                        // Insert data into SupplierOrder table (including payment_status, payment_amount, and remaining_balance)
+                        string insertOrderQuery = @"
+                    INSERT INTO SupplierOrder (
+                        supplier_id, 
+                        order_date, 
+                        total_amount, 
+                        vat_amount, 
+                        discount_amount, 
+                        payment_status, 
+                        payment_amount, 
+                        remaining_balance
+                    ) 
+                    VALUES (
+                        @supplierId, 
+                        @orderDate, 
+                        @totalAmount, 
+                        @vatAmount, 
+                        @discountAmount, 
+                        @paymentStatus, 
+                        @paymentAmount, 
+                        @remainingBalance
+                    ); 
+                    SELECT SCOPE_IDENTITY();";
 
                         int supplierId = 0;
                         DateTime orderDate = dateTimePickerOrderDate.Value.Date; // Ensure we get the date part
@@ -317,14 +361,31 @@ namespace TobaccoStore
                             cmd.Parameters.AddWithValue("@totalAmount", finalAmount);
                             cmd.Parameters.AddWithValue("@vatAmount", totalVat);
                             cmd.Parameters.AddWithValue("@discountAmount", totalDiscount);
-                            cmd.Parameters.AddWithValue("@paymentStatus", paymentStatus); // Add payment status
+                            cmd.Parameters.AddWithValue("@paymentStatus", paymentStatus);
+                            cmd.Parameters.AddWithValue("@paymentAmount", paymentAmount);
+                            cmd.Parameters.AddWithValue("@remainingBalance", remainingBalance);
 
                             // Get the supplier_order_id (identity value)
                             int supplierOrderId = Convert.ToInt32(cmd.ExecuteScalar());
 
                             // Insert data into SupplierOrderDetails table for each row
-                            string insertOrderDetailsQuery = "INSERT INTO SupplierOrderDetails (supplier_order_id, product_id, quantity, cost_price_at_order, discount, vat) " +
-                                                             "VALUES (@supplierOrderId, @productId, @quantity, @costPriceAtOrder, @discount, @vat)";
+                            string insertOrderDetailsQuery = @"
+                        INSERT INTO SupplierOrderDetails (
+                            supplier_order_id, 
+                            product_id, 
+                            quantity, 
+                            cost_price_at_order, 
+                            discount, 
+                            vat
+                        ) 
+                        VALUES (
+                            @supplierOrderId, 
+                            @productId, 
+                            @quantity, 
+                            @costPriceAtOrder, 
+                            @discount, 
+                            @vat
+                        )";
 
                             foreach (DataRow row in orderDataTable.Rows)
                             {
@@ -374,9 +435,49 @@ namespace TobaccoStore
 
             clearing();
         }
+        private decimal CalculateTotalAmountclco()
+        {
+            decimal totalAmount = 0;
+            foreach (DataRow row in orderDataTable.Rows)
+            {
+                totalAmount += Convert.ToDecimal(row["Final Amount"]);
+            }
+            return totalAmount;
+        }
+        private bool ValidatePaymentAmount(decimal paymentAmount, decimal totalAmount)
+        {
+            if (paymentAmount < 0)
+            {
+                MessageBox.Show("Payment amount cannot be negative.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
 
+            if (paymentAmount > totalAmount)
+            {
+                MessageBox.Show("Payment amount cannot exceed the total amount.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
 
-
+            return true;
+        }
+        private void comboBoxPaymentStatus_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // Check if an item is selected
+            if (comboBoxPaymentStatus.SelectedItem != null)
+            {
+                // Check if the selected item is "Partial"
+                if (comboBoxPaymentStatus.SelectedItem.ToString() == "Partial")
+                {
+                    txtPaymentAmount.Enabled = true; // Enable the payment amount textbox
+                    txtPaymentAmount.Text = ""; // Clear any previous value
+                }
+                else
+                {
+                    txtPaymentAmount.Enabled = false; // Disable the payment amount textbox
+                    txtPaymentAmount.Text = "0"; // Reset to 0 for non-partial payments
+                }
+            }
+        }
         private int GetLastSupplierOrderId(SqlConnection connection)
         {
             string query = "SELECT MAX(supplier_order_id) FROM SupplierOrder";
@@ -552,6 +653,26 @@ namespace TobaccoStore
                 return;
             }
 
+            // Validate payment status
+            if (comboBoxPaymentStatus.SelectedItem == null)
+            {
+                MessageBox.Show("Please select a payment status.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            string paymentStatus = comboBoxPaymentStatus.SelectedItem.ToString();
+            decimal paymentAmount = 0;
+
+            // Validate payment amount for Partial status
+            if (paymentStatus == "Partial")
+            {
+                if (!decimal.TryParse(txtPaymentAmount.Text, out paymentAmount) || paymentAmount < 0)
+                {
+                    MessageBox.Show("Please enter a valid payment amount for Partial payment status.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+            }
+
             // Get the selected product and supplier
             var selectedProduct = (dynamic)lstProducts.SelectedItem;
             var selectedSupplier = (dynamic)lstSuppliers.SelectedItem;
@@ -613,14 +734,12 @@ namespace TobaccoStore
             // If product and supplier combination doesn't exist, add a new row
             if (!exists)
             {
-                orderDataTable.Rows.Add(productInfo, supplierInfo, 1, costPrice, totalAmount, vat, discount, finalAmount);
+                orderDataTable.Rows.Add(productInfo, supplierInfo, 1, costPrice, totalAmount, vat, discount, finalAmount, paymentStatus, paymentAmount);
             }
 
             // Update the total amount label
             UpdateTotalAmount(sender, e);
         }
-
-
 
         private void btnRemoveCustomer_Click(object sender, EventArgs e)
         {
@@ -650,91 +769,111 @@ namespace TobaccoStore
             printPreviewDialog.ShowDialog();
         }
         private void PrintDocument_PrintPage(object sender, PrintPageEventArgs e)
+{
+    Graphics graphics = e.Graphics;
+    Font titleFont = new Font("Arial", 12, FontStyle.Bold); // Reduced title font size
+    Font bodyFont = new Font("Arial", 8); // Reduced body font size
+    Brush brush = Brushes.Black;
+
+    int yPos = 50; // Initial Y position
+
+    // Draw logo in the top-right corner (optional)
+    if (logo != null)
+    {
+        graphics.DrawImage(logo, e.MarginBounds.Right - 100, yPos, 40, 40);
+    }
+
+    // Print Order Header (Supplier Order Invoice) on the top-left
+    graphics.DrawString("Supplier Order Invoice", titleFont, brush, 50, yPos); // Adjusted X position to 50 (left-aligned)
+    yPos += 40; // Increased spacing between title and order date
+
+    // Print Order Date & Time
+    graphics.DrawString($"Order Date & Time: {DateTime.Now.ToString("f")}", bodyFont, brush, 50, yPos); // Adjusted X position to 50 (left-aligned)
+    yPos += 20; // Reduced spacing
+
+    // Print Column Headers including Discount Percentage, Payment Status, and Payment Amount
+    int xProduct = 50, xSupplier = 250, xQuantity = 350, xPrice = 400, xDiscount = 450, xPaymentStatus = 550, xPaymentAmount = 650, xTotal = 750;
+    graphics.DrawString("Product", bodyFont, brush, xProduct, yPos);
+    graphics.DrawString("Supplier", bodyFont, brush, xSupplier, yPos);
+    graphics.DrawString("Qty", bodyFont, brush, xQuantity, yPos);
+    graphics.DrawString("Price", bodyFont, brush, xPrice, yPos);
+    graphics.DrawString("Discount (%)", bodyFont, brush, xDiscount, yPos);
+    graphics.DrawString("Payment Status", bodyFont, brush, xPaymentStatus, yPos);
+    graphics.DrawString("Payment Amount", bodyFont, brush, xPaymentAmount, yPos);
+    graphics.DrawString("Total", bodyFont, brush, xTotal, yPos);
+    yPos += 15; // Reduced spacing
+
+    // Declare variables for VAT and discount totals
+    decimal totalVat = 0;
+    decimal totalDiscount = 0;
+    decimal totalAmountBeforeVat = 0; // Total amount before VAT for final calculation
+    decimal totalPaymentAmount = 0; // Total payment amount for partial payments
+
+    // Print Order Items
+    foreach (DataRow row in orderDataTable.Rows)
+    {
+        decimal totalAmount = Convert.ToDecimal(row["Total Amount"]);
+        decimal discountPercentage = Convert.ToDecimal(row["Discount"]); // Assuming discount is in percentage
+        decimal vat = totalAmount * 0.11m; // VAT calculation (11%)
+
+        decimal amountAfterVat = totalAmount + vat;
+
+        // Calculate the discount amount after VAT
+        decimal discountAmount = amountAfterVat * (discountPercentage / 100);
+
+        totalVat += vat;
+        totalDiscount += discountAmount;
+        totalAmountBeforeVat += totalAmount; // Add the total amount to the before VAT total
+
+        // Retrieve Payment Status and Payment Amount for the current row
+        string paymentStatus = row["Payment Status"].ToString();
+        decimal paymentAmount = Convert.ToDecimal(row["Payment Amount"]);
+
+        // Add payment amount to the total payment amount
+        if (paymentStatus == "Partial")
         {
-            Graphics graphics = e.Graphics;
-            Font titleFont = new Font("Arial", 14, FontStyle.Bold);
-            Font bodyFont = new Font("Arial", 10);
-            Brush brush = Brushes.Black;
-
-            int yPos = 50; // Initial Y position
-
-            // Draw logo in the top-right corner (optional)
-            if (logo != null)
-            {
-                graphics.DrawImage(logo, e.MarginBounds.Right - 100, yPos, 40, 40);
-            }
-
-            // Print Order Header
-            graphics.DrawString("Supplier Order Invoice", titleFont, brush, 100, yPos);
-            yPos += 40;
-            graphics.DrawString($"Order Date & Time: {DateTime.Now.ToString("f")}", bodyFont, brush, 100, yPos);
-            yPos += 20;
-
-            // Retrieve Payment Status
-            string paymentStatus = comboBoxPaymentStatus.SelectedItem?.ToString() ?? "Pending"; // Ensure it's retrieved correctly
-
-            // Print Payment Status
-            graphics.DrawString($"Payment Status: {paymentStatus}", bodyFont, brush, 100, yPos);
-            yPos += 30;
-
-            // Print Column Headers including Discount Percentage
-            int xProduct = 100, xSupplier = 350, xQuantity = 500, xPrice = 563, xDiscount = 650, xTotal = 750;
-            graphics.DrawString("Product", bodyFont, brush, xProduct, yPos);
-            graphics.DrawString("Supplier", bodyFont, brush, xSupplier, yPos);
-            graphics.DrawString("Qty", bodyFont, brush, xQuantity, yPos);
-            graphics.DrawString("Price", bodyFont, brush, xPrice, yPos);
-            graphics.DrawString("Discount (%)", bodyFont, brush, xDiscount, yPos);
-            graphics.DrawString("Total", bodyFont, brush, xTotal, yPos);
-            yPos += 20;
-
-            // Declare variables for VAT and discount totals
-            decimal totalVat = 0;
-            decimal totalDiscount = 0;
-            decimal totalAmountBeforeVat = 0; // Total amount before VAT for final calculation
-
-            // Print Order Items
-            foreach (DataRow row in orderDataTable.Rows)
-            {
-                decimal totalAmount = Convert.ToDecimal(row["Total Amount"]);
-                decimal discountPercentage = Convert.ToDecimal(row["Discount"]); // Assuming discount is in percentage
-                decimal vat = totalAmount * 0.11m; // VAT calculation (11%)
-
-                decimal amountAfterVat = totalAmount + vat;
-
-                // Calculate the discount amount after VAT
-                decimal discountAmount = amountAfterVat * (discountPercentage / 100);
-
-                totalVat += vat;
-                totalDiscount += discountAmount;
-                totalAmountBeforeVat += totalAmount; // Add the total amount to the before VAT total
-
-                // Print the row data, including the discount percentage
-                graphics.DrawString(row["Product Info"].ToString(), bodyFont, brush, xProduct, yPos);
-                graphics.DrawString(row["Supplier Info"].ToString(), bodyFont, brush, xSupplier, yPos);
-                graphics.DrawString(row["Quantity"].ToString(), bodyFont, brush, xQuantity, yPos);
-                graphics.DrawString(row["Cost Price"].ToString(), bodyFont, brush, xPrice, yPos);
-                graphics.DrawString(discountPercentage.ToString("F2") + "%", bodyFont, brush, xDiscount, yPos);  // Discount percentage
-                graphics.DrawString(totalAmount.ToString("C"), bodyFont, brush, xTotal, yPos);
-                yPos += 20;
-            }
-
-            // Print Total VAT, Discount, and Amount
-            decimal finalAmount = totalAmountBeforeVat + totalVat - totalDiscount;
-
-            
-            yPos += 20;
-            graphics.DrawString($"Total VAT (11%): {totalVat:C}", bodyFont, brush, 100, yPos);
-            yPos += 20;
-            graphics.DrawString($"Total Discount: {totalDiscount:C}", bodyFont, brush, 100, yPos);
-            yPos += 20;
-            graphics.DrawString($"Total Amount After VAT & Discount: {finalAmount:C}", titleFont, brush, 100, yPos);
+            totalPaymentAmount += paymentAmount;
         }
 
+        // Print the row data, including the discount percentage, payment status, and payment amount
+        graphics.DrawString(row["Product Info"].ToString(), bodyFont, brush, xProduct, yPos);
+        graphics.DrawString(row["Supplier Info"].ToString(), bodyFont, brush, xSupplier, yPos);
+        graphics.DrawString(row["Quantity"].ToString(), bodyFont, brush, xQuantity, yPos);
+        graphics.DrawString(row["Cost Price"].ToString(), bodyFont, brush, xPrice, yPos);
+        graphics.DrawString(discountPercentage.ToString("F2") + "%", bodyFont, brush, xDiscount, yPos);  // Discount percentage
+        graphics.DrawString(paymentStatus, bodyFont, brush, xPaymentStatus, yPos); // Payment status
+        graphics.DrawString(paymentAmount.ToString("C"), bodyFont, brush, xPaymentAmount, yPos); // Payment amount
+        graphics.DrawString(totalAmount.ToString("C"), bodyFont, brush, xTotal, yPos); // Total amount
+        yPos += 15; // Reduced spacing
+    }
 
+    // Print Total VAT, Discount, and Amount
+    decimal finalAmount = totalAmountBeforeVat + totalVat - totalDiscount;
 
+    yPos += 15; // Reduced spacing
+    graphics.DrawString($"Total VAT (11%): {totalVat:C}", bodyFont, brush, 50, yPos); // Adjusted X position to 50 (left-aligned)
+    yPos += 15; // Reduced spacing
+    graphics.DrawString($"Total Discount: {totalDiscount:C}", bodyFont, brush, 50, yPos); // Adjusted X position to 50 (left-aligned)
+    yPos += 15; // Reduced spacing
 
+    // Print Total Payment Amount (if any partial payments exist)
+    if (totalPaymentAmount > 0)
+    {
+        graphics.DrawString($"Total Payment Amount: {totalPaymentAmount:C}", bodyFont, brush, 50, yPos); // Adjusted X position to 50 (left-aligned)
+        yPos += 15; // Reduced spacing
+    }
 
+    // Print Remaining Balance (if any partial payments exist)
+    if (totalPaymentAmount > 0)
+    {
+        decimal remainingBalance = finalAmount - totalPaymentAmount;
+        graphics.DrawString($"Remaining Balance: {remainingBalance:C}", bodyFont, brush, 50, yPos); // Adjusted X position to 50 (left-aligned)
+        yPos += 15; // Reduced spacing
+    }
 
+    // Print Final Amount
+    graphics.DrawString($"Total Amount After VAT & Discount: {finalAmount:C}", titleFont, brush, 50, yPos); // Adjusted X position to 50 (left-aligned)
+}
 
         private void btnPrintOrder_Click(object sender, EventArgs e)
         {
@@ -763,6 +902,8 @@ namespace TobaccoStore
             lstProducts.Items.Clear();
             lstProducts.Items.AddRange(filteredProducts.ToArray());
         }
+
+        
     }
 }     
     

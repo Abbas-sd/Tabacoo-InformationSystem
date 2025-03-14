@@ -69,7 +69,7 @@
             this.txtSellingPrice.Location = new System.Drawing.Point(475, 271);
             this.txtSellingPrice.Name = "txtSellingPrice";
             this.txtSellingPrice.Size = new System.Drawing.Size(100, 22);
-            this.txtSellingPrice.TabIndex = 37;
+            this.txtSellingPrice.TabIndex = 6;
             // 
             // lblSize
             // 
@@ -86,7 +86,7 @@
             this.txtSupplierId.Location = new System.Drawing.Point(162, 346);
             this.txtSupplierId.Name = "txtSupplierId";
             this.txtSupplierId.Size = new System.Drawing.Size(100, 22);
-            this.txtSupplierId.TabIndex = 35;
+            this.txtSupplierId.TabIndex = 3;
             // 
             // btnAddProduct
             // 
@@ -94,7 +94,7 @@
             this.btnAddProduct.Location = new System.Drawing.Point(381, 451);
             this.btnAddProduct.Name = "btnAddProduct";
             this.btnAddProduct.Size = new System.Drawing.Size(113, 23);
-            this.btnAddProduct.TabIndex = 34;
+            this.btnAddProduct.TabIndex = 8;
             this.btnAddProduct.Text = "Add Product";
             this.btnAddProduct.UseVisualStyleBackColor = true;
             this.btnAddProduct.Click += new System.EventHandler(this.btnAddProduct_Click);
@@ -144,35 +144,35 @@
             this.txtStockQuantity.Location = new System.Drawing.Point(475, 349);
             this.txtStockQuantity.Name = "txtStockQuantity";
             this.txtStockQuantity.Size = new System.Drawing.Size(100, 22);
-            this.txtStockQuantity.TabIndex = 29;
+            this.txtStockQuantity.TabIndex = 7;
             // 
             // txtCostPrice
             // 
             this.txtCostPrice.Location = new System.Drawing.Point(475, 195);
             this.txtCostPrice.Name = "txtCostPrice";
             this.txtCostPrice.Size = new System.Drawing.Size(100, 22);
-            this.txtCostPrice.TabIndex = 28;
+            this.txtCostPrice.TabIndex = 5;
             // 
             // txtProductType
             // 
             this.txtProductType.Location = new System.Drawing.Point(162, 427);
             this.txtProductType.Name = "txtProductType";
             this.txtProductType.Size = new System.Drawing.Size(100, 22);
-            this.txtProductType.TabIndex = 27;
+            this.txtProductType.TabIndex = 4;
             // 
             // txtProductName
             // 
             this.txtProductName.Location = new System.Drawing.Point(162, 271);
             this.txtProductName.Name = "txtProductName";
             this.txtProductName.Size = new System.Drawing.Size(100, 22);
-            this.txtProductName.TabIndex = 26;
+            this.txtProductName.TabIndex = 2;
             // 
             // txtBarcode
             // 
             this.txtBarcode.Location = new System.Drawing.Point(162, 192);
             this.txtBarcode.Name = "txtBarcode";
             this.txtBarcode.Size = new System.Drawing.Size(100, 22);
-            this.txtBarcode.TabIndex = 0;
+            this.txtBarcode.TabIndex = 1;
             this.txtBarcode.TextChanged += new System.EventHandler(this.txtBarcode_TextChanged);
             this.txtBarcode.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBarcode_KeyPress);
             this.txtBarcode.Validated += new System.EventHandler(this.txtBarcode_Validated);
@@ -227,7 +227,7 @@
             this.btnDeleteProduct.Location = new System.Drawing.Point(1130, 267);
             this.btnDeleteProduct.Name = "btnDeleteProduct";
             this.btnDeleteProduct.Size = new System.Drawing.Size(75, 23);
-            this.btnDeleteProduct.TabIndex = 43;
+            this.btnDeleteProduct.TabIndex = 11;
             this.btnDeleteProduct.Text = "Delete Product....";
             this.btnDeleteProduct.UseVisualStyleBackColor = true;
             this.btnDeleteProduct.Click += new System.EventHandler(this.btnDeleteProduct_Click);
@@ -238,7 +238,7 @@
             this.btnUpdateProduct.Location = new System.Drawing.Point(1130, 198);
             this.btnUpdateProduct.Name = "btnUpdateProduct";
             this.btnUpdateProduct.Size = new System.Drawing.Size(75, 23);
-            this.btnUpdateProduct.TabIndex = 42;
+            this.btnUpdateProduct.TabIndex = 10;
             this.btnUpdateProduct.Text = "Update Product....";
             this.btnUpdateProduct.UseVisualStyleBackColor = true;
             this.btnUpdateProduct.Click += new System.EventHandler(this.btnUpdateProduct_Click);
@@ -249,7 +249,7 @@
             this.button1.Location = new System.Drawing.Point(532, 451);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 44;
+            this.button1.TabIndex = 9;
             this.button1.Text = "Clear";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);

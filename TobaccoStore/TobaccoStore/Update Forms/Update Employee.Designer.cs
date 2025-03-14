@@ -66,7 +66,7 @@
             this.cmbPosition.Location = new System.Drawing.Point(103, 385);
             this.cmbPosition.Name = "cmbPosition";
             this.cmbPosition.Size = new System.Drawing.Size(121, 24);
-            this.cmbPosition.TabIndex = 42;
+            this.cmbPosition.TabIndex = 6;
             // 
             // rbtnFemale
             // 
@@ -75,7 +75,7 @@
             this.rbtnFemale.Location = new System.Drawing.Point(198, 268);
             this.rbtnFemale.Name = "rbtnFemale";
             this.rbtnFemale.Size = new System.Drawing.Size(74, 20);
-            this.rbtnFemale.TabIndex = 41;
+            this.rbtnFemale.TabIndex = 4;
             this.rbtnFemale.TabStop = true;
             this.rbtnFemale.Text = "Female";
             this.rbtnFemale.UseVisualStyleBackColor = true;
@@ -87,7 +87,7 @@
             this.rbtnMale.Location = new System.Drawing.Point(103, 266);
             this.rbtnMale.Name = "rbtnMale";
             this.rbtnMale.Size = new System.Drawing.Size(58, 20);
-            this.rbtnMale.TabIndex = 40;
+            this.rbtnMale.TabIndex = 3;
             this.rbtnMale.TabStop = true;
             this.rbtnMale.Text = "Male";
             this.rbtnMale.UseVisualStyleBackColor = true;
@@ -177,35 +177,35 @@
             this.txtPhone.Location = new System.Drawing.Point(113, 516);
             this.txtPhone.Name = "txtPhone";
             this.txtPhone.Size = new System.Drawing.Size(100, 22);
-            this.txtPhone.TabIndex = 31;
+            this.txtPhone.TabIndex = 8;
             // 
             // txtSalary
             // 
             this.txtSalary.Location = new System.Drawing.Point(113, 470);
             this.txtSalary.Name = "txtSalary";
             this.txtSalary.Size = new System.Drawing.Size(100, 22);
-            this.txtSalary.TabIndex = 30;
+            this.txtSalary.TabIndex = 7;
             // 
             // txtAge
             // 
             this.txtAge.Location = new System.Drawing.Point(113, 324);
             this.txtAge.Name = "txtAge";
             this.txtAge.Size = new System.Drawing.Size(100, 22);
-            this.txtAge.TabIndex = 29;
+            this.txtAge.TabIndex = 5;
             // 
             // txtLname
             // 
             this.txtLname.Location = new System.Drawing.Point(113, 204);
             this.txtLname.Name = "txtLname";
             this.txtLname.Size = new System.Drawing.Size(100, 22);
-            this.txtLname.TabIndex = 28;
+            this.txtLname.TabIndex = 2;
             // 
             // txtFname
             // 
             this.txtFname.Location = new System.Drawing.Point(113, 135);
             this.txtFname.Name = "txtFname";
             this.txtFname.Size = new System.Drawing.Size(100, 22);
-            this.txtFname.TabIndex = 27;
+            this.txtFname.TabIndex = 1;
             // 
             // btnUpdate
             // 
@@ -213,7 +213,7 @@
             this.btnUpdate.Location = new System.Drawing.Point(1160, 25);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(75, 23);
-            this.btnUpdate.TabIndex = 26;
+            this.btnUpdate.TabIndex = 9;
             this.btnUpdate.Text = "Update";
             this.btnUpdate.UseVisualStyleBackColor = true;
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
@@ -224,7 +224,7 @@
             this.btnrefresh.Location = new System.Drawing.Point(1059, 25);
             this.btnrefresh.Name = "btnrefresh";
             this.btnrefresh.Size = new System.Drawing.Size(75, 23);
-            this.btnrefresh.TabIndex = 44;
+            this.btnrefresh.TabIndex = 10;
             this.btnrefresh.Text = "Refresh";
             this.btnrefresh.UseVisualStyleBackColor = true;
             this.btnrefresh.Click += new System.EventHandler(this.btnrefresh_Click);

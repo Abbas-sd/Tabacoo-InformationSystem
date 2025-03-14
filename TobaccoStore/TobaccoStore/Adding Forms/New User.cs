@@ -30,6 +30,8 @@ namespace TobaccoStore
 
             // Set default selection
             cmbUserRole.SelectedIndex = 1; // Default to "User"
+
+            txtUsername.Focus();
         }
 
         private void btnRegister_Click(object sender, EventArgs e)

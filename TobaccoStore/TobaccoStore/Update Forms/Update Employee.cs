@@ -66,6 +66,7 @@ namespace TobaccoStore
         {
             LoadEmployeeData(); // Load data when the form loads
             dtpHireDate.MaxDate = DateTime.Today;
+            textBox1.Focus();
 
         }
 

@@ -192,6 +192,7 @@ namespace TobaccoStore
         private void UpdateProduct_Load(object sender, EventArgs e)
         {
             loadProducts();
+            txtSupplierId.Focus();
         }
 
         private void btnBack_Click(object sender, EventArgs e)

@@ -70,7 +70,7 @@
             this.txtUsername.Location = new System.Drawing.Point(765, 173);
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Size = new System.Drawing.Size(100, 22);
-            this.txtUsername.TabIndex = 3;
+            this.txtUsername.TabIndex = 1;
             this.txtUsername.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtUsername_KeyDown);
             // 
             // txtPassword
@@ -78,7 +78,7 @@
             this.txtPassword.Location = new System.Drawing.Point(765, 251);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(100, 22);
-            this.txtPassword.TabIndex = 4;
+            this.txtPassword.TabIndex = 2;
             this.txtPassword.UseSystemPasswordChar = true;
             this.txtPassword.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtPassword_KeyDown);
             // 
@@ -87,7 +87,7 @@
             this.btnLogin.Location = new System.Drawing.Point(650, 358);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(80, 24);
-            this.btnLogin.TabIndex = 5;
+            this.btnLogin.TabIndex = 4;
             this.btnLogin.Text = "Log In";
             this.btnLogin.UseVisualStyleBackColor = true;
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
@@ -107,7 +107,7 @@
             this.chkShowPassword.Location = new System.Drawing.Point(765, 315);
             this.chkShowPassword.Name = "chkShowPassword";
             this.chkShowPassword.Size = new System.Drawing.Size(125, 20);
-            this.chkShowPassword.TabIndex = 7;
+            this.chkShowPassword.TabIndex = 3;
             this.chkShowPassword.Text = "Show Password";
             this.chkShowPassword.UseVisualStyleBackColor = true;
             this.chkShowPassword.CheckedChanged += new System.EventHandler(this.chkShowPassword_CheckedChanged);
@@ -117,7 +117,7 @@
             this.BtnExit.Location = new System.Drawing.Point(810, 358);
             this.BtnExit.Name = "BtnExit";
             this.BtnExit.Size = new System.Drawing.Size(80, 27);
-            this.BtnExit.TabIndex = 8;
+            this.BtnExit.TabIndex = 5;
             this.BtnExit.Text = "Exit";
             this.BtnExit.UseVisualStyleBackColor = true;
             this.BtnExit.Click += new System.EventHandler(this.BtnExit_Click);

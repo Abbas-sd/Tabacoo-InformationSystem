@@ -27,6 +27,7 @@ namespace TobaccoStore
         private void delet_employee_Load(object sender, EventArgs e)
         {
             LoadEmployeeData(); // Load data when the form loads
+            txtEmployeeID.Focus();
         }
         private DataTable GetEmployeeData()
         {

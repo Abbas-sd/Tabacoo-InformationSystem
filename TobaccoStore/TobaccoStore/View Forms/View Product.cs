@@ -43,6 +43,7 @@ namespace TobaccoStore
         }
         private void View_Product_Load(object sender, EventArgs e)
         {
+            txtSearch.Focus();
             LoadProducts(); // Load all products initially
         }
 

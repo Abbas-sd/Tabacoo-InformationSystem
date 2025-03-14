@@ -44,6 +44,7 @@ namespace TobaccoStore
         private void View_Customers_Load(object sender, EventArgs e)
         {
             LoadCustomers(); // Load all customers initially
+            txtSearch.Focus();
         }
 
         private void txtSearch_TextChanged(object sender, EventArgs e)

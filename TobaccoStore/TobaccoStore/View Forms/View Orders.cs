@@ -59,6 +59,7 @@ namespace TobaccoStore
         private void View_Orders_Load(object sender, EventArgs e)
         {
             LoadSupplierOrders();
+            txtSearch.Focus();
         }
 
         private void btnBack_Click(object sender, EventArgs e)

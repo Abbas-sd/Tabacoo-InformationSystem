@@ -129,7 +129,7 @@
             this.btnsupplieradd.Location = new System.Drawing.Point(330, 404);
             this.btnsupplieradd.Name = "btnsupplieradd";
             this.btnsupplieradd.Size = new System.Drawing.Size(93, 29);
-            this.btnsupplieradd.TabIndex = 26;
+            this.btnsupplieradd.TabIndex = 4;
             this.btnsupplieradd.Text = "Add Supplier";
             this.btnsupplieradd.UseVisualStyleBackColor = true;
             this.btnsupplieradd.Click += new System.EventHandler(this.btnsupplieradd_Click);
@@ -140,7 +140,7 @@
             this.btnUpdatessupplier.Location = new System.Drawing.Point(627, 177);
             this.btnUpdatessupplier.Name = "btnUpdatessupplier";
             this.btnUpdatessupplier.Size = new System.Drawing.Size(93, 29);
-            this.btnUpdatessupplier.TabIndex = 28;
+            this.btnUpdatessupplier.TabIndex = 5;
             this.btnUpdatessupplier.Text = "Update Supplier....";
             this.btnUpdatessupplier.UseVisualStyleBackColor = true;
             this.btnUpdatessupplier.Click += new System.EventHandler(this.btnUpdatessupplier_Click);
@@ -151,7 +151,7 @@
             this.btnDeletesupplier.Location = new System.Drawing.Point(627, 235);
             this.btnDeletesupplier.Name = "btnDeletesupplier";
             this.btnDeletesupplier.Size = new System.Drawing.Size(93, 29);
-            this.btnDeletesupplier.TabIndex = 27;
+            this.btnDeletesupplier.TabIndex = 6;
             this.btnDeletesupplier.Text = "Delete Supplier....";
             this.btnDeletesupplier.UseVisualStyleBackColor = true;
             this.btnDeletesupplier.Click += new System.EventHandler(this.btnDeletesupplier_Click);
@@ -161,7 +161,7 @@
             this.txtsuplliername.Location = new System.Drawing.Point(317, 177);
             this.txtsuplliername.Name = "txtsuplliername";
             this.txtsuplliername.Size = new System.Drawing.Size(124, 27);
-            this.txtsuplliername.TabIndex = 31;
+            this.txtsuplliername.TabIndex = 1;
             // 
             // panel2
             // 

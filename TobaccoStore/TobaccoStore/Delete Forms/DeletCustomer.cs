@@ -118,6 +118,7 @@ namespace TobaccoStore
         private void DeletCustomer_Load(object sender, EventArgs e)
         {
             LoadCustomers();
+            txtCustomerId.Focus();
         }
 
         private void BtnRefresh_Click(object sender, EventArgs e)

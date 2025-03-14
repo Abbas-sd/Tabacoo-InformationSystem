@@ -74,7 +74,7 @@
             this.txtAge.Margin = new System.Windows.Forms.Padding(4);
             this.txtAge.Name = "txtAge";
             this.txtAge.Size = new System.Drawing.Size(112, 24);
-            this.txtAge.TabIndex = 2;
+            this.txtAge.TabIndex = 4;
             // 
             // txtAddress
             // 
@@ -82,7 +82,7 @@
             this.txtAddress.Margin = new System.Windows.Forms.Padding(4);
             this.txtAddress.Name = "txtAddress";
             this.txtAddress.Size = new System.Drawing.Size(112, 24);
-            this.txtAddress.TabIndex = 3;
+            this.txtAddress.TabIndex = 5;
             // 
             // btncustomeradd
             // 
@@ -91,7 +91,7 @@
             this.btncustomeradd.Margin = new System.Windows.Forms.Padding(4);
             this.btncustomeradd.Name = "btncustomeradd";
             this.btncustomeradd.Size = new System.Drawing.Size(122, 26);
-            this.btncustomeradd.TabIndex = 5;
+            this.btncustomeradd.TabIndex = 7;
             this.btncustomeradd.Text = "Add Customer";
             this.btncustomeradd.UseVisualStyleBackColor = true;
             this.btncustomeradd.Click += new System.EventHandler(this.btncustomeradd_Click);
@@ -113,7 +113,7 @@
             this.rbtnMale.Margin = new System.Windows.Forms.Padding(4);
             this.rbtnMale.Name = "rbtnMale";
             this.rbtnMale.Size = new System.Drawing.Size(69, 26);
-            this.rbtnMale.TabIndex = 8;
+            this.rbtnMale.TabIndex = 2;
             this.rbtnMale.TabStop = true;
             this.rbtnMale.Text = "Male";
             this.rbtnMale.UseVisualStyleBackColor = false;
@@ -127,7 +127,7 @@
             this.rbtnFemale.Margin = new System.Windows.Forms.Padding(4);
             this.rbtnFemale.Name = "rbtnFemale";
             this.rbtnFemale.Size = new System.Drawing.Size(90, 26);
-            this.rbtnFemale.TabIndex = 9;
+            this.rbtnFemale.TabIndex = 3;
             this.rbtnFemale.TabStop = true;
             this.rbtnFemale.Text = "Female";
             this.rbtnFemale.UseVisualStyleBackColor = false;
@@ -199,7 +199,7 @@
             this.btnDeleteCustomer.Margin = new System.Windows.Forms.Padding(4);
             this.btnDeleteCustomer.Name = "btnDeleteCustomer";
             this.btnDeleteCustomer.Size = new System.Drawing.Size(85, 26);
-            this.btnDeleteCustomer.TabIndex = 16;
+            this.btnDeleteCustomer.TabIndex = 10;
             this.btnDeleteCustomer.Text = "Delete";
             this.btnDeleteCustomer.UseVisualStyleBackColor = true;
             this.btnDeleteCustomer.Click += new System.EventHandler(this.btnDeleteCustomer_Click);
@@ -211,7 +211,7 @@
             this.btnUpdateCustomer.Margin = new System.Windows.Forms.Padding(4);
             this.btnUpdateCustomer.Name = "btnUpdateCustomer";
             this.btnUpdateCustomer.Size = new System.Drawing.Size(85, 26);
-            this.btnUpdateCustomer.TabIndex = 19;
+            this.btnUpdateCustomer.TabIndex = 9;
             this.btnUpdateCustomer.Text = "Update";
             this.btnUpdateCustomer.UseVisualStyleBackColor = true;
             this.btnUpdateCustomer.Click += new System.EventHandler(this.btnUpdateCustomer_Click);
@@ -259,7 +259,7 @@
             this.BtnClear.Margin = new System.Windows.Forms.Padding(4);
             this.BtnClear.Name = "BtnClear";
             this.BtnClear.Size = new System.Drawing.Size(85, 26);
-            this.BtnClear.TabIndex = 23;
+            this.BtnClear.TabIndex = 8;
             this.BtnClear.Text = "Clear";
             this.BtnClear.UseVisualStyleBackColor = true;
             this.BtnClear.Click += new System.EventHandler(this.BtnClear_Click);
@@ -267,7 +267,7 @@
             // panelUpdateCustomer
             // 
             this.panelUpdateCustomer.BackColor = System.Drawing.Color.Transparent;
-            this.panelUpdateCustomer.Location = new System.Drawing.Point(-2, -2);
+            this.panelUpdateCustomer.Location = new System.Drawing.Point(5, 3);
             this.panelUpdateCustomer.Margin = new System.Windows.Forms.Padding(4);
             this.panelUpdateCustomer.Name = "panelUpdateCustomer";
             this.panelUpdateCustomer.Size = new System.Drawing.Size(1442, 815);

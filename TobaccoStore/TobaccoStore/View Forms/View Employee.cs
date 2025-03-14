@@ -24,6 +24,7 @@ namespace TobaccoStore.View_Forms
         private void View_Employee_Load(object sender, EventArgs e)
         {
             LoadEmployeeData(); // Load initial data
+            txtSearch.Focus();
         }
 
         private DataTable GetEmployeeData(string searchQuery = "")

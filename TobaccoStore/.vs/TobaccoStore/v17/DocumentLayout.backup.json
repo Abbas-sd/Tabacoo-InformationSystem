@@ -3,22 +3,6 @@
   "WorkspaceRootPath": "C:\\Users\\abbas\\source\\repos\\Tabacoo-InformationSystem\\TobaccoStore\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{4A4C75AD-C395-4A96-9072-22C37FA05215}|TobaccoStore\\TobaccoStore.csproj|c:\\users\\abbas\\source\\repos\\tabacoo-informationsystem\\tobaccostore\\tobaccostore\\delete forms\\deletcustomer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4A4C75AD-C395-4A96-9072-22C37FA05215}|TobaccoStore\\TobaccoStore.csproj|solutionrelative:tobaccostore\\delete forms\\deletcustomer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4A4C75AD-C395-4A96-9072-22C37FA05215}|TobaccoStore\\TobaccoStore.csproj|c:\\users\\abbas\\source\\repos\\tabacoo-informationsystem\\tobaccostore\\tobaccostore\\delete forms\\deletcustomer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{4A4C75AD-C395-4A96-9072-22C37FA05215}|TobaccoStore\\TobaccoStore.csproj|solutionrelative:tobaccostore\\delete forms\\deletcustomer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4A4C75AD-C395-4A96-9072-22C37FA05215}|TobaccoStore\\TobaccoStore.csproj|c:\\users\\abbas\\source\\repos\\tabacoo-informationsystem\\tobaccostore\\tobaccostore\\delete forms\\delet employee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4A4C75AD-C395-4A96-9072-22C37FA05215}|TobaccoStore\\TobaccoStore.csproj|solutionrelative:tobaccostore\\delete forms\\delet employee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4A4C75AD-C395-4A96-9072-22C37FA05215}|TobaccoStore\\TobaccoStore.csproj|c:\\users\\abbas\\source\\repos\\tabacoo-informationsystem\\tobaccostore\\tobaccostore\\delete forms\\delet employee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{4A4C75AD-C395-4A96-9072-22C37FA05215}|TobaccoStore\\TobaccoStore.csproj|solutionrelative:tobaccostore\\delete forms\\delet employee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{4A4C75AD-C395-4A96-9072-22C37FA05215}|TobaccoStore\\TobaccoStore.csproj|c:\\users\\abbas\\source\\repos\\tabacoo-informationsystem\\tobaccostore\\tobaccostore\\mainform\\panel testing.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{4A4C75AD-C395-4A96-9072-22C37FA05215}|TobaccoStore\\TobaccoStore.csproj|solutionrelative:tobaccostore\\mainform\\panel testing.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -47,76 +31,27 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "DeletCustomer.cs",
-              "DocumentMoniker": "C:\\Users\\abbas\\source\\repos\\Tabacoo-InformationSystem\\TobaccoStore\\TobaccoStore\\Delete Forms\\DeletCustomer.cs",
-              "RelativeDocumentMoniker": "TobaccoStore\\Delete Forms\\DeletCustomer.cs",
-              "ToolTip": "C:\\Users\\abbas\\source\\repos\\Tabacoo-InformationSystem\\TobaccoStore\\TobaccoStore\\Delete Forms\\DeletCustomer.cs",
-              "RelativeToolTip": "TobaccoStore\\Delete Forms\\DeletCustomer.cs",
-              "ViewState": "AgIAABoAAAAAAAAAAAAmwCcAAAAtAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-14T13:24:31.778Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "DeletCustomer.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\abbas\\source\\repos\\Tabacoo-InformationSystem\\TobaccoStore\\TobaccoStore\\Delete Forms\\DeletCustomer.cs",
-              "RelativeDocumentMoniker": "TobaccoStore\\Delete Forms\\DeletCustomer.cs",
-              "ToolTip": "C:\\Users\\abbas\\source\\repos\\Tabacoo-InformationSystem\\TobaccoStore\\TobaccoStore\\Delete Forms\\DeletCustomer.cs [Design]",
-              "RelativeToolTip": "TobaccoStore\\Delete Forms\\DeletCustomer.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-14T13:24:30.466Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "delet employee.cs",
-              "DocumentMoniker": "C:\\Users\\abbas\\source\\repos\\Tabacoo-InformationSystem\\TobaccoStore\\TobaccoStore\\Delete Forms\\delet employee.cs",
-              "RelativeDocumentMoniker": "TobaccoStore\\Delete Forms\\delet employee.cs",
-              "ToolTip": "C:\\Users\\abbas\\source\\repos\\Tabacoo-InformationSystem\\TobaccoStore\\TobaccoStore\\Delete Forms\\delet employee.cs",
-              "RelativeToolTip": "TobaccoStore\\Delete Forms\\delet employee.cs",
-              "ViewState": "AgIAACQAAAAAAAAAAAAYwC8AAAARAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-14T13:23:17.585Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "delet employee.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\abbas\\source\\repos\\Tabacoo-InformationSystem\\TobaccoStore\\TobaccoStore\\Delete Forms\\delet employee.cs",
-              "RelativeDocumentMoniker": "TobaccoStore\\Delete Forms\\delet employee.cs",
-              "ToolTip": "C:\\Users\\abbas\\source\\repos\\Tabacoo-InformationSystem\\TobaccoStore\\TobaccoStore\\Delete Forms\\delet employee.cs [Design]",
-              "RelativeToolTip": "TobaccoStore\\Delete Forms\\delet employee.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-14T13:23:15.875Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
               "Title": "panel testing.cs",
               "DocumentMoniker": "C:\\Users\\abbas\\source\\repos\\Tabacoo-InformationSystem\\TobaccoStore\\TobaccoStore\\mainForm\\panel testing.cs",
               "RelativeDocumentMoniker": "TobaccoStore\\mainForm\\panel testing.cs",
               "ToolTip": "C:\\Users\\abbas\\source\\repos\\Tabacoo-InformationSystem\\TobaccoStore\\TobaccoStore\\mainForm\\panel testing.cs",
               "RelativeToolTip": "TobaccoStore\\mainForm\\panel testing.cs",
-              "ViewState": "AgIAAKAAAAAAAAAAAAAgwKsAAAAgAAAAAAAAAA==",
+              "ViewState": "AgIAAKAAAAAAAAAAAAAgwKcAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-11T15:35:25.982Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 1,
               "Title": "panel testing.cs [Design]",
               "DocumentMoniker": "C:\\Users\\abbas\\source\\repos\\Tabacoo-InformationSystem\\TobaccoStore\\TobaccoStore\\mainForm\\panel testing.cs",
               "RelativeDocumentMoniker": "TobaccoStore\\mainForm\\panel testing.cs",
-              "ToolTip": "C:\\Users\\abbas\\source\\repos\\Tabacoo-InformationSystem\\TobaccoStore\\TobaccoStore\\mainForm\\panel testing.cs [Design]*",
-              "RelativeToolTip": "TobaccoStore\\mainForm\\panel testing.cs [Design]*",
+              "ToolTip": "C:\\Users\\abbas\\source\\repos\\Tabacoo-InformationSystem\\TobaccoStore\\TobaccoStore\\mainForm\\panel testing.cs [Design]",
+              "RelativeToolTip": "TobaccoStore\\mainForm\\panel testing.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-11T15:35:24.586Z"
+              "WhenOpened": "2025-03-11T15:35:24.586Z",
+              "EditorCaption": " [Design]"
             }
           ]
         }

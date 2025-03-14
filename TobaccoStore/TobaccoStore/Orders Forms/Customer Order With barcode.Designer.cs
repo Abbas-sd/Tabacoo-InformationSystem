@@ -77,7 +77,7 @@
             this.button1.Location = new System.Drawing.Point(1161, 638);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 2;
+            this.button1.TabIndex = 5;
             this.button1.Text = "Save";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
@@ -98,7 +98,7 @@
             this.Btnclear.Location = new System.Drawing.Point(218, 638);
             this.Btnclear.Name = "Btnclear";
             this.Btnclear.Size = new System.Drawing.Size(75, 23);
-            this.Btnclear.TabIndex = 4;
+            this.Btnclear.TabIndex = 8;
             this.Btnclear.Text = "Clear";
             this.Btnclear.UseVisualStyleBackColor = true;
             this.Btnclear.Click += new System.EventHandler(this.Btnclear_Click);
@@ -135,7 +135,7 @@
             this.txtSearchCustomer.Location = new System.Drawing.Point(92, 231);
             this.txtSearchCustomer.Name = "txtSearchCustomer";
             this.txtSearchCustomer.Size = new System.Drawing.Size(100, 22);
-            this.txtSearchCustomer.TabIndex = 8;
+            this.txtSearchCustomer.TabIndex = 3;
             this.txtSearchCustomer.TextChanged += new System.EventHandler(this.txtSearchCustomer_TextChanged);
             // 
             // btnremove
@@ -154,7 +154,7 @@
             this.txtManualBarcode.Location = new System.Drawing.Point(459, 20);
             this.txtManualBarcode.Name = "txtManualBarcode";
             this.txtManualBarcode.Size = new System.Drawing.Size(100, 22);
-            this.txtManualBarcode.TabIndex = 10;
+            this.txtManualBarcode.TabIndex = 1;
             this.txtManualBarcode.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtManualBarcode_KeyDown);
             // 
             // btnManualEntry
@@ -163,7 +163,7 @@
             this.btnManualEntry.Location = new System.Drawing.Point(591, 19);
             this.btnManualEntry.Name = "btnManualEntry";
             this.btnManualEntry.Size = new System.Drawing.Size(75, 23);
-            this.btnManualEntry.TabIndex = 11;
+            this.btnManualEntry.TabIndex = 2;
             this.btnManualEntry.Text = "Manual";
             this.btnManualEntry.UseVisualStyleBackColor = true;
             this.btnManualEntry.Click += new System.EventHandler(this.btnManualEntry_Click);
@@ -185,7 +185,7 @@
             this.btnPrint.Location = new System.Drawing.Point(37, 638);
             this.btnPrint.Name = "btnPrint";
             this.btnPrint.Size = new System.Drawing.Size(75, 23);
-            this.btnPrint.TabIndex = 15;
+            this.btnPrint.TabIndex = 7;
             this.btnPrint.Text = "Print";
             this.btnPrint.UseVisualStyleBackColor = true;
             this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
@@ -196,7 +196,7 @@
             this.btnPrintPreview.Location = new System.Drawing.Point(15, 587);
             this.btnPrintPreview.Name = "btnPrintPreview";
             this.btnPrintPreview.Size = new System.Drawing.Size(120, 23);
-            this.btnPrintPreview.TabIndex = 16;
+            this.btnPrintPreview.TabIndex = 6;
             this.btnPrintPreview.Text = "Print Preview";
             this.btnPrintPreview.UseVisualStyleBackColor = true;
             this.btnPrintPreview.Click += new System.EventHandler(this.btnPrintPreview_Click);
@@ -207,7 +207,7 @@
             this.comboBoxPaymentStatus.Location = new System.Drawing.Point(27, 347);
             this.comboBoxPaymentStatus.Name = "comboBoxPaymentStatus";
             this.comboBoxPaymentStatus.Size = new System.Drawing.Size(121, 24);
-            this.comboBoxPaymentStatus.TabIndex = 17;
+            this.comboBoxPaymentStatus.TabIndex = 4;
             // 
             // label3
             // 

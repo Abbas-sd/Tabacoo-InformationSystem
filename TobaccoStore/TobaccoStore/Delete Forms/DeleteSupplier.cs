@@ -111,6 +111,7 @@ namespace TobaccoStore
         private void DeleteSupplier_Load(object sender, EventArgs e)
         {
             LoadSuppliers();
+            txtSupplierId.Focus();
         }
 
         private void button2_Click(object sender, EventArgs e)

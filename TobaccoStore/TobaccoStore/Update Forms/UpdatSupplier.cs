@@ -169,6 +169,7 @@ namespace TobaccoStore
         private void UpdatSupplier_Load(object sender, EventArgs e)
         {
             LoadSuppliers();
+            txtSupplierId.Focus();
         }
 
         private void label6_Click(object sender, EventArgs e)

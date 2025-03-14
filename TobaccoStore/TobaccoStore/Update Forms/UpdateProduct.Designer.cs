@@ -64,7 +64,7 @@
             this.txtSupplierId.Location = new System.Drawing.Point(119, 247);
             this.txtSupplierId.Name = "txtSupplierId";
             this.txtSupplierId.Size = new System.Drawing.Size(100, 22);
-            this.txtSupplierId.TabIndex = 24;
+            this.txtSupplierId.TabIndex = 2;
             // 
             // label4
             // 
@@ -115,28 +115,28 @@
             this.txtStockQuantity.Location = new System.Drawing.Point(119, 562);
             this.txtStockQuantity.Name = "txtStockQuantity";
             this.txtStockQuantity.Size = new System.Drawing.Size(100, 22);
-            this.txtStockQuantity.TabIndex = 19;
+            this.txtStockQuantity.TabIndex = 6;
             // 
             // txtSellingPrice
             // 
             this.txtSellingPrice.Location = new System.Drawing.Point(119, 476);
             this.txtSellingPrice.Name = "txtSellingPrice";
             this.txtSellingPrice.Size = new System.Drawing.Size(100, 22);
-            this.txtSellingPrice.TabIndex = 18;
+            this.txtSellingPrice.TabIndex = 5;
             // 
             // txtProductType
             // 
             this.txtProductType.Location = new System.Drawing.Point(119, 320);
             this.txtProductType.Name = "txtProductType";
             this.txtProductType.Size = new System.Drawing.Size(100, 22);
-            this.txtProductType.TabIndex = 17;
+            this.txtProductType.TabIndex = 3;
             // 
             // txtProductName
             // 
             this.txtProductName.Location = new System.Drawing.Point(119, 166);
             this.txtProductName.Name = "txtProductName";
             this.txtProductName.Size = new System.Drawing.Size(100, 22);
-            this.txtProductName.TabIndex = 16;
+            this.txtProductName.TabIndex = 1;
             // 
             // txtProductId
             // 
@@ -171,7 +171,7 @@
             this.BtnRefresh.Location = new System.Drawing.Point(1082, 15);
             this.BtnRefresh.Name = "BtnRefresh";
             this.BtnRefresh.Size = new System.Drawing.Size(75, 23);
-            this.BtnRefresh.TabIndex = 45;
+            this.BtnRefresh.TabIndex = 8;
             this.BtnRefresh.Text = "Refresh";
             this.BtnRefresh.UseVisualStyleBackColor = true;
             this.BtnRefresh.Click += new System.EventHandler(this.BtnRefresh_Click);
@@ -182,7 +182,7 @@
             this.BtnUpdate.Location = new System.Drawing.Point(1172, 15);
             this.BtnUpdate.Name = "BtnUpdate";
             this.BtnUpdate.Size = new System.Drawing.Size(75, 23);
-            this.BtnUpdate.TabIndex = 44;
+            this.BtnUpdate.TabIndex = 7;
             this.BtnUpdate.Text = "Update";
             this.BtnUpdate.UseVisualStyleBackColor = true;
             this.BtnUpdate.Click += new System.EventHandler(this.BtnUpdate_Click);
@@ -192,7 +192,7 @@
             this.txtCostPrice.Location = new System.Drawing.Point(119, 397);
             this.txtCostPrice.Name = "txtCostPrice";
             this.txtCostPrice.Size = new System.Drawing.Size(100, 22);
-            this.txtCostPrice.TabIndex = 46;
+            this.txtCostPrice.TabIndex = 4;
             // 
             // label6
             // 

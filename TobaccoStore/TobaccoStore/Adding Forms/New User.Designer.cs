@@ -43,7 +43,7 @@
             this.txtPassword.Location = new System.Drawing.Point(550, 320);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(100, 22);
-            this.txtPassword.TabIndex = 8;
+            this.txtPassword.TabIndex = 2;
             this.txtPassword.UseSystemPasswordChar = true;
             // 
             // txtUsername
@@ -51,7 +51,7 @@
             this.txtUsername.Location = new System.Drawing.Point(550, 253);
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Size = new System.Drawing.Size(100, 22);
-            this.txtUsername.TabIndex = 7;
+            this.txtUsername.TabIndex = 0;
             // 
             // label2
             // 
@@ -77,7 +77,7 @@
             this.btnRegister.Location = new System.Drawing.Point(470, 377);
             this.btnRegister.Name = "btnRegister";
             this.btnRegister.Size = new System.Drawing.Size(75, 23);
-            this.btnRegister.TabIndex = 9;
+            this.btnRegister.TabIndex = 4;
             this.btnRegister.Text = "Register";
             this.btnRegister.UseVisualStyleBackColor = true;
             this.btnRegister.Click += new System.EventHandler(this.btnRegister_Click);
@@ -88,7 +88,7 @@
             this.chkShowPassword.Location = new System.Drawing.Point(596, 377);
             this.chkShowPassword.Name = "chkShowPassword";
             this.chkShowPassword.Size = new System.Drawing.Size(125, 20);
-            this.chkShowPassword.TabIndex = 10;
+            this.chkShowPassword.TabIndex = 3;
             this.chkShowPassword.Text = "Show Password";
             this.chkShowPassword.UseVisualStyleBackColor = true;
             this.chkShowPassword.CheckedChanged += new System.EventHandler(this.chkShowPassword_CheckedChanged);
@@ -99,7 +99,7 @@
             this.cmbUserRole.Location = new System.Drawing.Point(760, 281);
             this.cmbUserRole.Name = "cmbUserRole";
             this.cmbUserRole.Size = new System.Drawing.Size(121, 24);
-            this.cmbUserRole.TabIndex = 13;
+            this.cmbUserRole.TabIndex = 1;
             // 
             // label3
             // 

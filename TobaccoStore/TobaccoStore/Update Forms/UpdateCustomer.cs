@@ -210,6 +210,7 @@ namespace TobaccoStore
         private void UpdateCustomer_Load(object sender, EventArgs e)
         {
             LoadCustomers();
+            txtCustomerId.Focus();
         }
 
         private void BtnBack_Click(object sender, EventArgs e)

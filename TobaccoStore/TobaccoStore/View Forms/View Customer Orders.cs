@@ -23,7 +23,7 @@ namespace TobaccoStore
 
         private void View_Customer_Orders_Load(object sender, EventArgs e)
         {
-            
+            txtSearch.Focus();
         }
         private void LoadCustomerOrders(string searchKeyword = "")
         {

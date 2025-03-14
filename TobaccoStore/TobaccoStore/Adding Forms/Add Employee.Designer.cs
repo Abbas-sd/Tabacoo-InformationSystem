@@ -61,7 +61,7 @@
             this.btnSave.Location = new System.Drawing.Point(132, 628);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 23);
-            this.btnSave.TabIndex = 0;
+            this.btnSave.TabIndex = 9;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
@@ -85,21 +85,21 @@
             this.txtAge.Location = new System.Drawing.Point(159, 385);
             this.txtAge.Name = "txtAge";
             this.txtAge.Size = new System.Drawing.Size(100, 22);
-            this.txtAge.TabIndex = 4;
+            this.txtAge.TabIndex = 5;
             // 
             // txtSalary
             // 
             this.txtSalary.Location = new System.Drawing.Point(159, 531);
             this.txtSalary.Name = "txtSalary";
             this.txtSalary.Size = new System.Drawing.Size(100, 22);
-            this.txtSalary.TabIndex = 6;
+            this.txtSalary.TabIndex = 7;
             // 
             // txtPhone
             // 
             this.txtPhone.Location = new System.Drawing.Point(482, 300);
             this.txtPhone.Name = "txtPhone";
             this.txtPhone.Size = new System.Drawing.Size(100, 22);
-            this.txtPhone.TabIndex = 7;
+            this.txtPhone.TabIndex = 8;
             // 
             // button2
             // 
@@ -107,7 +107,7 @@
             this.button2.Location = new System.Drawing.Point(911, 236);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 9;
+            this.button2.TabIndex = 10;
             this.button2.Text = "Update...";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
@@ -118,7 +118,7 @@
             this.button3.Location = new System.Drawing.Point(911, 332);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 10;
+            this.button3.TabIndex = 11;
             this.button3.Text = "Delete...";
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
@@ -246,7 +246,7 @@
             this.rbtnMale.Location = new System.Drawing.Point(149, 327);
             this.rbtnMale.Name = "rbtnMale";
             this.rbtnMale.Size = new System.Drawing.Size(58, 20);
-            this.rbtnMale.TabIndex = 22;
+            this.rbtnMale.TabIndex = 3;
             this.rbtnMale.TabStop = true;
             this.rbtnMale.Text = "Male";
             this.rbtnMale.UseVisualStyleBackColor = true;
@@ -258,7 +258,7 @@
             this.rbtnFemale.Location = new System.Drawing.Point(259, 329);
             this.rbtnFemale.Name = "rbtnFemale";
             this.rbtnFemale.Size = new System.Drawing.Size(74, 20);
-            this.rbtnFemale.TabIndex = 23;
+            this.rbtnFemale.TabIndex = 4;
             this.rbtnFemale.TabStop = true;
             this.rbtnFemale.Text = "Female";
             this.rbtnFemale.UseVisualStyleBackColor = true;
@@ -269,7 +269,7 @@
             this.cmbPosition.Location = new System.Drawing.Point(149, 446);
             this.cmbPosition.Name = "cmbPosition";
             this.cmbPosition.Size = new System.Drawing.Size(121, 24);
-            this.cmbPosition.TabIndex = 24;
+            this.cmbPosition.TabIndex = 6;
             // 
             // dtpHireDate
             // 
@@ -280,7 +280,7 @@
             // 
             // panel2
             // 
-            this.panel2.Location = new System.Drawing.Point(1, 1);
+            this.panel2.Location = new System.Drawing.Point(1, 2);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1252, 670);
             this.panel2.TabIndex = 26;

@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.txtCustomerId = new System.Windows.Forms.TextBox();
             this.BtnUpdate = new System.Windows.Forms.Button();
@@ -73,7 +73,7 @@
             this.BtnUpdate.Location = new System.Drawing.Point(1015, 28);
             this.BtnUpdate.Name = "BtnUpdate";
             this.BtnUpdate.Size = new System.Drawing.Size(75, 23);
-            this.BtnUpdate.TabIndex = 2;
+            this.BtnUpdate.TabIndex = 7;
             this.BtnUpdate.Text = "Update";
             this.BtnUpdate.UseVisualStyleBackColor = true;
             this.BtnUpdate.Click += new System.EventHandler(this.BtnUpdate_Click);
@@ -84,7 +84,7 @@
             this.BtnRefresh.Location = new System.Drawing.Point(892, 28);
             this.BtnRefresh.Name = "BtnRefresh";
             this.BtnRefresh.Size = new System.Drawing.Size(75, 23);
-            this.BtnRefresh.TabIndex = 3;
+            this.BtnRefresh.TabIndex = 8;
             this.BtnRefresh.Text = "Refresh";
             this.BtnRefresh.UseVisualStyleBackColor = true;
             this.BtnRefresh.Click += new System.EventHandler(this.button2_Click);
@@ -93,14 +93,14 @@
             // 
             this.dgvCustomers.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dgvCustomers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvCustomers.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvCustomers.DefaultCellStyle = dataGridViewCellStyle1;
             this.dgvCustomers.Location = new System.Drawing.Point(217, 57);
             this.dgvCustomers.Name = "dgvCustomers";
             this.dgvCustomers.RowHeadersWidth = 51;
@@ -171,7 +171,7 @@
             this.rbtnFemale.Location = new System.Drawing.Point(118, 312);
             this.rbtnFemale.Name = "rbtnFemale";
             this.rbtnFemale.Size = new System.Drawing.Size(74, 20);
-            this.rbtnFemale.TabIndex = 22;
+            this.rbtnFemale.TabIndex = 3;
             this.rbtnFemale.TabStop = true;
             this.rbtnFemale.Text = "Female";
             this.rbtnFemale.UseVisualStyleBackColor = false;
@@ -184,7 +184,7 @@
             this.rbtnMale.Location = new System.Drawing.Point(26, 312);
             this.rbtnMale.Name = "rbtnMale";
             this.rbtnMale.Size = new System.Drawing.Size(58, 20);
-            this.rbtnMale.TabIndex = 21;
+            this.rbtnMale.TabIndex = 2;
             this.rbtnMale.TabStop = true;
             this.rbtnMale.Text = "Male";
             this.rbtnMale.UseVisualStyleBackColor = false;
@@ -194,7 +194,7 @@
             this.txtPhone.Location = new System.Drawing.Point(111, 557);
             this.txtPhone.Name = "txtPhone";
             this.txtPhone.Size = new System.Drawing.Size(100, 22);
-            this.txtPhone.TabIndex = 20;
+            this.txtPhone.TabIndex = 6;
             this.txtPhone.TextChanged += new System.EventHandler(this.txtPhone_TextChanged);
             // 
             // txtAddress
@@ -202,7 +202,7 @@
             this.txtAddress.Location = new System.Drawing.Point(111, 481);
             this.txtAddress.Name = "txtAddress";
             this.txtAddress.Size = new System.Drawing.Size(100, 22);
-            this.txtAddress.TabIndex = 19;
+            this.txtAddress.TabIndex = 5;
             this.txtAddress.TextChanged += new System.EventHandler(this.txtAddress_TextChanged);
             // 
             // txtAge
@@ -210,7 +210,7 @@
             this.txtAge.Location = new System.Drawing.Point(111, 398);
             this.txtAge.Name = "txtAge";
             this.txtAge.Size = new System.Drawing.Size(100, 22);
-            this.txtAge.TabIndex = 18;
+            this.txtAge.TabIndex = 4;
             this.txtAge.TextChanged += new System.EventHandler(this.txtAge_TextChanged);
             // 
             // txtLname
@@ -218,7 +218,7 @@
             this.txtLname.Location = new System.Drawing.Point(111, 230);
             this.txtLname.Name = "txtLname";
             this.txtLname.Size = new System.Drawing.Size(100, 22);
-            this.txtLname.TabIndex = 17;
+            this.txtLname.TabIndex = 1;
             this.txtLname.TextChanged += new System.EventHandler(this.txtLname_TextChanged);
             // 
             // txtFname
@@ -226,7 +226,7 @@
             this.txtFname.Location = new System.Drawing.Point(111, 149);
             this.txtFname.Name = "txtFname";
             this.txtFname.Size = new System.Drawing.Size(100, 22);
-            this.txtFname.TabIndex = 16;
+            this.txtFname.TabIndex = 0;
             this.txtFname.TextChanged += new System.EventHandler(this.txtFname_TextChanged);
             // 
             // UpdateCustomer

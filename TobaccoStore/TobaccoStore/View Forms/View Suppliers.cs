@@ -24,6 +24,7 @@ namespace TobaccoStore
         private void View_Suppliers_Load(object sender, EventArgs e)
         {
             LoadSuppliers();
+            txtSearch.Focus();
         }
         private void LoadSuppliers(string searchKeyword = "")
         {

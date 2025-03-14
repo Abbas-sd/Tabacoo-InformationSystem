@@ -48,7 +48,7 @@
             this.txtsuplliername.Location = new System.Drawing.Point(91, 194);
             this.txtsuplliername.Name = "txtsuplliername";
             this.txtsuplliername.Size = new System.Drawing.Size(100, 22);
-            this.txtsuplliername.TabIndex = 37;
+            this.txtsuplliername.TabIndex = 1;
             // 
             // label1
             // 
@@ -89,14 +89,14 @@
             this.txtPhone.Location = new System.Drawing.Point(91, 372);
             this.txtPhone.Name = "txtPhone";
             this.txtPhone.Size = new System.Drawing.Size(100, 22);
-            this.txtPhone.TabIndex = 33;
+            this.txtPhone.TabIndex = 3;
             // 
             // txtAddress
             // 
             this.txtAddress.Location = new System.Drawing.Point(91, 268);
             this.txtAddress.Name = "txtAddress";
             this.txtAddress.Size = new System.Drawing.Size(100, 22);
-            this.txtAddress.TabIndex = 32;
+            this.txtAddress.TabIndex = 2;
             // 
             // txtSupplierId
             // 
@@ -123,7 +123,7 @@
             this.BtnRefresh.Location = new System.Drawing.Point(730, 35);
             this.BtnRefresh.Name = "BtnRefresh";
             this.BtnRefresh.Size = new System.Drawing.Size(75, 23);
-            this.BtnRefresh.TabIndex = 43;
+            this.BtnRefresh.TabIndex = 5;
             this.BtnRefresh.Text = "Refresh";
             this.BtnRefresh.UseVisualStyleBackColor = true;
             this.BtnRefresh.Click += new System.EventHandler(this.BtnRefresh_Click);
@@ -134,7 +134,7 @@
             this.BtnUpdate.Location = new System.Drawing.Point(820, 35);
             this.BtnUpdate.Name = "BtnUpdate";
             this.BtnUpdate.Size = new System.Drawing.Size(75, 23);
-            this.BtnUpdate.TabIndex = 42;
+            this.BtnUpdate.TabIndex = 4;
             this.BtnUpdate.Text = "Update";
             this.BtnUpdate.UseVisualStyleBackColor = true;
             this.BtnUpdate.Click += new System.EventHandler(this.BtnUpdate_Click);

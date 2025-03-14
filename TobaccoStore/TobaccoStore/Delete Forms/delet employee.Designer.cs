@@ -43,7 +43,7 @@
             this.BtnRefresh.Location = new System.Drawing.Point(1049, 24);
             this.BtnRefresh.Name = "BtnRefresh";
             this.BtnRefresh.Size = new System.Drawing.Size(75, 23);
-            this.BtnRefresh.TabIndex = 10;
+            this.BtnRefresh.TabIndex = 3;
             this.BtnRefresh.Text = "Refresh";
             this.BtnRefresh.UseVisualStyleBackColor = true;
             this.BtnRefresh.Click += new System.EventHandler(this.BtnRefresh_Click);
@@ -53,7 +53,7 @@
             this.txtEmployeeID.Location = new System.Drawing.Point(133, 21);
             this.txtEmployeeID.Name = "txtEmployeeID";
             this.txtEmployeeID.Size = new System.Drawing.Size(100, 22);
-            this.txtEmployeeID.TabIndex = 9;
+            this.txtEmployeeID.TabIndex = 1;
             this.txtEmployeeID.TextChanged += new System.EventHandler(this.txtEmployeeID_TextChanged);
             // 
             // label1
@@ -91,7 +91,7 @@
             this.button1.Location = new System.Drawing.Point(1153, 24);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 6;
+            this.button1.TabIndex = 2;
             this.button1.Text = "Delete";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
